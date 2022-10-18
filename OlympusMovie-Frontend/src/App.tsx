@@ -8,7 +8,23 @@ function App() {
         < div style={{ backgroundImage: "linear-gradient(#ffb300, #ff4100)", height: "100vh" }}>
             <>
                 <Nav />
-                <h1>Test Hello World!</h1>
+
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <p>
+                        Olympus Movie
+                    </p>
+                    <p>
+                        filmy &nbsp; - &nbsp; recenzje &nbsp; - &nbsp; seriale
+                    </p>
+                    <a
+                        className="App-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Coming soon
+                    </a>
+                </header>
             </>
         </div>
   );
