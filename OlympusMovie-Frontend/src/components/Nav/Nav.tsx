@@ -2,12 +2,14 @@
 import styles from './Nav.module.css';
 import logo from '../../logo.svg';
 import searchIcon from '../../searchIcon.svg';
+import switchIcon from '../../themeSwitchIcon.svg';
 
 const Nav: React.FC<{}> = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.logoContainer}>
                 <img src={logo} alt="logo"></img>
+                <img src={switchIcon}></img>
             </div>
 
             <div className={styles.navOptions}>
