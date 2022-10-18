@@ -1,0 +1,18 @@
+.navbar {
+    width: 100%;
+    height: 70px;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 25px;
+}
+.logoContainer {
+    color: white;
+    cursor: pointer;
+}
+
+.logoContainer img {
+    width: 50px;
+    height: 50px;
+}
