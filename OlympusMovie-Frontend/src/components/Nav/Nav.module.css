@@ -22,10 +22,19 @@
     cursor: pointer;
     display: flex;
     width: 300px;
+    height: 32px;
     justify-content: space-evenly;
+    box-sizing: border-box;
+}
+
+.navOptions a:hover {
+    padding-top: 15px;
+    border-top: 5px solid white;
 }
 
 
+
 .navOptions img {
-    color: white;
+    height: 35px;
+    width: 35px;
 }
