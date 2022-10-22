@@ -1,0 +1,32 @@
+version: '3.4'
+
+networks:
+    backend:
+
+services:
+  moviedb:
+    container_name: "movie-db"
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password@123
+    networks:
+      - backend
+    ports:
+      - 8001:1433
+  movieservice:
+    container_name: movie-service
+    image: ${DOCKER_REGISTRY-}movieservice
+    build:
+      context: .
+      dockerfile: MovieService/Dockerfile
+    depends_on:
+      - moviedb
+    environment:
+      - DB_HOST=moviedb
+      - DB_NAME=moviedb
+      - DB_SA_PASSWORD=Password@123
+    networks:
+      - backend
+    ports:
+      - 8002:80

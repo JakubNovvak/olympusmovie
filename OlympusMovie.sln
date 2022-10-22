@@ -5,7 +5,11 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "olympusmovie-frontend", "OlympusMovie-Frontend\olympusmovie-frontend.esproj", "{E4F0258A-D487-4158-BE42-B2679873E29C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "olympusmovie-backend", "OlympusMovie-Backend\olympusmovie-backend.csproj", "{1AB503BB-F842-4B15-A812-CB1CAC09DEB3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{853BB9E6-634F-466C-8E6B-BECBF014E7F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieService", "MovieService\MovieService.csproj", "{C5C32CE3-9EF2-4303-8D1D-0FACEAE66DC3}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D116D2D7-4778-4BFF-9109-E368DB6BCB2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,13 +23,20 @@ Global
 		{E4F0258A-D487-4158-BE42-B2679873E29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4F0258A-D487-4158-BE42-B2679873E29C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E4F0258A-D487-4158-BE42-B2679873E29C}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{1AB503BB-F842-4B15-A812-CB1CAC09DEB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1AB503BB-F842-4B15-A812-CB1CAC09DEB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1AB503BB-F842-4B15-A812-CB1CAC09DEB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1AB503BB-F842-4B15-A812-CB1CAC09DEB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C32CE3-9EF2-4303-8D1D-0FACEAE66DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C32CE3-9EF2-4303-8D1D-0FACEAE66DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C32CE3-9EF2-4303-8D1D-0FACEAE66DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C32CE3-9EF2-4303-8D1D-0FACEAE66DC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D116D2D7-4778-4BFF-9109-E368DB6BCB2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D116D2D7-4778-4BFF-9109-E368DB6BCB2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D116D2D7-4778-4BFF-9109-E368DB6BCB2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D116D2D7-4778-4BFF-9109-E368DB6BCB2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C5C32CE3-9EF2-4303-8D1D-0FACEAE66DC3} = {853BB9E6-634F-466C-8E6B-BECBF014E7F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7DABA800-FE72-42DC-90CC-664CDA62F362}
