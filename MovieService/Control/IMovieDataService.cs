@@ -3,8 +3,9 @@ namespace MovieService.Control
 {
     public interface IMovieDataService
     {
-        Task AddAsync(MovieWrapper movieWrapper);
-        IEnumerable<MovieWrapper> GetAll();
-        Task<bool> Remove(int id);
+        Task<int> AddAsync(MovieWrapper movieWrapper);
+        IEnumerable<int> GetAll();
+        Task<bool> RemoveRange(ISet<int> id);
+        Task<MovieWrapper?> GetById(int id);
     }
 }
