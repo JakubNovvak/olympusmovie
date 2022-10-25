@@ -10,8 +10,10 @@ namespace MovieService.Boundary
             return new MovieDTO
             {
                 Id = movieWrapper.Id ?? 0,
+                Title = movieWrapper.Title,
+                Description = movieWrapper.Description,
                 DateOfRelease = movieWrapper.DateOfRelease,
-                Description = movieWrapper.Description
+                Duration = movieWrapper.Duration
             };
         }
 
@@ -20,8 +22,10 @@ namespace MovieService.Boundary
             return new MovieWrapper
             {
                 Id = movie.Id,
+                Title = movie.Title,
+                Description = movie.Description,
                 DateOfRelease = movie.DateOfRelease,
-                Description = movie.Description
+                Duration = movie.Duration
             };
         }
     }
