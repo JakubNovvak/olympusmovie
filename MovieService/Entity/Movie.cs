@@ -11,10 +11,16 @@ namespace MovieService.Entities
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("date_of_release")]
-        public DateTime? DateOfRelease { get; set; }
+        [Column("title")]
+        public string? Title { get; set; }
 
         [Column("description")]
         public String? Description { get; set; }
+
+        [Column("releaseDate")]
+        public DateTime? DateOfRelease { get; set; }
+
+        [Column("duration")]
+        public TimeSpan? Duration { get; set; }
     }
 }
