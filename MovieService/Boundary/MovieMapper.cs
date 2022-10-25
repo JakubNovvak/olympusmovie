@@ -9,7 +9,7 @@ namespace MovieService.Boundary
         {
             return new MovieDTO
             {
-                Id = movieWrapper.Id ?? 0,
+                Id = movieWrapper.Id,
                 Title = movieWrapper.Title,
                 Description = movieWrapper.Description,
                 DateOfRelease = movieWrapper.DateOfRelease,
