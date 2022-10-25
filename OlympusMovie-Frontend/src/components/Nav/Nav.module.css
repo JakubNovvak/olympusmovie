@@ -45,3 +45,12 @@
     height: 35px;
     width: 35px;
 }
+
+
+.searchPopup {
+    color: blue;
+    position: absolute;
+    top: 7.5%;
+    right: 1%;
+    width: 20%;
+}

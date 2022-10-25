@@ -3,6 +3,15 @@ import styles from './Nav.module.css';
 import logo from '../../logo.svg';
 import searchIcon from '../../searchIcon.svg';
 import switchIcon from '../../themeSwitchIcon.svg';
+import Box from '@mui/material/Box';
+
+const SearchPopup = ({ }) => {
+    return (
+        <div className={styles.searchPopup}>
+            <Box color="black" bgcolor="white" p={3}>Text</Box>
+        </div>
+    );
+}
 
 const Nav: React.FC<{}> = () => {
     return (
@@ -25,6 +34,8 @@ const Nav: React.FC<{}> = () => {
                     <img src={searchIcon} alt="search"></img>
                 </div>
             </div>
+
+            <SearchPopup/>
 
         </nav>
     )
