@@ -7,7 +7,7 @@
   "request": "launch",
   "name": "localhost (Edge)",
   "url": "http://localhost:3000",
-  "webRoot": "D:\\Uczelnia\\ProjektGrupowy\\olympusmovie\\OlympusMovie-Frontend"
+  "webRoot": "D:\\Uczelnia\\ProjektGrupowy\\JakubNovvak\\olympusmovie\\OlympusMovie-Frontend"
 }</LaunchJsonTarget>
   </PropertyGroup>
 </Project>
