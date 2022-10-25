@@ -5,10 +5,24 @@ import searchIcon from '../../searchIcon.svg';
 import switchIcon from '../../themeSwitchIcon.svg';
 import Box from '@mui/material/Box';
 
+const InputField = ({ }) => {
+    return (
+        //<div style={{ width: '15%', display: 'flex' }}>
+        <form className={styles.input}>
+            <input className={styles.inputBox} type="input" placeholder="Wprowadź tytuł"></input>
+            <button className={styles.inputSubmit}>
+                <img src={searchIcon} alt="search"></img>
+            </button>
+        </form> 
+    );
+}
+
 const SearchPopup = ({ }) => {
     return (
         <div className={styles.searchPopup}>
-            <Box color="black" bgcolor="white" p={3}>Text</Box>
+            <Box color="black" bgcolor="white" p={3}>
+                <InputField/>
+            </Box>
         </div>
     );
 }
