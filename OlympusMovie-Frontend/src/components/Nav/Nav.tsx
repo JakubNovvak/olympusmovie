@@ -68,7 +68,7 @@ const Nav: React.FC<{}> = () => {
                 </div>
 
                 <div>
-                    <a href=''>Zarejestruj się</a>
+                    <a href='http://localhost:3000/Register'>Zarejestruj się</a>
                 </div>
 
                 <div>
