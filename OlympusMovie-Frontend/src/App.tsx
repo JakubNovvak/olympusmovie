@@ -3,6 +3,7 @@ import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 
 function App() {
     var component: any;
@@ -22,7 +23,7 @@ function App() {
             break;
 
         case "/Register":
-            component = <Home />;
+            component = <Register />;
             break;
 
         default:
