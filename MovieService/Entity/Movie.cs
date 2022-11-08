@@ -1,3 +1,6 @@
+using MovieService.Entity;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -22,5 +25,29 @@ namespace MovieService.Entities
 
         [Column("duration")]
         public TimeSpan? Duration { get; set; }
+
+        [Column("genres")]
+        public ICollection<Genre>? Genres { get; set; }
+
+        [Column("persons")]
+        public ICollection<Person>? Persons { get; set; }
+
+        [Column("tags")]
+        public ICollection<Tag>? Tags { get; set; }
+
+        [Column("releaseDate")]
+        public DateTime? DateOfRelease { get; set; }
+
+        [Column("duration")]
+        public TimeSpan? Duration { get; set; }
+
+        [Column("genres")]
+        public ICollection<Genre>? Genres { get; set; }
+
+        [Column("persons")]
+        public ICollection<Person>? Persons { get; set; }
+
+        [Column("tags")]
+        public ICollection<Tag>? Tags { get; set; }
     }
 }
