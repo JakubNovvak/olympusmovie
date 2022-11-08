@@ -1,10 +1,13 @@
 ﻿import React, { useState, useEffect, useRef} from 'react';
 import styles from './Nav.module.css';
 import logo from '../../assets/logo.svg';
+import darklogo from '../../assets/darklogo.png';
 import searchIcon from '../../assets/searchIcon.svg';
 import switchIcon from '../../assets/themeSwitchIcon.svg';
 import Box from '@mui/material/Box';
 import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
+import { Console } from 'console';
+import { debug } from 'util';
 
 const InputField = ({ }) => {
     return (
@@ -20,10 +23,20 @@ const InputField = ({ }) => {
 
 const Nav: React.FC<{}> = () => {
 
-
     const [isShowed, changeVisibility] = useState(false);
+    const [isSwitched, changeLogo] = useState(true);
 
     var popupRef: any = useRef();
+    var switchRef: any = useRef();
+
+    useEffect(() => {
+        document.addEventListener('mousedown', (e) => {
+            if (switchRef.current.contains(e.target)) {
+                changeLogo(!isSwitched);
+                e.preventDefault();
+            }
+        })
+    },)
 
     const handleHiding = () => {
         changeVisibility(false);
@@ -39,8 +52,6 @@ const Nav: React.FC<{}> = () => {
         })
     }, )
 
-
-
     const SearchPopup = ({ }) => {
         return (
             <div className={styles.searchPopup} ref={popupRef}>
@@ -55,12 +66,12 @@ const Nav: React.FC<{}> = () => {
         <nav className={styles.navbar}>
             <div className={styles.logoContainer}>
                 <a href="http://localhost:3000/Home">
-                    <img src={logo} alt="logo"></img>
+                    <img src={isSwitched ? logo : darklogo} alt="logo"></img>
                 </a>
-                <ToggleSwitch />
+                <div ref={switchRef} >
+                    <ToggleSwitch />
+                </div>
             </div>
-
-
 
             <div className={styles.navOptions}>
                 <div>
@@ -79,7 +90,6 @@ const Nav: React.FC<{}> = () => {
             <>
                 {isShowed ? <SearchPopup />: null}
             </>
-
 
         </nav>
     )
