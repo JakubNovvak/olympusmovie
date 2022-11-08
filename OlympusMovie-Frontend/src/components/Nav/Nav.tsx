@@ -1,8 +1,8 @@
 ﻿import React, { useState, useEffect } from 'react';
 import styles from './Nav.module.css';
-import logo from '../../logo.svg';
-import searchIcon from '../../searchIcon.svg';
-import switchIcon from '../../themeSwitchIcon.svg';
+import logo from '../../assets/logo.svg';
+import searchIcon from '../../assets/searchIcon.svg';
+import switchIcon from '../../assets/themeSwitchIcon.svg';
 import Box from '@mui/material/Box';
 
 const InputField = ({ }) => {
