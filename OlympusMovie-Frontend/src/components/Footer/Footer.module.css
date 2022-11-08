@@ -1,2 +1,29 @@
-body {
+.Footer {
+    color: white;
+    background: #201c1c;
+    
+}
+
+.FooterSocial {
+    padding: 10px;
+    text-align: center;
+
+}
+
+.FooterContentSeparator {
+    height: 1px;
+    background-image: linear-gradient(to right, transparent 25%, #a8a5a5 40%, #a8a5a5 60%, transparent 75%);
+    border: none;
+}
+
+.FooterLinks {
+    padding: 10px;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.FooterCopyright {
+    color: #636363;
+    padding: 20px;
+    text-align: center;
 }
