@@ -7,11 +7,12 @@ const ToggleSwitch = ({ }) => {
 
 
     return (
-
-        <>
-            <input type="checkbox"></input>
-        </>
-        
+        <div className={styles.main}>
+            <label className={styles.switch}>
+                <input type="checkbox" />
+                <span className={styles.slider}/>
+            </label>
+        </div>
         );
 
 }
