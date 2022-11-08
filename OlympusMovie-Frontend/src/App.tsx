@@ -3,6 +3,7 @@ import logo from './assets/logo.svg';
 import './App.css';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
+import ToggleSwitch from './components/ToggleSwitch/ToggleSwitch';
 
 function App() {
     return (
@@ -28,6 +29,8 @@ function App() {
                     </a>
                 </header>
             </>
+
+            <ToggleSwitch />
 
             <Footer/>
 
