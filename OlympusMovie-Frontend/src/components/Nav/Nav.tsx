@@ -4,6 +4,7 @@ import logo from '../../assets/logo.svg';
 import searchIcon from '../../assets/searchIcon.svg';
 import switchIcon from '../../assets/themeSwitchIcon.svg';
 import Box from '@mui/material/Box';
+import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
 
 const InputField = ({ }) => {
     return (
@@ -54,8 +55,10 @@ const Nav: React.FC<{}> = () => {
         <nav className={styles.navbar}>
             <div className={styles.logoContainer}>
                 <img src={logo} alt="logo"></img>
-                <img src={switchIcon}></img>
+                <ToggleSwitch />
             </div>
+
+
 
             <div className={styles.navOptions}>
                 <div>
