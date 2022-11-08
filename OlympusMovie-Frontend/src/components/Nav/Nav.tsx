@@ -54,7 +54,9 @@ const Nav: React.FC<{}> = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.logoContainer}>
-                <img src={logo} alt="logo"></img>
+                <a href="http://localhost:3000/Home">
+                    <img src={logo} alt="logo"></img>
+                </a>
                 <ToggleSwitch />
             </div>
 
@@ -62,7 +64,7 @@ const Nav: React.FC<{}> = () => {
 
             <div className={styles.navOptions}>
                 <div>
-                    <a href=''>Zaloguj się</a>
+                    <a href='http://localhost:3000/Login'>Zaloguj się</a>
                 </div>
 
                 <div>

@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './assets/logo.svg';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
 
 function App() {
     var component: any;
@@ -18,22 +18,29 @@ function App() {
             break;
 
         case "/Login":
-            component = <App/>;
+            component = <Login />;
             break;
 
         case "/Register":
-            component = <App />;
+            component = <Home />;
+            break;
+
+        default:
+            component = <Home />;
             break;
 
     }
 
     return (
-        < div style={{ backgroundImage: "linear-gradient(#ffb300, #ff4100)", height: "100vh" }}>
+        < div style={{ backgroundImage: "linear-gradient(#ffb300, #ff4100)", height: "100vh"}}>
             <Nav />
             <>
                 {component}
             </>
-            <Footer />
+            <footer>
+                <Footer />
+            </footer>
+            
         </div>
   );
 }
