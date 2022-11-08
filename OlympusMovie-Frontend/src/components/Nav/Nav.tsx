@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect, useRef} from 'react';
 import styles from './Nav.module.css';
 import logo from '../../assets/logo.svg';
 import searchIcon from '../../assets/searchIcon.svg';
@@ -17,19 +17,12 @@ const InputField = ({ }) => {
     );
 }
 
-const SearchPopup = ({ }) => {
-    return (
-        <div className={styles.searchPopup}>
-            <Box color="black" bgcolor="white" p={3}>
-                <InputField/>
-            </Box>
-        </div>
-    );
-}
-
 const Nav: React.FC<{}> = () => {
 
+
     const [isShowed, changeVisibility] = useState(false);
+
+    var popupRef: any = useRef();
 
     const handleHiding = () => {
         changeVisibility(false);
@@ -39,12 +32,23 @@ const Nav: React.FC<{}> = () => {
     }
 
     useEffect(() => {
-        document.addEventListener('keydown', (e: KeyboardEvent) => {
-            if (e.key === "Escape")
+        document.addEventListener('mousedown', (e) => {
+            if (!popupRef.current.contains(e.target))
                 handleHiding();
-})
-    }, [])
+        })
+    }, )
 
+
+
+    const SearchPopup = ({ }) => {
+        return (
+            <div className={styles.searchPopup} ref={popupRef}>
+                <Box color="black" bgcolor="white" p={3}>
+                    <InputField />
+                </Box>
+            </div>
+        );
+    }
 
     return (
         <nav className={styles.navbar}>
