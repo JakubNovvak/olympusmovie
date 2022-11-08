@@ -32,7 +32,7 @@ function App() {
     }
 
     return (
-        < div style={{ backgroundImage: "linear-gradient(#ffb300, #ff4100)", height: "100vh" }}>
+        < div style={{ backgroundImage: "linear-gradient(#ffb300, #ff4100)", height: "100vh"}}>
             <Nav />
             <>
                 {component}
