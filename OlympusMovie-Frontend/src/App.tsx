@@ -1,37 +1,39 @@
 import React from 'react';
 import logo from './assets/logo.svg';
-import './App.css';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
+import Home from './pages/Home/Home';
 
 function App() {
+    var component: any;
+
+    switch (window.location.pathname) {
+
+        case "/":
+            component = <Home />;
+            break;
+
+        case "/Home":
+            component = <Home />;
+            break;
+
+        case "/Login":
+            component = <App/>;
+            break;
+
+        case "/Register":
+            component = <App />;
+            break;
+
+    }
+
     return (
         < div style={{ backgroundImage: "linear-gradient(#ffb300, #ff4100)", height: "100vh" }}>
-
+            <Nav />
             <>
-                <Nav />
-
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Olympus Movie
-                    </p>
-                    <p>
-                        filmy &nbsp; - &nbsp; recenzje &nbsp; - &nbsp; seriale
-                    </p>
-                    <a
-                        className="App-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Coming soon
-                    </a>
-                </header>
+                {component}
             </>
-
-            <Footer/>
-
-
+            <Footer />
         </div>
   );
 }
