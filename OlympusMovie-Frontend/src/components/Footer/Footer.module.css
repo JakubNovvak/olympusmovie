@@ -1,13 +1,19 @@
 .Footer {
     color: white;
     background: #201c1c;
-    
+    padding: 15px;
 }
 
 .FooterSocial {
-    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     text-align: center;
+}
 
+.FooterSocial img{
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 40px;
 }
 
 .FooterContentSeparator {
@@ -18,8 +24,17 @@
 
 .FooterLinks {
     padding: 10px;
+}
+
+.FooterLinks a {
+    text-decoration: none;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.FooterLinksCenter {
     text-align: center;
-    justify-content: space-between;
 }
 
 .FooterCopyright {
