@@ -1,0 +1,40 @@
+{
+  "Routes": [
+    // Movie service
+    {
+      "UpstreamPathTemplate": "/api/movies",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/movies",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/movies/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/movies/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    }
+
+    // Other services: coming soon...
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:25000"
+  }
+}
