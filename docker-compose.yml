@@ -4,8 +4,8 @@ networks:
     backend:
 
 services:
-  moviedb:
-    container_name: "movie-db"
+  superdb:
+    container_name: "super-db"
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       - ACCEPT_EULA=Y
@@ -13,20 +13,33 @@ services:
     networks:
       - backend
     ports:
-      - 8001:1433
+      - 18001:1433
+
   movieservice:
     container_name: movie-service
+    hostname: movieservice
     image: ${DOCKER_REGISTRY-}movieservice
     build:
       context: .
       dockerfile: MovieService/Dockerfile
     depends_on:
-      - moviedb
+      - superdb
     environment:
-      - DB_HOST=moviedb
+      - DB_HOST=superdb
       - DB_NAME=moviedb
       - DB_SA_PASSWORD=Password@123
     networks:
       - backend
+
+  apigateway:
+    container_name: "api-gateway"
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile
+    networks:
+      - backend
     ports:
-      - 8002:80
+      - 18000:80
+      - 25000:443
+
