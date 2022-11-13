@@ -1,13 +1,10 @@
-using MovieService.Entity;
-using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MovieService.Entities
+namespace MovieService.Entity
 {
-    [Table("movie", Schema = "dbo")]
-    public class Movie
+    [Table("series", Schema = "dbo")]
+    public class Series
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -15,16 +12,10 @@ namespace MovieService.Entities
         public int Id { get; set; }
 
         [Column("title")]
-        public string? Title { get; set; }
+        public string Title { get; set; } = null!;
 
         [Column("description")]
-        public String? Description { get; set; }
-
-        [Column("releaseDate")]
-        public DateTime? DateOfRelease { get; set; }
-
-        [Column("duration")]
-        public Duration? Duration { get; set; }
+        public string? Description { get; set; }
 
         [Column("genres")]
         public ICollection<Genre>? Genres { get; set; }
