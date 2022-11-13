@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MovieService.Entity
+namespace MovieService.Model
 {
     [Table("episode", Schema = "dbo")]
     public class Episode

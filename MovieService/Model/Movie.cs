@@ -1,10 +1,7 @@
-using MovieService.Entity;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MovieService.Entities
+namespace MovieService.Model
 {
     [Table("movie", Schema = "dbo")]
     public class Movie

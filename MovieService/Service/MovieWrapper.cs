@@ -1,6 +1,6 @@
-﻿using MovieService.Entity;
+﻿using MovieService.Model;
 
-namespace MovieService.Control
+namespace MovieService.Service
 {
     public class MovieWrapper
     {

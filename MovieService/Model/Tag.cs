@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using MovieService.Entities;
 
-namespace MovieService.Entity
+namespace MovieService.Model
 {
-    [Table("genre", Schema = "dbo")]
-    public class Genre
+    [Table("tag", Schema = "dbo")]
+    public class Tag
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -18,10 +17,10 @@ namespace MovieService.Entity
         [Column("description")]
         public string? Description { get; set; }
 
-        [Column("Movies")]
+        [Column("movies")]
         public ICollection<Movie>? Movies { get; set; }
 
-        [Column("Series")]
+        [Column("series")]
         public ICollection<Series>? Series { get; set; }
     }
 }
