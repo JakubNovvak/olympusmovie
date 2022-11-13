@@ -1,4 +1,4 @@
-﻿namespace MovieService.Entity
+﻿namespace MovieService.Model
 {
     public class Duration
     {

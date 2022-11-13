@@ -1,5 +1,5 @@
 ﻿
-namespace MovieService.Control
+namespace MovieService.Service
 {
     public interface IMovieDataService
     {

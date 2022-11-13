@@ -1,6 +1,6 @@
-﻿using MovieService.Entities;
+﻿using MovieService.Model;
 
-namespace MovieService.Control
+namespace MovieService.Service
 {
     public static class MovieMapper
     {

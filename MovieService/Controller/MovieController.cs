@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MovieService.ApiModel;
-using MovieService.Control;
-using MovieService.Entities;
+using MovieService.Service;
 
-namespace MovieService.Boundary
+namespace MovieService.Controller
 {
     [Route(RESOURCE_PATH)]
     [ApiController]
-    public class MovieResource : ControllerBase
+    public class MovieController : ControllerBase
     {
         private const string RESOURCE_PATH = "api/movies";
         private const string ID_QUERY_PARAM = "id";
@@ -17,7 +15,7 @@ namespace MovieService.Boundary
         private readonly IMovieDataService _dataService;
         private readonly LinkGenerator _linkGenerator;
 
-        public MovieResource(IMovieDataService dataService, LinkGenerator linkGenerator)
+        public MovieController(IMovieDataService dataService, LinkGenerator linkGenerator)
         {
             _dataService = dataService;
             _linkGenerator = linkGenerator;

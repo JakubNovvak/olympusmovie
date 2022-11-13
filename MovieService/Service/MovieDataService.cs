@@ -1,7 +1,6 @@
-﻿using MovieService.Entities;
-using MovieService.Repository;
+﻿using MovieService.Repository;
 
-namespace MovieService.Control
+namespace MovieService.Service
 {
     public class MovieDataService : IMovieDataService
     {

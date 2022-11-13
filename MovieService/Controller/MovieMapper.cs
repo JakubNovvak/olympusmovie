@@ -1,7 +1,7 @@
 ﻿using MovieService.ApiModel;
-using MovieService.Control;
+using MovieService.Service;
 
-namespace MovieService.Boundary
+namespace MovieService.Controller
 {
     public static class MovieMapper
     {

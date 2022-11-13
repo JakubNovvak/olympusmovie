@@ -1,4 +1,4 @@
-﻿using MovieService.Entity;
+﻿using MovieService.Model;
 
 namespace MovieService.ApiModel
 {
