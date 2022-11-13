@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MovieService.Control;
+using MovieService.Service;
 using MovieService.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
