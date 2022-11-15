@@ -10,7 +10,7 @@
     text-align: center;
     color: white;
     font-weight: 700;
-    background-image: linear-gradient(to right, transparent 25%, black 40%, black 60%, transparent 75%);
+    background-image: linear-gradient(to right, transparent 20%, #201c1c 40%, #201c1c 60%, transparent 80%);
 }
 
 .Description {
@@ -33,6 +33,7 @@
 
 .Cover {
     text-align: center;
+    max-width: 557px;
 }
 
 .CoverChild {

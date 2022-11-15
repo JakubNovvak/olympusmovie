@@ -6,8 +6,6 @@ import searchIcon from '../../assets/searchIcon.svg';
 import switchIcon from '../../assets/themeSwitchIcon.svg';
 import Box from '@mui/material/Box';
 import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
-import { Console } from 'console';
-import { debug } from 'util';
 
 const InputField = ({ }) => {
     return (
@@ -47,8 +45,10 @@ const Nav: React.FC<{}> = () => {
 
     useEffect(() => {
         document.addEventListener('mousedown', (e) => {
-            if (!popupRef.current.contains(e.target))
+            if (!popupRef.current.contains(e.target)) {
                 handleHiding();
+            }
+
         })
     }, )
 
@@ -61,7 +61,6 @@ const Nav: React.FC<{}> = () => {
             </div>
         );
     }
-
     return (
         <nav className={styles.navbar}>
             <div className={styles.logoContainer}>
