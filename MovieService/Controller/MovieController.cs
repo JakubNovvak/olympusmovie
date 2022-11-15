@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MovieService.ApiModel;
 using MovieService.Service;
 
@@ -39,6 +40,7 @@ namespace MovieService.Controller
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> Create(MovieDTO movieDTO)
         {
             var movieWrapper = MovieMapper.MapToWrapper(movieDTO);
@@ -54,6 +56,7 @@ namespace MovieService.Controller
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> Delete([FromQuery(Name = ID_QUERY_PARAM)] int[] ids)
         {
             var removingResult = await _dataService.RemoveRange(new HashSet<int>(ids));
