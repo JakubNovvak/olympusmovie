@@ -6,16 +6,46 @@ import searchIcon from '../../assets/searchIcon.svg';
 import switchIcon from '../../assets/themeSwitchIcon.svg';
 import Box from '@mui/material/Box';
 import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
+import data from './data.json';
+import {Entry} from './data';
 
-const InputField = ({ }) => {
+const InputField = () => {
+
+    const [filteredData, setFilteredData] = useState<Entry[]>([]);
+
+    const handleFilter = (event: React.FormEvent<HTMLInputElement>) => {
+        const wordEntry = event.currentTarget.value;
+        const newFilter = data.filter((value: Entry) => {
+            return value.title.toLowerCase().includes(wordEntry.toLowerCase());
+        });
+
+        if (wordEntry === "")
+            setFilteredData([]);
+        else
+            setFilteredData(newFilter);
+    }
+
     return (
         //<div style={{ width: '15%', display: 'flex' }}>
-        <form className={styles.input}>
-            <input className={styles.inputBox} type="input" placeholder="Wprowadź tytuł"></input>
-            <button className={styles.inputSubmit}>
-                <img src={searchIcon} alt="search"></img>
-            </button>
-        </form> 
+        <>
+            <form className={styles.input}>
+                <input className={styles.inputBox} type="input" placeholder="Wprowadź tytuł" onChange={handleFilter}></input>
+                <button className={styles.inputSubmit}>
+                    <img src={searchIcon} alt="search"></img>
+                </button>
+            </form>
+            {filteredData.length != 0 && (
+                <div className={styles.dataResult}>
+                    {filteredData.slice(0, 15).map((entry: Entry) => {
+                        return (
+                            <a className={styles.dataItem}>
+                                <p>{entry.title}</p>
+                            </a>
+                        )
+                    })}
+                </div>          
+            )}
+        </>
     );
 }
 
