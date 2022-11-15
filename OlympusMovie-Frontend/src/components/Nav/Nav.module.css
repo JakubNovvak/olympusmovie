@@ -96,11 +96,14 @@
 }
 
 .dataResult {
+    position: relative;
+    background-color: white;
     margin-top: 5px;
     width: 300px;
     height: 200px;
     overflow: hidden;
     overflow-y: auto;
+    z-index: 100;
 }
 
 .dataResult::-webkit-scrollbar {
