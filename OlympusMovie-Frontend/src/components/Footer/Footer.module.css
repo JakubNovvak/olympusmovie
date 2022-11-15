@@ -1,5 +1,5 @@
 .Footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     color: white;
@@ -44,4 +44,22 @@
     padding-top: 17px;
     padding-bottom: 5px;
     text-align: center;
+}
+
+.BoxSocials {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.BoxSocials img {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 40px;
+}
+
+.FooterLink {
+    text-decoration: none;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
 }

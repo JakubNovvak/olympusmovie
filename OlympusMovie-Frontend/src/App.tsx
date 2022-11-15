@@ -4,6 +4,9 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+
 
 function App() {
     var component: any;
@@ -33,19 +36,20 @@ function App() {
     }
 
     return (
+        <>
+            <div style={{ backgroundImage: "linear-gradient(#ffb300, #ff4100)", height: "100%" }} >
+                < div style={{ minHeight: "calc(100vh - 175px)" }}>
+                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+                <Nav />
+                <>
+                    {component}
+                </>
+                </div>
+            </div>
 
-        < div style={{ backgroundImage: "linear-gradient(#ffb300, #ff4100)", height: "100vh" }}>
-            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-            <Nav />
-            <>
-                {component}
-            </>
-            <footer>
-                <Footer />
-            </footer>
-            
-        </div>
+            <Footer />
+        </>
   );
 }
 
