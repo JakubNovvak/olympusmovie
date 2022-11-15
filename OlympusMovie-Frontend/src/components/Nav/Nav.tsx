@@ -6,16 +6,19 @@ import searchIcon from '../../assets/searchIcon.svg';
 import switchIcon from '../../assets/themeSwitchIcon.svg';
 import Box from '@mui/material/Box';
 import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
+import data from './data.json';
 
-const InputField = ({ }) => {
+const InputField = (data: any) => {
     return (
         //<div style={{ width: '15%', display: 'flex' }}>
-        <form className={styles.input}>
-            <input className={styles.inputBox} type="input" placeholder="Wprowadź tytuł"></input>
-            <button className={styles.inputSubmit}>
-                <img src={searchIcon} alt="search"></img>
-            </button>
-        </form> 
+        <>
+            <form className={styles.input}>
+                <input className={styles.inputBox} type="input" placeholder="Wprowadź tytuł"></input>
+                <button className={styles.inputSubmit}>
+                    <img src={searchIcon} alt="search"></img>
+                </button>
+            </form>
+        </>
     );
 }
 
