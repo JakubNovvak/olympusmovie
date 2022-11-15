@@ -1,5 +1,22 @@
 {
   "Routes": [
+    // Authentication service
+    {
+      "UpstreamPathTemplate": "/api/account",
+      "UpstreamHttpMethod": [ "Post" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/account",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+
     // Movie service
     {
       "UpstreamPathTemplate": "/api/movies",
