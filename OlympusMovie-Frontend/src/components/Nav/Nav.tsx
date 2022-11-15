@@ -85,7 +85,7 @@ const Nav: React.FC<{}> = () => {
     const SearchPopup = ({ }) => {
         return (
             <div className={styles.searchPopup} ref={popupRef}>
-                <Box color="black" bgcolor="white" p={3}>
+                <Box color="black" bgcolor="white" p={3} style={{position:"relative" ,zIndex:"1"}}>
                     <InputField />
                 </Box>
             </div>
