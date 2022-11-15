@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import SearchResults from './pages/SearchResults/SearchResults';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
@@ -27,6 +28,10 @@ function App() {
 
         case "/Register":
             component = <Register />;
+            break;
+
+        case "/Search":
+            component = <SearchResults />;
             break;
 
         default:
