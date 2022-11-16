@@ -1,0 +1,17 @@
+.Container {
+
+}
+
+.TextField {
+    position: relative;
+    width: 500px;
+    border-radius: 15px;
+}
+
+.MovieListContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 30px;
+    justify-content: space-evenly;
+}

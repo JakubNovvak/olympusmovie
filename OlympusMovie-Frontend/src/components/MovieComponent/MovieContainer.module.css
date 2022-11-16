@@ -1,0 +1,32 @@
+.CoverImage {
+    object-fit: cover;
+    text-align: center;
+}
+
+.CoverImage img {
+    height: 362px;
+}
+
+.MovieName {
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    margin: 15px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.InfoColumn {
+   display: flex; 
+   flex-direction: row;
+   justify-content: space-between;
+
+}
+
+.MovieInfo {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    text-transform: capitalize;
+}

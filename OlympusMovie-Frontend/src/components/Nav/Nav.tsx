@@ -30,9 +30,11 @@ const InputField = () => {
         <>
             <form className={styles.input}>
                 <input className={styles.inputBox} type="input" placeholder="Wprowadź tytuł" onChange={handleFilter}></input>
-                <button className={styles.inputSubmit}>
-                    <img src={searchIcon} alt="search"></img>
-                </button>
+                <a href="http://localhost:3000/Search">
+                    <button disabled className={styles.inputSubmit}>
+                        <img src={searchIcon} alt="search"></img>
+                    </button>
+                </a>
             </form>
             {filteredData.length != 0 && (
                 <div className={styles.dataResult}>
