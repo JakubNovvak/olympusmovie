@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace MovieService.Model
+namespace PersonService.Model
 {
     [Table("Person", Schema = "dbo")]
     public class Person
@@ -18,15 +18,15 @@ namespace MovieService.Model
         public string Surname { get; set; } = null!;
 
         [Column("birthdate")]
-        public DateOnly Birthdate { get; set; }
+        public DateTime Birthdate { get; set; }
 
         [Column("series")]
-        public ICollection<Series>? Series { get; set; }
+        public virtual List<PersonMovie> SeriesId { get; set; } = null!;
 
-        [Column("movies")]
-        public ICollection<Movie>? Movies { get; set; }
+        //[Column("movies")]
+        //public virtual ICollection<int> MoviesId { get; set; } = null!;
 
         [Column("roles")]
-        public ICollection<Role>? Roles { get; set; }
+        public virtual ICollection<Role> Roles { get; set; } = null!;
     }
 }

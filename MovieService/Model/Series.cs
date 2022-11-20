@@ -20,8 +20,8 @@ namespace MovieService.Model
         [Column("genres")]
         public ICollection<Genre>? Genres { get; set; }
 
-        [Column("persons")]
-        public ICollection<Person>? Persons { get; set; }
+        //[Column("persons")]
+        //public ICollection<Person>? Persons { get; set; }
 
         [Column("tags")]
         public ICollection<Tag>? Tags { get; set; }
