@@ -1,13 +1,14 @@
 {
   "profiles": {
-    "OlympusMovie_Backend": {
+    "AuthenticationService": {
       "commandName": "Project",
+      "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7211;http://localhost:5211"
+      "applicationUrl": "https://localhost:7078;http://localhost:5078"
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -16,6 +17,13 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "publishAllPorts": true,
+      "useSSL": true
     }
   },
   "$schema": "https://json.schemastore.org/launchsettings.json",
@@ -23,8 +31,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:46473",
-      "sslPort": 44369
+      "applicationUrl": "http://localhost:17856",
+      "sslPort": 44325
     }
   }
 }

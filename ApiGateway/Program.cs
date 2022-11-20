@@ -1,6 +1,5 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)

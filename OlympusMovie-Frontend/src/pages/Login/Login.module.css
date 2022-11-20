@@ -67,11 +67,12 @@
     width: 150px;
     border: none;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .SubmitButton:hover {
     background-color: #504e4e;
-    transition: 0.3s;
+
 }
 
 

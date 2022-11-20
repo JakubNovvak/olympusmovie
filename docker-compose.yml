@@ -42,6 +42,16 @@ services:
       - 18000:80
       - 25000:443
 
+
+  authenticationservice:
+    container_name: "authentication-service"
+    image: ${DOCKER_REGISTRY-}authenticationservice
+    build:
+      context: .
+      dockerfile: AuthenticationService/Dockerfile
+    networks:
+      backend:
+
   personservice:
     container_name: person-service
     image: ${DOCKER_REGISTRY-}personservice
