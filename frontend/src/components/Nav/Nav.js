@@ -1,126 +1,131 @@
-import { useState, useEffect, useRef } from 'react';
-import styles from './Nav.module.css';
-import logo from '../../assets/logo.svg';
-import darklogo from '../../assets/darklogo.png';
-import searchIcon from '../../assets/searchIcon.svg';
-import switchIcon from '../../assets/themeSwitchIcon.svg';
-import Box from '@mui/material/Box';
-import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch';
-import data from './data.json';
+import { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
+import styles from "./Nav.module.css";
+import logo from "../../assets/logo.svg";
+import darklogo from "../../assets/darklogo.png";
+import searchIcon from "../../assets/searchIcon.svg";
+import Box from "@mui/material/Box";
+import ToggleSwitch from "../../components/ToggleSwitch/ToggleSwitch";
+import data from "./data.json";
 
 const InputField = () => {
+  const [filteredData, setFilteredData] = useState([]);
 
-    const [filteredData, setFilteredData] = useState([]);
+  const handleFilter = (event) => {
+    const wordEntry = event.currentTarget.value;
+    const newFilter = data.filter((value) => {
+      return value.title.toLowerCase().includes(wordEntry.toLowerCase());
+    });
 
-    const handleFilter = (event) => {
-        const wordEntry = event.currentTarget.value;
-        const newFilter = data.filter((value) => {
-            return value.title.toLowerCase().includes(wordEntry.toLowerCase());
-        });
-
-        if (wordEntry === "") {
-            setFilteredData([]);
-        }
-        else {
-            setFilteredData(newFilter);
-        }
+    if (wordEntry === "") {
+      setFilteredData([]);
+    } else {
+      setFilteredData(newFilter);
     }
+  };
 
-    return (
-        //<div style={{ width: '15%', display: 'flex' }}>
-        <>
-            <form className={styles.input}>
-                <input className={styles.inputBox} type="input" placeholder="WprowadŸ tytu³" onChange={handleFilter}></input>
-                <button className={styles.inputSubmit}>
-                    <img src={searchIcon} alt="search"></img>
-                </button>
-            </form>
-            {filteredData.length != 0 && (
-                <div className={styles.dataResult}>
-                    {filteredData.slice(0, 15).map((entry) => {
-                        return (
-                            <a className={styles.dataItem}>
-                                <p>{entry.title}</p>
-                            </a>
-                        )
-                    })}
-                </div>
-            )}
-        </>
-    );
-}
+  return (
+    //<div style={{ width: '15%', display: 'flex' }}>
+    <>
+      <form className={styles.input}>
+        <input
+          className={styles.inputBox}
+          type="input"
+          placeholder="Wprowadï¿½ tytuï¿½"
+          onChange={handleFilter}
+        ></input>
+        <button className={styles.inputSubmit}>
+          <img src={searchIcon} alt="search"></img>
+        </button>
+      </form>
+      {filteredData.length !== 0 && (
+        <div className={styles.dataResult}>
+          {filteredData.slice(0, 15).map((entry) => {
+            return (
+              <a className={styles.dataItem}>
+                <p>{entry.title}</p>
+              </a>
+            );
+          })}
+        </div>
+      )}
+    </>
+  );
+};
 
 const Nav = () => {
+  const [isShowed, changeVisibility] = useState(false);
+  const [isSwitched, changeLogo] = useState(true);
 
-    const [isShowed, changeVisibility] = useState(false);
-    const [isSwitched, changeLogo] = useState(true);
+  var popupRef = useRef();
+  var switchRef = useRef();
 
-    var popupRef = useRef();
-    var switchRef = useRef();
+  useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+      if (switchRef.current.contains(e.target)) {
+        changeLogo(!isSwitched);
+        e.preventDefault();
+      }
+    });
+  });
 
-    useEffect(() => {
-        document.addEventListener('mousedown', (e) => {
-            if (switchRef.current.contains(e.target)) {
-                changeLogo(!isSwitched);
-                e.preventDefault();
-            }
-        })
-    })
+  const handleHiding = () => {
+    changeVisibility(false);
+  };
+  const handleShowing = () => {
+    changeVisibility(true);
+  };
 
-    const handleHiding = () => {
-        changeVisibility(false);
-    }
-    const hanldeShowing = () => {
-        changeVisibility(true);
-    }
+  useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+      if (!popupRef.current.contains(e.target)) {
+        handleHiding();
+      }
+    });
+  });
 
-    useEffect(() => {
-        document.addEventListener('mousedown', (e) => {
-            if (!popupRef.current.contains(e.target)) {
-                handleHiding();
-            }
-        })
-    })
-
-    const SearchPopup = () => {
-        return (
-            <div className={styles.searchPopup} ref={popupRef}>
-                <Box color="black" bgcolor="white" p={3} style={{ position: "relative", zIndex: "1" }}>
-                    <InputField />
-                </Box>
-            </div>
-        );
-    }
+  const SearchPopup = () => {
     return (
-        <nav className={styles.navbar}>
-            <div className={styles.logoContainer}>
-                <a href="http://localhost:3000/Home">
-                    <img src={isSwitched ? logo : darklogo} alt="logo"></img>
-                </a>
-                <div ref={switchRef} >
-                    <ToggleSwitch />
-                </div>
-            </div>
+      <div className={styles.searchPopup} ref={popupRef}>
+        <Box
+          color="black"
+          bgcolor="white"
+          p={3}
+          style={{ position: "relative", zIndex: "1" }}
+        >
+          <InputField />
+        </Box>
+      </div>
+    );
+  };
+  return (
+    <nav className={styles.navbar}>
+      <div className={styles.logoContainer}>
+        <NavLink to="/">
+          <img src={isSwitched ? logo : darklogo} alt="logo"></img>
+        </NavLink>
+        <div ref={switchRef}>
+          <ToggleSwitch />
+        </div>
+      </div>
 
-            <div className={styles.navOptions}>
-                <div>
-                    <a href='http://localhost:3000/Login'>Zaloguj siê</a>
-                </div>
+      <div className={styles.navOptions}>
+        <div>
+          <NavLink to="/Login">Zaloguj siÄ™</NavLink>
+        </div>
 
-                <div>
-                    <a href='http://localhost:3000/Register'>Zarejestruj siê</a>
-                </div>
+        <div>
+          <NavLink to="/Register">Zarejestruj siÄ™</NavLink>
+        </div>
 
-                <div>
-                    <img src={searchIcon} alt="search" onClick={hanldeShowing}></img>
-                </div>
-            </div>
+        <div>
+          <img src={searchIcon} alt="search" onClick={handleShowing}></img>
+        </div>
+      </div>
 
-            <>
-                {isShowed ? <SearchPopup /> : null}
-            </>
-        </nav>
-    )
-}
+      <>{isShowed ? <SearchPopup /> : null}</>
+    </nav>
+  );
+};
 
 export default Nav;
