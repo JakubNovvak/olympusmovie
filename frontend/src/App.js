@@ -1,59 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
+import SearchResults from './pages/SearchResults/SearchResults';
 
-export default class App extends Component {
-    static displayName = App.name;
+function App() {
+    function getProperPage() {
+        switch (window.location.pathname) {
+            case "/Login":
+                return <Login />;
 
-    constructor(props) {
-        super(props);
-        this.state = { forecasts: [], loading: true };
+            case "/Register":
+                return <Register />;
+
+            case "/Search":
+                return <SearchResults />;
+
+            default:
+                return <Home />;
+        }
     }
 
-    componentDidMount() {
-        this.populateWeatherData();
-    }
-
-    static renderForecastsTable(forecasts) {
-        return (
-            <table className='table table-striped' aria-labelledby="tabelLabel">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Temp. (C)</th>
-                        <th>Temp. (F)</th>
-                        <th>Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {forecasts.map(forecast =>
-                        <tr key={forecast.date}>
-                            <td>{forecast.date}</td>
-                            <td>{forecast.temperatureC}</td>
-                            <td>{forecast.temperatureF}</td>
-                            <td>{forecast.summary}</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-        );
-    }
-
-    render() {
-        let contents = this.state.loading
-            ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-            : App.renderForecastsTable(this.state.forecasts);
-
-        return (
-            <div>
-                <h1 id="tabelLabel" >Weather forecast</h1>
-                <p>This component demonstrates fetching data from the server.</p>
-                {contents}
+    return (
+        <>
+            <div style={{ backgroundImage: "linear-gradient(#ffb300, #ff4100)", height: "100%" }} >
+                < div style={{ minHeight: "calc(100vh - 175px)" }}>
+                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+                    <Nav />
+                    <>{getProperPage()}</>
+                </div>
             </div>
-        );
-    }
-
-    async populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        this.setState({ forecasts: data, loading: false });
-    }
+            <Footer />
+        </>
+    );
 }
+
+export default App;
