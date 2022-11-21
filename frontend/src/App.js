@@ -12,7 +12,7 @@ function App() {
         style={{
           minHeight: "calc(100vh - 175px)",
           backgroundImage: "linear-gradient(#ffb300, #ff4100)",
-          height: "100%",git c
+          height: "100%",
         }}
       >
         <BrowserRouter>

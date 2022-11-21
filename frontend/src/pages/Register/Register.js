@@ -13,27 +13,30 @@ const Register = () => {
           required
           placeholder="Adres e-mail"
         />
-        <br />
-        <input
-          type="text"
-          className={styles.NoOutline}
-          required
-          placeholder="Nazwa użytkownika"
-        />
-        <br />
-        <input
-          type="password"
-          className={styles.NoOutline}
-          required
-          placeholder="Hasło (od 8 do 28 znaków)"
-        />
-        <br />
-        <input
-          type="date"
-          className={styles.NoOutline}
-          value="2000-01-31"
-          placeholder="miesiąc/dzień/rok"
-        />
+        <div>
+          <input
+            type="text"
+            className={styles.NoOutline}
+            required
+            placeholder="Nazwa użytkownika"
+          />
+        </div>
+        <div>
+          <input
+            type="password"
+            className={styles.NoOutline}
+            required
+            placeholder="Hasło (od 8 do 28 znaków)"
+          />
+        </div>
+        <div>
+          <input
+            type="date"
+            className={styles.NoOutline}
+            value="2000-01-31"
+            placeholder="miesiąc/dzień/rok"
+          />
+        </div>
 
         <button className={styles.SubmitButton}>Utwórz konto</button>
 

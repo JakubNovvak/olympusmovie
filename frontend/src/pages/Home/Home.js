@@ -3,8 +3,10 @@
 // import listydom from "./listydom.jpg";
 // import homealone from "./homealone.jpg";
 
+import MovieCard from "../../components/MovieCard";
+
 const SimpleSlider = () => {
-  return <p>karuzela</p>;
+  return <MovieCard />;
 };
 
 export default SimpleSlider;
