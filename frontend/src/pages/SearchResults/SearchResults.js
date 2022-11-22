@@ -3,6 +3,7 @@ import { styled, alpha } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import MovieComponent from "../../components/MovieComponent/MovieComponent";
 import data from "./data.json";
+import { motion } from "framer-motion";
 
 
 const TextFieldContainer = styled("div")(({ theme }) => ({
