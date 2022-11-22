@@ -6,13 +6,14 @@ import Register from "./pages/Register/Register";
 import Nav from "./components/Nav/Nav";
 import NavV2 from "./components/Nav/NavV2";
 import Footer from "./components/Footer/Footer";
+import SearchResult from "./pages/SearchResults/SearchResults";
 
 function App() {
   return (
     <>
       <div
         style={{
-          minHeight: "calc(100vh - 175px)",
+          minHeight: "calc(100vh - 155px)",
           backgroundImage: "linear-gradient(#ffb300, #ff4100)",
           height: "100%",
         }}
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
+            <Route path="/SearchResults" element={<SearchResult />} />
           </Routes>
         </BrowserRouter>
       </div>

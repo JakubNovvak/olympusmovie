@@ -1,0 +1,281 @@
+[
+  {
+    "id": 1,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/81/78/558178/8040495.6.jpg",
+    "language": "Angielski",
+    "released": "14 grudnia 2022",
+    "title": "Avatar: Istota Wody",
+    "Runtime": "90 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 2,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/91/13/299113/7288280.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Avatar",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 3,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/03/59/750359/7748390.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Stranger Things",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial"
+  },
+
+  {
+    "id": 4,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/03/59/750359/7812716.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Stranger Things 2",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial"
+  },
+
+  {
+    "id": 5,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/03/59/750359/7888222.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Stranger Things 3",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial"
+  },
+
+  {
+    "id": 6,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/03/59/750359/8001444.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Stranger Things 4",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial"
+  },
+
+  {
+    "id": 7,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/67/21/6721/7721766.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Kevin Sam w Domu",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 8,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/67/22/6722/7650614.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Kevin Sam w Nowym Jorku",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 9,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/37/41/10003741/8032706.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Enola Holmes 2",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 10,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/94/07/839407/7929519.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Enola Holmes",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 11,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/18/16/871816/8041990.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Wielka Woda",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial"
+  },
+
+  {
+    "id": 12,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7552405.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial"
+  },
+
+  {
+    "id": 13,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7552406.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad 2",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial"
+  },
+
+  {
+    "id": 14,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7315973.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad 3",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial"
+  },
+
+  {
+    "id": 15,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7460853.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad 4",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial"
+  },
+
+  {
+    "id": 16,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7475658.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad 5",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial"
+  },
+
+  {
+    "id": 17,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/35/10/613510/7441758.6.jpg",
+    "language": "Polski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Listy do M.",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 18,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/94/40/859440/8040018.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Goście",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/70/20/10007020/8040382.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "W zamknięciu",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial"
+  },
+
+  {
+    "id": 20,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/54/91/875491/7991163.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Biały Lotos",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  }
+]
