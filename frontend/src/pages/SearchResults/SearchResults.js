@@ -11,8 +11,7 @@ const Container = styled("body")(({ theme }) => ({
 }))
 
 const TextFieldContainer = styled("div")(({ theme }) => ({
-    textAlign: "center",
-    marginTop: "20px"
+    textAlign: "center"
 
 }))
 

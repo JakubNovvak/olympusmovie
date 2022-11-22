@@ -15,7 +15,7 @@ function App() {
         <Nav />
         <Box
           sx={{
-            minHeight: "calc(100vh - 175px)",
+            minHeight: "calc(100vh - 233px)",
             backgroundImage: "linear-gradient(#ffb300, #ff4100)",
             height: "100%",
           }}

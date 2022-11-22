@@ -6,7 +6,9 @@
 
 .Title {
     padding-top: 20px;
+    margin-bottom: 20px;
     padding-bottom: 20px;
+    transform: translateY(10px);
     text-align: center;
     color: white;
     font-weight: 700;
@@ -23,7 +25,7 @@
 }
 
 .Description h2{
-    line-height: 0px;
+    line-height: 35px;
 }
 
 .Rating {
