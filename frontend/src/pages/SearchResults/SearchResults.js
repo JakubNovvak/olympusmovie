@@ -2,9 +2,13 @@ import React, { useState, useRef } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import MovieComponent from "../../components/MovieComponent/MovieComponent";
+import MovieInfoComponent from "../../components/MovieComponent/MovieInfoComponent";
 import data from "./data.json";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
+const Container = styled("body")(({ theme }) => ({
+
+}))
 
 const TextFieldContainer = styled("div")(({ theme }) => ({
     textAlign: "center",
@@ -24,6 +28,7 @@ const MovieListContainer = styled("div")(({ theme }) => ({
     flexDirection: "row",
     flexWrap: "wrap",
     padding: "30px",
+    gap: "24px",
     justifyContent: "space-evenly",
 }))
 
@@ -38,6 +43,7 @@ const Placeholder = styled("img")(({ theme }) => ({
 const SearchResults = () => {
 
     const [filteredData, setFilteredData] = useState([]);
+    const [seclectedEntry, setSelectedEntry] = useState();
 
     const HandleFilter = (event) => {
         const wordEntry = event.target.value;
@@ -50,7 +56,7 @@ const SearchResults = () => {
 
     return (
 
-        <>
+        <Container>
             <TextFieldContainer>
                 <StyledTextField
                     id="standard-basic"
@@ -60,12 +66,27 @@ const SearchResults = () => {
                     onChange={HandleFilter}
                 />
             </TextFieldContainer>
+
+            <AnimateSharedLayout>
+                <motion.div
+                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    exit={{ opacity: 0 }}
+                >
+                    {seclectedEntry && <MovieInfoComponent seclectedEntry={seclectedEntry} setSelectedEntry={setSelectedEntry} key={seclectedEntry.id} />}
+
+                </motion.div>   
+            </AnimateSharedLayout>
+            <motion.div layout>
                 <MovieListContainer>
-                {filteredData.map((entry) => {
-                    return (<MovieComponent entry={entry} />);
-                })}
-            </MovieListContainer>
-        </>
+                    <AnimatePresence>
+                        {filteredData.map((entry) => {
+                            return (<MovieComponent entry={entry} key={entry.id} setSelectedEntry={setSelectedEntry} />);
+                        })}
+                    </AnimatePresence>
+                </MovieListContainer>
+            </motion.div>
+        </Container>
         
         );
 }

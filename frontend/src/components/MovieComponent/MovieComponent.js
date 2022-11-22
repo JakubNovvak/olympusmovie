@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { styled, alpha } from "@mui/material/styles";
+import { motion, useIsPresent, AnimatePresence } from "framer-motion";
 
 const MovieContainer = styled("div")(({ theme }) => ({
     backgroundColor: "white",
@@ -45,31 +46,28 @@ const MovieInfo = styled("span")(({ theme }) => ({
 
 const MovieComponent = (props) => {
     //const { Title, Year, imdbID, Type, Poster } = props.movie;
+    const isPresent = useIsPresent();
+
+    useEffect(() => {
+        !isPresent && console.log("Removed")
+    }, [isPresent])
 
     return (
-
-        <MovieContainer>
-            <CoverImage src={props.entry.imageLink}></CoverImage>
-            <MovieName>{props.entry.title}</MovieName>
-            <InfoColumn>
-                <MovieInfo>{props.entry.released}</MovieInfo>
-                <MovieInfo>Type</MovieInfo>
-            </InfoColumn>
-        </MovieContainer>
-
-/*        <MovieContainer
-            onClick={() => {
-                props.onMovieSelect(imdbID);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
+        <motion.div
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0  }}
+            layout
         >
-            <CoverImage src={Poster} alt={Title} />
-            <MovieName>{Title}</MovieName>
-            <InfoColumn>
-                <MovieInfo>Year : {Year}</MovieInfo>
-                <MovieInfo>Type : {Type}</MovieInfo>
-            </InfoColumn>
-        </MovieContainer>*/
+            <MovieContainer onClick={() => { props.setSelectedEntry(props.entry) } }>
+                <CoverImage src={props.entry.imageLink}></CoverImage>
+                <MovieName>{props.entry.title}</MovieName>
+                <InfoColumn>
+                    <MovieInfo>{props.entry.released}</MovieInfo>
+                    <MovieInfo>{props.entry.Type}</MovieInfo>
+                </InfoColumn>
+            </MovieContainer>
+        </motion.div>
     );
 };
 export default MovieComponent;

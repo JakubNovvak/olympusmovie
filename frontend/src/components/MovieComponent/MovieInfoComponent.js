@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
+import Button from "@mui/material/Button";
 import { styled, alpha } from "@mui/material/styles";
+import { motion } from "framer-motion";
 
 const Container = styled("div")(({ theme }) => ({
     display: "flex",
@@ -9,7 +11,7 @@ const Container = styled("div")(({ theme }) => ({
     borderBottom: "1px solid lightgrey"
 }))
 
-const CoverImage = styled("div")(({ theme }) => ({
+const CoverImage = styled("img")(({ theme }) => ({
     objectFit: "cover",
     height: "350px"
 }))
@@ -49,7 +51,7 @@ const MovieInfo = styled("span")(({ theme }) => ({
     }
 }))
 
-const Close = styled("span")(({ theme }) => ({
+const Close = styled(Button)(({ theme }) => ({
     fontSize: "16px",
     fontWeight: "600",
     color: "black",
@@ -62,8 +64,51 @@ const Close = styled("span")(({ theme }) => ({
 }))
 
 const MovieInfoComponent = (props) => {
-
-    return <></>
+    
+  return (
+      <motion.div
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+      >
+        <Container>
+              {props.seclectedEntry ? (
+            <>
+              <CoverImage src={props.seclectedEntry.imageLink} alt={props.seclectedEntry.title} />
+              <InfoColumn>
+                <MovieName>
+                  {props.seclectedEntry.Type}: <span>{props.seclectedEntry.title}</span>
+                </MovieName>
+                <MovieInfo>
+                  Długość: <span>{props.seclectedEntry.Runtime}</span>
+                </MovieInfo>
+                <MovieInfo>
+                  Data Premiery: <span>{props.seclectedEntry.released}</span>
+                </MovieInfo>
+                <MovieInfo>
+                  Język: <span>{props.seclectedEntry.language}</span>
+                </MovieInfo>
+                <MovieInfo>
+                  Gatunek: <span>{props.seclectedEntry.Genre}</span>
+                </MovieInfo>
+                <MovieInfo>
+                  Reżyseria: <span>{props.seclectedEntry.Director}</span>
+                </MovieInfo>
+                <MovieInfo>
+                  Aktorzy: <span>{props.seclectedEntry.Actors}</span>
+                </MovieInfo>
+                <MovieInfo>
+                  Fabuła: <span>{props.seclectedEntry.Plot}</span>
+                </MovieInfo>
+              </InfoColumn>
+                      <Button variant="outlined" color="error" style={{height:"25px"}} onClick={() => props.setSelectedEntry()}>Zamknij</Button>
+            </>
+          ) : (
+            "Loading..."
+          )}
+          </Container>
+      </motion.div>
+  );
 
 }
 
