@@ -8,7 +8,8 @@ const MovieContainer = styled("div")(({ theme }) => ({
     flexDirection: "column",
     padding: "10px",
     width: "280px",
-    boxShadow: "0 3px 10px 0 #aaa",
+    boxShadow: "10px 10px 15px 1px #0007",
+    borderRadius: "7px",
     cursor: "pointer",
     transition: "0.5s"
 }))

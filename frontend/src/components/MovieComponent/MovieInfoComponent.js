@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 
 const Container = styled("div")(({ theme }) => ({
     display: "flex",
+    backgroundColor: "white",
+    marginTop: "10px",
     flexDirection: "row",
     padding: "20px 30px",
     justifyContent: "center",
@@ -49,18 +51,6 @@ const MovieInfo = styled("span")(({ theme }) => ({
     "& span": {
         opacity: "0.5"
     }
-}))
-
-const Close = styled(Button)(({ theme }) => ({
-    fontSize: "16px",
-    fontWeight: "600",
-    color: "black",
-    background: "lightgray",
-    height: "fit-content",
-    padding: "8px",
-    borderRadius: "50%",
-    cursor: "pointer",
-    opacity: "0.8"
 }))
 
 const MovieInfoComponent = (props) => {

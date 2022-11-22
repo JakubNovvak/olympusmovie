@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+﻿import React, { useState, useRef } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import MovieComponent from "../../components/MovieComponent/MovieComponent";
@@ -28,7 +28,7 @@ const MovieListContainer = styled("div")(({ theme }) => ({
     flexDirection: "row",
     flexWrap: "wrap",
     padding: "30px",
-    gap: "24px",
+    gap: "30px",
     justifyContent: "space-evenly",
 }))
 
@@ -60,7 +60,7 @@ const SearchResults = () => {
             <TextFieldContainer>
                 <StyledTextField
                     id="standard-basic"
-                    label="Standard"
+                    label="Wpisz tytuł"
                     variant="standard"
                     //value={filteredData}
                     onChange={HandleFilter}
