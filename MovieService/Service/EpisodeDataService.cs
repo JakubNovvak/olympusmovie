@@ -13,27 +13,59 @@ namespace MovieService.Service
         }
         public async Task<int> AddAsync(EpisodeDTO episodeDTO)
         {
-            throw new NotImplementedException();
+            var episode = EpisodeMapper.MapToEntity(episodeDTO, true);
+            var createEpisode = await _dbContext.Episodes.AddAsync(episode);
+            if (createEpisode != null)
+            {
+                await _dbContext.SaveChangesAsync();
+                return createEpisode.Entity.Id;
+            }
+            return 0;
         }
 
         public async Task<int> EditAsync(EpisodeDTO episodeDTO)
         {
-            throw new NotImplementedException();
+            var episodeEntity = EpisodeMapper.MapToEntity(episodeDTO, false);
+            var findEpisode = _dbContext.Episodes.FirstOrDefault(episode => episode.Id == episodeEntity.Id);
+            if (findEpisode != null)
+            {
+                findEpisode.Season = episodeEntity.Season;
+                findEpisode.EpisodeNumber = episodeEntity.EpisodeNumber;
+                findEpisode.Title = episodeEntity.Title;
+                findEpisode.ReleaseDate = episodeEntity.ReleaseDate;
+                findEpisode.DurationInMinutes = episodeEntity.DurationInMinutes;
+                findEpisode.Description = episodeEntity.Description;
+                await _dbContext.SaveChangesAsync();
+                return findEpisode.Id;
+            }
+            return 0;
         }
 
         public IEnumerable<int> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.Episodes.Select(episode => episode.Id);
         }
 
         public async Task<EpisodeDTO?> GetById(int id)
         {
-            throw new NotImplementedException();
+            var episode = await _dbContext.Episodes.FindAsync(id);
+            if (episode == null)
+            {
+                return null;
+            }
+            return EpisodeMapper.MapToDTO(episode);
         }
 
         public async Task<bool> RemoveRange(ISet<int> ids)
         {
-            throw new NotImplementedException();
+            var episodes = _dbContext.Episodes.Where(episode => ids.Contains(episode.Id)).ToList();
+            if (episodes.Count == 0)
+            {
+                return false;
+            }
+            _dbContext.Episodes.RemoveRange(episodes);
+            await _dbContext.SaveChangesAsync();
+            return true;
         }
     }
 }
