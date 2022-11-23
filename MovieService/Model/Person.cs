@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MovieService.Model
 {
-    [Table("Person", Schema = "dbo")]
+    [Table("person", Schema = "dbo")]
     public class Person
     {
         [Key]
@@ -18,15 +18,15 @@ namespace MovieService.Model
         public string Surname { get; set; } = null!;
 
         [Column("birthdate")]
-        public DateOnly Birthdate { get; set; }
+        public DateTime Birthdate { get; set; }
 
-        [Column("series")]
-        public ICollection<Series>? Series { get; set; }
+        [Column("photo")]
+        public string Photo { get; set; } = null!;
 
-        [Column("movies")]
-        public ICollection<Movie>? Movies { get; set; }
+        public virtual ICollection<Series> Series { get; set; } = null!;
 
-        [Column("roles")]
-        public ICollection<Role>? Roles { get; set; }
+        public virtual ICollection<Movie> Movies { get; set; } = null!;
+
+        public virtual ICollection<Role> Roles { get; set; } = null!;
     }
 }

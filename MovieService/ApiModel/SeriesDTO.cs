@@ -1,14 +1,10 @@
-﻿using MovieService.Model;
-
-namespace MovieService.ApiModel
+﻿namespace MovieService.ApiModel
 {
-    public class MovieDTO
+    public class SeriesDTO
     {
         public int Id { get; set; }
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
-        public DateTime DateOfRelease { get; set; }
-        public int DurationInMinutes { get; set; }
         public string Photo { get; set; } = null!;
     }
 }

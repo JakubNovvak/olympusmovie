@@ -7,26 +7,26 @@ namespace MovieService.Controller
 {
     [Route(RESOURCE_PATH)]
     [ApiController]
-    public class MovieController : ControllerBase
+    public class SeriesController : ControllerBase
     {
-        private const string RESOURCE_PATH = "api/movies";
+        private const string RESOURCE_PATH = "api/series";
         private const string ID_QUERY_PARAM = "id";
         private const string GetMethod = "GET";
         private const string SelfRel = "self";
-        private readonly IMovieDataService _dataService;
+        private readonly ISeriesDataService _dataService;
         private readonly LinkGenerator _linkGenerator;
 
-        public MovieController(IMovieDataService dataService, LinkGenerator linkGenerator)
+        public SeriesController(ISeriesDataService dataService, LinkGenerator linkGenerator)
         {
             _dataService = dataService;
             _linkGenerator = linkGenerator;
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<MovieDTO>> GetMovie(int id)
+        public async Task<ActionResult<SeriesDTO>> GetOneSeries(int id)
         {
-            var movie = await _dataService.GetById(id);
-            if (movie == null)
+            var series = await _dataService.GetById(id);
+            if (series == null)
             {
                 return NotFound();
             }
@@ -34,36 +34,34 @@ namespace MovieService.Controller
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<MovieDTO>> GetMovies()
+        public ActionResult<IEnumerable<SeriesDTO>> GetSeries()
         {
-            return Ok(_dataService.GetAll().Select(id => GetLinkToMovie(id)));
+            return Ok(_dataService.GetAll().Select(id => GetLinkToOneSeries(id)));
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator")]
-        public async Task<ActionResult> Create(MovieDTO movieDTO)
+        public async Task<ActionResult> Create(SeriesDTO seriesDTO)
         {
-            var id = await _dataService.AddAsync(movieDTO);
-            var url = GetLinkToMovie(id);
+            var id = await _dataService.AddAsync(seriesDTO);
+            var url = GetLinkToOneSeries(id);
             return Created(url.Href, url);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Edit(MovieDTO movieDTO)
+        public async Task<ActionResult> Edit(SeriesDTO seriesDTO)
         {
-            var id = await _dataService.EditAsync(movieDTO);
-            var url = GetLinkToMovie(id);
+            var id = await _dataService.EditAsync(seriesDTO);
+            var url = GetLinkToOneSeries(id);
             return Ok(url);
         }
 
-        private LinkDTO GetLinkToMovie(int id)
+        private LinkDTO GetLinkToOneSeries(int id)
         {
-            var url = _linkGenerator.GetUriByAction(HttpContext, nameof(GetMovie), values: new { id }) ?? string.Empty;
+            var url = _linkGenerator.GetUriByAction(HttpContext, nameof(GetOneSeries), values: new { id }) ?? string.Empty;
             return new LinkDTO(url, SelfRel, GetMethod);
         }
 
         [HttpDelete]
-        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> Delete([FromQuery(Name = ID_QUERY_PARAM)] int[] ids)
         {
             var removingResult = await _dataService.RemoveRange(new HashSet<int>(ids));

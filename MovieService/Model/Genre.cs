@@ -15,12 +15,10 @@ namespace MovieService.Model
         public string Name { get; set; } = null!;
 
         [Column("description")]
-        public string? Description { get; set; }
+        public string Description { get; set; } = null!;
 
-        [Column("Movies")]
-        public ICollection<Movie>? Movies { get; set; }
+        public virtual ICollection<Movie> Movies { get; set; } = null!;
 
-        [Column("Series")]
-        public ICollection<Series>? Series { get; set; }
+        public virtual ICollection<Series> Series { get; set; } = null!;
     }
 }

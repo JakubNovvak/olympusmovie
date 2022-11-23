@@ -43,11 +43,17 @@ builder.Services.AddCustomJwtAuthentication();
 var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
 var dbName = Environment.GetEnvironmentVariable("DB_NAME");
 var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD");
-var connectionString = $"Data Source={dbHost};Initial Catalog={dbName};User ID=sa;Password={dbPassword}";
+var connectionString = $"Data Source={dbHost};Initial Catalog={dbName};User ID=sa;Password={dbPassword};TrustServerCertificate=True";
 builder.Services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(connectionString));
 
 // Register services
+//builder.Services.AddScoped<IEpisodeDataService, EpisodeDataService>();
+builder.Services.AddScoped<IGenreDataService, GenreDataService>();
 builder.Services.AddScoped<IMovieDataService, MovieDataService>();
+builder.Services.AddScoped<IPersonDataService, PersonDataService>();
+builder.Services.AddScoped<IRoleDataService, RoleDataService>();
+builder.Services.AddScoped<ISeriesDataService, SeriesDataService>();
+builder.Services.AddScoped<ITagDataService, TagDataService>();
 
 var app = builder.Build();
 

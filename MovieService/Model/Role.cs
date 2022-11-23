@@ -14,7 +14,6 @@ namespace MovieService.Model
         [Column("name")]
         public string Name { get; set; } = null!;
 
-        [Column("persons")]
-        public ICollection <Person>? Persons { get; set; }
+        public virtual ICollection <Person> Persons { get; set; } = null!;
     }
 }
