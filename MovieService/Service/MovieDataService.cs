@@ -41,9 +41,9 @@ namespace MovieService.Service
             return 0;
         }
 
-        public IEnumerable<int> GetAll()
+        public IEnumerable<MovieDTO> GetAll()
         {
-            return _dbContext.Movies.Select(movie => movie.Id);
+            return _dbContext.Movies.Select(movie => MovieMapper.MapToDTO(movie));
         }
 
         public async Task<MovieDTO?> GetById(int id)
