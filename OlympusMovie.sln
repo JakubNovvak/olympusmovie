@@ -19,8 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtAuthenticationManager", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{F3644238-EB60-4EF8-9819-B476CC5F64FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonService", "PersonService\PersonService.csproj", "{38587ADA-1F5C-4DAB-8739-B28608B73948}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,10 +51,6 @@ Global
 		{F3644238-EB60-4EF8-9819-B476CC5F64FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3644238-EB60-4EF8-9819-B476CC5F64FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3644238-EB60-4EF8-9819-B476CC5F64FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38587ADA-1F5C-4DAB-8739-B28608B73948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38587ADA-1F5C-4DAB-8739-B28608B73948}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38587ADA-1F5C-4DAB-8739-B28608B73948}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38587ADA-1F5C-4DAB-8739-B28608B73948}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,7 +59,6 @@ Global
 		{C5C32CE3-9EF2-4303-8D1D-0FACEAE66DC3} = {853BB9E6-634F-466C-8E6B-BECBF014E7F0}
 		{805752E8-816A-45AD-85E4-EA0C2091695E} = {77800A82-D627-468C-B835-B22FBBF05356}
 		{F3644238-EB60-4EF8-9819-B476CC5F64FB} = {853BB9E6-634F-466C-8E6B-BECBF014E7F0}
-		{38587ADA-1F5C-4DAB-8739-B28608B73948} = {853BB9E6-634F-466C-8E6B-BECBF014E7F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7DABA800-FE72-42DC-90CC-664CDA62F362}

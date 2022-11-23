@@ -18,21 +18,20 @@ namespace MovieService.Model
         public int EpisodeNumber { get; set; }
 
         [Column("title")]
-        public string? Title { get; set; }
+        public string Title { get; set; } = null!;
 
         [Column("release_date")]
-        public DateOnly ReleaseDate { get; set; }
+        public DateTime ReleaseDate { get; set; }
 
-        [Column("duration")]
-        public TimeSpan Duration { get; set; }
+        [Column("duration_in_minutes")]
+        public int DurationInMinutes { get; set; }
 
         [Column("description")]
-        public string? Description { get; set; }
+        public string Description { get; set; } = null!;
 
         [Column("series_id")]
         public int SeriesId { get; set; }
 
-        [Column("")]
         public virtual Series Series { get; set; } = null!;
     }
 }

@@ -1,7 +1,7 @@
-﻿using PersonService.Model;
+﻿using MovieService.Model;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PersonService.ApiModel
+namespace MovieService.ApiModel
 {
     public class PersonDTO
     {
@@ -9,8 +9,6 @@ namespace PersonService.ApiModel
         public string Name { get; set; } = null!;
         public string Surname { get; set; } = null!;
         public DateTime Birthdate { get; set; }
-        public virtual List<PersonMovie> SeriesId { get; set; } = null!;
-        //public virtual ICollection<int> MoviesId { get; set; } = null!;
-        public virtual ICollection<Role> Roles { get; set; } = null!;
+        public string Photo { get; set; } = null!;
     }
 }

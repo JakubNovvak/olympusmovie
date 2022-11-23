@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PersonService.ApiModel;
-using PersonService.Service;
+using MovieService.ApiModel;
+using MovieService.Service;
 
 
-namespace PersonService.Controller
+namespace MovieService.Controller
 {
     [Route(RESOURCE_PATH)]
     [ApiController]
     public class RoleController : ControllerBase
     {
-        private const string RESOURCE_PATH = "api/persons/roles";
+        private const string RESOURCE_PATH = "api/roles";
         private const string ID_QUERY_PARAM = "id";
         private const string GetMethod = "GET";
         private const string SelfRel = "self";
@@ -33,12 +33,6 @@ namespace PersonService.Controller
             return Ok(role);
         }
 
-        private LinkDTO GetLinkToRole(int id)
-        {
-            var url = _linkGenerator.GetUriByAction(HttpContext, nameof(GetRole), values: new { id }) ?? string.Empty;
-            return new LinkDTO(url, SelfRel, GetMethod);
-        }
-
         [HttpGet]
         public ActionResult<IEnumerable<RoleDTO>> GetRoles()
         {
@@ -59,6 +53,12 @@ namespace PersonService.Controller
             var id = await _dataService.EditAsync(roleDTO);
             var url = GetLinkToRole(id);
             return Ok(url);
+        }
+
+        private LinkDTO GetLinkToRole(int id)
+        {
+            var url = _linkGenerator.GetUriByAction(HttpContext, nameof(GetRole), values: new { id }) ?? string.Empty;
+            return new LinkDTO(url, SelfRel, GetMethod);
         }
 
         [HttpDelete]

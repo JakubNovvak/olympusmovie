@@ -47,7 +47,13 @@ var connectionString = $"Data Source={dbHost};Initial Catalog={dbName};User ID=s
 builder.Services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(connectionString));
 
 // Register services
+//builder.Services.AddScoped<IEpisodeDataService, EpisodeDataService>();
+builder.Services.AddScoped<IGenreDataService, GenreDataService>();
 builder.Services.AddScoped<IMovieDataService, MovieDataService>();
+builder.Services.AddScoped<IPersonDataService, PersonDataService>();
+builder.Services.AddScoped<IRoleDataService, RoleDataService>();
+builder.Services.AddScoped<ISeriesDataService, SeriesDataService>();
+builder.Services.AddScoped<ITagDataService, TagDataService>();
 
 var app = builder.Build();
 

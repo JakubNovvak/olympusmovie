@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace PersonService.Model
+namespace MovieService.Model
 {
     [Table("role", Schema = "dbo")]
     public class Role
@@ -14,7 +14,6 @@ namespace PersonService.Model
         [Column("name")]
         public string Name { get; set; } = null!;
 
-        [Column("persons")]
         public virtual ICollection <Person> Persons { get; set; } = null!;
     }
 }

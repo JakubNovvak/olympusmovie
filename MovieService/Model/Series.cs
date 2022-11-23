@@ -15,15 +15,17 @@ namespace MovieService.Model
         public string Title { get; set; } = null!;
 
         [Column("description")]
-        public string? Description { get; set; }
+        public string Description { get; set; } = null!;
 
-        [Column("genres")]
-        public ICollection<Genre>? Genres { get; set; }
+        [Column("photo")]
+        public string Photo { get; set; } = null!;
 
-        //[Column("persons")]
-        //public ICollection<Person>? Persons { get; set; }
+        public virtual ICollection<Genre> Genres { get; set; } = null!;
 
-        [Column("tags")]
-        public ICollection<Tag>? Tags { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; } = null!;
+
+        public virtual ICollection<Episode> Episodes { get; set; } = null!;
+
+        public virtual ICollection<Person> Persons { get; set; } = null!;
     }
 }

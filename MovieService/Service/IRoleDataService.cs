@@ -1,6 +1,6 @@
-﻿using PersonService.ApiModel;
+﻿using MovieService.ApiModel;
 
-namespace PersonService.Service
+namespace MovieService.Service
 {
     public interface IRoleDataService
     {
@@ -8,6 +8,6 @@ namespace PersonService.Service
         Task<RoleDTO?> GetById(int id);
         Task<int> AddAsync(RoleDTO roleDTO);
         Task<int> EditAsync(RoleDTO roleDTO);
-        Task<bool> RemoveRange(ISet<int> id);
+        Task<bool> RemoveRange(ISet<int> ids);
     }
 }

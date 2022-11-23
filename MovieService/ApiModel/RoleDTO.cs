@@ -1,7 +1,7 @@
-﻿using PersonService.Model;
+﻿using MovieService.Model;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PersonService.ApiModel
+namespace MovieService.ApiModel
 {
     public class RoleDTO
     {

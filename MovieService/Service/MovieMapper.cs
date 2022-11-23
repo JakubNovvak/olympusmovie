@@ -1,30 +1,86 @@
-﻿using MovieService.Model;
+﻿using MovieService.ApiModel;
+using MovieService.Model;
+using System;
 
 namespace MovieService.Service
 {
     public static class MovieMapper
     {
-        public static MovieWrapper MapToWrapper(Movie movie)
+        public static MovieDTO MapToDTO(Movie movie)
         {
-            return new MovieWrapper
+            return new MovieDTO
             {
                 Id = movie.Id,
                 Title = movie.Title,
                 Description = movie.Description,
                 DateOfRelease = movie.DateOfRelease,
-                Duration = movie.Duration
+                DurationInMinutes = movie.DurationInMinutes,
+                Photo = movie.Photo
             };
         }
 
-        public static Movie MapToEntity(MovieWrapper movieWrapper)
+        public static MovieDetailsDTO MapToDerailsDTO(Movie movie)
         {
-            return new Movie
+            List<GenreDTO> genresDTO = new List<GenreDTO>();
+            foreach (Genre genre in movie.Genres)
             {
-                Id = movieWrapper.Id ?? 0,
-                Title = movieWrapper.Title,
-                Description = movieWrapper.Description,
-                DateOfRelease = movieWrapper.DateOfRelease,
-                Duration = movieWrapper.Duration
+                genresDTO.Add(GenreMapper.MapToDTO(genre));
+            }
+
+            List<TagDTO> tagsDTO = new List<TagDTO>();
+            foreach (Tag tag in movie.Tags)
+            {
+                tagsDTO.Add(TagMapper.MapToDTO(tag));
+            }
+
+            List<PersonDTO> personsDTO = new List<PersonDTO>();
+            foreach (Person person in movie.Persons)
+            {
+                personsDTO.Add(PersonMapper.MapToDTO(person));
+            }
+
+            return new MovieDetailsDTO
+            {
+                Id = movie.Id,
+                Title = movie.Title,
+                Description = movie.Description,
+                DateOfRelease = movie.DateOfRelease,
+                DurationInMinutes = movie.DurationInMinutes,
+                Photo = movie.Photo,
+                Genres = genresDTO,
+                Tags = tagsDTO,
+                Persons = personsDTO
+            };
+        }
+
+        public static Movie MapToEntity(MovieDTO movieDTO, bool isNew)
+        {
+            if (isNew)
+            {
+                return new Movie
+                {
+                    Id = movieDTO.Id,
+                    Title = movieDTO.Title,
+                    Description = movieDTO.Description,
+                    DateOfRelease = movieDTO.DateOfRelease,
+                    DurationInMinutes = movieDTO.DurationInMinutes,
+                    Photo = movieDTO.Photo,
+                    Genres = new List<Genre>(),
+                    Tags = new List<Tag>(),
+                    Persons = new List<Person>()
+                };
+            } 
+            else
+            {
+                return new Movie
+                {
+                    Id = movieDTO.Id,
+                    Title = movieDTO.Title,
+                    Description = movieDTO.Description,
+                    DateOfRelease = movieDTO.DateOfRelease,
+                    DurationInMinutes = movieDTO.DurationInMinutes,
+                    Photo = movieDTO.Photo
+                };
             };
         }
     }

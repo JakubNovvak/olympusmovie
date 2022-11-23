@@ -1,4 +1,5 @@
-﻿using MovieService.Repository;
+﻿using MovieService.ApiModel;
+using MovieService.Repository;
 
 namespace MovieService.Service
 {
@@ -11,24 +12,9 @@ namespace MovieService.Service
             _dbContext = dbContext;
         }
 
-        public IEnumerable<int> GetAll()
+        public async Task<int> AddAsync(MovieDTO movieDTO)
         {
-            return _dbContext.Movies.Select(movie => movie.Id);
-        }
-
-        public async Task<MovieWrapper?> GetById(int id)
-        {
-            var movie = await _dbContext.Movies.FindAsync(id);
-            if (movie == null)
-            {
-                return null;
-            }
-            return MovieMapper.MapToWrapper(movie);
-        }
-
-        public async Task<int> AddAsync(MovieWrapper movieWrapper)
-        {
-            var movie = MovieMapper.MapToEntity(movieWrapper);
+            var movie = MovieMapper.MapToEntity(movieDTO, true);
             var createdMovie = await _dbContext.Movies.AddAsync(movie);
             if (createdMovie != null)
             {
@@ -36,6 +22,38 @@ namespace MovieService.Service
                 return createdMovie.Entity.Id;
             }
             return 0;
+        }
+
+        public async Task<int> EditAsync(MovieDTO movieDTO)
+        {
+            var movieEntity = MovieMapper.MapToEntity(movieDTO, false);
+            var findMovie = _dbContext.Movies.FirstOrDefault(movie => movie.Id == movieEntity.Id);
+            if(findMovie != null)
+            {
+                findMovie.Title = movieEntity.Title;
+                findMovie.Description = movieEntity.Description;
+                findMovie.DateOfRelease = movieEntity.DateOfRelease;
+                findMovie.DurationInMinutes = movieEntity.DurationInMinutes;
+                findMovie.Photo = movieEntity.Photo;
+                await _dbContext.SaveChangesAsync();
+                return findMovie.Id;
+            }
+            return 0;
+        }
+
+        public IEnumerable<int> GetAll()
+        {
+            return _dbContext.Movies.Select(movie => movie.Id);
+        }
+
+        public async Task<MovieDTO?> GetById(int id)
+        {
+            var movie = await _dbContext.Movies.FindAsync(id);
+            if (movie == null)
+            {
+                return null;
+            }
+            return MovieMapper.MapToDTO(movie);
         }
 
         public async Task<bool> RemoveRange(ISet<int> ids)
@@ -49,5 +67,6 @@ namespace MovieService.Service
             await _dbContext.SaveChangesAsync();
             return true;
         }
+
     }
 }

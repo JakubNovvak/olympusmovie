@@ -12,24 +12,24 @@ namespace MovieService.Model
         public int Id { get; set; }
 
         [Column("title")]
-        public string? Title { get; set; }
+        public string Title { get; set; } = null!;
 
         [Column("description")]
-        public String? Description { get; set; }
+        public string Description { get; set; } = null!;
 
-        [Column("releaseDate")]
-        public DateTime? DateOfRelease { get; set; }
+        [Column("release_date")]
+        public DateTime DateOfRelease { get; set; }
 
-        [Column("duration")]
-        public Duration? Duration { get; set; }
+        [Column("duration_in_minutes")]
+        public int DurationInMinutes { get; set; }
 
-        [Column("genres")]
-        public ICollection<Genre>? Genres { get; set; }
+        [Column("photo")]
+        public string Photo { get; set; } = null!;
 
-        //[Column("persons")]
-        //public ICollection<Person>? Persons { get; set; }
+        public virtual ICollection<Genre> Genres { get; set; } = null!;
 
-        [Column("tags")]
-        public ICollection<Tag>? Tags { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; } = null!;
+
+        public virtual ICollection<Person> Persons { get; set; } = null!;
     }
 }

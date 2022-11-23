@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace PersonService.Model
+namespace MovieService.Model
 {
-    [Table("Person", Schema = "dbo")]
+    [Table("person", Schema = "dbo")]
     public class Person
     {
         [Key]
@@ -20,13 +20,13 @@ namespace PersonService.Model
         [Column("birthdate")]
         public DateTime Birthdate { get; set; }
 
-        [Column("series")]
-        public virtual List<PersonMovie> SeriesId { get; set; } = null!;
+        [Column("photo")]
+        public string Photo { get; set; } = null!;
 
-        //[Column("movies")]
-        //public virtual ICollection<int> MoviesId { get; set; } = null!;
+        public virtual ICollection<Series> Series { get; set; } = null!;
 
-        [Column("roles")]
+        public virtual ICollection<Movie> Movies { get; set; } = null!;
+
         public virtual ICollection<Role> Roles { get; set; } = null!;
     }
 }
