@@ -37,6 +37,10 @@ builder.Services.AddSwaggerGen(option =>
         }
     });
 });
+builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
+{
+    build.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+}));
 builder.Services.AddCustomJwtAuthentication();
 
 // Database configuration
@@ -70,5 +74,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseCors("corspolicy");
 
 app.Run();
