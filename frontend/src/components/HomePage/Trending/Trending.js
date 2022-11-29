@@ -47,27 +47,59 @@ const Text = styled(Typography)(({ theme }) => ({
     
 }))
 
+const Arrow = styled("div")(({ theme }) => ({
+    "& .next": {
+        position: "absolute",
+ /*       top: "50%",
+        right: "11%",*/
+        bottom: "32.5%",
+        left: "1%",
+        zIndex: "10",
+        color: "white"
+    },
+    "& .prev": {
+        color: "white",
+        //color: "white",
+/*        position: "absolute",
+        top: "50%",
+        left: "11%",*/
+        zIndex: "10"
+    }
+}))
+
+const ArrowBox = styled("div")(({ theme }) => ({
+    position: "absolue",
+    backgroundColor: "black",
+    borderRadius: "0.3rem",
+    width: "20%",
+    left: "50%"
+    
+}))
 
 const Trending = () => {
 
     const SampleNextArrow = (props) => {
         const { className, onClick, style } = props
         return (
-            <div onClick={onClick}>
-                <IconButton className="next">
-                    <ArrowForwardIos />
-                </IconButton>
-            </div>
+            <ArrowBox>
+                <Arrow onClick={onClick}>
+                    <IconButton className="next">
+                        <ArrowForwardIos />
+                    </IconButton>
+                </Arrow>
+            </ArrowBox>
         )
     }
     const SamplePrevArrow = (props) => {
         const { className, onClick, style } = props
         return (
-            <div onClick={onClick}>
-                <IconButton className="prev">
-                    <ArrowBackIosIcon />
-                </IconButton>
-            </div>
+            <ArrowBox>
+                <Arrow onClick={onClick}>
+                    <IconButton className="prev">
+                        <ArrowBackIosIcon />
+                    </IconButton>
+                </Arrow>
+            </ArrowBox>
         )
     }
 
