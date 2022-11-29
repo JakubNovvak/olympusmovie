@@ -11,4 +11,9 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\build</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\components\HomePage\HomeCarousel\" />
+    <Folder Include="src\components\HomePage\Trending\" />
+    <Folder Include="src\components\HomePage\Upcoming\" />
+  </ItemGroup>
 </Project>

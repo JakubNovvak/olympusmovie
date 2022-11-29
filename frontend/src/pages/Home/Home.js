@@ -8,9 +8,24 @@ import coco from "./coco.jpg";
 import listydom from "./listydom.jpg";
 import homealone from "./homealone.jpg";
 import { styled, alpha } from "@mui/material/styles";
+import HomeCarousel from "../../components/HomePage/HomeCarousel/HomeCarousel";
+import Trending from "../../components/HomePage/Trending/Trending";
 
 
+const Home = () => {
 
+    return (
+        <>
+            <HomeCarousel />
+            <Trending />
+        </>
+        );
+
+}
+
+export default Home;
+
+/*
 export default class SimpleSlider extends Component {
     render() {
         const settings = {
@@ -60,3 +75,4 @@ export default class SimpleSlider extends Component {
         );
     }
 }
+*/
