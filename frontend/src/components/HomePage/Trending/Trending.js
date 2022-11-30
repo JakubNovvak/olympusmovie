@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, createRef } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -9,118 +9,97 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import TrendingCard from "./TrendingCard";
+import data from "./data.json";
 
 const SectionContainer = styled(Box)(({ theme }) => ({
-
     alignItems: "center",
     marginTop: "2rem",
     backgroundColor: "white"
 }))
 
-const TrendingBox = styled(Paper)(({ theme }) => ({
-    position: "absolute",
-    textAlign: "left",
-    width: "30%",
-    height: "10%",
-    left: "35%",
-    right: "30%",
-    top: "5%",
-    backgroundColor: "#201c1c",
-    borderRadius: "0.8rem",
-    color: "white"
+const TrendingBoxContainer = styled(Box)(({ theme }) => ({
+    transform: "translateY(-15px)"
 }))
 
-const Icons = styled(Box)(({ theme }) => ({
+const TrendingBox = styled(Box)(({ theme }) => ({
     position: "relative",
-    textAlign: "right",
-    width: "50%",
-    left: "45%",
-    bottom: "42%",
-    color: "white"
-}))
-
-const Text = styled(Typography)(({ theme }) => ({
-    width: "50%",
-    textAlign: "left",
+    paddingTop: "3px",
+    width: "40%",
+    height:"5vh",
+    left: "30%",
+    backgroundColor: "#201c1c",
     color: "white",
-    paddingLeft: "15px"
-    
-}))
-
-const Arrow = styled("div")(({ theme }) => ({
-    "& .next": {
-        position: "absolute",
- /*       top: "50%",
-        right: "11%",*/
-        bottom: "32.5%",
-        left: "1%",
-        zIndex: "10",
-        color: "white"
-    },
-    "& .prev": {
+    fontSize: "22px",
+    fontWeight:"500",
+    textAlign: "center",
+    borderRadius: "0.5rem",
+    zIndex: "20",
+    boxShadow: "10px 8px 10px rgba(0,0,0,0.6)",
+    "& .icon": {
         color: "white",
-        //color: "white",
-/*        position: "absolute",
-        top: "50%",
-        left: "11%",*/
-        zIndex: "10"
+
     }
 }))
 
-const ArrowBox = styled("div")(({ theme }) => ({
-    position: "absolue",
-    backgroundColor: "black",
-    borderRadius: "0.3rem",
-    width: "20%",
-    left: "50%"
-    
+const TrendingCardContainer = styled("div")(({ theme }) => ({
+    transform: "translateY(-40px)",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "80%",
+    paddingLeft: "10%"
 }))
+
 
 const Trending = () => {
 
-    const SampleNextArrow = (props) => {
-        const { className, onClick, style } = props
-        return (
-            <ArrowBox>
-                <Arrow onClick={onClick}>
-                    <IconButton className="next">
-                        <ArrowForwardIos />
-                    </IconButton>
-                </Arrow>
-            </ArrowBox>
-        )
+    const customSlider = createRef();
+
+    const gotoNext = () => {
+        customSlider.current.slickNext()
     }
-    const SamplePrevArrow = (props) => {
-        const { className, onClick, style } = props
-        return (
-            <ArrowBox>
-                <Arrow onClick={onClick}>
-                    <IconButton className="prev">
-                        <ArrowBackIosIcon />
-                    </IconButton>
-                </Arrow>
-            </ArrowBox>
-        )
+
+    const gotoPrev = () => {
+        customSlider.current.slickPrev()
     }
+
 
     const settings = {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 3,
         slidesToScroll: 1,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
+        arrows: false
     }
 
     return (
 
         <SectionContainer>
-            <Slider {...settings}>
-                <div>123</div>
-                <div>123</div>
-                <div>123</div>
-            </Slider>
+            <TrendingBoxContainer>
+
+                <TrendingBox sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                    <p style={{paddingLeft: "8px"}}>Popularne teraz</p>
+                    <Box>
+                        <IconButton className="icon" onClick={gotoPrev}>
+                            <ArrowBackIosIcon />
+                        </IconButton>
+
+                        <IconButton className="icon" onClick={gotoNext}>
+                            <ArrowForwardIos />
+                        </IconButton>
+                    </Box>
+                </TrendingBox>
+
+            </TrendingBoxContainer>
+            <TrendingCardContainer>
+                <Slider {...settings} ref={customSlider}>
+                    {data.map((entry) => {
+                        return (<TrendingCard entry={entry} key={entry.id} />);
+
+                    })}
+                </Slider>
+            </TrendingCardContainer>
         </ SectionContainer>
         
         );

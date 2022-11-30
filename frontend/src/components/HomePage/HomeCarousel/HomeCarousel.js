@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import HomeCard from "../HomeCard/HomeCard";
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import data from "./data.json";
 
 
 const HomeCardContainer = styled("div")(({ theme }) => ({
@@ -33,15 +34,13 @@ const Arrow = styled("div")(({ theme }) => ({
 
 const Container = styled("div")(({ theme }) => ({
     
-    
-
 }))
 
 
 const HomeCarousel = ({ props }) => {
 
     const SampleNextArrow = (props) => {
-        const { className, onClick, style } = props
+        const { onClick } = props
         return (
             <Arrow onClick={onClick}>
                 <IconButton className="next">
@@ -51,7 +50,7 @@ const HomeCarousel = ({ props }) => {
         )
     }
     const SamplePrevArrow = (props) => {
-        const { className, onClick, style } = props
+        const { onClick } = props
         return (
             <Arrow onClick={onClick}>
                 <IconButton className="prev">
@@ -64,9 +63,11 @@ const HomeCarousel = ({ props }) => {
     const settings = {
         dots: false,
         infinite: true,
-        speed: 500,
+        speed: 800,
         slidesToShow: 1,
         slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 4300,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
     }
@@ -75,9 +76,9 @@ const HomeCarousel = ({ props }) => {
 
         <Container>
             <Slider {...settings}>
-                <HomeCardContainer><HomeCard /></HomeCardContainer>
-                <HomeCardContainer><HomeCard /></HomeCardContainer>
-                <HomeCardContainer><HomeCard /></HomeCardContainer>
+                {data.map((entry) => {
+                    return (<HomeCard entry={entry} key={entry.id} />);
+                })}
             </Slider>
 
         </Container>

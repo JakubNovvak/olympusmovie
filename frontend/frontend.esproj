@@ -12,8 +12,7 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\build</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\components\HomePage\HomeCarousel\" />
-    <Folder Include="src\components\HomePage\Trending\" />
     <Folder Include="src\components\HomePage\Upcoming\" />
+    <Folder Include="src\pages\Movie\" />
   </ItemGroup>
 </Project>

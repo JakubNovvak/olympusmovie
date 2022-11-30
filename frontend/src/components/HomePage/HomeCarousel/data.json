@@ -1,0 +1,91 @@
+[
+  {
+    "id": 1,
+    "director": "Chinua Achebe",
+    "imageLink": "https://lumiere-a.akamaihd.net/v1/images/image_1fbb2748.jpeg",
+    "language": "Angielski",
+    "released": "14 grudnia 2022",
+    "title": "Avatar: Istota Wody",
+    "Runtime": "90 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "Trailer": "https://www.youtube.com/watch?v=4WyOURLHoiE"
+  },
+
+  {
+    "id": 2,
+    "director": "Chinua Achebe",
+    "imageLink": "https://www.kawerna.pl/wp-content/uploads/2022/08/enolaholmes2-e1665606419846.jpeg",
+    "language": "Angielski",
+    "released": "4 listopada 2022",
+    "title": "Enola Holmes 2",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "Trailer": "https://www.youtube.com/watch?v=N5yZwbQWO6c"
+  },
+
+  {
+    "id": 3,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fph/55/08/875508/1116001_1.1.jpg",
+    "language": "Angielski",
+    "released": "2 grudnia 2022",
+    "title": "Nitram",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "Trailer": "https://www.youtube.com/watch?v=IkrMMSo5kTw"
+  },
+
+  {
+    "id": 4,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fph/31/87/10013187/1116149_1.1.jpg",
+    "language": "Angielski",
+    "released": "2 grudnia 2022",
+    "title": "Pięć Diabłów",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "Trailer": "https://www.youtube.com/watch?v=JO_hNjm1dwA"
+  },
+
+  {
+    "id": 5,
+    "director": "Chinua Achebe",
+    "imageLink": "https://i.ytimg.com/vi/a_yv4M5qfL0/maxresdefault.jpg",
+    "language": "Angielski",
+    "released": "9 grudnia 2022",
+    "title": "Świąteczna niespodzianka",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "Trailer": "https://www.youtube.com/watch?v=a_yv4M5qfL0"
+  },
+
+  {
+    "id": 6,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fph/20/02/10012002/1097303_1.1.jpg",
+    "language": "Angielski",
+    "released": "9 grudnia 2022",
+    "title": "Piękny poranek",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "Trailer": "https://www.youtube.com/watch?v=gptkzQ8t_CU"
+  }
+]
