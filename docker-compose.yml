@@ -66,12 +66,3 @@ services:
       dockerfile: AuthenticationService/Dockerfile
     networks:
       backend:
-
-  frontendapp:
-    container_name: "frontend-app"
-    image: ${DOCKER_REGISTRY-}frontendapp
-    build:
-      context: .
-      dockerfile: frontend/Dockerfile
-    networks:
-      backend:

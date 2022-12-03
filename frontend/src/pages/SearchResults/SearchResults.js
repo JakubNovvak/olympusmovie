@@ -51,11 +51,7 @@ const SearchResults = () => {
 
   useEffect(() => {
     const title = searchParams.get("title");
-    fetch("https://localhost:25000/api/movies?title=" + title, {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
-    })
+    fetch(`https://localhost:25000/api/movies?title=${title}`)
       .then((response) => response.json())
       .then((data) => setFilteredData(data));
     setIsLoaded(true);
