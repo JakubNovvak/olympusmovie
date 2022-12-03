@@ -31,6 +31,21 @@ services:
     networks:
       - backend
 
+  userservice:
+    container_name: user-service
+    image: ${DOCKER_REGISTRY-}userservice
+    build:
+      context: .
+      dockerfile: UserService/Dockerfile
+    depends_on:
+      - superdb
+    environment:
+      - DB_HOST=superdb
+      - DB_NAME=userdb
+      - DB_SA_PASSWORD=Password@123
+    networks:
+      - backend
+
   apigateway:
     container_name: "api-gateway"
     image: ${DOCKER_REGISTRY-}apigateway

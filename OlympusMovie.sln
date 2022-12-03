@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationService", "Au
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "frontend", "frontend\frontend.esproj", "{ADAC43D2-4892-49FD-BC92-695B71659720}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService", "UserService\UserService.csproj", "{790DA11E-537F-4CF9-87B7-EADB638CB5DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{ADAC43D2-4892-49FD-BC92-695B71659720}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADAC43D2-4892-49FD-BC92-695B71659720}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ADAC43D2-4892-49FD-BC92-695B71659720}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{790DA11E-537F-4CF9-87B7-EADB638CB5DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{790DA11E-537F-4CF9-87B7-EADB638CB5DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{790DA11E-537F-4CF9-87B7-EADB638CB5DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{790DA11E-537F-4CF9-87B7-EADB638CB5DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{C5C32CE3-9EF2-4303-8D1D-0FACEAE66DC3} = {853BB9E6-634F-466C-8E6B-BECBF014E7F0}
 		{805752E8-816A-45AD-85E4-EA0C2091695E} = {77800A82-D627-468C-B835-B22FBBF05356}
 		{F3644238-EB60-4EF8-9819-B476CC5F64FB} = {853BB9E6-634F-466C-8E6B-BECBF014E7F0}
+		{790DA11E-537F-4CF9-87B7-EADB638CB5DE} = {853BB9E6-634F-466C-8E6B-BECBF014E7F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7DABA800-FE72-42DC-90CC-664CDA62F362}
