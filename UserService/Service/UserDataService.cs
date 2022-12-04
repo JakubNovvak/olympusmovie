@@ -1,4 +1,6 @@
-﻿using UserService.ApiModel;
+﻿using Microsoft.AspNetCore.Components.Forms;
+using UserService.ApiModel;
+using UserService.Model.Relations;
 using UserService.Repository;
 
 namespace UserService.Service
@@ -44,6 +46,28 @@ namespace UserService.Service
             _dbContext.Users.Remove(user);
             await _dbContext.SaveChangesAsync();
             return true;
+        }
+
+        public async Task AddMoviesPlannedToWatch(int userId, int movieId)
+        {
+            var createdRelation = await _dbContext.PlanToWatchRelations.AddAsync(new PlanToWatchRelation(userId, movieId));
+            if (createdRelation != null)
+            {
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+
+        public bool UserExists(int userId)
+        {
+            return _dbContext.Users.Where(user => user.Id == userId).Any();
+        }
+
+        public IList<int> GetMoviesToPlanToWatch(int userId)
+        {
+            return _dbContext.PlanToWatchRelations
+                .Where(relation => relation.RelatedUserId == userId)
+                .Select(relation => relation.RelatedMovieId)
+                .ToList();
         }
     }
 }
