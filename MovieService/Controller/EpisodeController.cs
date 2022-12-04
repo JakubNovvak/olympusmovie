@@ -5,11 +5,10 @@ using MovieService.Service;
 
 namespace MovieService.Controller
 {
-    [Route(RESOURCE_PATH)]
+    [Route("api/[controller]")]
     [ApiController]
     public class EpisodeController : ControllerBase
     {
-        private const string RESOURCE_PATH = "api/episodes";
         private const string ID_QUERY_PARAM = "id";
         private const string GetMethod = "GET";
         private const string SelfRel = "self";
