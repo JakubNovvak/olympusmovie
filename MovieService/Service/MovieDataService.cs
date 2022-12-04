@@ -14,7 +14,7 @@ namespace MovieService.Service
 
         public async Task<int> AddAsync(MovieDTO movieDTO)
         {
-            var movie = MovieMapper.MapToEntity(movieDTO, true);
+            var movie = MovieMapper.MapToEntity(movieDTO);
             var createdMovie = await _dbContext.Movies.AddAsync(movie);
             if (createdMovie != null)
             {
@@ -26,17 +26,17 @@ namespace MovieService.Service
 
         public async Task<int> EditAsync(MovieDTO movieDTO)
         {
-            var movieEntity = MovieMapper.MapToEntity(movieDTO, false);
-            var findMovie = _dbContext.Movies.FirstOrDefault(movie => movie.Id == movieEntity.Id);
-            if(findMovie != null)
+            var movieEntity = MovieMapper.MapToEntity(movieDTO);
+            var movieToEdit = _dbContext.Movies.FirstOrDefault(movie => movie.Id == movieEntity.Id);
+            if(movieToEdit != null)
             {
-                findMovie.Title = movieEntity.Title;
-                findMovie.Description = movieEntity.Description;
-                findMovie.DateOfRelease = movieEntity.DateOfRelease;
-                findMovie.DurationInMinutes = movieEntity.DurationInMinutes;
-                findMovie.Photo = movieEntity.Photo;
+                movieToEdit.Title = movieEntity.Title;
+                movieToEdit.Description = movieEntity.Description;
+                movieToEdit.DateOfRelease = movieEntity.DateOfRelease;
+                movieToEdit.DurationInMinutes = movieEntity.DurationInMinutes;
+                movieToEdit.Photo = movieEntity.Photo;
                 await _dbContext.SaveChangesAsync();
-                return findMovie.Id;
+                return movieToEdit.Id;
             }
             return 0;
         }

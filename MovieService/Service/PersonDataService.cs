@@ -14,7 +14,7 @@ namespace MovieService.Service
 
         public async Task<int> AddAsync(PersonDTO personDTO)
         {
-            var person = PersonMapper.MapToEntity(personDTO, true);
+            var person = PersonMapper.MapToEntity(personDTO);
             var createPerson = await _dbContext.Persons.AddAsync(person);
             if (createPerson != null)
             {
@@ -26,7 +26,7 @@ namespace MovieService.Service
 
         public async Task<int> EditAsync(PersonDTO personDTO)
         {
-            var personEntity = PersonMapper.MapToEntity(personDTO, false);
+            var personEntity = PersonMapper.MapToEntity(personDTO);
             var findPerson = _dbContext.Persons.FirstOrDefault(person => person.Id == personEntity.Id);
             if (findPerson != null)
             {

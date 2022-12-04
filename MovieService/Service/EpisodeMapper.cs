@@ -19,36 +19,20 @@ namespace MovieService.Service
             };
         }
 
-        public static Episode MapToEntity(EpisodeDTO episodeDTO, bool isNew)
+        public static Episode MapToEntity(EpisodeDTO episodeDTO)
         {
-            if (isNew)
+            return new Episode
             {
-                return new Episode
-                {
-                    Id = episodeDTO.Id,
-                    Season = episodeDTO.Season,
-                    EpisodeNumber = episodeDTO.EpisodeNumber,
-                    Title = episodeDTO.Title,
-                    ReleaseDate = episodeDTO.ReleaseDate,
-                    DurationInMinutes = episodeDTO.DurationInMinutes,
-                    Description = episodeDTO.Description,
-                    SeriesId = new int(),
-                    Series = new Series()
-                };
-            }
-            else
-            {
-                return new Episode
-                {
-                    Id = episodeDTO.Id,
-                    Season = episodeDTO.Season,
-                    EpisodeNumber = episodeDTO.EpisodeNumber,
-                    Title = episodeDTO.Title,
-                    ReleaseDate = episodeDTO.ReleaseDate,
-                    DurationInMinutes = episodeDTO.DurationInMinutes,
-                    Description = episodeDTO.Description
-                };
-            }
+                Id = episodeDTO.Id,
+                Season = episodeDTO.Season,
+                EpisodeNumber = episodeDTO.EpisodeNumber,
+                Title = episodeDTO.Title,
+                ReleaseDate = episodeDTO.ReleaseDate,
+                DurationInMinutes = episodeDTO.DurationInMinutes,
+                Description = episodeDTO.Description,
+                SeriesId = new int(),
+                Series = new Series()
+            };
         }
     }
 }

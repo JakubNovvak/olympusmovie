@@ -55,32 +55,19 @@ namespace MovieService.Service
             };
         }
 
-        public static Series MapToEntity(SeriesDTO seriesDTO, bool isNew)
+        public static Series MapToEntity(SeriesDTO seriesDTO)
         {
-            if (isNew)
+            return new Series
             {
-                return new Series
-                {
-                    Id = seriesDTO.Id,
-                    Title = seriesDTO.Title,
-                    Description = seriesDTO.Description,
-                    Photo = seriesDTO.Photo,
-                    Genres = new List<Genre>(),
-                    Tags = new List<Tag>(),
-                    Episodes = new List<Episode>(),
-                    Persons = new List<Person>()
-                };
-            }
-            else
-            {
-                return new Series
-                {
-                    Id = seriesDTO.Id,
-                    Title = seriesDTO.Title,
-                    Description = seriesDTO.Description,
-                    Photo = seriesDTO.Photo,
-                };
-            }
+                Id = seriesDTO.Id,
+                Title = seriesDTO.Title,
+                Description = seriesDTO.Description,
+                Photo = seriesDTO.Photo,
+                Genres = new List<Genre>(),
+                Tags = new List<Tag>(),
+                Episodes = new List<Episode>(),
+                Persons = new List<Person>()
+            };
         }
     }
 }

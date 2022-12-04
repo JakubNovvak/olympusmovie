@@ -52,33 +52,19 @@ namespace MovieService.Service
             };
         }
 
-        public static Person MapToEntity(PersonDTO personDTO, bool isNew)
+        public static Person MapToEntity(PersonDTO personDTO)
         {
-            if (isNew)
+            return new Person
             {
-                return new Person
-                {
-                    Id = personDTO.Id,
-                    Name = personDTO.Name,
-                    Surname = personDTO.Surname,
-                    Birthdate = personDTO.Birthdate,
-                    Photo=personDTO.Photo,
-                    Series = new List<Series>(),
-                    Movies = new List<Movie>(),
-                    Roles = new List<Role>()
-                };
-            }
-            else
-            {
-                return new Person
-                {
-                    Id = personDTO.Id,
-                    Name = personDTO.Name,
-                    Surname = personDTO.Surname,
-                    Birthdate = personDTO.Birthdate,
-                    Photo = personDTO.Photo,
-                };
-            }
+                Id = personDTO.Id,
+                Name = personDTO.Name,
+                Surname = personDTO.Surname,
+                Birthdate = personDTO.Birthdate,
+                Photo=personDTO.Photo,
+                Series = new List<Series>(),
+                Movies = new List<Movie>(),
+                Roles = new List<Role>()
+            };
         }
     }
 }

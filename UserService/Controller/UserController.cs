@@ -5,11 +5,10 @@ using UserService.Service;
 
 namespace UserService.Controller
 {
-    [Route(RESOURCE_PATH)]
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private const string RESOURCE_PATH = "api/users";
         private const string ID_QUERY_PARAM = "id";
         private const string TITLE_QUERY_PARAM = "title";
         private const string GetMethod = "GET";

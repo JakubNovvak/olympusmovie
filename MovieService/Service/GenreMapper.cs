@@ -15,28 +15,16 @@ namespace MovieService.Service
             };
         }
 
-        public static Genre MapToEntity(GenreDTO genreDTO, bool isNew)
+        public static Genre MapToEntity(GenreDTO genreDTO)
         {
-            if (isNew)
+            return new Genre
             {
-                return new Genre
-                {
-                    Id = genreDTO.Id,
-                    Name = genreDTO.Name,
-                    Description = genreDTO.Description,
-                    Movies = new List<Movie>(),
-                    Series = new List<Series>()
-                };
-            }
-            else
-            {
-                return new Genre
-                {
-                    Id = genreDTO.Id,
-                    Name = genreDTO.Name,
-                    Description = genreDTO.Description
-                };
-            }
+                Id = genreDTO.Id,
+                Name = genreDTO.Name,
+                Description = genreDTO.Description,
+                Movies = new List<Movie>(),
+                Series = new List<Series>()
+            };
         }
     }
 }

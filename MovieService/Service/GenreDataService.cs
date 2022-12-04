@@ -14,7 +14,7 @@ namespace MovieService.Service
 
         public async Task<int> AddAsync(GenreDTO genreDTO)
         {
-            var genre = GenreMapper.MapToEntity(genreDTO, true);
+            var genre = GenreMapper.MapToEntity(genreDTO);
             var createdGenre = await _dbContext.Genres.AddAsync(genre);
             if (createdGenre != null)
             {
@@ -26,7 +26,7 @@ namespace MovieService.Service
 
         public async Task<int> EditAsync(GenreDTO genreDTO)
         {
-            var genreEntity = GenreMapper.MapToEntity(genreDTO, false);
+            var genreEntity = GenreMapper.MapToEntity(genreDTO);
             var findGenre = _dbContext.Genres.FirstOrDefault(movie => movie.Id == genreEntity.Id);
             if (findGenre != null)
             {
