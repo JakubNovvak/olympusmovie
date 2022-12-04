@@ -18,7 +18,7 @@ function App() {
           sx={{
             minHeight: "calc(100vh - 233px)",
             backgroundImage: "linear-gradient(#ffb300, #ff4100)",
-            height: "100%",
+            height: "100%"
           }}
         >
           <Routes>
