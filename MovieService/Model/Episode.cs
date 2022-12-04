@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MovieService.Model
 {
-    [Table("episode", Schema = "dbo")]
     public class Episode
     {
         [Key]
