@@ -17,6 +17,26 @@ import Typography from "@mui/material/Typography";
 import Checkbox from '@mui/material/Checkbox';
 import logo from "../../assets/logo.svg";
 
+const PasswordEssentialsContainer = styled(Box)(({ theme }) => ({
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+    width: "82%",
+    paddingBottom: "30px"
+})); 
+
+const RememberMeContainer = styled(Box)(({ theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    
+}));
+
+const RememberMeText = styled(Typography)(({ theme }) => ({
+    display: "flex",
+    fontSize: "15px",
+    fontWeight: "500",
+    color: "black"
+})); 
 
 const LogInTextContainer = styled(Typography)(({ theme }) => ({
     position: "relative",
@@ -26,10 +46,8 @@ const LogInTextContainer = styled(Typography)(({ theme }) => ({
 })); 
 
 const ForgotPasswordText = styled(Typography)(({ theme }) => ({
-    position: "relative",
-    right: "17%",
-    paddingTop: "5px",
-    paddingBottom: "30px",
+    display: "flex",
+   // right: "17%",
     fontSize: "15px",
     fontWeight: "500",
     color: "#2596be"
@@ -58,8 +76,8 @@ const LoginBoxContainer = styled(Box)(({ theme }) => ({
     flexDirection: "column",
     backgroundColor: "white",
     borderRadius: "20px",
-    width: "400px",
-    height: "470px"
+    width: "500px",
+    height: "500px"
 }));
 
 const ImageContainer = styled(CardMedia)(({ theme }) => ({
@@ -76,7 +94,7 @@ const TextFieldContainer = styled("div")(({ theme }) => ({
 const Login = () => {
 
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-    //<Checkbox {...label} defaultChecked />
+    
 
     const [values, setValues] = React.useState({
         amount: '',
@@ -116,14 +134,14 @@ const Login = () => {
                     <LogInTextContainer variant="h6">Zaloguj się</LogInTextContainer>
 
                     <TextFieldContainer>
-                        <FormControl size="small" variant="standard" style={{ minWidth: "270px" }}>
+                        <FormControl size="small" variant="standard" style={{ minWidth: "320px" }}>
                             <InputLabel htmlFor="standard-adornment-password" sx={{ fontSize: "15px" }}>Nazwa użytkownika</InputLabel>
                             <Input sx={{ fontSize: "15px" }} />
                         </FormControl>
                     </TextFieldContainer>
                     
                     <TextFieldContainer>
-                        <FormControl size="small" variant="standard" style={{ minWidth: "270px" }}>
+                        <FormControl size="small" variant="standard" style={{ minWidth: "320px" }}>
                             <InputLabel htmlFor="standard-adornment-password" sx={{ fontSize: "15px" }}>Hasło</InputLabel>
                             <Input
                             sx={{ fontSize: "15px" }}
@@ -146,8 +164,17 @@ const Login = () => {
                         </FormControl>
                     </TextFieldContainer>
 
-                    <ForgotPasswordText variant="h7" >Zapomniałeś hasła?</ForgotPasswordText>
-                    Tutaj czekboks
+                    <PasswordEssentialsContainer>
+
+                        <RememberMeContainer>
+                            <Checkbox {...label} defaultChecked sx={{ display: "flex" }} ></ Checkbox>
+                            <RememberMeText>Zapamiętaj mnie</RememberMeText>
+                        </RememberMeContainer>
+
+                        <ForgotPasswordText variant="h7" >Zapomniałeś hasła?</ForgotPasswordText>
+
+                    </PasswordEssentialsContainer>
+
                     <Button variant="contained" sx={{ fontSize: "14px", backgroundColor: "#201c1c", borderRadius: "15px" }}>Zaloguj się</Button>
 
                     <RegisterText variant="h7" >Nie masz jeszcze konta? Załóż je tutaj!</RegisterText>
