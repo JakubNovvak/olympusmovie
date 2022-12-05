@@ -16,6 +16,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Checkbox from '@mui/material/Checkbox';
 import logo from "../../assets/logo.svg";
+import Divider from '@mui/material/Divider';
+import { Link } from "react-router-dom";
 
 const PasswordEssentialsContainer = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -40,7 +42,7 @@ const RememberMeText = styled(Typography)(({ theme }) => ({
 
 const LogInTextContainer = styled(Typography)(({ theme }) => ({
     position: "relative",
-    bottom: "1%",
+    //bottom: "1%",
     paddingBottom: "20px",
     fontWeight: "600"
 })); 
@@ -50,7 +52,7 @@ const ForgotPasswordText = styled(Typography)(({ theme }) => ({
    // right: "17%",
     fontSize: "15px",
     fontWeight: "500",
-    color: "#2596be"
+    color: "#1d77b8"
 })); 
 
 const RegisterText = styled(Typography)(({ theme }) => ({
@@ -58,8 +60,8 @@ const RegisterText = styled(Typography)(({ theme }) => ({
     paddingTop: "50px",
     paddingBottom: "20px",
     fontSize: "15px",
-    fontWeight: "500",
-    color: "black"
+    fontWeight: "800",
+    color: "#1d77b8"
 })); 
 
 const Container = styled("div")(({ theme }) => ({
@@ -75,6 +77,7 @@ const LoginBoxContainer = styled(Box)(({ theme }) => ({
     justifyContent: "center",
     flexDirection: "column",
     backgroundColor: "white",
+    boxShadow: "10px 10px 20px 3px rgba(0, 0, 0, 0.6)",
     borderRadius: "20px",
     width: "500px",
     height: "500px"
@@ -88,7 +91,7 @@ const ImageContainer = styled(CardMedia)(({ theme }) => ({
 
 const TextFieldContainer = styled("div")(({ theme }) => ({
     textAlign: "center",
-    padding: "10px"    
+    padding: "10px"
 }));
 
 const Login = () => {
@@ -133,6 +136,8 @@ const Login = () => {
 
                     <LogInTextContainer variant="h6">Zaloguj się</LogInTextContainer>
 
+                    <Divider sx={{width: "100%"}} />
+
                     <TextFieldContainer>
                         <FormControl size="small" variant="standard" style={{ minWidth: "320px" }}>
                             <InputLabel htmlFor="standard-adornment-password" sx={{ fontSize: "15px" }}>Nazwa użytkownika</InputLabel>
@@ -175,9 +180,12 @@ const Login = () => {
 
                     </PasswordEssentialsContainer>
 
-                    <Button variant="contained" sx={{ fontSize: "14px", backgroundColor: "#201c1c", borderRadius: "15px" }}>Zaloguj się</Button>
+                    <Button variant="contained" sx={{ fontSize: "14px", backgroundColor: "#201c1c", borderRadius: "15px", width:"180px" }}>Zaloguj się</Button>
 
-                    <RegisterText variant="h7" >Nie masz jeszcze konta? Załóż je tutaj!</RegisterText>
+                    <RegisterText variant="h7" >Nie masz jeszcze konta?
+                        &nbsp;
+                        <Link to="/Register" >Załóż je tutaj!</Link>
+                    </RegisterText>
 
                 </LoginBoxContainer>
 
