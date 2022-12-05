@@ -26,6 +26,9 @@ namespace MovieService.Model
         [Column("photo")]
         public string Photo { get; set; } = null!;
 
+        [Column("trailer")]
+        public string Trailer { get; set; } = null!;
+
         public virtual ICollection<Genre> Genres { get; set; } = null!;
 
         public virtual ICollection<Tag> Tags { get; set; } = null!;

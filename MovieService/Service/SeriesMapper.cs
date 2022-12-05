@@ -48,6 +48,7 @@ namespace MovieService.Service
                 Title = series.Title,
                 Description = series.Description,
                 Photo = series.Photo,
+                Trailer = series.Trailer,
                 Genres = genresDTO,
                 Tags = tagsDTO,
                 Episodes = episodesDTO,
@@ -65,6 +66,7 @@ namespace MovieService.Service
                     Title = seriesDTO.Title,
                     Description = seriesDTO.Description,
                     Photo = seriesDTO.Photo,
+                    Trailer = seriesDTO.Trailer,
                     Genres = new List<Genre>(),
                     Tags = new List<Tag>(),
                     Episodes = new List<Episode>(),
@@ -79,6 +81,7 @@ namespace MovieService.Service
                     Title = seriesDTO.Title,
                     Description = seriesDTO.Description,
                     Photo = seriesDTO.Photo,
+                    Trailer= seriesDTO.Trailer,
                 };
             }
         }

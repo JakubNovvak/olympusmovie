@@ -15,7 +15,8 @@ namespace MovieService.Service
                 Description = movie.Description,
                 DateOfRelease = movie.DateOfRelease,
                 DurationInMinutes = movie.DurationInMinutes,
-                Photo = movie.Photo
+                Photo = movie.Photo,
+                Trailer = movie.Trailer
             };
         }
 
@@ -47,6 +48,7 @@ namespace MovieService.Service
                 DateOfRelease = movie.DateOfRelease,
                 DurationInMinutes = movie.DurationInMinutes,
                 Photo = movie.Photo,
+                Trailer = movie.Trailer,
                 Genres = genresDTO,
                 Tags = tagsDTO,
                 Persons = personsDTO
@@ -65,6 +67,7 @@ namespace MovieService.Service
                     DateOfRelease = movieDTO.DateOfRelease,
                     DurationInMinutes = movieDTO.DurationInMinutes,
                     Photo = movieDTO.Photo,
+                    Trailer = movieDTO.Trailer,
                     Genres = new List<Genre>(),
                     Tags = new List<Tag>(),
                     Persons = new List<Person>()
@@ -79,7 +82,8 @@ namespace MovieService.Service
                     Description = movieDTO.Description,
                     DateOfRelease = movieDTO.DateOfRelease,
                     DurationInMinutes = movieDTO.DurationInMinutes,
-                    Photo = movieDTO.Photo
+                    Photo = movieDTO.Photo,
+                    Trailer = movieDTO.Trailer
                 };
             };
         }
