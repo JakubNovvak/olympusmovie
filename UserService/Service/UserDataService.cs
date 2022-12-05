@@ -65,7 +65,7 @@ namespace UserService.Service
         public IList<int> GetMoviesToPlanToWatch(int userId)
         {
             return _dbContext.PlanToWatchRelations
-                .Where(relation => relation.RelatedUserId == userId)
+                .Where(relation => relation.UserId == userId)
                 .Select(relation => relation.RelatedMovieId)
                 .ToList();
         }

@@ -30,7 +30,7 @@ namespace UserService.Repository
         {
             modelBuilder.Entity<PlanToWatchRelation>().HasKey(entity => new
             {
-                entity.RelatedUserId,
+                entity.UserId,
                 entity.RelatedMovieId,
             });
         }

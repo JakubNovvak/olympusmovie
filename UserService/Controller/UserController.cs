@@ -59,25 +59,25 @@ namespace UserService.Controller
             return NoContent();
         }
 
-        [HttpPost("{id:int}/towatchlist")]
-        public async Task<ActionResult> AddMovieToWatch(int id, [FromQuery(Name = MOVIE_ID_QUERY_PARAM)] int movieId)
+        [HttpPost("{userId:int}/towatchlist")]
+        public async Task<ActionResult> AddMovieToWatch(int userId, [FromQuery(Name = MOVIE_ID_QUERY_PARAM)] int movieId)
         {
-            if (!_dataService.UserExists(id))
+            if (!_dataService.UserExists(userId))
             {
                 return NotFound();
             }
-            await _dataService.AddMoviesPlannedToWatch(id, movieId);
+            await _dataService.AddMoviesPlannedToWatch(userId, movieId);
             return NoContent();
         }
 
-        [HttpGet("{id:int}/towatchlist")]
-        public ActionResult GetMoviesPlannedToWatch(int id)
+        [HttpGet("{userId:int}/towatchlist")]
+        public ActionResult GetMoviesPlannedToWatch(int userId)
         {
-            if (!_dataService.UserExists(id))
+            if (!_dataService.UserExists(userId))
             {
                 return NotFound();
             }
-            return Ok(_dataService.GetMoviesToPlanToWatch(id));
+            return Ok(_dataService.GetMoviesToPlanToWatch(userId));
         }
     }
 }

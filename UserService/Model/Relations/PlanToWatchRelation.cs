@@ -12,11 +12,12 @@ namespace UserService.Model.Relations
 
         public PlanToWatchRelation(int relatedUserId, int relatedMovieId)
         {
-            RelatedUserId = relatedUserId;
+            UserId = relatedUserId;
             RelatedMovieId = relatedMovieId;
         }
 
-        public int RelatedUserId { get; set; }
+        public int UserId { get; set; }
+        public virtual User User { get; set; } = null!;
         public int RelatedMovieId { get; set; }
     }
 }
