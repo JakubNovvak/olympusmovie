@@ -20,7 +20,7 @@ export default function SearchBar() {
       <SearchIconWrapper>
         <SearchIcon />
       </SearchIconWrapper>
-      <StyledInputBase
+          <StyledInputBase
         onKeyDown={handleKeyDown}
         placeholder="Wprowadź tytuł..."
         inputProps={{ "aria-label": "search" }}
@@ -28,6 +28,8 @@ export default function SearchBar() {
     </Search>
   );
 }
+
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -63,7 +65,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      width: "20ch",
+      width: "0ch",
       "&:focus": {
         width: "28ch",
       },
