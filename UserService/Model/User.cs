@@ -21,6 +21,12 @@ namespace UserService.Model
         [Column("nick_name")]
         public string NickName { get; set; } = null!;
 
+        [Column("email")]
+        public string Email { get; set; } = null!;
+
+        [Column("photo")]
+        public string Photo { get; set; } = null!;
+
         //[Column("watchig_movies")]
         //public ICollection<int> WatchingMovies { get; set; } = null!;
 
