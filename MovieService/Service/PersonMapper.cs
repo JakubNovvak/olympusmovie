@@ -14,7 +14,7 @@ namespace MovieService.Service
                 Id = person.Id,
                 Name = person.Name,
                 Surname = person.Surname,
-                Birthdate = person.Birthdate,
+                Birthdate = DateOnly.FromDateTime(person.Birthdate),
                 Photo = person.Photo
             };
         }
@@ -44,7 +44,7 @@ namespace MovieService.Service
                 Id = person.Id,
                 Name = person.Name,
                 Surname = person.Surname,
-                Birthdate = person.Birthdate,
+                Birthdate = DateOnly.FromDateTime(person.Birthdate),
                 Photo = person.Photo,
                 Series = seriesDTO,
                 Movies = moviesDTO,
@@ -61,7 +61,7 @@ namespace MovieService.Service
                     Id = personDTO.Id,
                     Name = personDTO.Name,
                     Surname = personDTO.Surname,
-                    Birthdate = personDTO.Birthdate,
+                    Birthdate = personDTO.Birthdate.ToDateTime(TimeOnly.Parse("01:00 PM")),
                     Photo=personDTO.Photo,
                     Series = new List<Series>(),
                     Movies = new List<Movie>(),
@@ -75,7 +75,7 @@ namespace MovieService.Service
                     Id = personDTO.Id,
                     Name = personDTO.Name,
                     Surname = personDTO.Surname,
-                    Birthdate = personDTO.Birthdate,
+                    Birthdate = personDTO.Birthdate.ToDateTime(TimeOnly.Parse("01:00 PM")),
                     Photo = personDTO.Photo,
                 };
             }

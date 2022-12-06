@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string Surname { get; set; } = null!;
-        public DateTime Birthdate { get; set; }
+        public DateOnly Birthdate { get; set; }
         public string Photo { get; set; } = null!;
         public virtual ICollection<SeriesDTO> Series { get; set; } = null!;
         public virtual ICollection<MovieDTO> Movies { get; set; } = null!;
