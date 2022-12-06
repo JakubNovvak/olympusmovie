@@ -309,7 +309,12 @@ const Register = () => {
 
                                     <Button
                                         variant="contained"
-                                        disabled={!formik.errors.username && formik.touched.username && formik.values.username != "" ? false : true }
+                                        disabled={
+                                            !formik.errors.username && formik.touched.username && formik.values.username != "" &&
+                                            !formik.errors.name && formik.touched.name && formik.values.name != "" &&
+                                            !formik.errors.surName && formik.touched.surName && formik.values.surName != ""
+                                                ? false : true
+                                        }
                                         onClick={gotoNext}
                                     >
                                         Dalej</Button>
@@ -415,7 +420,13 @@ const Register = () => {
                                     <Button
                                         variant="contained"
                                         onClick={gotoNext}
-                                        disabled={!formik.errors.email && formik.touched.email && formik.values.email != "" ? false : true}
+                                        disabled={
+                                            !formik.errors.email && formik.touched.email && formik.values.email != "" &&
+                                                !formik.errors.confirmEmail && formik.touched.confirmEmail && formik.values.confirmEmail != "" &&
+                                                !formik.errors.password && formik.touched.password && formik.values.password != "" &&
+                                                !formik.errors.confirmPassword && formik.touched.confirmPassword && formik.values.confirmPassword != ""
+                                                ? false : true
+                                        }
                                         sx={{ marginLeft: "auto" }}
                                     >
                                         Dalej
