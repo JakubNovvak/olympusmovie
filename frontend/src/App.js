@@ -12,7 +12,7 @@ import Movie from "./pages/Movie/Movie";
 
 function App() {
 
-    const [loggedIn, setLoggedIn] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(false);
 
     return (
     <>
