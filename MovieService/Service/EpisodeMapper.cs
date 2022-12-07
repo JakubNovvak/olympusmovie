@@ -13,7 +13,7 @@ namespace MovieService.Service
                 Season = episode.Season,
                 EpisodeNumber = episode.EpisodeNumber,
                 Title = episode.Title,
-                ReleaseDate = episode.ReleaseDate,
+                ReleaseDate = DateOnly.FromDateTime(episode.ReleaseDate),
                 DurationInMinutes = episode.DurationInMinutes,
                 Description = episode.Description
             };
@@ -27,7 +27,7 @@ namespace MovieService.Service
                 Season = episodeDTO.Season,
                 EpisodeNumber = episodeDTO.EpisodeNumber,
                 Title = episodeDTO.Title,
-                ReleaseDate = episodeDTO.ReleaseDate,
+                ReleaseDate = episodeDTO.ReleaseDate.ToDateTime(TimeOnly.Parse("01:00 PM")),
                 DurationInMinutes = episodeDTO.DurationInMinutes,
                 Description = episodeDTO.Description,
                 SeriesId = new int(),

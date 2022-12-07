@@ -48,6 +48,7 @@ namespace MovieService.Service
                 Title = series.Title,
                 Description = series.Description,
                 Photo = series.Photo,
+                Trailer = series.Trailer,
                 Genres = genresDTO,
                 Tags = tagsDTO,
                 Episodes = episodesDTO,
