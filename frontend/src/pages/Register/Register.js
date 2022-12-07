@@ -50,7 +50,7 @@ const RegisterBoxContainer = styled(Box)(({ theme }) => ({
     backgroundColor: "white",
     boxShadow: "10px 10px 20px 3px rgba(0, 0, 0, 0.6)",
     borderRadius: "20px",
-    width: "700px",
+    width: "570px",
     height: "500px"
 }));
 
@@ -84,7 +84,7 @@ const NameSectionContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    width: "63.5%",
+    width: "72%",
     paddingTop: "25px"
 }));
 
@@ -92,7 +92,7 @@ const UsernameSectionContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    width: "63.5%",
+    width: "72%",
     paddingTop: "25px"
 }));
 
@@ -104,15 +104,15 @@ const EmailSectionContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    width: "63.5%",
+    width: "72%",
     paddingTop: "25px"
 }));
 
 const PasswordSectionContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-evenly",
-    width: "75%",
+    justifyContent: "space-between",
+    width: "72%",
     paddingTop: "25px"
 }));
 
@@ -120,7 +120,7 @@ const BirthdaySectionContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "left",
-    width: "63.5%",
+    width: "72%",
     paddingTop: "50px",
     paddingBottom: "30px"
 }));
@@ -137,8 +137,8 @@ const SliderSection = styled(Slider)(({ theme }) => ({
 
 const SliderSectionContainer = styled("div")(({ theme }) => ({
     display: "flex",
-    width: "100%",
-    paddingLeft: "15%"
+    alignItems: "center",
+    marginLeft: "13%"
     
 }));
 
@@ -146,8 +146,7 @@ const ButtonsSectionContainer = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "71%",
-    paddingLeft: "10%",
+    width: "72%",
     paddingTop: "50px"
 }));
 
@@ -303,7 +302,7 @@ const Register = () => {
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "right",
-                                    width: "63%",
+                                    width: "72%",
                                     paddingTop: "50px"
                                 }}>
 
