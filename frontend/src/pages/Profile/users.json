@@ -1,0 +1,38 @@
+[
+  {
+	  "id": 1,
+	  "Name": "Jakub",
+	  "Surname": "Nowak",
+	  "UserName": "jakubnovvak",
+	  "Email": "jn2000@wp.pl",
+	  "Photo": ""
+  },
+
+  {
+	  "id": 2,
+	  "Name": "Marcelina",
+	  "Surname": "Ziętal",
+	  "UserName": "Cynia2222",
+	  "Email": "cynia2222@pcz.pl",
+	  "Photo": ""
+  },
+  
+  {
+	  "id": 3,
+	  "Name": "Dawid",
+	  "Surname": "Polaczek",
+	  "UserName": "Kejsar",
+	  "Email": "kejsar@gmail.com",
+	  "Photo": ""
+  },
+  
+  {
+	  "id": 4,
+	  "Name": "Test",
+	  "Surname": "Testowy",
+	  "UserName": "TestTestowy",
+	  "Email": "testtestowy@test.pl",
+	  "Photo": ""
+  }
+
+]

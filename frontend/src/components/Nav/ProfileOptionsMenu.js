@@ -12,9 +12,20 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { motion } from "framer-motion";
-
+import { useNavigate } from "react-router-dom";
 
 export const ProfileOptionsMenu = (props) => {
+
+    const username = "jakubnovvak";
+
+    const navigate = useNavigate();
+
+    const GoToProfile = () => {
+        navigate({
+            pathname: "/Profile",
+            search: "?username=" + username
+        });
+    }
 
     const MotionAvatarContainer = motion(Box);
 
@@ -80,7 +91,7 @@ export const ProfileOptionsMenu = (props) => {
             transformOrigin={{ horizontal: 'right', vertical: 'top' }}
             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
           >
-            <MenuItem>
+           <MenuItem onClick={GoToProfile}>
               <Avatar /> Profil
             </MenuItem>
             <MenuItem>
