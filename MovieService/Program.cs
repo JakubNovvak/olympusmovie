@@ -16,7 +16,7 @@ builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
 {
     build.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
 }));
-builder.Services.AddCustomJwtAuthentication();
+builder.Services.AddCustomJwtAuthentication(builder.Configuration);
 
 // Database configuration
 var dbHost = Environment.GetEnvironmentVariable("DB_HOST");

@@ -1,4 +1,4 @@
-﻿namespace JwtAuthenticationManager.ApiModel
+﻿namespace AuthenticationService.ApiModel
 {
     public class AuthenticationRequestDTO
     {
