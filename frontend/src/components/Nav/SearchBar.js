@@ -1,20 +1,35 @@
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
+  const navigate = useNavigate();
+  function handleKeyDown(e) {
+    if (e.key !== "Enter") {
+      return;
+    }
+    navigate({
+      pathname: "/SearchResults",
+      search: "?title=" + e.target.value,
+    });
+  }
+
   return (
     <Search>
       <SearchIconWrapper>
         <SearchIcon />
       </SearchIconWrapper>
-      <StyledInputBase
+          <StyledInputBase
+        onKeyDown={handleKeyDown}
         placeholder="Wprowadź tytuł..."
         inputProps={{ "aria-label": "search" }}
       />
     </Search>
   );
 }
+
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -50,7 +65,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      width: "20ch",
+      width: "0ch",
       "&:focus": {
         width: "28ch",
       },

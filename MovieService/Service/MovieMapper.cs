@@ -55,36 +55,19 @@ namespace MovieService.Service
             };
         }
 
-        public static Movie MapToEntity(MovieDTO movieDTO, bool isNew)
+        public static Movie MapToEntity(MovieDTO movieDTO)
         {
-            if (isNew)
+            return new Movie
             {
-                return new Movie
-                {
-                    Id = movieDTO.Id,
-                    Title = movieDTO.Title,
-                    Description = movieDTO.Description,
-                    DateOfRelease = movieDTO.DateOfRelease.ToDateTime(TimeOnly.Parse("01:00 PM")),
-                    DurationInMinutes = movieDTO.DurationInMinutes,
-                    Photo = movieDTO.Photo,
-                    Trailer = movieDTO.Trailer,
-                    Genres = new List<Genre>(),
-                    Tags = new List<Tag>(),
-                    Persons = new List<Person>()
-                };
-            } 
-            else
-            {
-                return new Movie
-                {
-                    Id = movieDTO.Id,
-                    Title = movieDTO.Title,
-                    Description = movieDTO.Description,
-                    DateOfRelease = movieDTO.DateOfRelease.ToDateTime(TimeOnly.Parse("01:00 PM")),
-                    DurationInMinutes = movieDTO.DurationInMinutes,
-                    Photo = movieDTO.Photo,
-                    Trailer = movieDTO.Trailer
-                };
+                Id = movieDTO.Id,
+                Title = movieDTO.Title,
+                Description = movieDTO.Description,
+                DateOfRelease = movieDTO.DateOfRelease.ToDateTime(TimeOnly.Parse("01:00 PM")),
+                DurationInMinutes = movieDTO.DurationInMinutes,
+                Photo = movieDTO.Photo,
+                Genres = new List<Genre>(),
+                Tags = new List<Tag>(),
+                Persons = new List<Person>()
             };
         }
     }

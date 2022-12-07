@@ -14,7 +14,7 @@ namespace MovieService.Service
 
         public async Task<int> AddAsync(RoleDTO roleDTO)
         {
-            var role = RoleMapper.MapToEntity(roleDTO, true);
+            var role = RoleMapper.MapToEntity(roleDTO);
             var createRole = await _dbContext.Roles.AddAsync(role);
             if (createRole != null)
             {
@@ -26,7 +26,7 @@ namespace MovieService.Service
 
         public async Task<int> EditAsync(RoleDTO roleDTO)
         {
-            var roleEntity = RoleMapper.MapToEntity(roleDTO, false);
+            var roleEntity = RoleMapper.MapToEntity(roleDTO);
             var findRole = _dbContext.Roles.FirstOrDefault(role => role.Id == roleEntity.Id);
             if (findRole != null)
             {

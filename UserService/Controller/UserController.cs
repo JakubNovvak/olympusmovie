@@ -5,12 +5,12 @@ using UserService.Service;
 
 namespace UserService.Controller
 {
-    [Route(RESOURCE_PATH)]
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private const string RESOURCE_PATH = "api/users";
         private const string ID_QUERY_PARAM = "id";
+        private const string MOVIE_ID_QUERY_PARAM = "movieId";
         private const string TITLE_QUERY_PARAM = "title";
         private const string GetMethod = "GET";
         private const string SelfRel = "self";
@@ -57,6 +57,27 @@ namespace UserService.Controller
                 return NotFound();
             }
             return NoContent();
+        }
+
+        [HttpPost("{id:int}/towatchlist")]
+        public async Task<ActionResult> AddMovieToWatch(int id, [FromQuery(Name = MOVIE_ID_QUERY_PARAM)] int movieId)
+        {
+            if (!_dataService.UserExists(id))
+            {
+                return NotFound();
+            }
+            await _dataService.AddMoviesPlannedToWatch(id, movieId);
+            return NoContent();
+        }
+
+        [HttpGet("{id:int}/towatchlist")]
+        public ActionResult GetMoviesPlannedToWatch(int id)
+        {
+            if (!_dataService.UserExists(id))
+            {
+                return NotFound();
+            }
+            return Ok(_dataService.GetMoviesToPlanToWatch(id));
         }
     }
 }

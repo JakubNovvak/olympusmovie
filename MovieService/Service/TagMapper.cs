@@ -15,28 +15,16 @@ namespace MovieService.Service
             };
         }
 
-        public static Tag MapToEntity(TagDTO tagDTO, bool isNew)
+        public static Tag MapToEntity(TagDTO tagDTO)
         {
-            if (isNew)
+            return new Tag
             {
-                return new Tag
-                {
-                    Id = tagDTO.Id,
-                    Name = tagDTO.Name,
-                    Description = tagDTO.Description,
-                    Movies = new List<Movie>(),
-                    Series = new List<Series>()
-                };
-            }
-            else
-            {
-                return new Tag
-                {
-                    Id = tagDTO.Id,
-                    Name = tagDTO.Name,
-                    Description = tagDTO.Description
-                };
-            }
+                Id = tagDTO.Id,
+                Name = tagDTO.Name,
+                Description = tagDTO.Description,
+                Movies = new List<Movie>(),
+                Series = new List<Series>()
+            };
         }
     }
 }

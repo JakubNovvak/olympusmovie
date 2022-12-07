@@ -7,6 +7,7 @@ import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import Box from "@mui/material/Box";
 import SearchResult from "./pages/SearchResults/SearchResults";
+import Movie from "./pages/Movie/Movie";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           sx={{
             minHeight: "calc(100vh - 233px)",
             backgroundImage: "linear-gradient(#ffb300, #ff4100)",
-            height: "100%",
+            height: "100%"
           }}
         >
           <Routes>
@@ -25,6 +26,7 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/SearchResults" element={<SearchResult />} />
+            <Route path="/Movie" element={<Movie />} />
           </Routes>
         </Box>
       </BrowserRouter>

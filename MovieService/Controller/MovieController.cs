@@ -5,12 +5,12 @@ using MovieService.Service;
 
 namespace MovieService.Controller
 {
-    [Route(RESOURCE_PATH)]
+    [Route("api/[controller]")]
     [ApiController]
     public class MovieController : ControllerBase
     {
-        private const string RESOURCE_PATH = "api/movies";
         private const string ID_QUERY_PARAM = "id";
+        private const string TITLE_QUERY_PARAM = "title";
         private const string GetMethod = "GET";
         private const string SelfRel = "self";
         private readonly IMovieDataService _dataService;
@@ -30,17 +30,22 @@ namespace MovieService.Controller
             {
                 return NotFound();
             }
-            return Ok(_dataService.GetById(id));
+            return Ok(movie);
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<MovieDTO>> GetMovies()
+        public ActionResult<IEnumerable<MovieDTO>> GetMovies([FromQuery(Name = TITLE_QUERY_PARAM)] string? title)
         {
-            return Ok(_dataService.GetAll().Select(id => GetLinkToMovie(id)));
+            IEnumerable<MovieDTO> movies = _dataService.GetAll();
+            if (String.IsNullOrEmpty(title))
+            {
+                return Ok(movies);
+            }
+            return Ok(movies.Where(movie => movie.Title.ToLower().Contains(title.ToLower())));
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrator")]
+/*        [Authorize(Roles = "Administrator")]*/
         public async Task<ActionResult> Create(MovieDTO movieDTO)
         {
             var id = await _dataService.AddAsync(movieDTO);
@@ -63,7 +68,7 @@ namespace MovieService.Controller
         }
 
         [HttpDelete]
-        [Authorize(Roles = "Administrator")]
+/*        [Authorize(Roles = "Administrator")]*/
         public async Task<ActionResult> Delete([FromQuery(Name = ID_QUERY_PARAM)] int[] ids)
         {
             var removingResult = await _dataService.RemoveRange(new HashSet<int>(ids));

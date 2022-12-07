@@ -14,25 +14,14 @@ namespace MovieService.Service
             }; 
         }
 
-        public static Role MapToEntity(RoleDTO roleDTO, bool isNew)
+        public static Role MapToEntity(RoleDTO roleDTO)
         {
-            if (isNew)
+            return new Role
             {
-                return new Role
-                {
-                    Id = roleDTO.Id,
-                    Name = roleDTO.Name,
-                    Persons = new List<Person>()
-                };
-            }
-            else
-            {
-                return new Role
-                {
-                    Id = roleDTO.Id,
-                    Name = roleDTO.Name,
-                };
-            }
+                Id = roleDTO.Id,
+                Name = roleDTO.Name,
+                Persons = new List<Person>()
+            };
         }
     }
 }

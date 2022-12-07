@@ -4,7 +4,6 @@ networks:
     backend:
 
 services:
-
   superdb:
     container_name: "super-db"
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -31,21 +30,6 @@ services:
     networks:
       - backend
 
-  userservice:
-    container_name: user-service
-    image: ${DOCKER_REGISTRY-}userservice
-    build:
-      context: .
-      dockerfile: UserService/Dockerfile
-    depends_on:
-      - superdb
-    environment:
-      - DB_HOST=superdb
-      - DB_NAME=userdb
-      - DB_SA_PASSWORD=Password@123
-    networks:
-      - backend
-
   apigateway:
     container_name: "api-gateway"
     image: ${DOCKER_REGISTRY-}apigateway
@@ -65,4 +49,19 @@ services:
       context: .
       dockerfile: AuthenticationService/Dockerfile
     networks:
-      backend:
+      - backend
+
+  userservice:
+    container_name: user-service
+    image: ${DOCKER_REGISTRY-}userservice
+    build:
+      context: .
+      dockerfile: UserService/Dockerfile
+    depends_on:
+      - superdb
+    environment:
+      - DB_HOST=superdb
+      - DB_NAME=userdb
+      - DB_SA_PASSWORD=Password@123
+    networks:
+      - backend

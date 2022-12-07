@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MovieService.Model
 {
-    [Table("role", Schema = "dbo")]
     public class Role
     {
         [Key]
@@ -14,6 +13,6 @@ namespace MovieService.Model
         [Column("name")]
         public string Name { get; set; } = null!;
 
-        public virtual ICollection <Person> Persons { get; set; } = null!;
+        public virtual ICollection<Person> Persons { get; set; } = null!;
     }
 }

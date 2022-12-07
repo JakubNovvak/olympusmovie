@@ -14,7 +14,7 @@ namespace MovieService.Service
 
         public async Task<int> AddAsync(TagDTO tagDTO)
         {
-            var tag = TagMapper.MapToEntity(tagDTO, true);
+            var tag = TagMapper.MapToEntity(tagDTO);
             var createTag = await _dbContext.Tags.AddAsync(tag);
             if (createTag != null)
             {
@@ -26,7 +26,7 @@ namespace MovieService.Service
 
         public async Task<int> EditAsync(TagDTO tagDTO)
         {
-            var tagEntity = TagMapper.MapToEntity(tagDTO, false);
+            var tagEntity = TagMapper.MapToEntity(tagDTO);
             var findTag = _dbContext.Tags.FirstOrDefault(tag => tag.Id == tagEntity.Id);
             if (findTag != null)
             {

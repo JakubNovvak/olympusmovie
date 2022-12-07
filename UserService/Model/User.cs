@@ -4,7 +4,6 @@ using System;
 
 namespace UserService.Model
 {
-    [Table("user", Schema = "dbo")]
     public class User
     {
         [Key]

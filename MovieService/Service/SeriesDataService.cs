@@ -14,7 +14,7 @@ namespace MovieService.Service
 
         public async Task<int> AddAsync(SeriesDTO seriesDTO)
         {
-            var series = SeriesMapper.MapToEntity(seriesDTO, true);
+            var series = SeriesMapper.MapToEntity(seriesDTO);
             var createdSeries = await _dbContext.Series.AddAsync(series);
             if (createdSeries != null)
             {
@@ -26,7 +26,7 @@ namespace MovieService.Service
 
         public async Task<int> EditAsync(SeriesDTO seriesDTO)
         {
-            var seriesEntity = SeriesMapper.MapToEntity(seriesDTO, false);
+            var seriesEntity = SeriesMapper.MapToEntity(seriesDTO);
             var findSeries = _dbContext.Series.FirstOrDefault(series => series.Id == seriesEntity.Id);
             if (findSeries != null)
             {
