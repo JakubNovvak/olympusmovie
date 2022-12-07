@@ -2,11 +2,26 @@
   "Routes": [
     // Authentication service
     {
-      "UpstreamPathTemplate": "/api/account",
+      "UpstreamPathTemplate": "/api/account/login",
       "UpstreamHttpMethod": [ "Post" ],
 
       "DownstreamScheme": "https",
-      "DownstreamPathTemplate": "/api/account",
+      "DownstreamPathTemplate": "/api/account/login",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/account/register",
+      "UpstreamHttpMethod": [ "Post" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/account/register",
       "DownstreamHostAndPorts": [
         {
           "Host": "authenticationservice",
