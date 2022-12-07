@@ -224,7 +224,7 @@ const Register = () => {
     return (
         <>
             <Container>
-                <form onSubmit={formik.handleSubmit}>
+                <form onSubmit={formik.handleSubmit} action="https://localhost:25000/api/account/register" method="post">
                     <RegisterBoxContainer>
 
                         <ImageContainer
