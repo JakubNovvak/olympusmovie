@@ -109,6 +109,7 @@ const Login = (props) => {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     const [open, setOpen] = React.useState(false);
     const [wasSuccessful, setSucessState] = React.useState(true);
+    const [loadingButton, setloadingButton] = React.useState(false);
     const navigate = useNavigate();
 
     const handleClose = (event, reason) => {
@@ -121,6 +122,7 @@ const Login = (props) => {
     const onSubmit = (values, actions) => {
         console.log(values);
         console.log(actions);
+        setloadingButton(true);
 
         fetch(`/api/account/login`, {
             method: "post", body: JSON.stringify(values), headers: {
@@ -128,6 +130,7 @@ const Login = (props) => {
             }
         })
             .then((response) => {
+
                 if (response.status === 200) {
                     props.setLoggedIn(true);
                     setSucessState(true);
@@ -138,6 +141,7 @@ const Login = (props) => {
                 else {
                     setSucessState(false);
                     setOpen(true);
+                    setloadingButton(false);
                 }
                 console.log("Response: " + response);
                 //navigate("/");
@@ -251,7 +255,7 @@ const Login = (props) => {
 
                     </PasswordEssentialsContainer>
 
-                    <Button type="submit" variant="contained" sx={{ fontSize: "14px", backgroundColor: "#201c1c", borderRadius: "15px", width:"180px" }}>Zaloguj się</Button>
+                        <Button type="submit" variant="contained" disabled={!loadingButton ? false : true} sx={{ fontSize: "14px", backgroundColor: "#201c1c", borderRadius: "15px", width: "180px" }}>{!loadingButton ? "Zaloguj się" : "Ładowanie"}</Button>
 
                     <RegisterText variant="h7" >Nie masz jeszcze konta?
                         &nbsp;

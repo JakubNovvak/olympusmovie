@@ -164,6 +164,7 @@ const Register = (props) => {
 
     const [value, setValue] = useState(dayjs('2000-06-29'));
     const [open, setOpen] = useState(false);
+    const [loadingButton, setloadingButton] = useState(false);
     const [wasSuccessful, setSucessState] = useState(false);
     const navigate = useNavigate();
 
@@ -174,6 +175,7 @@ const Register = (props) => {
     const onSubmit = (values, actions) => {
         console.log(values);
         console.log(actions);
+        setloadingButton(true);
 
         fetch(`/api/account/register`, {
             method: "post", body: JSON.stringify(values), headers: {
@@ -188,6 +190,7 @@ const Register = (props) => {
                 else {
                     setSucessState(false);
                     setOpen(true);
+                    setloadingButton(false);
 /*                    setSucessState(true);
                     setOpen(true);
                     setTimeout(3000);
@@ -518,7 +521,7 @@ const Register = (props) => {
                                 <ButtonsSectionContainer>
 
                                     <Button onClick={gotoPrev}>Wstecz</Button>
-                                    <Button type="submit" variant="contained" onClick={gotoNext} sx={{ marginLeft: "auto" }}>Zakończ</Button>
+                                    <Button type="submit" variant="contained" disabled={!loadingButton ? false : true} onClick={gotoNext} sx={{ marginLeft: "auto" }}>{!loadingButton ? "Zakończ" : "Ładowanie"}</Button>
 
                                 </ButtonsSectionContainer>
 

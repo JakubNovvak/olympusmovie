@@ -11,13 +11,14 @@ import { motion } from "framer-motion";
 import Badge from '@mui/material/Badge';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { ProfileOptionsMenu } from "./ProfileOptionsMenu";
+import avatarImage from "./avatar.png";
 
 export const LoggedInNav = (props) => {
 
     const MotionIconButton = motion(IconButton);
 
 
-    const avatarImage = "";
+    const avatarImage = "./avatar.png";
 
     return (
         <>
