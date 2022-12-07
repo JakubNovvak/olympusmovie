@@ -18,8 +18,8 @@ namespace UserService.Model
         [Column("surname")]
         public string Surname { get; set; } = null!;
 
-        [Column("nick_name")]
-        public string NickName { get; set; } = null!;
+        [Column("user_name")]
+        public string UserName { get; set; } = null!;
 
         [Column("email")]
         public string Email { get; set; } = null!;
