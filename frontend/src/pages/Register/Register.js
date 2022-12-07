@@ -150,13 +150,25 @@ const ButtonsSectionContainer = styled(Box)(({ theme }) => ({
     paddingTop: "50px"
 }));
 
-const Register = () => {
+const Register = (props) => {
 
     const [value, setValue] = useState(dayjs('2000-06-29'));
 
     const onSubmit = (values, actions) => {
         console.log(values);
         console.log(actions);
+
+        fetch(`/api/account/register`, {
+            method: "post", body: JSON.stringify(values), headers: {
+                'Content-Type': 'application/json',
+            }})
+            .then((response) => {
+                if (response.status === 200) {
+                    props.setLoggedIn(true);
+                }
+                console.log("Response: " + response);
+            });
+
     }
 
     const formik = useFormik({
@@ -224,7 +236,7 @@ const Register = () => {
     return (
         <>
             <Container>
-                <form onSubmit={formik.handleSubmit} action="https://localhost:25000/api/account/register" method="post">
+                <form onSubmit={formik.handleSubmit}>
                     <RegisterBoxContainer>
 
                         <ImageContainer

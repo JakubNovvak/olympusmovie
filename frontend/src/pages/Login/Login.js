@@ -18,6 +18,7 @@ import Checkbox from '@mui/material/Checkbox';
 import logo from "../../assets/logo.svg";
 import Divider from '@mui/material/Divider';
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
 
 const PasswordEssentialsContainer = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -94,10 +95,38 @@ const TextFieldContainer = styled("div")(({ theme }) => ({
     padding: "10px"
 }));
 
-const Login = () => {
+const Login = (props) => {
 
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-    
+
+    const onSubmit = (values, actions) => {
+        console.log(values);
+        console.log(actions);
+
+        fetch(`/api/account/login`, {
+            method: "post", body: JSON.stringify(values), headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then((response) => {
+                if (response.status === 200) {
+                    props.setLoggedIn(true);
+                    console.log("Zalogowano");
+                }
+                console.log("Response: " + response);
+            });
+
+    }
+
+    const formik = useFormik({
+        initialValues: {
+            username: "",
+            password: "",
+        },
+        validationSchema: null,
+        onSubmit,
+    });
+
 
     const [values, setValues] = React.useState({
         amount: '',
@@ -125,7 +154,7 @@ const Login = () => {
     return (
         <>
             <Container>
-
+                <form onSubmit={formik.handleSubmit}>
                 <LoginBoxContainer>
 
                     <ImageContainer
@@ -141,7 +170,13 @@ const Login = () => {
                     <TextFieldContainer>
                         <FormControl size="small" variant="standard" style={{ minWidth: "320px" }}>
                             <InputLabel htmlFor="standard-adornment-password" sx={{ fontSize: "15px" }}>Nazwa użytkownika</InputLabel>
-                            <Input sx={{ fontSize: "15px" }} />
+                                <Input
+                                    value={formik.values.username}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    id="username"
+                                    sx={{ fontSize: "15px" }}
+                                />
                         </FormControl>
                     </TextFieldContainer>
                     
@@ -149,11 +184,13 @@ const Login = () => {
                         <FormControl size="small" variant="standard" style={{ minWidth: "320px" }}>
                             <InputLabel htmlFor="standard-adornment-password" sx={{ fontSize: "15px" }}>Hasło</InputLabel>
                             <Input
+                            value={formik.values.password}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            id="password"
                             sx={{ fontSize: "15px" }}
-                            id="standard-adornment-password"
+
                             type={values.showPassword ? 'text' : 'password'}
-                            value={values.password}
-                            onChange={handleChange('password')}
                             endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
@@ -180,7 +217,7 @@ const Login = () => {
 
                     </PasswordEssentialsContainer>
 
-                    <Button variant="contained" sx={{ fontSize: "14px", backgroundColor: "#201c1c", borderRadius: "15px", width:"180px" }}>Zaloguj się</Button>
+                    <Button type="submit" variant="contained" sx={{ fontSize: "14px", backgroundColor: "#201c1c", borderRadius: "15px", width:"180px" }}>Zaloguj się</Button>
 
                     <RegisterText variant="h7" >Nie masz jeszcze konta?
                         &nbsp;
@@ -189,6 +226,7 @@ const Login = () => {
 
                 </LoginBoxContainer>
 
+                </form>
             </Container>
 
         </>
