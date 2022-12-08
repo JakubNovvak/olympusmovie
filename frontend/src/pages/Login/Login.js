@@ -18,6 +18,12 @@ import Checkbox from '@mui/material/Checkbox';
 import logo from "../../assets/logo.svg";
 import Divider from '@mui/material/Divider';
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 const PasswordEssentialsContainer = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -94,10 +100,64 @@ const TextFieldContainer = styled("div")(({ theme }) => ({
     padding: "10px"
 }));
 
-const Login = () => {
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+const Login = (props) => {
 
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-    
+    const [open, setOpen] = React.useState(false);
+    const [wasSuccessful, setSucessState] = React.useState(true);
+    const [loadingButton, setloadingButton] = React.useState(false);
+    const navigate = useNavigate();
+
+    const handleClose = (event, reason) => {
+        setOpen(false);
+        if (reason === 'clickaway') {
+            return;
+        }
+    }
+
+    const onSubmit = (values, actions) => {
+        console.log(values);
+        console.log(actions);
+        setloadingButton(true);
+
+        fetch(`/api/account/login`, {
+            method: "post", body: JSON.stringify(values), headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then((response) => {
+
+                if (response.status === 200) {
+                    props.setLoggedIn(true);
+                    setSucessState(true);
+                    setOpen(true);
+                    console.log("Zalogowano");
+                    navigate("/");
+                }
+                else {
+                    setSucessState(false);
+                    setOpen(true);
+                    setloadingButton(false);
+                }
+                console.log("Response: " + response);
+                //navigate("/");
+            });
+
+    }
+
+    const formik = useFormik({
+        initialValues: {
+            username: "",
+            password: "",
+        },
+        validationSchema: null,
+        onSubmit,
+    });
+
 
     const [values, setValues] = React.useState({
         amount: '',
@@ -126,6 +186,13 @@ const Login = () => {
         <>
             <Container>
 
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                    <Alert onClose={handleClose} onClick={handleClose} severity={wasSuccessful ? "success" : "error"} sx={{ width: '100%' }}>
+                        {wasSuccessful ? "Logowanie powiodło się" : "Logowanie nie powiodło się"}
+                    </Alert>
+                </Snackbar>
+
+                <form onSubmit={formik.handleSubmit}>
                 <LoginBoxContainer>
 
                     <ImageContainer
@@ -139,21 +206,29 @@ const Login = () => {
                     <Divider sx={{width: "100%"}} />
 
                     <TextFieldContainer>
-                        <FormControl size="small" variant="standard" style={{ minWidth: "320px" }}>
+                        <FormControl size="small" variant="standard" error={!wasSuccessful ? true : false} style={{ minWidth: "320px" }}>
                             <InputLabel htmlFor="standard-adornment-password" sx={{ fontSize: "15px" }}>Nazwa użytkownika</InputLabel>
-                            <Input sx={{ fontSize: "15px" }} />
+                                <Input
+                                    value={formik.values.username}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    id="username"
+                                    sx={{ fontSize: "15px" }}
+                                />
                         </FormControl>
                     </TextFieldContainer>
                     
                     <TextFieldContainer>
-                        <FormControl size="small" variant="standard" style={{ minWidth: "320px" }}>
+                        <FormControl size="small" variant="standard" error={!wasSuccessful ? true : false} style={{ minWidth: "320px" }}>
                             <InputLabel htmlFor="standard-adornment-password" sx={{ fontSize: "15px" }}>Hasło</InputLabel>
                             <Input
+                            value={formik.values.password}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            id="password"
                             sx={{ fontSize: "15px" }}
-                            id="standard-adornment-password"
+
                             type={values.showPassword ? 'text' : 'password'}
-                            value={values.password}
-                            onChange={handleChange('password')}
                             endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
@@ -180,7 +255,7 @@ const Login = () => {
 
                     </PasswordEssentialsContainer>
 
-                    <Button variant="contained" sx={{ fontSize: "14px", backgroundColor: "#201c1c", borderRadius: "15px", width:"180px" }}>Zaloguj się</Button>
+                        <Button type="submit" variant="contained" disabled={!loadingButton ? false : true} sx={{ fontSize: "14px", backgroundColor: "#201c1c", borderRadius: "15px", width: "180px" }}>{!loadingButton ? "Zaloguj się" : "Ładowanie"}</Button>
 
                     <RegisterText variant="h7" >Nie masz jeszcze konta?
                         &nbsp;
@@ -189,6 +264,7 @@ const Login = () => {
 
                 </LoginBoxContainer>
 
+                </form>
             </Container>
 
         </>

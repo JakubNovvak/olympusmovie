@@ -1,4 +1,4 @@
-import { React, createRef, useState } from "react";
+import { React, createRef, useState, forwardRef, useEffect } from "react";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import CardMedia from '@mui/material/CardMedia';
@@ -32,6 +32,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useFormik } from "formik";
 import { BasicSchema } from "./BasicSchema";
+import { useNavigate } from "react-router-dom";
+
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 
 const Container = styled("div")(({ theme }) => ({
@@ -150,14 +155,62 @@ const ButtonsSectionContainer = styled(Box)(({ theme }) => ({
     paddingTop: "50px"
 }));
 
-const Register = () => {
+const Alert = forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+
+const Register = (props) => {
 
     const [value, setValue] = useState(dayjs('2000-06-29'));
+    const [open, setOpen] = useState(false);
+    const [loadingButton, setloadingButton] = useState(false);
+    const [wasSuccessful, setSucessState] = useState(false);
+    const navigate = useNavigate();
+
+/*    useEffect(() => {
+        setTimeout
+    })*/
 
     const onSubmit = (values, actions) => {
         console.log(values);
         console.log(actions);
+        setloadingButton(true);
+
+        fetch(`/api/account/register`, {
+            method: "post", body: JSON.stringify(values), headers: {
+                'Content-Type': 'application/json',
+            }})
+            .then((response) => {
+                if (response.status === 200) {
+                    setSucessState(true);
+                    setOpen(true);
+                    navigate("/");
+                }
+                else {
+                    setSucessState(false);
+                    setOpen(true);
+                    setloadingButton(false);
+/*                    setSucessState(true);
+                    setOpen(true);
+                    setTimeout(3000);
+                    navigate("/");*/
+                }
+                console.log("Response: " + response);
+            });
     }
+
+    //Alert
+
+    const handleClose = (event, reason) => {
+        setOpen(false);
+        if (reason === 'clickaway') {
+            return;
+        }
+    }
+
+
+    //Alert 
 
     const formik = useFormik({
         initialValues: {
@@ -224,7 +277,14 @@ const Register = () => {
     return (
         <>
             <Container>
-                <form onSubmit={formik.handleSubmit} action="https://localhost:25000/api/account/register" method="post">
+
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                    <Alert onClose={handleClose} onClick={handleClose} severity={wasSuccessful ? "success" : "error"} sx={{ width: '100%' }}>
+                        {wasSuccessful ? "Rejestracja zakończona pomyślnie" : "Rejestracja nie powiodła się"}
+                    </Alert>
+                </Snackbar>
+
+                <form onSubmit={formik.handleSubmit}>
                     <RegisterBoxContainer>
 
                         <ImageContainer
@@ -461,7 +521,7 @@ const Register = () => {
                                 <ButtonsSectionContainer>
 
                                     <Button onClick={gotoPrev}>Wstecz</Button>
-                                    <Button type="submit" variant="contained" onClick={gotoNext} sx={{ marginLeft: "auto" }}>Zakończ</Button>
+                                    <Button type="submit" variant="contained" disabled={!loadingButton ? false : true} onClick={gotoNext} sx={{ marginLeft: "auto" }}>{!loadingButton ? "Zakończ" : "Ładowanie"}</Button>
 
                                 </ButtonsSectionContainer>
 
