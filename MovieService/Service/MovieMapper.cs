@@ -13,9 +13,10 @@ namespace MovieService.Service
                 Id = movie.Id,
                 Title = movie.Title,
                 Description = movie.Description,
-                DateOfRelease = movie.DateOfRelease,
+                DateOfRelease = DateOnly.FromDateTime(movie.DateOfRelease),
                 DurationInMinutes = movie.DurationInMinutes,
-                Photo = movie.Photo
+                Photo = movie.Photo,
+                Trailer = movie.Trailer
             };
         }
 
@@ -44,9 +45,10 @@ namespace MovieService.Service
                 Id = movie.Id,
                 Title = movie.Title,
                 Description = movie.Description,
-                DateOfRelease = movie.DateOfRelease,
+                DateOfRelease = DateOnly.FromDateTime(movie.DateOfRelease),
                 DurationInMinutes = movie.DurationInMinutes,
                 Photo = movie.Photo,
+                Trailer = movie.Trailer,
                 Genres = genresDTO,
                 Tags = tagsDTO,
                 Persons = personsDTO
@@ -60,7 +62,7 @@ namespace MovieService.Service
                 Id = movieDTO.Id,
                 Title = movieDTO.Title,
                 Description = movieDTO.Description,
-                DateOfRelease = movieDTO.DateOfRelease,
+                DateOfRelease = movieDTO.DateOfRelease.ToDateTime(TimeOnly.Parse("01:00 PM")),
                 DurationInMinutes = movieDTO.DurationInMinutes,
                 Photo = movieDTO.Photo,
                 Genres = new List<Genre>(),

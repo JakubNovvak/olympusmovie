@@ -7,8 +7,9 @@ namespace MovieService.ApiModel
         public int Id { get; set; }
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
-        public DateTime DateOfRelease { get; set; }
+        public DateOnly DateOfRelease { get; set; }
         public int DurationInMinutes { get; set; }
         public string Photo { get; set; } = null!;
+        public string Trailer { get; set; } = null!;
     }
 }

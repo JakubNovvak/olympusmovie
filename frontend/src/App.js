@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
@@ -11,10 +12,13 @@ import Movie from "./pages/Movie/Movie";
 import { Profile } from "./pages/Profile/Profile";
 
 function App() {
-  return (
+
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    return (
     <>
       <BrowserRouter>
-        <Nav />
+        <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <Box
           sx={{
             minHeight: "calc(100vh - 233px)",
@@ -24,8 +28,8 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Register" element={<Register />} />
+            <Route path="/Login" element={<Login setLoggedIn={setLoggedIn} />} />
+            <Route path="/Register" element={<Register setLoggedIn={setLoggedIn} />} />
             <Route path="/SearchResults" element={<SearchResult />} />
             <Route path="/Movie" element={<Movie />} />
             <Route path="/Profile" element={<Profile />} />

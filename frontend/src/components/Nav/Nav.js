@@ -18,9 +18,9 @@ import { LoggedInNav } from "./LoggedInNav";
 // });
 const navColor = "#201c1c";
 
-export default function Nav() {
+export default function Nav(props) {
   const [switched, setSwitched] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(true);
+
 
   return (
     <Box sx={{ flex: 1 }}>
@@ -28,7 +28,7 @@ export default function Nav() {
         <Toolbar sx={{ marginTop: "5px", marginBottom: "5px" }}>
           <Logo switched={switched} />
           <ControlledSwitch setSwitched={setSwitched} switched={switched} />
-            {!loggedIn ? <NotLoggedIn /> : <LoggedInNav setLoggedIn={setLoggedIn} /> }
+            {!props.loggedIn ? <NotLoggedIn /> : <LoggedInNav setLoggedIn={props.setLoggedIn} /> }
         </Toolbar>
       </AppBar>
     </Box>

@@ -13,6 +13,7 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import avatarImage from "./avatar.png";
 
 export const ProfileOptionsMenu = (props) => {
 
@@ -51,7 +52,7 @@ export const ProfileOptionsMenu = (props) => {
                     aria-expanded={open ? 'true' : undefined}
                   >
                     <MotionAvatarContainer whileHover={{ scale: 1.10 }} whileTap={{ scale: 0.95 }} sx={{ paddingRight: "10px" }}>
-                                {props.avatarImage === "" ? <Avatar sx={{ bgcolor: "blue" }}>JN</Avatar> : <Avatar alt="Remy Sharp" src={props.avatarImage} />}
+                                {props.avatarImage === "" ? <Avatar sx={{ bgcolor: "blue" }}>JN</Avatar> : <Avatar alt="Remy Sharp" src={avatarImage} />}
                     </MotionAvatarContainer>
                   </IconButton>
             </Tooltip>
