@@ -45,7 +45,7 @@ namespace MovieService.Controller
         }
 
         [HttpPost]
-/*        [Authorize(Roles = "Administrator")]*/
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Create(MovieDTO movieDTO)
         {
             var id = await _dataService.AddAsync(movieDTO);
@@ -68,7 +68,7 @@ namespace MovieService.Controller
         }
 
         [HttpDelete]
-/*        [Authorize(Roles = "Administrator")]*/
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete([FromQuery(Name = ID_QUERY_PARAM)] int[] ids)
         {
             var removingResult = await _dataService.RemoveRange(new HashSet<int>(ids));

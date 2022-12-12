@@ -9,7 +9,7 @@ namespace MovieService.ApiModel
         public int Season { get; set; }
         public int EpisodeNumber { get; set; }
         public string Title { get; set; } = null!;
-        public DateTime ReleaseDate { get; set; }
+        public DateOnly ReleaseDate { get; set; }
         public int DurationInMinutes { get; set; }
         public string Description { get; set; } = null!;
     }

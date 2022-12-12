@@ -12,8 +12,9 @@ namespace UserService.Service
                 Id = user.Id,
                 Name = user.Name,
                 Surname = user.Surname,
-                NickName = user.NickName
-                //,
+                UserName = user.UserName,
+                Email = user.Email,
+                Photo = user.Photo,
                 //WatchingMovies = new List<int>(user.WatchingMovies),
                 //CompletedMovies = new List<int>(user.CompletedMovies),
                 //OnHoldMovies = new List<int>(user.OnHoldMovies),
@@ -34,8 +35,9 @@ namespace UserService.Service
                 Id = userDTO.Id,
                 Name = userDTO.Name,
                 Surname = userDTO.Surname,
-                NickName = userDTO.NickName
-                //,
+                UserName = userDTO.UserName,
+                Email = userDTO.Email,
+                Photo= userDTO.Photo,
                 //WatchingMovies = new List<int>(userDTO.WatchingMovies),
                 //CompletedMovies = new List<int>(userDTO.CompletedMovies),
                 //OnHoldMovies = new List<int>(userDTO.OnHoldMovies),

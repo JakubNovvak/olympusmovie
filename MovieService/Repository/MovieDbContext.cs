@@ -7,10 +7,12 @@ namespace MovieService.Repository
 {
     public class MovieDbContext : DbContext
     {
+        public DbSet<Comment> Comments { get; set; } = null!;
         public DbSet<Episode> Episodes { get; set; } = null!;
         public DbSet<Genre> Genres { get; set; } = null!;
         public DbSet<Movie> Movies { get; set; } = null!;
         public DbSet<Person> Persons { get; set; } = null!;
+        public DbSet<Review> Reviews { get; set; } = null!;
         public DbSet<Role> Roles { get; set; } = null!;
         public DbSet<Series> Series { get; set; } = null!;
         public DbSet<Tag> Tags { get; set; } = null!;
