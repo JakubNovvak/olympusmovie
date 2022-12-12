@@ -48,26 +48,79 @@ namespace UserService.Service
             return true;
         }
 
-        public async Task AddMoviesPlannedToWatch(int userId, int movieId)
+        public async Task AddUserToMovieRelations(int userId, List<int> movieIds, string relationType)
         {
-            var createdRelation = await _dbContext.PlanToWatchRelations.AddAsync(new PlanToWatchRelation(userId, movieId));
-            if (createdRelation != null)
+            var entities = movieIds.Select(movieId => new UserToMovieRelation
             {
-                await _dbContext.SaveChangesAsync();
+                UserId = userId,
+                RelatedMovieId = movieId,
+                TypeOfRelation = relationType
+            }).ToList();
+            await _dbContext.UserToMovieRelations.AddRangeAsync(entities);
+            await _dbContext.SaveChangesAsync();
+        }
+        
+        public async Task RemoveUserToMovieRelations(ISet<int> userIds, ISet<int> movieIds, string? relationType)
+        {
+            var relations = _dbContext.UserToMovieRelations
+                .Where(relation => relationType == null || relationType == relation.TypeOfRelation)
+                .Where(relation => userIds.Contains(relation.UserId))
+                .Where(relation => movieIds.Contains(relation.RelatedMovieId))
+                .ToList();
+            if (relations.Count == 0)
+            {
+                return;
             }
+            _dbContext.UserToMovieRelations.RemoveRange(relations);
+            await _dbContext.SaveChangesAsync();
+        }
+        
+        public List<int> GetUserMovies(int userId, string typeOfRelation)
+        {
+            return _dbContext.UserToMovieRelations
+                            .Where(relation => relation.UserId == userId && relation.TypeOfRelation == typeOfRelation)
+                            .Select(relation => relation.RelatedMovieId)
+                            .ToList();
+        }
+
+        public async Task AddUserToSeriesRelations(int userId, List<int> seriesIds, string relationType)
+        {
+            var entities = seriesIds.Select(movieId => new UserToSeriesRelation
+            {
+                UserId = userId,
+                RelatedSeriesId = movieId,
+                TypeOfRelation = relationType
+            }).ToList();
+            await _dbContext.UserToSeriesRelations.AddRangeAsync(entities);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task RemoveUserToSeriesRelations(ISet<int> userIds, ISet<int> seriesIds, string? relationType)
+        {
+            var relations = _dbContext.UserToSeriesRelations
+                .Where(relation => relationType == null || relationType == relation.TypeOfRelation)
+                .Where(relation => userIds.Contains(relation.UserId))
+                .Where(relation => seriesIds.Contains(relation.RelatedSeriesId))
+                .ToList();
+            if (relations.Count == 0)
+            {
+                return;
+            }
+            _dbContext.UserToSeriesRelations.RemoveRange(relations);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public List<int> GetUserSeries(int userId, string typeOfRelation)
+        {
+            return _dbContext.UserToSeriesRelations
+                            .Where(relation => relation.UserId == userId && relation.TypeOfRelation == typeOfRelation)
+                            .Select(relation => relation.RelatedSeriesId)
+                            .ToList();
         }
 
         public bool UserExists(int userId)
         {
             return _dbContext.Users.Where(user => user.Id == userId).Any();
-        }
-
-        public IList<int> GetMoviesToPlanToWatch(int userId)
-        {
-            return _dbContext.PlanToWatchRelations
-                .Where(relation => relation.UserId == userId)
-                .Select(relation => relation.RelatedMovieId)
-                .ToList();
         }
     }
 }

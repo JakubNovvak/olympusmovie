@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UserService.ApiModel;
+using UserService.Infrastructure;
 using UserService.Service;
 
 namespace UserService.Controller
@@ -9,7 +10,7 @@ namespace UserService.Controller
     [ApiController]
     public class UserController : ControllerBase
     {
-        private const string ID_QUERY_PARAM = "id";
+        private const string USER_ID = "userId";
         private const string MOVIE_ID_QUERY_PARAM = "movieId";
         private const string TITLE_QUERY_PARAM = "title";
         private const string GetMethod = "GET";
@@ -23,7 +24,7 @@ namespace UserService.Controller
             _linkGenerator = linkGenerator;
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{userId:int}")]
         public async Task<ActionResult<UserDTO>> GetUser(int id)
         {
             var user = await _dataService.GetById(id);
@@ -49,9 +50,9 @@ namespace UserService.Controller
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete([FromQuery(Name = ID_QUERY_PARAM)] int id)
+        public async Task<ActionResult> Delete([FromQuery(Name = USER_ID)] int userId)
         {
-            var removingResult = await _dataService.Remove(id);
+            var removingResult = await _dataService.Remove(userId);
             if (removingResult == false)
             {
                 return NotFound();
@@ -59,25 +60,47 @@ namespace UserService.Controller
             return NoContent();
         }
 
-        [HttpPost("{userId:int}/towatchlist")]
-        public async Task<ActionResult> AddMovieToWatch(int userId, [FromQuery(Name = MOVIE_ID_QUERY_PARAM)] int movieId)
-        {
-            if (!_dataService.UserExists(userId))
-            {
-                return NotFound();
-            }
-            await _dataService.AddMoviesPlannedToWatch(userId, movieId);
-            return NoContent();
-        }
 
-        [HttpGet("{userId:int}/towatchlist")]
+        [HttpGet("{userId:int}/Movies/PlannedToWatch")]
         public ActionResult GetMoviesPlannedToWatch(int userId)
         {
             if (!_dataService.UserExists(userId))
             {
                 return NotFound();
             }
-            return Ok(_dataService.GetMoviesToPlanToWatch(userId));
+            return Ok(_dataService.GetUserMovies(userId, RelationTypeConstants.WATCHED));
+        }
+        
+        [HttpPost("{userId:int}/Movies/PlannedToWatch")]
+        public async Task<ActionResult> AddMoviesPlannedToWatch(int userId, [FromQuery(Name = MOVIE_ID_QUERY_PARAM)] int[] movieIds)
+        {
+            if (!_dataService.UserExists(userId))
+            {
+                return NotFound();
+            }
+            await _dataService.AddUserToMovieRelations(userId, new List<int>(movieIds), RelationTypeConstants.WATCHED);
+            return NoContent();
+        }
+
+        [HttpGet("{userId:int}/Movies/Watched")]
+        public ActionResult GetMoviesWatched(int userId)
+        {
+            if (!_dataService.UserExists(userId))
+            {
+                return NotFound();
+            }
+            return Ok(_dataService.GetUserMovies(userId, RelationTypeConstants.WATCHED));
+        }
+
+        [HttpPost("{userId:int}/Movies/Watched")]
+        public async Task<ActionResult> AddMoviesWatched(int userId, [FromQuery(Name = MOVIE_ID_QUERY_PARAM)] int movieIds)
+        {
+            if (!_dataService.UserExists(userId))
+            {
+                return NotFound();
+            }
+            await _dataService.AddUserToMovieRelations(userId, new List<int>(movieIds), RelationTypeConstants.WATCHED);
+            return NoContent();
         }
     }
 }
