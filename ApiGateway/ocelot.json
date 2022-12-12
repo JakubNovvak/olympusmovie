@@ -31,14 +31,74 @@
 
       "DangerousAcceptAnyServerCertificateValidator": true
     },
+    {
+      "UpstreamPathTemplate": "/api/account/registeradmin",
+      "UpstreamHttpMethod": [ "Post" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/account/registeradmin",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/account/refreshtoken",
+      "UpstreamHttpMethod": [ "Post" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/account/refreshtoken",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/account/revoke/{username}",
+      "UpstreamHttpMethod": [ "Post" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/account/revoke/{username}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/account/revokeall",
+      "UpstreamHttpMethod": [ "Post" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/account/revokeall",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
 
     // Movie service
     {
-      "UpstreamPathTemplate": "/api/movies",
+      "UpstreamPathTemplate": "/api/movie",
       "UpstreamHttpMethod": [ "Get", "Post", "Delete" ],
 
       "DownstreamScheme": "https",
-      "DownstreamPathTemplate": "/api/movies",
+      "DownstreamPathTemplate": "/api/movie",
       "DownstreamHostAndPorts": [
         {
           "Host": "movieservice",
@@ -49,11 +109,11 @@
       "DangerousAcceptAnyServerCertificateValidator": true
     },
     {
-      "UpstreamPathTemplate": "/api/movies/{id}",
+      "UpstreamPathTemplate": "/api/movie/{id}",
       "UpstreamHttpMethod": [ "Get" ],
 
       "DownstreamScheme": "https",
-      "DownstreamPathTemplate": "/api/movies/{id}",
+      "DownstreamPathTemplate": "/api/movie/{id}",
       "DownstreamHostAndPorts": [
         {
           "Host": "movieservice",
@@ -62,9 +122,69 @@
       ],
 
       "DangerousAcceptAnyServerCertificateValidator": true
-    }
+    },
 
-    // Other services: coming soon...
+    // User service
+    {
+      "UpstreamPathTemplate": "/api/user",
+      "UpstreamHttpMethod": [ "Post", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/user",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/user/{userId}",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/user/{userId}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/user/{userId}/movies/plannedtowatch",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/user/{userId}/movies/plannedtowatch",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/user/{userId}/movies/watched",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/user/{userId}/movies/watched",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    }
   ],
   "GlobalConfiguration": {
     "BaseUrl": "https://localhost:25000"
