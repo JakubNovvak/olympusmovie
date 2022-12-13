@@ -136,7 +136,7 @@ export default function MovieSection() {
                                         <TableCell align="left">Tytuł</TableCell>
                                         <TableCell align="center">Ocena</TableCell>
                                         {/*<TableCell align="right">Odcinki</TableCell>*/}
-                                        <TableCell align="right">Opcje</TableCell>
+                                        <TableCell align="center">Opcje</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -173,7 +173,7 @@ export default function MovieSection() {
                                         <TableCell align="left">Tytuł</TableCell>
                                         <TableCell align="center">Ocena</TableCell>
                                         {/*<TableCell align="right">Odcinki</TableCell>*/}
-                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                        <TableCell align="center">Opcje</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -210,7 +210,7 @@ export default function MovieSection() {
                                         <TableCell align="left">Tytuł</TableCell>
                                         <TableCell align="center">Ocena</TableCell>
                                         {/*<TableCell align="right">Odcinki</TableCell>*/}
-                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                        <TableCell align="center">Opcje</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -247,7 +247,7 @@ export default function MovieSection() {
                                         <TableCell align="left">Tytuł</TableCell>
                                         <TableCell align="center">Ocena</TableCell>
                                         {/*<TableCell align="right">Odcinki</TableCell>*/}
-                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                        <TableCell align="center">Opcje</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -284,7 +284,7 @@ export default function MovieSection() {
                                         <TableCell align="left">Tytuł</TableCell>
                                         <TableCell align="center">Ocena</TableCell>
                                         {/*<TableCell align="right">Odcinki</TableCell>*/}
-                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                        <TableCell align="center">Opcje</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>

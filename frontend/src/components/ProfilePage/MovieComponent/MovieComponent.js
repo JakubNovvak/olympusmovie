@@ -6,6 +6,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import LinearProgress from '@mui/material/LinearProgress';
+import ChangeStateComponent from "../ChangeStateComponent";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -47,7 +48,9 @@ export default function MovieComponent(props) {
             <TableCell align="left">{props.entry.title}</TableCell>
             <TableCell align="center">{props.entry.Rate}</TableCell>
             {/*<TableCell align="right">{props.entry.Type}</TableCell>*/}
-            <TableCell align="right">{props.entry.released}</TableCell>
+            <TableCell align="center">
+                <ChangeStateComponent/>
+            </TableCell>
         </>
 
 /*        <>
