@@ -6,7 +6,9 @@ import Avatar from '@mui/material/Avatar';
 import users from "./users.json";
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import FullWidthTabs from "../../components/ProfilePage/FavouriteSection";
+import FavouriteSection from "../../components/ProfilePage/FavouriteSection";
+import MovieSection from "../../components/ProfilePage/MovieSection";
+import SeriesSection from "../../components/ProfilePage/SeriesSection";
 
 const Container = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -21,7 +23,7 @@ const ContentContainer = styled(Box)(({ theme }) => ({
     flexDirection: "column",    
     minWidth: "100%",
     minHeight: "100vh",
-    backgroundColor: "white"
+    backgroundColor: "#ededed"
 }));
 
 const Image = styled("img")(({ theme }) => ({
@@ -30,16 +32,17 @@ const Image = styled("img")(({ theme }) => ({
     alignSelf: "center",
     marginTop: "1%",
     height: "auto",
+    maxHeight: "300px",
     
     borderRadius: "0.5rem",
 }))
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : 'gray',//'#fff',
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : 'white',//'#fff',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.secondary
 }));
 
 const GridContainer = styled(Grid)(({ theme }) => ({
@@ -65,26 +68,26 @@ export const Profile = () => {
                 <GridContainer sx={{ zIndex: "1" }}>
                     <Grid container spacing={3} sx={{marginTop: "-12%", width:"100%" }}>
                         <Grid item xs={12} sx={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between"}}>
-                            <Avatar variant="circle" sx={{ display: "flex ", height:"200px", width:"200px", marginLeft: "12%", fontSize: "80px" }}>JN</Avatar>
-                            <Item sx={{ width: "80%", height: "100px" }}><h1>jakubnovvak</h1><h2>Jakub Nowak</h2></Item>
+                            <Avatar variant="circle" sx={{ display: "flex ", height:"180px", width:"180px", marginLeft: "6%", fontSize: "80px" }}>JN</Avatar>
+                            <Item elevation={6} sx={{ width: "80%", height: "100px" }}><h1>jakubnovvak</h1><h2>Jakub Nowak</h2></Item>
                         </Grid>
                     </Grid>
 
                     <Grid container spacing={3}>
                         <Grid item xs={3}>
-                            <Item sx={{ height: "900px" }}>Kolumna 1</Item>
+                            <Item elevation={6} sx={{ height: "1200px" }}>{"Profil <username>"}</Item>
                         </Grid>
                         <Grid item xs={9}>
                             <Grid container spacing={3}>
                                 <Grid item xs={12}>
                                     
-                                    <Item sx={{ height: "280px" }}><h1>Ulubione</h1><FullWidthTabs /></Item>
+                                    <Item elevation={6} sx={{ height: "380px" }}><h2>Ulubione</h2><FavouriteSection />Wyświetl wszystkie</Item>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Item sx={{ height: "280px" }}><h1>Filmy</h1><FullWidthTabs /></Item>
+                                    <Item elevation={6} sx={{ height: "380px" }}><h1>Filmy</h1><MovieSection /></Item>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Item sx={{ height: "280px" }}><h1>Seriale</h1><FullWidthTabs /></Item>
+                                    <Item elevation={6} sx={{ height: "380px" }}><h1>Seriale</h1><SeriesSection /></Item>
                                 </Grid>
                             </Grid>
                         </Grid>

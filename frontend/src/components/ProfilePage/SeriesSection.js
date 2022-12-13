@@ -1,14 +1,14 @@
-import * as React from 'react';
+﻿import * as React from 'react';
 import PropTypes from 'prop-types';
 //import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { motion, AnimatePresence } from "framer-motion";
-import { styled } from "@mui/material/styles";
 import Divider from '@mui/material/Divider';
 
 const StyledTabs = styled(Tabs)(() => ({
@@ -59,7 +59,7 @@ function a11yProps(index) {
     };
 }
 
-export default function FavouriteSection() {
+export default function SeriesSection() {
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
 
@@ -75,7 +75,6 @@ export default function FavouriteSection() {
         <Box sx={{ bgcolor: 'background.paper', width: "100%", height: "85%" }}>
             <AppBar position="static" elevation={0}>
                 <StyledTabs
-                    xs={{ boxShadow: "none"}}
                     value={value}
                     onChange={handleChange}
                     indicatorColor="secondary"
@@ -83,33 +82,34 @@ export default function FavouriteSection() {
                     variant="fullWidth"
                     aria-label="full width tabs example"
                 >
-                    <Tab sx={{ fontSize: "0.800rem" }} label="Filmy" {...a11yProps(0)} />
-                    <Tab sx={{ fontSize: "0.800rem" }} label="Seriale" {...a11yProps(1)} />
-                    <Tab sx={{ fontSize: "0.800rem" }} label="Aktorzy" {...a11yProps(2)} />
+
+                    <Divider />
+
+                    <Tab label="Obejrzane" {...a11yProps(0)} />
+                    <Tab label="Oglądane" {...a11yProps(1)} />
+                    <Tab label="Przerwane" {...a11yProps(2)} />
+                    <Tab label="Planowane" {...a11yProps(3)} />
+                    <Tab label="Porzucone" {...a11yProps(4)} />
                 </StyledTabs>
             </AppBar>
 
             <Divider />
 
-            <AnimatePresence exitBeforeEnter>
-                <motion.div
-                    key={value}
-                    initial={{ y: 10, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -10, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                >
-                    <TabPanel value={value} index={0} dir={theme.direction}>
-                        Ulubione Filmy
-                    </TabPanel>
-                    <TabPanel value={value} index={1} dir={theme.direction}>
-                        Ulubione Seriale
-                    </TabPanel>
-                    <TabPanel value={value} index={2} dir={theme.direction}>
-                        Ulubieni Aktorzy
-                    </TabPanel>
-                </motion.div>
-            </AnimatePresence>
+            <TabPanel value={value} index={0} dir={theme.direction}>
+                Lista Objerzanych filmów
+            </TabPanel>
+            <TabPanel value={value} index={1} dir={theme.direction}>
+                Lista Aktualnie oglądanych filmów
+            </TabPanel>
+            <TabPanel value={value} index={2} dir={theme.direction}>
+                Lista przerwanych filmów
+            </TabPanel>
+            <TabPanel value={value} index={3} dir={theme.direction}>
+                Lista planowanych filmów do obejrzenia
+            </TabPanel>
+            <TabPanel value={value} index={4} dir={theme.direction}>
+                Lista przerwanych filmów
+            </TabPanel>
         </Box>
     );
 }
