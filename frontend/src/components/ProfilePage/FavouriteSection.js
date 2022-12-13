@@ -10,6 +10,8 @@ import Box from '@mui/material/Box';
 import { motion, AnimatePresence } from "framer-motion";
 import { styled } from "@mui/material/styles";
 import Divider from '@mui/material/Divider';
+import FavouritesComponent from "./FavouritesComponent/FavouritesComponent";
+import favourites from "./favourites";
 
 const StyledTabs = styled(Tabs)(() => ({
     backgroundColor: "white",
@@ -17,13 +19,21 @@ const StyledTabs = styled(Tabs)(() => ({
     '& 	.MuiTabs-indicator': {
         top: "0px",
         backgroundColor: "#201c1c",
-        height: "5px",
+        height: "5px"
     },
     '& button.Mui-selected': {
         backgroundColor: "#f2f2f2",
         transition: "1.2s"
     }
+}));
 
+const MovieListContainer = styled(Box)(({ theme }) => ({
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    padding: "30px",
+    gap: "30px",
+    justifyContent: "space-evenly",
 }));
 
 function TabPanel(props) {
@@ -60,6 +70,9 @@ function a11yProps(index) {
 }
 
 export default function FavouriteSection() {
+
+    
+
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
 
@@ -97,16 +110,38 @@ export default function FavouriteSection() {
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -10, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3 }}
                 >
                     <TabPanel value={value} index={0} dir={theme.direction}>
-                        Ulubione Filmy
+
+                        <MovieListContainer>
+                            {favourites.map((entry) => {
+                                if (entry.Type === "Film")
+                                    return (<FavouritesComponent entry={entry}></FavouritesComponent>);
+
+                            })}
+                        </MovieListContainer>
+                        
                     </TabPanel>
                     <TabPanel value={value} index={1} dir={theme.direction}>
-                        Ulubione Seriale
+
+                        <MovieListContainer>
+                            {favourites.map((entry) => {
+                                if(entry.Type === "Serial")
+                                    return (<FavouritesComponent entry={entry}></FavouritesComponent>);
+
+                            })}
+                        </MovieListContainer>
+
                     </TabPanel>
                     <TabPanel value={value} index={2} dir={theme.direction}>
-                        Ulubieni Aktorzy
+
+                        <MovieListContainer>
+
+                            <h1>Lista jest pusta</h1>
+
+                        </MovieListContainer>
+
                     </TabPanel>
                 </motion.div>
             </AnimatePresence>

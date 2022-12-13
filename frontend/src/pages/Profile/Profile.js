@@ -81,13 +81,13 @@ export const Profile = () => {
                             <Grid container spacing={3}>
                                 <Grid item xs={12}>
                                     
-                                    <Item elevation={6} sx={{ height: "380px" }}><h2>Ulubione</h2><FavouriteSection />Wyświetl wszystkie</Item>
+                                    <Item elevation={6} sx={{ height: "380px" }}><h2>Ulubione</h2><FavouriteSection /></Item>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Item elevation={6} sx={{ height: "380px" }}><h1>Filmy</h1><MovieSection /></Item>
+                                    <Item elevation={6} sx={{ height: "700px" }}><h1>Filmy</h1><MovieSection /></Item>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Item elevation={6} sx={{ height: "380px" }}><h1>Seriale</h1><SeriesSection /></Item>
+                                    <Item elevation={6} sx={{ height: "700px" }}><h1>Seriale</h1><SeriesSection /></Item>
                                 </Grid>
                             </Grid>
                         </Grid>

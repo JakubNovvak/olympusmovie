@@ -10,6 +10,17 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { motion, AnimatePresence } from "framer-motion";
 import Divider from '@mui/material/Divider';
+import MovieComponent from "./MovieComponent/MovieComponent";
+import List from '@mui/material/List';
+import movies from "./movies";
+
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 const StyledTabs = styled(Tabs)(() => ({
     backgroundColor: "white",
@@ -102,19 +113,188 @@ export default function MovieSection() {
                     transition={{ duration: 0.2 }}
                 >
                     <TabPanel value={value} index={0} dir={theme.direction}>
-                        Lista Objerzanych filmów
+                        <TableContainer
+                            sx={{
+                                overflow: "auto",
+                                maxHeight: "500px",
+                                "::-webkit-scrollbar": {
+                                    width: "12px",
+                                    backgroundColor: "#ebebeb",
+                                    borderRadius: "10px"
+                                },
+                                "::-webkit-scrollbar-thumb": {
+                                    borderRadius: "15px",
+                                    backgroundColor: "#858585"
+                                }
+                            }}
+                            component={Paper}
+                        >
+                            <Table stickyHeader sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell align="left">Okładka</TableCell>
+                                        <TableCell align="left">Tytuł</TableCell>
+                                        <TableCell align="center">Ocena</TableCell>
+                                        {/*<TableCell align="right">Odcinki</TableCell>*/}
+                                        <TableCell align="right">Opcje</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {movies.map((entry) => {
+                                        if(entry.State === "Watched")
+                                            return (<TableRow><MovieComponent entry={entry} color={"green"} /></TableRow>);
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
                     </TabPanel>
+
                     <TabPanel value={value} index={1} dir={theme.direction}>
-                        Lista Aktualnie oglądanych filmów
+                        <TableContainer
+                            sx={{
+                                overflow: "auto",
+                                maxHeight: "500px",
+                                "::-webkit-scrollbar": {
+                                    width: "12px",
+                                    backgroundColor: "#ebebeb",
+                                    borderRadius: "10px"
+                                },
+                                "::-webkit-scrollbar-thumb": {
+                                    borderRadius: "15px",
+                                    backgroundColor: "#858585"
+                                }
+                            }}
+                            component={Paper}
+                        >
+                            <Table stickyHeader sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell align="left">Okładka</TableCell>
+                                        <TableCell align="left">Tytuł</TableCell>
+                                        <TableCell align="center">Ocena</TableCell>
+                                        {/*<TableCell align="right">Odcinki</TableCell>*/}
+                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {movies.map((entry) => {
+                                        if (entry.State === "Watch")
+                                            return (<TableRow><MovieComponent entry={entry} color={"blue"} /></TableRow>);
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
                     </TabPanel>
+
                     <TabPanel value={value} index={2} dir={theme.direction}>
-                        Lista przerwanych filmów
+                        <TableContainer
+                            sx={{
+                                overflow: "auto",
+                                maxHeight: "500px",
+                                "::-webkit-scrollbar": {
+                                    width: "12px",
+                                    backgroundColor: "#ebebeb",
+                                    borderRadius: "10px"
+                                },
+                                "::-webkit-scrollbar-thumb": {
+                                    borderRadius: "15px",
+                                    backgroundColor: "#858585"
+                                }
+                            }}
+                            component={Paper}
+                        >
+                            <Table stickyHeader sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell align="left">Okładka</TableCell>
+                                        <TableCell align="left">Tytuł</TableCell>
+                                        <TableCell align="center">Ocena</TableCell>
+                                        {/*<TableCell align="right">Odcinki</TableCell>*/}
+                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {movies.map((entry) => {
+                                        if (entry.State === "Hold")
+                                            return (<TableRow><MovieComponent entry={entry} color={"orange"} /></TableRow>);
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
                     </TabPanel>
+
                     <TabPanel value={value} index={3} dir={theme.direction}>
-                        Lista planowanych filmów do obejrzenia
+                        <TableContainer
+                            sx={{
+                                overflow: "auto",
+                                maxHeight: "500px",
+                                "::-webkit-scrollbar": {
+                                    width: "12px",
+                                    backgroundColor: "#ebebeb",
+                                    borderRadius: "10px"
+                                },
+                                "::-webkit-scrollbar-thumb": {
+                                    borderRadius: "15px",
+                                    backgroundColor: "#858585"
+                                }
+                            }}
+                            component={Paper}
+                        >
+                            <Table stickyHeader sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell align="left">Okładka</TableCell>
+                                        <TableCell align="left">Tytuł</TableCell>
+                                        <TableCell align="center">Ocena</TableCell>
+                                        {/*<TableCell align="right">Odcinki</TableCell>*/}
+                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {movies.map((entry) => {
+                                        if (entry.State === "Plan")
+                                            return (<TableRow><MovieComponent entry={entry} color={"yellow"} /></TableRow>);
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
                     </TabPanel>
+
                     <TabPanel value={value} index={4} dir={theme.direction}>
-                        Lista przerwanych filmów
+                        <TableContainer
+                            sx={{
+                                overflow: "auto",
+                                maxHeight: "500px",
+                                "::-webkit-scrollbar": {
+                                    width: "12px",
+                                    backgroundColor: "#ebebeb",
+                                    borderRadius: "10px"
+                                },
+                                "::-webkit-scrollbar-thumb": {
+                                    borderRadius: "15px",
+                                    backgroundColor: "#858585"
+                                }
+                            }}
+                            component={Paper}
+                        >
+                            <Table stickyHeader sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell align="left">Okładka</TableCell>
+                                        <TableCell align="left">Tytuł</TableCell>
+                                        <TableCell align="center">Ocena</TableCell>
+                                        {/*<TableCell align="right">Odcinki</TableCell>*/}
+                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {movies.map((entry) => {
+                                        if (entry.State === "Drop")
+                                            return (<TableRow><MovieComponent entry={entry} color={"red"} /></TableRow>);
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
                     </TabPanel>
                 </motion.div>
             </AnimatePresence>

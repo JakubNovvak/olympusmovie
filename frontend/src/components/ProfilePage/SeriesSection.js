@@ -10,6 +10,16 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { motion, AnimatePresence } from "framer-motion";
 import Divider from '@mui/material/Divider';
+import SeriesComponent from "./SeriesComponent/SeriesComponent";
+import series from "./series";
+
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 const StyledTabs = styled(Tabs)(() => ({
     backgroundColor: "white",
@@ -83,8 +93,6 @@ export default function SeriesSection() {
                     aria-label="full width tabs example"
                 >
 
-                    <Divider />
-
                     <Tab label="Obejrzane" {...a11yProps(0)} />
                     <Tab label="Oglądane" {...a11yProps(1)} />
                     <Tab label="Przerwane" {...a11yProps(2)} />
@@ -95,21 +103,201 @@ export default function SeriesSection() {
 
             <Divider />
 
-            <TabPanel value={value} index={0} dir={theme.direction}>
-                Lista Objerzanych filmów
-            </TabPanel>
-            <TabPanel value={value} index={1} dir={theme.direction}>
-                Lista Aktualnie oglądanych filmów
-            </TabPanel>
-            <TabPanel value={value} index={2} dir={theme.direction}>
-                Lista przerwanych filmów
-            </TabPanel>
-            <TabPanel value={value} index={3} dir={theme.direction}>
-                Lista planowanych filmów do obejrzenia
-            </TabPanel>
-            <TabPanel value={value} index={4} dir={theme.direction}>
-                Lista przerwanych filmów
-            </TabPanel>
+            <AnimatePresence exitBeforeEnter>
+                <motion.div
+                    key={value}
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                >
+
+                    <TabPanel value={value} index={0} dir={theme.direction}>
+                        <TableContainer
+                            sx={{
+                                overflow: "auto",
+                                maxHeight: "500px",
+                                "::-webkit-scrollbar": {
+                                    width: "12px",
+                                    backgroundColor: "#ebebeb",
+                                    borderRadius: "10px"
+                                },
+                                "::-webkit-scrollbar-thumb": {
+                                    borderRadius: "15px",
+                                    backgroundColor: "#858585"
+                                }
+                            }}
+                            component={Paper}
+                        >
+                            <Table stickyHeader sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell align="left">Okładka</TableCell>
+                                        <TableCell align="left">Tytuł</TableCell>
+                                        <TableCell align="center">Ocena</TableCell>
+                                        <TableCell align="center">Odcinki</TableCell>
+                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {series.map((entry) => {
+                                        if (entry.State === "Watched")
+                                            return (<TableRow><SeriesComponent entry={entry} color={"green"} /></TableRow>);
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </TabPanel>
+
+                    <TabPanel value={value} index={1} dir={theme.direction}>
+                        <TableContainer
+                            sx={{
+                                overflow: "auto",
+                                maxHeight: "500px",
+                                "::-webkit-scrollbar": {
+                                    width: "12px",
+                                    backgroundColor: "#ebebeb",
+                                    borderRadius: "10px"
+                                },
+                                "::-webkit-scrollbar-thumb": {
+                                    borderRadius: "15px",
+                                    backgroundColor: "#858585"
+                                }
+                            }}
+                            component={Paper}
+                        >
+                            <Table stickyHeader sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell align="left">Okładka</TableCell>
+                                        <TableCell align="left">Tytuł</TableCell>
+                                        <TableCell align="center">Ocena</TableCell>
+                                        <TableCell align="center">Odcinki</TableCell>
+                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {series.map((entry) => {
+                                        if (entry.State === "Watch")
+                                            return (<TableRow><SeriesComponent entry={entry} color={"blue"} /></TableRow>);
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </TabPanel>
+
+                    <TabPanel value={value} index={2} dir={theme.direction}>
+                        <TableContainer
+                            sx={{
+                                overflow: "auto",
+                                maxHeight: "500px",
+                                "::-webkit-scrollbar": {
+                                    width: "12px",
+                                    backgroundColor: "#ebebeb",
+                                    borderRadius: "10px"
+                                },
+                                "::-webkit-scrollbar-thumb": {
+                                    borderRadius: "15px",
+                                    backgroundColor: "#858585"
+                                }
+                            }}
+                            component={Paper}
+                        >
+                            <Table stickyHeader sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell align="left">Okładka</TableCell>
+                                        <TableCell align="left">Tytuł</TableCell>
+                                        <TableCell align="center">Ocena</TableCell>
+                                        <TableCell align="center">Odcinki</TableCell>
+                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {series.map((entry) => {
+                                        if (entry.State === "Hold")
+                                            return (<TableRow><SeriesComponent entry={entry} color={"orange"} /></TableRow>);
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </TabPanel>
+
+                    <TabPanel value={value} index={3} dir={theme.direction}>
+                        <TableContainer
+                            sx={{
+                                overflow: "auto",
+                                maxHeight: "500px",
+                                "::-webkit-scrollbar": {
+                                    width: "12px",
+                                    backgroundColor: "#ebebeb",
+                                    borderRadius: "10px"
+                                },
+                                "::-webkit-scrollbar-thumb": {
+                                    borderRadius: "15px",
+                                    backgroundColor: "#858585"
+                                }
+                            }}
+                            component={Paper}
+                        >
+                            <Table stickyHeader sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell align="left">Okładka</TableCell>
+                                        <TableCell align="left">Tytuł</TableCell>
+                                        <TableCell align="center">Ocena</TableCell>
+                                        <TableCell align="center">Odcinki</TableCell>
+                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {series.map((entry) => {
+                                        if (entry.State === "Plan")
+                                            return (<TableRow><SeriesComponent entry={entry} color={"yellow"} /></TableRow>);
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </TabPanel>
+
+                    <TabPanel value={value} index={4} dir={theme.direction}>
+                        <TableContainer
+                            sx={{
+                                overflow: "auto",
+                                maxHeight: "500px",
+                                "::-webkit-scrollbar": {
+                                    width: "12px",
+                                    backgroundColor: "#ebebeb",
+                                    borderRadius: "10px"
+                                },
+                                "::-webkit-scrollbar-thumb": {
+                                    borderRadius: "15px",
+                                    backgroundColor: "#858585"
+                                }
+                            }}
+                            component={Paper}
+                        >
+                            <Table stickyHeader sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell align="left">Okładka</TableCell>
+                                        <TableCell align="left">Tytuł</TableCell>
+                                        <TableCell align="center">Ocena</TableCell>
+                                        <TableCell align="center">Odcinki</TableCell>
+                                        <TableCell align="right">Coś tam jeszcze</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {series.map((entry) => {
+                                        if (entry.State === "Drop")
+                                            return (<TableRow><SeriesComponent entry={entry} color={"red"} /></TableRow>);
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </TabPanel>
+                </motion.div>
+            </AnimatePresence >
         </Box>
     );
 }

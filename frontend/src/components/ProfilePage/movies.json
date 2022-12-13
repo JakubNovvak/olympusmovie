@@ -1,0 +1,196 @@
+[
+  {
+    "id": 1,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/81/78/558178/8040495.6.jpg",
+    "language": "Angielski",
+    "released": "14 grudnia 2022",
+    "title": "Avatar: Istota Wody",
+    "Runtime": "90 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "State": "Plan"
+  },
+
+  {
+    "id": 2,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/91/13/299113/7288280.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Avatar",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "State": "Watched"
+  },
+
+  {
+    "id": 8,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/67/22/6722/7650614.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Kevin Sam w Nowym Jorku",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "State": "Watched"
+  },
+
+  {
+    "id": 9,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/37/41/10003741/8032706.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Enola Holmes 2",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "State": "Watch"
+  },
+
+  {
+    "id": 10,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/94/07/839407/7929519.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Enola Holmes",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "State": "Watched"
+  },
+
+  {
+    "id": 17,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/35/10/613510/7441758.6.jpg",
+    "language": "Polski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Listy do M.",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "State": "Watch"
+  },
+
+  {
+    "id": 18,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/94/40/859440/8040018.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Goście",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "State": "Drop"
+  },
+
+  {
+    "id": 20,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/54/91/875491/7991163.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Biały Lotos",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film",
+    "State": "Watch"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 1",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 1,
+    "Episodes": 12,
+    "Type": "Film",
+    "State":  "Watch"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 2",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 1,
+    "Episodes": 12,
+    "Type": "Film",
+    "State": "Hold"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 3",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 1,
+    "Episodes": 12,
+    "Type": "Film",
+    "State": "Watched"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 4",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 1,
+    "Episodes": 12,
+    "Type": "Film",
+    "State": "Watched"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 5",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 1,
+    "Episodes": 12,
+    "Type": "Film",
+    "State": "Hold"
+  }
+]
