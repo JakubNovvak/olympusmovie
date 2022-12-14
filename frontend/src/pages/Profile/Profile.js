@@ -9,6 +9,11 @@ import Paper from '@mui/material/Paper';
 import FavouriteSection from "../../components/ProfilePage/FavouriteSection";
 import MovieSection from "../../components/ProfilePage/MovieSection";
 import SeriesSection from "../../components/ProfilePage/SeriesSection";
+import Divider from '@mui/material/Divider';
+import PersonIcon from '@mui/icons-material/Person';
+import EventNoteIcon from '@mui/icons-material/EventNote';
+import FolderCopyIcon from '@mui/icons-material/FolderCopy';
+import { motion } from "framer-motion";
 
 const Container = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -28,12 +33,13 @@ const ContentContainer = styled(Box)(({ theme }) => ({
 
 const Image = styled("img")(({ theme }) => ({
     display: "flex",
+    objectFit: "cover",
     width: "80%",
     alignSelf: "center",
     marginTop: "1%",
     height: "auto",
     maxHeight: "300px",
-    
+    boxShadow: "0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%)",
     borderRadius: "0.5rem",
 }))
 
@@ -57,25 +63,79 @@ export const Profile = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     var username = username = searchParams.get("username");
 
+    const MotionBox = motion(Box);
+
     const user = users.find((entry) => entry.UserName == username);
 
     return (
-
+        
         <Container>
             <ContentContainer>
-                <Image src="https://harriettahills.com/wp-content/uploads/2017/05/background-image-placeholder.png"></Image>
+                <Image src="https://cdn.ican.pl/minimized/v2/M1024xM2048xA/reader-files/book/BLp2nDil/1602758475/cover.jpg"></Image>
 
                 <GridContainer sx={{ zIndex: "1" }}>
-                    <Grid container spacing={3} sx={{marginTop: "-12%", width:"100%" }}>
-                        <Grid item xs={12} sx={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between"}}>
-                            <Avatar variant="circle" sx={{ display: "flex ", height:"180px", width:"180px", marginLeft: "6%", fontSize: "80px" }}>JN</Avatar>
-                            <Item elevation={6} sx={{ width: "80%", height: "100px" }}><h1>jakubnovvak</h1><h2>Jakub Nowak</h2></Item>
+                    <Grid container spacing={3} sx={{marginTop: "-12%", width:"100%", paddingBottom:"25px" }}>
+                        <Grid item xs={3} sx={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}}>
+                            <Avatar
+                                src="https://spry-publishing.com/wp-content/uploads/2020/05/Iron-Man-564x480.jpg"
+                                variant="circle"
+                                sx={{
+                                    display: "flex ",
+                                    height: "180px",
+                                    width: "180px",
+                                    fontSize: "80px",
+                                    boxShadow: "0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%)"
+                                }}>
+                                JN
+                            </Avatar>
+                        </Grid>
+                        <Grid item xs={9} sx={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "left" }}>
+                            <Item elevation={6} sx={{ width: "100%", height: "100px", display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
+                                <Box sx={{ display: "flex", flexDirection: "column", paddingLeft: "30px", paddingRight: "20px", paddingTop: "5px" }}>
+                                    <h1>jakubnovvak</h1><h2>Jakub Nowak</h2>
+                                </Box>
+                                <Divider orientation="vertical" sx={{ padding: "10px" }} />
+                                <Box sx={{display: "flex", width:"100%", flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"}}>
+                                    <MotionBox whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} sx={{cursor: "pointer"}}>
+                                        <PersonIcon fontSize="large" />
+                                        <h2>O mnie</h2>
+                                    </MotionBox>
+                                    <MotionBox whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} sx={{ cursor: "pointer" }}>
+                                        <EventNoteIcon fontSize="large" />
+                                        <h2>Listy</h2>
+                                    </MotionBox>
+                                    <MotionBox whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} sx={{ cursor: "pointer" }}>
+                                        <FolderCopyIcon fontSize="large" />
+                                        <h2>Inne</h2>
+                                    </MotionBox>
+                                </Box>
+                            </Item>
                         </Grid>
                     </Grid>
 
                     <Grid container spacing={3}>
                         <Grid item xs={3}>
-                            <Item elevation={6} sx={{ height: "1200px" }}>{"Profil <username>"}</Item>
+                            <Item elevation={6} sx={{ height: "600px", display: "flex", flexDirection: "column" }}>
+                                <Box sx={{ margin: "10px" }}>
+                                    <h3>Dołączył</h3>
+                                    13 grudnia, 2022
+                                </Box>
+
+                                <Box sx={{ margin: "10px" }}>
+                                    <h3>Obejrzane</h3>
+                                    5 filmów - 8 seriali
+                                </Box>
+
+                                <Box sx={{ margin: "10px" }}>
+                                    <h3>Średnia ocen</h3>
+                                    8.76 ⭐
+                                </Box>
+
+                                <Box sx={{ margin: "10px" }}>
+                                    <h3>Liczba recenzji</h3>
+                                    0
+                                </Box>
+                            </Item>
                         </Grid>
                         <Grid item xs={9}>
                             <Grid container spacing={3}>

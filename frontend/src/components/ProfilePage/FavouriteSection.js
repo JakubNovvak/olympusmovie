@@ -139,6 +139,7 @@ export default function FavouriteSection() {
                         <MovieListContainer>
 
                             <h1>Lista jest pusta</h1>
+                            {}
 
                         </MovieListContainer>
 

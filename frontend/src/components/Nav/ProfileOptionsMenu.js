@@ -52,7 +52,7 @@ export const ProfileOptionsMenu = (props) => {
                     aria-expanded={open ? 'true' : undefined}
                   >
                     <MotionAvatarContainer whileHover={{ scale: 1.10 }} whileTap={{ scale: 0.95 }} sx={{ paddingRight: "10px" }}>
-                                {props.avatarImage === "" ? <Avatar sx={{ bgcolor: "blue" }}>JN</Avatar> : <Avatar alt="Remy Sharp" src={avatarImage} />}
+                            {props.avatarImage === "" ? <Avatar sx={{ bgcolor: "blue" }}>JN</Avatar> : <Avatar alt="Remy Sharp" src="https://spry-publishing.com/wp-content/uploads/2020/05/Iron-Man-564x480.jpg" />}
                     </MotionAvatarContainer>
                   </IconButton>
             </Tooltip>
