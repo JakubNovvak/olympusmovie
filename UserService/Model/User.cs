@@ -25,35 +25,5 @@ namespace UserService.Model
 
         [Column("photo")]
         public string Photo { get; set; } = null!;
-
-        //[Column("watchig_movies")]
-        //public ICollection<int> WatchingMovies { get; set; } = null!;
-
-        //[Column("completed_movies")]
-        //public ICollection<int> CompletedMovies { get; set; } = null!;
-
-        //[Column("on_hold_movies")]
-        //public ICollection<int> OnHoldMovies { get; set; } = null!;
-
-        //[Column("dropped_movies")]
-        //public ICollection<int> DroppedMovies { get; set; } = null!;
-
-        //[Column("plan_to_watch_movies")]
-        //public ICollection<int> PlanToWatchMovies { get; set; } = null!;
-
-        //[Column("watchig")]
-        //public ICollection<int> WatchingSeries { get; set; } = null!;
-
-        //[Column("completed")]
-        //public ICollection<int> CompletedSeries { get; set; } = null!;
-
-        //[Column("on_hold")]
-        //public ICollection<int> OnHoldSeries { get; set; } = null!;
-
-        //[Column("dropped")]
-        //public ICollection<int> DroppedSeries { get; set; } = null!;
-
-        //[Column("plan_to_watch")]
-        //public ICollection<int> PlanToWatchSeries { get; set; } = null!;
     }
 }

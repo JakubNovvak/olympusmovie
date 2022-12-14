@@ -1,14 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserService.Model.Relations
 {
     [Index(nameof(TypeOfRelation))]
-    public class UserToMovieRelation
+    public class UserToMovieRelation : Relation
     {
-        public int UserId { get; set; }
-        public virtual User User { get; set; } = null!;
-
-        public int RelatedMovieId { get; set; }
-        public string TypeOfRelation { get; set; } = null!;
+        [Column("RelatedMovieId")]
+        public override int RelatedObjectId { get; set; }
     }
 }
