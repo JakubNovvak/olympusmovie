@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
+using System.Runtime.InteropServices;
 using UserService.ApiModel;
+using UserService.Infrastructure;
 using UserService.Model.Relations;
 using UserService.Repository;
 
@@ -47,76 +49,50 @@ namespace UserService.Service
             await _dbContext.SaveChangesAsync();
             return true;
         }
-
-        public async Task AddUserToMovieRelations(int userId, List<int> movieIds, string relationType)
+        
+        public List<int> GetUserRelatedObjectIds<TRelation>(int userId, string typeOfRelation)
+            where TRelation : Relation
         {
-            var entities = movieIds.Select(movieId => new UserToMovieRelation
+            return _dbContext.Set<TRelation>()
+                .Where(relation => relation.TypeOfRelation == typeOfRelation)
+                .Where(relation => relation.UserId == userId)
+                .Select(relation => relation.RelatedObjectId)
+                .ToList();
+        }
+
+        public async Task SyncUserToObjectRelations<TRelation>(int userId, ISet<int> objectIds, string typeOfRelation)
+            where TRelation : Relation, new()
+        {
+            if (typeOfRelation != RelationTypeConstants.FAVORITE) {
+                var singletonSet = new HashSet<int> { userId };
+                await RemoveUserToObjectRelations<TRelation>(singletonSet, objectIds, typeOfRelation);
+            }
+            var entities = objectIds.Select(objectId => new TRelation
             {
                 UserId = userId,
-                RelatedMovieId = movieId,
-                TypeOfRelation = relationType
+                RelatedObjectId = objectId,
+                TypeOfRelation = typeOfRelation
             }).ToList();
-            await _dbContext.UserToMovieRelations.AddRangeAsync(entities);
+            await _dbContext.Set<TRelation>().AddRangeAsync(entities);
             await _dbContext.SaveChangesAsync();
         }
         
-        public async Task RemoveUserToMovieRelations(ISet<int> userIds, ISet<int> movieIds, string? relationType)
+        public async Task RemoveUserToObjectRelations<TRelation>(ISet<int> userIds, ISet<int> objectIds, string? relationType)
+            where TRelation : Relation
         {
-            var relations = _dbContext.UserToMovieRelations
+            var relations = _dbContext.Set<TRelation>()
                 .Where(relation => relationType == null || relationType == relation.TypeOfRelation)
                 .Where(relation => userIds.Contains(relation.UserId))
-                .Where(relation => movieIds.Contains(relation.RelatedMovieId))
+                .Where(relation => objectIds.Contains(relation.RelatedObjectId))
                 .ToList();
             if (relations.Count == 0)
             {
                 return;
             }
-            _dbContext.UserToMovieRelations.RemoveRange(relations);
+            _dbContext.Set<TRelation>().RemoveRange(relations);
             await _dbContext.SaveChangesAsync();
         }
         
-        public List<int> GetUserMovies(int userId, string typeOfRelation)
-        {
-            return _dbContext.UserToMovieRelations
-                            .Where(relation => relation.UserId == userId && relation.TypeOfRelation == typeOfRelation)
-                            .Select(relation => relation.RelatedMovieId)
-                            .ToList();
-        }
-
-        public async Task AddUserToSeriesRelations(int userId, List<int> seriesIds, string relationType)
-        {
-            var entities = seriesIds.Select(movieId => new UserToSeriesRelation
-            {
-                UserId = userId,
-                RelatedSeriesId = movieId,
-                TypeOfRelation = relationType
-            }).ToList();
-            await _dbContext.UserToSeriesRelations.AddRangeAsync(entities);
-            await _dbContext.SaveChangesAsync();
-        }
-
-        public async Task RemoveUserToSeriesRelations(ISet<int> userIds, ISet<int> seriesIds, string? relationType)
-        {
-            var relations = _dbContext.UserToSeriesRelations
-                .Where(relation => relationType == null || relationType == relation.TypeOfRelation)
-                .Where(relation => userIds.Contains(relation.UserId))
-                .Where(relation => seriesIds.Contains(relation.RelatedSeriesId))
-                .ToList();
-            if (relations.Count == 0)
-            {
-                return;
-            }
-            _dbContext.UserToSeriesRelations.RemoveRange(relations);
-            await _dbContext.SaveChangesAsync();
-        }
-
-        public List<int> GetUserSeries(int userId, string typeOfRelation)
-        {
-            return _dbContext.UserToSeriesRelations
-                            .Where(relation => relation.UserId == userId && relation.TypeOfRelation == typeOfRelation)
-                            .Select(relation => relation.RelatedSeriesId)
-                            .ToList();
-        }
 
         public bool UserExists(int userId)
         {

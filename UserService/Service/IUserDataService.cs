@@ -1,4 +1,5 @@
 ﻿using UserService.ApiModel;
+using UserService.Model.Relations;
 
 namespace UserService.Service
 {
@@ -8,11 +9,8 @@ namespace UserService.Service
         Task<bool> Remove(int id);
         Task<UserDTO?> GetById(int id);
         bool UserExists(int userId);
-        Task AddUserToMovieRelations(int userId, List<int> movieIds, string relationType);
-        List<int> GetUserMovies(int userId, string typeOfRelation);
-        Task AddUserToSeriesRelations(int userId, List<int> seriesIds, string relationType);
-        List<int> GetUserSeries(int userId, string typeOfRelation);
-        Task RemoveUserToMovieRelations(ISet<int> userIds, ISet<int> movieIds, string? relationType);
-        Task RemoveUserToSeriesRelations(ISet<int> userIds, ISet<int> seriesIds, string? relationType);
+        Task RemoveUserToObjectRelations<TRelation>(ISet<int> userIds, ISet<int> objectIds, string? relationType) where TRelation : Relation;
+        List<int> GetUserRelatedObjectIds<TRelation>(int userId, string typeOfRelation) where TRelation : Relation;
+        Task SyncUserToObjectRelations<TRelation>(int userId, ISet<int> objectIds, string typeOfRelation) where TRelation : Relation, new();
     }
 }
