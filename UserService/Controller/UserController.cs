@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UserService.ApiModel;
+using UserService.Infrastructure;
+using UserService.Model.Relations;
 using UserService.Service;
 
 namespace UserService.Controller
@@ -9,11 +11,6 @@ namespace UserService.Controller
     [ApiController]
     public class UserController : ControllerBase
     {
-        private const string ID_QUERY_PARAM = "id";
-        private const string MOVIE_ID_QUERY_PARAM = "movieId";
-        private const string TITLE_QUERY_PARAM = "title";
-        private const string GetMethod = "GET";
-        private const string SelfRel = "self";
         private readonly IUserDataService _dataService;
         private readonly LinkGenerator _linkGenerator;
 
@@ -23,7 +20,7 @@ namespace UserService.Controller
             _linkGenerator = linkGenerator;
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{userId:int}")]
         public async Task<ActionResult<UserDTO>> GetUser(int id)
         {
             var user = await _dataService.GetById(id);
@@ -45,39 +42,18 @@ namespace UserService.Controller
         private LinkDTO GetLinkToUser(int id)
         {
             var url = _linkGenerator.GetUriByAction(HttpContext, nameof(GetUser), values: new { id }) ?? string.Empty;
-            return new LinkDTO(url, SelfRel, GetMethod);
+            return new LinkDTO(url, Constants.SelfRel, Constants.GetMethod);
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete([FromQuery(Name = ID_QUERY_PARAM)] int id)
+        public async Task<ActionResult> Delete([FromQuery(Name = Constants.USER_ID)] int userId)
         {
-            var removingResult = await _dataService.Remove(id);
+            var removingResult = await _dataService.Remove(userId);
             if (removingResult == false)
             {
                 return NotFound();
             }
             return NoContent();
-        }
-
-        [HttpPost("{id:int}/towatchlist")]
-        public async Task<ActionResult> AddMovieToWatch(int id, [FromQuery(Name = MOVIE_ID_QUERY_PARAM)] int movieId)
-        {
-            if (!_dataService.UserExists(id))
-            {
-                return NotFound();
-            }
-            await _dataService.AddMoviesPlannedToWatch(id, movieId);
-            return NoContent();
-        }
-
-        [HttpGet("{id:int}/towatchlist")]
-        public ActionResult GetMoviesPlannedToWatch(int id)
-        {
-            if (!_dataService.UserExists(id))
-            {
-                return NotFound();
-            }
-            return Ok(_dataService.GetMoviesToPlanToWatch(id));
         }
     }
 }

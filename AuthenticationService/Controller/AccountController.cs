@@ -44,7 +44,7 @@ namespace ApplicationService.Controller
             return Ok("User registered successfully!");
         }
 
-        [HttpPost("Register-Admin")]
+        [HttpPost("RegisterAdmin")]
         public async Task<IActionResult> RegisterAdmin(RegisterDTO registerDTO)
         {
             try
@@ -58,7 +58,7 @@ namespace ApplicationService.Controller
             return Ok("Admin registered successfully!");
         }
 
-        [HttpPost("Refresh-Token")]
+        [HttpPost("RefreshToken")]
         public async Task<ActionResult<RefreshTokenDTO>> RefreshToken(RefreshTokenDTO refreshTokenDTO)
         {
             try
@@ -90,7 +90,7 @@ namespace ApplicationService.Controller
 
         [Authorize]
         [HttpPost]
-        [Route("Revoke-All")]
+        [Route("RevokeAll")]
         public async Task<IActionResult> RevokeAll()
         {
             await _accountService.RevokeAll();

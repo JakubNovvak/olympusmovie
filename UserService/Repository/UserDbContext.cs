@@ -9,7 +9,9 @@ namespace UserService.Repository
     public class UserDbContext : DbContext
     {
         public DbSet<User> Users { get; set; } = null!;
-        public DbSet<PlanToWatchRelation> PlanToWatchRelations { get; set; } = null!;
+        public DbSet<UserToMovieRelation> UserToMovieRelations { get; set; } = null!;
+        public DbSet<UserToSeriesRelation> UserToSeriesRelations { get; set; } = null!;
+        public DbSet<UserToSeasonRelation> UserToSeasonsRelations { get; set; } = null!;
 
         public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
         {
@@ -28,10 +30,23 @@ namespace UserService.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PlanToWatchRelation>().HasKey(entity => new
+            modelBuilder.Entity<UserToMovieRelation>().HasKey(entity => new
             {
-                entity.RelatedUserId,
-                entity.RelatedMovieId,
+                entity.UserId,
+                entity.RelatedObjectId,
+                entity.TypeOfRelation
+            });
+            modelBuilder.Entity<UserToSeriesRelation>().HasKey(entity => new
+            {
+                entity.UserId,
+                entity.RelatedObjectId,
+                entity.TypeOfRelation
+            });
+            modelBuilder.Entity<UserToSeasonRelation>().HasKey(entity => new
+            {
+                entity.UserId,
+                entity.RelatedObjectId,
+                entity.TypeOfRelation
             });
         }
     }
