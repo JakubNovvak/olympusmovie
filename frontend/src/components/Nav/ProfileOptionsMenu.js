@@ -12,10 +12,21 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import avatarImage from "./avatar.png";
 
-
 export const ProfileOptionsMenu = (props) => {
+
+    const username = "jakubnovvak";
+
+    const navigate = useNavigate();
+
+    const GoToProfile = () => {
+        navigate({
+            pathname: "/Profile",
+            search: "?username=" + username
+        });
+    }
 
     const MotionAvatarContainer = motion(Box);
 
@@ -41,7 +52,7 @@ export const ProfileOptionsMenu = (props) => {
                     aria-expanded={open ? 'true' : undefined}
                   >
                     <MotionAvatarContainer whileHover={{ scale: 1.10 }} whileTap={{ scale: 0.95 }} sx={{ paddingRight: "10px" }}>
-                                {props.avatarImage === "" ? <Avatar sx={{ bgcolor: "blue" }}>JN</Avatar> : <Avatar alt="Remy Sharp" src={avatarImage} />}
+                            {props.avatarImage === "" ? <Avatar sx={{ bgcolor: "blue" }}>JN</Avatar> : <Avatar alt="Remy Sharp" src="https://spry-publishing.com/wp-content/uploads/2020/05/Iron-Man-564x480.jpg" />}
                     </MotionAvatarContainer>
                   </IconButton>
             </Tooltip>
@@ -81,7 +92,7 @@ export const ProfileOptionsMenu = (props) => {
             transformOrigin={{ horizontal: 'right', vertical: 'top' }}
             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
           >
-            <MenuItem>
+           <MenuItem onClick={GoToProfile}>
               <Avatar /> Profil
             </MenuItem>
             <MenuItem>

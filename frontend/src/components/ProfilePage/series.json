@@ -1,0 +1,286 @@
+[
+  {
+    "id": 3,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/03/59/750359/7748390.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Stranger Things",
+    "Rate": 7,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 24,
+    "Episodes": 24,
+    "Type": "Serial",
+    "State": "Watched"
+  },
+
+  {
+    "id": 4,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/03/59/750359/7812716.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Stranger Things 2",
+    "Rate": 6,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 12,
+    "Episodes": 12,
+    "Type": "Serial",
+    "State": "Watched"
+  },
+
+  {
+    "id": 5,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/03/59/750359/7888222.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Stranger Things 3",
+    "Rate": 9,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 14,
+    "Episodes": 16,
+    "Type": "Serial",
+    "State": "Watch"
+  },
+
+  {
+    "id": 6,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/03/59/750359/8001444.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Stranger Things 4",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 7,
+    "Episodes": 10,
+    "Type": "Serial",
+    "State": "Plan"
+  },
+
+  {
+    "id": 11,
+    "director": "Chinua Achebe",
+    "imageLink": "https://flixpatrol.com/runtime/cache/files/posters/h/w350/hzlrv2jeqhkyl88g8l03pwear1j.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Wielka Woda",
+    "Rate": 9,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 8,
+    "Episodes": 8,
+    "Type": "Serial",
+    "State": "Watched"
+  },
+
+  {
+    "id": 12,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7552405.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad",
+    "Rate": 3,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 10,
+    "Episodes": 10,
+    "Type": "Serial",
+    "State": "Watched"
+  },
+
+  {
+    "id": 13,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7552406.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad 2",
+    "Rate": 5,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 13,
+    "Episodes": 13,
+    "Type": "Serial",
+    "State": "Watched"
+  },
+
+  {
+    "id": 14,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7315973.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad 3",
+    "Rate": 4,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 14,
+    "Episodes": 14,
+    "Type": "Serial",
+    "State": "Watched"
+  },
+
+  {
+    "id": 15,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7460853.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad 4",
+    "Rate": 7,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 30,
+    "Episodes": 40,
+    "Type": "Serial",
+    "State": "Watch"
+  },
+
+  {
+    "id": 16,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7475658.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad 5",
+    "Rate": 6,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 12,
+    "Episodes": 30,
+    "Type": "Serial",
+    "State": "Plan"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/70/20/10007020/8040382.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "W zamknięciu",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 1,
+    "Episodes": 12,
+    "Type": "Serial",
+    "State": "Drop"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 1",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 3,
+    "Episodes": 12,
+    "Type": "Serial",
+    "State": "Hold"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 2",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 12,
+    "Episodes": 12,
+    "Type": "Serial",
+    "State": "Hold"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 3",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 9,
+    "Episodes": 12,
+    "Type": "Serial",
+    "State": "Drop"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 4",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 1,
+    "Episodes": 12,
+    "Type": "Serial",
+    "State": "Plan"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 5",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 12,
+    "Episodes": 12,
+    "Type": "Serial",
+    "State": "Watched"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 6",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 12,
+    "Episodes": 12,
+    "Type": "Serial",
+    "State": "Watched"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 7",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 7,
+    "Episodes": 12,
+    "Type": "Serial",
+    "State": "Hold"
+  },
+
+  {
+    "id": 19,
+    "director": "Chinua Achebe",
+    "imageLink": "",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Placeholder 8",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 4,
+    "Episodes": 12,
+    "Type": "Serial",
+    "State": "Watch"
+  }
+]

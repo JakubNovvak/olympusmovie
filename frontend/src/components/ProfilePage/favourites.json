@@ -1,0 +1,118 @@
+[
+  {
+    "id": 1,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/81/78/558178/8040495.6.jpg",
+    "language": "Angielski",
+    "released": "14 grudnia 2022",
+    "title": "Avatar: Istota Wody",
+    "Runtime": "90 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 2,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/91/13/299113/7288280.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Avatar",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 7,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/67/21/6721/7721766.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Kevin Sam w Domu",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 8,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/67/22/6722/7650614.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Kevin Sam w Nowym Jorku",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 6,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/03/59/750359/8001444.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Stranger Things 4",
+    "Rate": 8,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 7,
+    "Episodes": 10,
+    "Type": "Serial",
+    "State": "Plan"
+  },
+
+  {
+    "id": 11,
+    "director": "Chinua Achebe",
+    "imageLink": "https://flixpatrol.com/runtime/cache/files/posters/h/w350/hzlrv2jeqhkyl88g8l03pwear1j.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Wielka Woda",
+    "Rate": 9,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 8,
+    "Episodes": 8,
+    "Type": "Serial",
+    "State": "Watched"
+  },
+
+  {
+    "id": 12,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7552405.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad",
+    "Rate": 3,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 10,
+    "Episodes": 10,
+    "Type": "Serial",
+    "State": "Watched"
+  },
+
+  {
+    "id": 13,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7552406.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad 2",
+    "Rate": 5,
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Watched": 13,
+    "Episodes": 13,
+    "Type": "Serial",
+    "State": "Watched"
+  }
+
+]

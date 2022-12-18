@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 import Box from "@mui/material/Box";
 import SearchResult from "./pages/SearchResults/SearchResults";
 import Movie from "./pages/Movie/Movie";
+import { Profile } from "./pages/Profile/Profile";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/Register" element={<Register setLoggedIn={setLoggedIn} />} />
             <Route path="/SearchResults" element={<SearchResult />} />
             <Route path="/Movie" element={<Movie />} />
+            <Route path="/Profile" element={<Profile />} />
           </Routes>
         </Box>
       </BrowserRouter>
