@@ -7,6 +7,9 @@
 \usepackage{geometry}
 \usepackage{hyperref}
 
+	
+\graphicspath{{images}} %Setting the graphicspath
+
 \hypersetup{
 	linkcolor=black,
 	colorlinks=true,
@@ -83,9 +86,11 @@
 	Baza danych zawiera również informacje o aktorach, reżyserach i scenarzystach. Pozwala to na wyświetlenie filmów w których grał konkretny aktor lub konkretna osoba brała udział w jego tworzeniu.
 	\section{Określenie wymagań}
 		\subsection{Diagramy przypadków użycia}
-			\includegraphics[scale=0.9]{UseCase_UserLoggedIn.png}
-			
-			\includegraphics[scale=0.9]{UseCase_UserNotLoggedIn.png}
+			\includegraphics[scale=0.9]{UseCase_AllUsers.png} \linebreak
+			\includegraphics[scale=0.7]{UseCase_Administrator.png} \linebreak
+			\includegraphics[scale=0.7]{UseCase_UserLoggedIn.png} \linebreak
+			\includegraphics[scale=0.9]{UseCase_UserNotLoggedIn.png} \linebreak
+			\includegraphics[scale=0.9]{UseCase_User.png} \linebreak
 		%\subsection{Badanie konkurencji i rynku}
 		%\subsection{Wymagania biznesowe}
 		%\subsection{Cele platformy}
@@ -109,7 +114,7 @@
 		%\subsection{Architektura strony}
 		\subsection{Architektura baz danych}
 			\begin{center}
-				\includegraphics[scale=0.7]{Class_FilmsDataBase.png}
+				\includegraphics[scale=0.5]{Class_FilmsDataBase.png}
 			\end{center}
 		%\subsection{Mapa strony}
 		%\subsection{Lista funkcjonalności}
