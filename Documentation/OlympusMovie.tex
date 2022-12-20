@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+
+\usepackage{polski}			% Polish characters
+\usepackage[utf8]{inputenc}	% Polish characters
+\usepackage{indentfirst}	% Indentation in first paragraph
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+\hypersetup{
+	linkcolor=black,
+	colorlinks=true,
+	urlcolor=blue,
+	}
+\urlstyle{same}
+
+\begin{document}
+
+
+\begin{titlepage} % Titlepage don't count to page numbering
+	
+	\center % Centre everything on the page
+	
+	%----------------------------------------------------------------------------------------
+	%	Title
+	
+	\rule[1.0cm]{\textwidth}{1.0mm}
+	
+	{\huge\bfseries Olympus Movie}\\[0.5cm]
+	
+	\rule[1.5cm]{\textwidth}{1.0mm}
+	%----------------------------------------------------------------------------------------	
+	
+	%----------------------------------------------------------------------------------------
+	%	Logo
+	
+	\includegraphics[scale=0.5]{logo.png}\\[1cm]
+	
+	%----------------------------------------------------------------------------------------
+	
+	%----------------------------------------------------------------------------------------
+	%	Author(s)
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright}
+			\large
+			\textit{Autorzy}\\
+			Jakub Nowak
+			
+			Marcelina Ziętal
+			
+			Dawid Polaczek
+		\end{flushright}
+	\end{minipage}
+	%----------------------------------------------------------------------------------------
+	
+	%----------------------------------------------------------------------------------------
+	%	Date
+	
+	\vspace{\fill}
+	2022
+	
+	%----------------------------------------------------------------------------------------
+	
+	
+\end{titlepage}
+\newgeometry{tmargin=2.5cm, bmargin=2.5cm, lmargin=3cm, rmargin=1.5cm}
+	%----------------------------------------------------------------------------------------
+	%	Table of contents
+	
+	\tableofcontents
+	\pagebreak
+	%----------------------------------------------------------------------------------------
+	
+	%----------------------------------------------------------------------------------------
+	%	Chapters
+
+	\section{Opis projektu}
+	Celem projektu "Olympus Movie" jest stworzenie strony internetowej poświęconej filmom, serialom oraz osobom uczestniczącym w ich tworzeniu. Użytkownik po zarejestrowaniu i zalogowaniu jest w stanie komentować, oceniać i recenzować pozycje.
+	
+	Każda osoba odwiedzająca stronę ma możliwość wyszukania pozycji na podstawie licznych filtrów. Podstawowe wyszukiwanie przeszukuje jedynie tytuły. Istniej możliwość wyszukiwania zaawansowanego w którym wyszukiwanie następuje po tagach lub gatunkach.
+	
+	Baza danych zawiera również informacje o aktorach, reżyserach i scenarzystach. Pozwala to na wyświetlenie filmów w których grał konkretny aktor lub konkretna osoba brała udział w jego tworzeniu.
+	\section{Określenie wymagań}
+		\subsection{Diagramy przypadków użycia}
+			\includegraphics[scale=0.9]{UseCase_UserLoggedIn.png}
+			
+			\includegraphics[scale=0.9]{UseCase_UserNotLoggedIn.png}
+		%\subsection{Badanie konkurencji i rynku}
+		%\subsection{Wymagania biznesowe}
+		%\subsection{Cele platformy}
+		\subsection{Wymagania funkcjonalne}
+			\begin{itemize}
+				\item Wyszukiwanie filmów/seriali
+				\item Możliwość utworzenia konta
+				\item Dodawanie recenzji lub oceny danego filmu lub serialu
+				\item Tworzenie listy obejrzanych filmów oraz seriali
+				\item Filtrowanie i sortowanie filmów lub seriali według wybranych kryteriów
+			\end{itemize}
+		\subsection{Wymagania niefunkcjonalne}
+			\begin{itemize}
+				\item Korzystanie z serwisu za pośrednictwem przeglądarki internetowej
+				\item Kompatybilność z przeglądarkami obsługującymi HTML 5
+				\item Przejrzysty interfejs użytkownika
+				\item Szybka reakcja na działania użytkownika
+				\item Zapewnienie ciągłości dostępu do serwisu użytkownikom
+			\end{itemize}
+	\section{Architektura i zakres projektu}
+		%\subsection{Architektura strony}
+		\subsection{Architektura baz danych}
+			\begin{center}
+				\includegraphics[scale=0.7]{Class_FilmsDataBase.png}
+			\end{center}
+		%\subsection{Mapa strony}
+		%\subsection{Lista funkcjonalności}
+		%\subsection{Wersje językowe}
+	%\section{Wymagania techniczne}
+		%\subsection{Wsparcie przeglądarek}
+	\pagebreak
+	\section{Licencje}
+		\begin{enumerate}
+			\item	Pixabay
+			\url{https://pixabay.com/service/terms/#license}, 
+			data ostatniej aktualizacji: 13.12.2021
+			
+			
+			\item	Boxicons
+			\url{https://boxicons.com/usage#license}, 
+			data wejścia na stronę: 18.10.2022
+		\end{enumerate}
+	
+	
+	%----------------------------------------------------------------------------------------
+\end{document}
