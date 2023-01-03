@@ -78,22 +78,17 @@
 	%----------------------------------------------------------------------------------------
 	%	Chapters
 
-	\section{Opis projektu}
-	Celem projektu "Olympus Movie" jest stworzenie strony internetowej poświęconej filmom, serialom oraz osobom uczestniczącym w ich tworzeniu. Użytkownik po zarejestrowaniu i zalogowaniu jest w stanie komentować, oceniać i recenzować pozycje.
+	\section{Słownik}	%rozpisać skróty i ujednolicić dokumentację
+		
+	\section{Specyfikacja wymagań biznesowych}
+	
+		\subsection{Cel systemu}	%opis dlaczego taki system i jakie problemy rozwiazuje jego zbudowanie 
+		Celem projektu "Olympus Movie" jest stworzenie strony internetowej poświęconej filmom, serialom oraz osobom uczestniczącym w ich tworzeniu. Użytkownik po zarejestrowaniu i zalogowaniu jest w stanie komentować, oceniać i recenzować pozycje.
 	
 	Każda osoba odwiedzająca stronę ma możliwość wyszukania pozycji na podstawie licznych filtrów. Podstawowe wyszukiwanie przeszukuje jedynie tytuły. Istniej możliwość wyszukiwania zaawansowanego w którym wyszukiwanie następuje po tagach lub gatunkach.
 	
 	Baza danych zawiera również informacje o aktorach, reżyserach i scenarzystach. Pozwala to na wyświetlenie filmów w których grał konkretny aktor lub konkretna osoba brała udział w jego tworzeniu.
-	\section{Określenie wymagań}
-		\subsection{Diagramy przypadków użycia}
-			\includegraphics[scale=0.9]{UseCase_AllUsers.png} \linebreak
-			\includegraphics[scale=0.7]{UseCase_Administrator.png} \linebreak
-			\includegraphics[scale=0.7]{UseCase_UserLoggedIn.png} \linebreak
-			\includegraphics[scale=0.9]{UseCase_UserNotLoggedIn.png} \linebreak
-			\includegraphics[scale=0.9]{UseCase_User.png} \linebreak
-		%\subsection{Badanie konkurencji i rynku}
-		%\subsection{Wymagania biznesowe}
-		%\subsection{Cele platformy}
+		
 		\subsection{Wymagania funkcjonalne}
 			\begin{itemize}
 				\item Wyszukiwanie filmów/seriali
@@ -102,6 +97,7 @@
 				\item Tworzenie listy obejrzanych filmów oraz seriali
 				\item Filtrowanie i sortowanie filmów lub seriali według wybranych kryteriów
 			\end{itemize}
+		
 		\subsection{Wymagania niefunkcjonalne}
 			\begin{itemize}
 				\item Korzystanie z serwisu za pośrednictwem przeglądarki internetowej
@@ -110,12 +106,55 @@
 				\item Szybka reakcja na działania użytkownika
 				\item Zapewnienie ciągłości dostępu do serwisu użytkownikom
 			\end{itemize}
-	\section{Architektura i zakres projektu}
-		%\subsection{Architektura strony}
-		\subsection{Architektura baz danych}
+		
+		\subsection{Opis ograniczeń systemu}
+			\subsubsection{Odtwarzanie trailerów}
+				Odtwarzanie 
+%			\begin{itemize}
+%				\item Trailery 
+%			\end{itemize}
+
+%Trailer i plakat ma link. Nie am tego w bazie danych
+%brak listy znajomych/obserwowanych
+%brak powiadomień
+%Brak ustawień - zmiany języka itp.
+%Brak zmianu motywu na stronie
+%Niepełna baza danych
+		
+	\section{Dokumentacja techniczna}
+	
+		\subsection{Architektura systemu}
+%mikroserwisy
+		
+		\subsection{Diagramy przypadków użycia}
+			\includegraphics[scale=0.9]{UseCase_AllUsers.png} \linebreak
+			\includegraphics[scale=0.7]{UseCase_Administrator.png} \linebreak
+			\includegraphics[scale=0.7]{UseCase_UserLoggedIn.png} \linebreak
+			\includegraphics[scale=0.9]{UseCase_UserNotLoggedIn.png} \linebreak
+			\includegraphics[scale=0.9]{UseCase_User.png} \linebreak
+		
+		\subsection{Diagram klas}
 			\begin{center}
 				\includegraphics[scale=0.5]{Class_FilmsDataBase.png}
 			\end{center}
+		
+		\subsection{Dokumentacja API}	%swaggers
+			
+	\section{Dokumentacja użytkownika}
+		\subsection{Funkcjonalność użytkownika anonimowego}
+%		
+		\subsection{Funkcjonalność użytkownika zalogowanego}
+%		
+		\subsection{Funkcjonalność użytkownika administratora}	
+%	
+	\section{Informacje o wersji}
+	
+	
+
+
+	
+	
+			
 		%\subsection{Mapa strony}
 		%\subsection{Lista funkcjonalności}
 		%\subsection{Wersje językowe}
@@ -134,6 +173,13 @@
 			data wejścia na stronę: 18.10.2022
 		\end{enumerate}
 	
+	
+	%----------------------------------------------------------------------------------------
+	
+	%----------------------------------------------------------------------------------------
+	%		Bibliography
+%	\bibliographystyle{plain}
+%	\bibliography{mybib}
 	
 	%----------------------------------------------------------------------------------------
 \end{document}
