@@ -31,7 +31,7 @@ namespace MovieService.Model
 
         public virtual ICollection<Tag> Tags { get; set; } = null!;
 
-        public virtual ICollection<Episode> Episodes { get; set; } = null!;
+        public virtual ICollection<Season> Seasons { get; set; } = null!;
 
         public virtual ICollection<Person> Persons { get; set; } = null!;
     }

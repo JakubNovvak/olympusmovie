@@ -30,10 +30,10 @@ namespace MovieService.Service
                 tagsDTO.Add(TagMapper.MapToDTO(tag));
             }
 
-            List<EpisodeDTO> episodesDTO = new List<EpisodeDTO>();
-            foreach (Episode episode in series.Episodes)
+            List<SeasonsDTO> seasonsDTO = new List<SeasonsDTO>();
+            foreach (Season season in series.Seasons)
             {
-                episodesDTO.Add(EpisodeMapper.MapToDTO(episode));
+                seasonsDTO.Add(SeasonMapper.MapToDTO(season));
             }
 
             List<PersonDTO> personsDTO = new List<PersonDTO>();
@@ -51,7 +51,6 @@ namespace MovieService.Service
                 Trailer = series.Trailer,
                 Genres = genresDTO,
                 Tags = tagsDTO,
-                Episodes = episodesDTO,
                 Persons = personsDTO
             };
         }
@@ -66,7 +65,6 @@ namespace MovieService.Service
                 Photo = seriesDTO.Photo,
                 Genres = new List<Genre>(),
                 Tags = new List<Tag>(),
-                Episodes = new List<Episode>(),
                 Persons = new List<Person>()
             };
         }

@@ -10,14 +10,15 @@ namespace MovieService.Model
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("rating")]
-        public int Rating { get; set; }
-
         [Column("content")]
         public string Content { get; set; } = null!;
 
-        //public int 
+        [Column("user_id")]
+        public int UserId { get; set; }
 
-        public ICollection<Comment> Comments { get; set; } = null!;
+        [Column("rating_id")]
+        public int RatingId { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; } = null!;
     }
 }

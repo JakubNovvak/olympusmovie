@@ -32,7 +32,7 @@ namespace MovieService.Service
             {
                 movieToEdit.Title = movieEntity.Title;
                 movieToEdit.Description = movieEntity.Description;
-                movieToEdit.DateOfRelease = movieEntity.DateOfRelease;
+                movieToEdit.ReleaseDate = movieEntity.ReleaseDate;
                 movieToEdit.DurationInMinutes = movieEntity.DurationInMinutes;
                 movieToEdit.Photo = movieEntity.Photo;
                 await _dbContext.SaveChangesAsync();

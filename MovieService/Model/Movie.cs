@@ -17,7 +17,7 @@ namespace MovieService.Model
         public string Description { get; set; } = null!;
 
         [Column("release_date")]
-        public DateTime DateOfRelease { get; set; }
+        public DateTime ReleaseDate { get; set; }
 
         [Column("duration_in_minutes")]
         public int DurationInMinutes { get; set; }
@@ -27,9 +27,6 @@ namespace MovieService.Model
 
         [Column("trailer")]
         public string Trailer { get; set; } = null!;
-
-        [Column("review_id")]
-        public int ReviewId { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; } = null!;
 
