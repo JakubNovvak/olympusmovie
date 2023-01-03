@@ -84,19 +84,20 @@ export const Profile = () => {
                                     height: "180px",
                                     width: "180px",
                                     fontSize: "80px",
-                                    boxShadow: "0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%)"
+                                    boxShadow: "0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%)",
+                                    zIndex: "2"
                                 }}>
                                 JN
                             </Avatar>
                         </Grid>
                         <Grid item xs={9} sx={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "left" }}>
-                            <Item elevation={6} sx={{ width: "100%", height: "100px", display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
+                            <Item elevation={6} sx={{ width: "25%", height: "100px", display: "flex", flexDirection: "row", justifyContent: "space-evenly", transform: "translateX(-43%)", zIndex: "1" }}>
                                 <Box sx={{ display: "flex", flexDirection: "column", paddingLeft: "30px", paddingRight: "20px", paddingTop: "5px" }}>
                                     <h1>jakubnovvak</h1><h2>Jakub Nowak</h2>
                                 </Box>
                                 <Divider orientation="vertical" sx={{ padding: "10px" }} />
                                 <Box sx={{display: "flex", width:"100%", flexDirection: "row", justifyContent: "space-evenly", alignItems: "center"}}>
-                                    <MotionBox whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} sx={{cursor: "pointer"}}>
+{/*                                    <MotionBox whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} sx={{cursor: "pointer"}}>
                                         <PersonIcon fontSize="large" />
                                         <h2>O mnie</h2>
                                     </MotionBox>
@@ -107,7 +108,7 @@ export const Profile = () => {
                                     <MotionBox whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} sx={{ cursor: "pointer" }}>
                                         <FolderCopyIcon fontSize="large" />
                                         <h2>Inne</h2>
-                                    </MotionBox>
+                                    </MotionBox>*/}
                                 </Box>
                             </Item>
                         </Grid>

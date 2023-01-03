@@ -1,4 +1,4 @@
-import * as React from 'react';
+﻿import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -7,6 +7,12 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import LinearProgress from '@mui/material/LinearProgress';
 import ChangeStateComponent from "../ChangeStateComponent";
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
+import ChangeRateComponent from "../ChangeRateComponent";
+import Box from "@mui/material/Box";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -44,8 +50,22 @@ export default function SeriesComponent(props) {
                 </div>
             </TableCell>
             <TableCell align="left">{props.entry.title}</TableCell>
-            <TableCell align="center">{props.entry.Rate}</TableCell>
-            <TableCell align="center">{props.entry.Watched}/{props.entry.Episodes}</TableCell>
+            <TableCell align="center">
+                <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+                    {props.entry.Rate}
+                    ⭐
+                    <ChangeRateComponent />
+                </Box>
+            </TableCell>
+            <TableCell align="center">
+                <IconButton>
+                    <RemoveIcon />
+                </IconButton>
+                {props.entry.Watched}/{props.entry.Episodes}
+                <IconButton>
+                    <AddIcon />
+                </IconButton>
+            </TableCell>
             <TableCell align="center">
                 <ChangeStateComponent />
             </TableCell>
