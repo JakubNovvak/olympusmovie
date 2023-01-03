@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "Name": "Sam",
+	"Surname": "Worthington",
+	"Role": "Jake Sully",
+    "ImageLink": "https://fwcdn.pl/ppo/36/74/53674/450625.2.jpg",    
+    "Age": "30"
+  },
+  
+  {
+    "id": 2,
+    "Name": "Zoe",
+	"Surname": "Saldana",
+	"Role": "Neytiri",
+    "ImageLink": "https://fwcdn.pl/ppo/05/59/40559/450082.2.jpg",    
+    "Age": "30"
+  },
+  
+  {
+    "id": 3,
+    "Name": "Sigourney",
+	"Surname": "Weaver",
+	"Role": "Kiri",
+    "ImageLink": "https://fwcdn.pl/ppo/01/16/116/450081.2.jpg",    
+    "Age": "30"
+  },
+  
+  {
+    "id": 4,
+    "Name": "Stephen Lang",
+	"Surname": "Worthington",
+	"Role": "Miles Quaritch",
+    "ImageLink": "https://fwcdn.pl/ppo/46/79/4679/450631.2.jpg",    
+    "Age": "30"
+  },
+  
+  {
+    "id": 5,
+    "Name": "Kate",
+	"Surname": "Winslet",
+	"Role": "Ronal",
+    "ImageLink": "https://fwcdn.pl/ppo/01/19/119/449967.2.jpg",    
+    "Age": "30"
+  },
+  
+  {
+    "id": 6,
+    "Name": "Cliff",
+	"Surname": "Curtis",
+	"Role": "Tonowari",
+    "ImageLink": "https://fwcdn.pl/ppo/42/63/4263/450934.2.jpg",    
+    "Age": "30"
+  },
+  
+  {
+    "id": 7,
+    "Name": "Joel",
+	"Surname": "David Moore",
+	"Role": "Norm Spellman",
+    "ImageLink": "https://fwcdn.pl/ppo/43/62/144362/455787.2.jpg",    
+    "Age": "30"
+  },
+  
+  {
+    "id": 8,
+    "Name": "CCH",
+	"Surname": "Pounder",
+	"Role": "Moat",
+    "ImageLink": "https://fwcdn.pl/ppo/91/97/9197/453375.2.jpg",    
+    "Age": "30"
+  },
+  
+  {
+    "id": 9,
+    "Name": "Edie",
+	"Surname": "Falco",
+	"Role": "Generał Ardmore",
+    "ImageLink": "https://fwcdn.pl/ppo/06/17/40617/451731.2.jpg",    
+    "Age": "30"
+  }
+]
