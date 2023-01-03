@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"Nickname": "SzybkiBill",
+		"Date": "13:02 22-12-2022",
+		"Content": "A mi w sumie ogólnie się podobał. Jedynym problemem była czcionka napisów, w przypadku wersji z napisami. Strasznie męczyły oczy, przez co czasami nie nadąrzało się za akcją filmu. No ale tak to git.",
+		"BindedTo": 0,
+		"Rating": 8
+	},
+
+	{
+		"id": 2,
+		"Nickname": "WolnyBill",
+		"Date": "13:05 22-12-2022",
+		"Content": "E tam gadasz głupoty, napisy były git.",
+		"BindedTo": 1,
+		"Rating": 7
+	},
+
+	{
+		"id": 3,
+		"Nickname": "ŚredniBill",
+		"Date": "13:10 22-12-2022",
+		"Content": "Nie no, jakoś się tam dało je znieść.",
+		"BindedTo": 1,
+		"Rating": 6
+	},
+
+	{
+		"id": 4,
+		"Nickname": "EkscentrycznaKasia",
+		"Date": "13:05 22-12-2022",
+		"Content": "Bardzo długo czekałam na ten film - fajnie, że w końcu wyszedł <3",
+		"BindedTo": 0,
+		"Rating": 10
+	}
+	
+]
