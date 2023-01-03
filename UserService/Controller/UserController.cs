@@ -21,9 +21,9 @@ namespace UserService.Controller
         }
 
         [HttpGet("{userId:int}")]
-        public async Task<ActionResult<UserDTO>> GetUser(int id)
+        public async Task<ActionResult<UserDTO>> GetUser(int userId)
         {
-            var user = await _dataService.GetById(id);
+            var user = await _dataService.GetById(userId);
             if (user == null)
             {
                 return NotFound();
@@ -37,6 +37,14 @@ namespace UserService.Controller
             var id = await _dataService.AddAsync(userDTO);
             var url = GetLinkToUser(id);
             return Created(url.Href, url);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> EditPersonalData(UserDTO userDTO)
+        {
+            var id = await _dataService.ChangeAccountData(userDTO);
+            var url = GetLinkToUser(id);
+            return Ok(url);
         }
 
         private LinkDTO GetLinkToUser(int id)
