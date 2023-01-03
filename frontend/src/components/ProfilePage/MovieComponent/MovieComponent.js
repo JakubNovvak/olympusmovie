@@ -7,6 +7,10 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import LinearProgress from '@mui/material/LinearProgress';
 import ChangeStateComponent from "../ChangeStateComponent";
+import EditIcon from '@mui/icons-material/Edit';
+import IconButton from '@mui/material/IconButton';
+import ChangeRateComponent from "../ChangeRateComponent";
+import Box from "@mui/material/Box";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -46,7 +50,13 @@ export default function MovieComponent(props) {
                 </div>
             </TableCell>
             <TableCell align="left">{props.entry.title}</TableCell>
-            <TableCell align="center">{props.entry.Rate}</TableCell>
+            <TableCell align="center">
+                <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+                    {props.entry.Rate}
+                    ⭐
+                    <ChangeRateComponent />
+                </Box>
+            </TableCell>
             {/*<TableCell align="right">{props.entry.Type}</TableCell>*/}
             <TableCell align="center">
                 <ChangeStateComponent/>
