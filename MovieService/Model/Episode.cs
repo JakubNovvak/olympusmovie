@@ -10,9 +10,6 @@ namespace MovieService.Model
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("season")]
-        public int Season { get; set; }
-
         [Column("episode_number")]
         public int EpisodeNumber { get; set; }
 
@@ -29,8 +26,8 @@ namespace MovieService.Model
         public string Description { get; set; } = null!;
 
         [Column("series_id")]
-        public int SeriesId { get; set; }
+        public int SeasonId { get; set; }
 
-        public virtual Series Series { get; set; } = null!;
+        public virtual Season Season { get; set; } = null!;
     }
 }

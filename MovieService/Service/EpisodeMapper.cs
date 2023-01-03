@@ -10,10 +10,9 @@ namespace MovieService.Service
             return new EpisodeDTO
             {
                 Id = episode.Id,
-                Season = episode.Season,
                 EpisodeNumber = episode.EpisodeNumber,
                 Title = episode.Title,
-                ReleaseDate = DateOnly.FromDateTime(episode.ReleaseDate),
+                ReleaseDate = new DateDTO(episode.ReleaseDate.Year, episode.ReleaseDate.Month, episode.ReleaseDate.Day),
                 DurationInMinutes = episode.DurationInMinutes,
                 Description = episode.Description
             };
@@ -24,14 +23,13 @@ namespace MovieService.Service
             return new Episode
             {
                 Id = episodeDTO.Id,
-                Season = episodeDTO.Season,
                 EpisodeNumber = episodeDTO.EpisodeNumber,
                 Title = episodeDTO.Title,
-                ReleaseDate = episodeDTO.ReleaseDate.ToDateTime(TimeOnly.Parse("01:00 PM")),
+                ReleaseDate = new DateTime(episodeDTO.ReleaseDate.Year, episodeDTO.ReleaseDate.Month, episodeDTO.ReleaseDate.Day),
                 DurationInMinutes = episodeDTO.DurationInMinutes,
                 Description = episodeDTO.Description,
-                SeriesId = new int(),
-                Series = new Series()
+                SeasonId = new int(),
+                Season = new Season()
             };
         }
     }

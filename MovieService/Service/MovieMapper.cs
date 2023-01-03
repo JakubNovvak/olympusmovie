@@ -13,7 +13,7 @@ namespace MovieService.Service
                 Id = movie.Id,
                 Title = movie.Title,
                 Description = movie.Description,
-                DateOfRelease = DateOnly.FromDateTime(movie.DateOfRelease),
+                ReleaseDate = new DateDTO(movie.ReleaseDate.Year, movie.ReleaseDate.Month, movie.ReleaseDate.Day),
                 DurationInMinutes = movie.DurationInMinutes,
                 Photo = movie.Photo,
                 Trailer = movie.Trailer
@@ -40,15 +40,25 @@ namespace MovieService.Service
                 personsDTO.Add(PersonMapper.MapToDTO(person));
             }
 
+            int RatingSum = 0;
+            int NumberOfRating = 0;
+            foreach (Rating rate in movie.Rating)
+            {
+                NumberOfRating++;
+                RatingSum += rate.value;
+            }
+
             return new MovieDetailsDTO
             {
                 Id = movie.Id,
                 Title = movie.Title,
                 Description = movie.Description,
-                DateOfRelease = DateOnly.FromDateTime(movie.DateOfRelease),
+                ReleaseDate = new DateDTO(movie.ReleaseDate.Year, movie.ReleaseDate.Month, movie.ReleaseDate.Day),
                 DurationInMinutes = movie.DurationInMinutes,
                 Photo = movie.Photo,
                 Trailer = movie.Trailer,
+                AverageRating = Math.Round( (double)RatingSum / (double)NumberOfRating,2),
+                NumberOfRating = NumberOfRating,
                 Genres = genresDTO,
                 Tags = tagsDTO,
                 Persons = personsDTO
@@ -62,9 +72,10 @@ namespace MovieService.Service
                 Id = movieDTO.Id,
                 Title = movieDTO.Title,
                 Description = movieDTO.Description,
-                DateOfRelease = movieDTO.DateOfRelease.ToDateTime(TimeOnly.Parse("01:00 PM")),
+                ReleaseDate = new DateTime(movieDTO.ReleaseDate.Year, movieDTO.ReleaseDate.Month, movieDTO.ReleaseDate.Day),
                 DurationInMinutes = movieDTO.DurationInMinutes,
                 Photo = movieDTO.Photo,
+                Trailer = movieDTO.Trailer,
                 Genres = new List<Genre>(),
                 Tags = new List<Tag>(),
                 Persons = new List<Person>()

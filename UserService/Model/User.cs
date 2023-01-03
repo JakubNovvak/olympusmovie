@@ -17,13 +17,15 @@ namespace UserService.Model
         [Column("surname")]
         public string Surname { get; set; } = null!;
 
-        [Column("user_name")]
-        public string UserName { get; set; } = null!;
-
         [Column("email")]
         public string Email { get; set; } = null!;
 
         [Column("photo")]
         public string Photo { get; set; } = null!;
+        [Column("background_photo")]
+        public string BackgroundPhoto { get; set; } = null!;
+
+        [Column("join_date")]
+        public DateTime JoinDate { get; set; }
     }
 }

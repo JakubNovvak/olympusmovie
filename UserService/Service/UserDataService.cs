@@ -49,7 +49,24 @@ namespace UserService.Service
             await _dbContext.SaveChangesAsync();
             return true;
         }
-        
+
+        public async Task<int> ChangeAccountData(UserDTO userDTO)
+        {
+            var userEntity = UserMapper.MapToEntity(userDTO);
+            var userToEdit = _dbContext.Users.FirstOrDefault(user => user.Id == userDTO.Id);
+            if (userToEdit != null)
+            {
+                userToEdit.Name = userDTO.Name;
+                userToEdit.Surname = userDTO.Surname;
+                userToEdit.Email = userDTO.Email;
+                userToEdit.Photo = userDTO.Photo;
+                userToEdit.BackgroundPhoto = userDTO.BackgroundPhoto;
+                await _dbContext.SaveChangesAsync();
+                return userToEdit.Id;
+            }
+            return 0;
+        }
+
         public List<int> GetUserRelatedObjectIds<TRelation>(int userId, string typeOfRelation)
             where TRelation : Relation
         {
@@ -92,7 +109,6 @@ namespace UserService.Service
             _dbContext.Set<TRelation>().RemoveRange(relations);
             await _dbContext.SaveChangesAsync();
         }
-        
 
         public bool UserExists(int userId)
         {

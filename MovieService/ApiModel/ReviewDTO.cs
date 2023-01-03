@@ -8,6 +8,6 @@ namespace MovieService.ApiModel
         public int Id { get; set; }
         public int Rating { get; set; }
         public string Content { get; set; } = null!;
-        public ICollection<CommentDTO> Comments { get; set; } = null!;
+        public virtual ICollection<CommentDTO> Comments { get; set; } = null!;
     }
 }
