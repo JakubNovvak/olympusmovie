@@ -10,13 +10,14 @@ import homealone from "./homealone.jpg";
 import { styled, alpha } from "@mui/material/styles";
 import HomeCarousel from "../../components/HomePage/HomeCarousel/HomeCarousel";
 import Trending from "../../components/HomePage/Trending/Trending";
-
+import UserTrending from "../../components/HomePage/UserTrending/UserTrending";
 
 const Home = () => {
 
     return (
         <>
             <HomeCarousel />
+            <UserTrending />
             <Trending />
         </>
         );
