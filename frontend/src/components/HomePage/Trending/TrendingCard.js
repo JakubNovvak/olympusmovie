@@ -5,30 +5,13 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import StarIcon from '@mui/icons-material/Star';
 import { Link, useNavigate } from "react-router-dom";
-
-
-const BoxContainer = styled("div")(({ theme }) => ({
-    position: "relative",
-    minHeight: "470px",
-    display: "flex",
-    alignItems: "center",
-    marginBottom: "2rem",
-    //backgroundColor: "Black",
-    paddingLeft: "150px"
-    //    backgroundColor: "black"
-
-}))
-
-const Title = styled("div")(({ theme }) => ({
-    position: "absolute",
-    left: "43%",
-    bottom: "25%",
-    color: "White",
-    fontWeight: "600"
-
-
-}))
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import Box from "@mui/material/Box";
+import InfoIcon from '@mui/icons-material/Info';
 
 const TrendingCard = (props) => {
 
@@ -43,22 +26,37 @@ const TrendingCard = (props) => {
         }
     }
 
-    const MotionComponent = motion(BoxContainer)
-
     return (
-        <MotionComponent
-            whileHover={{ scale: 1.09 }}
-            whileTap={{ scale: 0.91 }}
-        >
-            <Link to="/Movie" state={{ entry: props.entry }}>
-                <img src={props.entry.imageLink} style={{borderRadius:"0.4rem"}} />
-                <Title style={{ textShadow: "3px 3px #000000" }}>{props.entry.title}</Title>
-                <Stack spacing={1} sx={{ position: "absolute", left: "43%", bottom: "35%",}}>
-                    <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly emptyIcon={<StarIcon style={{ opacity: 1, color: "gray" }} fontSize="inherit" />} />
-                </Stack>
-            </Link>
 
-        </ MotionComponent>
+                <Card sx={{display: "flex", flexDirection: "row", width: "650px", height: "300px"}}>
+                <CardMedia
+                    component="img"
+                    sx={{ width: 220 }}
+                    image={props.entry.imageLink}
+                />
+                <Box sx={{width: "100%"}}>
+                    <CardContent>
+                        <Typography variant="h4" sx={{ marginTop: "12px", fontWeight: "500" }}>{props.entry.title}</Typography>
+                    </CardContent>
+
+                    <Divider sx={{ marginTop: "10px", marginLeft: "20px", width: "90%", alignSelf: "center" }} flexItem />
+
+                    <CardContent>
+                        <Typography>No i tutaj będzie opsi każdego filmu - jak narazie jest placeholder, bo w sumie nie ma co dodatkowo narazie dodawać treści w tych jsonach. myślę, że wygląda to całkiem spoko - na pewno fajne urozmaicenie, do poprzedniej karuzeli.</Typography>
+                    </CardContent>
+
+            <Link to="/Movie" state={{ entry: props.entry }}>
+                    <CardContent>
+                        <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "right" }}>
+                            <InfoIcon sx={{marginRight: "10px"}} />
+                            <Typography>Więcej informacji</Typography>
+                        </Box>
+                    </CardContent>
+            </Link>
+                </Box>
+                </Card>
+
+
         );
 
 }

@@ -11,96 +11,44 @@ import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import TrendingCard from "./TrendingCard";
 import data from "./data.json";
+import TheatersIcon from '@mui/icons-material/Theaters';
+import TrendingCarousel from "./TrendingCarousel";
+import Divider from '@mui/material/Divider';
 
-const SectionContainer = styled(Box)(({ theme }) => ({
+const TrendingContainer = styled(Box)(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column",
     alignItems: "center",
-    marginTop: "2rem",
-    backgroundColor: "white"
+    width: "100%",
+    height: "500px",
+    backgroundColor: "#ebebeb"
 }))
 
-const TrendingBoxContainer = styled(Box)(({ theme }) => ({
-    transform: "translateY(-15px)"
-}))
-
-const TrendingBox = styled(Box)(({ theme }) => ({
-    position: "relative",
-    paddingTop: "3px",
-    width: "40%",
-    height:"5vh",
-    left: "30%",
-    backgroundColor: "#201c1c",
-    color: "white",
-    fontSize: "22px",
-    fontWeight:"500",
-    textAlign: "center",
-    borderRadius: "0.5rem",
-    zIndex: "20",
-    boxShadow: "10px 8px 10px rgba(0,0,0,0.6)",
-    "& .icon": {
-        color: "white",
-
-    }
-}))
-
-const TrendingCardContainer = styled("div")(({ theme }) => ({
-    transform: "translateY(-40px)",
-    justifyContent: "space-between",
+const HeaderContainer = styled(Box)(({ theme }) => ({
+    display: "flex",
+    flexDirection: "row",
     alignItems: "center",
-    width: "80%",
-    paddingLeft: "10%"
+    justifyContent: "center",
+    marginTop: "25px",
+    marginBottom: "15px"
 }))
-
 
 const Trending = () => {
 
-    const customSlider = createRef();
-
-    const gotoNext = () => {
-        customSlider.current.slickNext()
-    }
-
-    const gotoPrev = () => {
-        customSlider.current.slickPrev()
-    }
-
-
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        arrows: false
-    }
 
     return (
 
-        <SectionContainer>
-            <TrendingBoxContainer>
+        <TrendingContainer>
+            <HeaderContainer>
+                <TheatersIcon sx={{ fontSize: "50px", marginRight: "15px" }} />
+                <Typography variant="h4" sx={{ fontWeight: "500" }}>Ostatnie premiery</Typography>
+            </HeaderContainer>
 
-                <TrendingBox sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                    <p style={{paddingLeft: "8px"}}>Popularne teraz</p>
-                    <Box>
-                        <IconButton className="icon" onClick={gotoPrev}>
-                            <ArrowBackIosIcon />
-                        </IconButton>
+            <Divider flexItem sx={{ width: "60%", alignSelf: "center", marginBottom: "30px" }} />
 
-                        <IconButton className="icon" onClick={gotoNext}>
-                            <ArrowForwardIos />
-                        </IconButton>
-                    </Box>
-                </TrendingBox>
+            <TrendingCarousel/>
 
-            </TrendingBoxContainer>
-            <TrendingCardContainer>
-                <Slider {...settings} ref={customSlider}>
-                    {data.map((entry) => {
-                        return (<TrendingCard entry={entry} key={entry.id} />);
-
-                    })}
-                </Slider>
-            </TrendingCardContainer>
-        </ SectionContainer>
+        </TrendingContainer>
         
         );
 }
