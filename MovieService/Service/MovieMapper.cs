@@ -40,6 +40,14 @@ namespace MovieService.Service
                 personsDTO.Add(PersonMapper.MapToDTO(person));
             }
 
+            int RatingSum = 0;
+            int NumberOfRating = 0;
+            foreach (Rating rate in movie.Rating)
+            {
+                NumberOfRating++;
+                RatingSum += rate.value;
+            }
+
             return new MovieDetailsDTO
             {
                 Id = movie.Id,
@@ -49,6 +57,8 @@ namespace MovieService.Service
                 DurationInMinutes = movie.DurationInMinutes,
                 Photo = movie.Photo,
                 Trailer = movie.Trailer,
+                AverageRating = Math.Round( (double)RatingSum / (double)NumberOfRating,2),
+                NumberOfRating = NumberOfRating,
                 Genres = genresDTO,
                 Tags = tagsDTO,
                 Persons = personsDTO
@@ -65,6 +75,7 @@ namespace MovieService.Service
                 ReleaseDate = new DateTime(movieDTO.ReleaseDate.Year, movieDTO.ReleaseDate.Month, movieDTO.ReleaseDate.Day),
                 DurationInMinutes = movieDTO.DurationInMinutes,
                 Photo = movieDTO.Photo,
+                Trailer = movieDTO.Trailer,
                 Genres = new List<Genre>(),
                 Tags = new List<Tag>(),
                 Persons = new List<Person>()

@@ -7,12 +7,19 @@ namespace MovieService.Service
     {
         public static SeasonsDTO MapToDTO(Season season)
         {
+            List<EpisodeDTO> episodesDTO = new List<EpisodeDTO>();
+            foreach (Episode episode in season.Episodes)
+            {
+                episodesDTO.Add(EpisodeMapper.MapToDTO(episode));
+            }
+
             return new SeasonsDTO
             {
                 Id = season.Id,
                 Number = season.Number,
                 Title = season.Title,
                 SeriesId = season.SeriesId,
+                Episodes = episodesDTO,
             };
         }
 

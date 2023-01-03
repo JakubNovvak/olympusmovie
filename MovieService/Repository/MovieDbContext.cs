@@ -12,8 +12,10 @@ namespace MovieService.Repository
         public DbSet<Genre> Genres { get; set; } = null!;
         public DbSet<Movie> Movies { get; set; } = null!;
         public DbSet<Person> Persons { get; set; } = null!;
+        public DbSet<Person> Ratings { get; set; } = null!;
         public DbSet<Review> Reviews { get; set; } = null!;
         public DbSet<Role> Roles { get; set; } = null!;
+        public DbSet<Season> Seasons { get; set; } = null!;
         public DbSet<Series> Series { get; set; } = null!;
         public DbSet<Tag> Tags { get; set; } = null!;
 

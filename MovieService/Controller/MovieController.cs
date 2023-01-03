@@ -45,7 +45,7 @@ namespace MovieService.Controller
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<ActionResult> Create(MovieDTO movieDTO)
         {
             var id = await _dataService.AddAsync(movieDTO);

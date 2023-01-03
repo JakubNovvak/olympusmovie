@@ -40,7 +40,7 @@ namespace MovieService.Service
 
         public IEnumerable<int> GetAll()
         {
-            return _dbContext.Movies.Select(genre => genre.Id);
+            return _dbContext.Genres.Select(genre => genre.Id);
         }
 
         public async Task<GenreDTO?> GetById(int id)

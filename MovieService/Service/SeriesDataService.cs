@@ -41,7 +41,7 @@ namespace MovieService.Service
 
         public IEnumerable<int> GetAll()
         {
-            return _dbContext.Movies.Select(series => series.Id);
+            return _dbContext.Series.Select(series => series.Id);
         }
 
         public async Task<SeriesDTO?> GetById(int id)

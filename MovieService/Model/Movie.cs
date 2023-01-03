@@ -29,6 +29,7 @@ namespace MovieService.Model
         public string Trailer { get; set; } = null!;
 
         public virtual ICollection<Review> Reviews { get; set; } = null!;
+        public virtual ICollection<Rating> Rating { get; set; } = null!;
 
         public virtual ICollection<Genre> Genres { get; set; } = null!;
 
