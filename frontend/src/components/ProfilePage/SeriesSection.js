@@ -20,6 +20,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import useAuth from "../../hooks/useAuth";
 
 const StyledTabs = styled(Tabs)(() => ({
     backgroundColor: "white",
@@ -72,6 +73,8 @@ function a11yProps(index) {
 export default function SeriesSection() {
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
+
+    const { auth } = useAuth();
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -136,7 +139,7 @@ export default function SeriesSection() {
                                         <TableCell align="left">Tytuł</TableCell>
                                         <TableCell align="center">Ocena</TableCell>
                                         <TableCell align="center">Odcinki</TableCell>
-                                        <TableCell align="center">Opcje</TableCell>
+                                        {auth.username !== undefined ? <TableCell align="center">Opcje</TableCell> : <></>}
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -173,7 +176,7 @@ export default function SeriesSection() {
                                         <TableCell align="left">Tytuł</TableCell>
                                         <TableCell align="center">Ocena</TableCell>
                                         <TableCell align="center">Odcinki</TableCell>
-                                        <TableCell align="center">Opcje</TableCell>
+                                        {auth.username !== undefined ? <TableCell align="center">Opcje</TableCell> : <></>}
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -210,7 +213,7 @@ export default function SeriesSection() {
                                         <TableCell align="left">Tytuł</TableCell>
                                         <TableCell align="center">Ocena</TableCell>
                                         <TableCell align="center">Odcinki</TableCell>
-                                        <TableCell align="center">Opcje</TableCell>
+                                        {auth.username !== undefined ? <TableCell align="center">Opcje</TableCell> : <></>}
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -247,7 +250,7 @@ export default function SeriesSection() {
                                         <TableCell align="left">Tytuł</TableCell>
                                         <TableCell align="center">Ocena</TableCell>
                                         <TableCell align="center">Odcinki</TableCell>
-                                        <TableCell align="center">Opcje</TableCell>
+                                        {auth.username !== undefined ? <TableCell align="center">Opcje</TableCell> : <></>}
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -284,7 +287,7 @@ export default function SeriesSection() {
                                         <TableCell align="left">Tytuł</TableCell>
                                         <TableCell align="center">Ocena</TableCell>
                                         <TableCell align="center">Odcinki</TableCell>
-                                        <TableCell align="center">Opcje</TableCell>
+                                        {auth.username !== undefined ? <TableCell align="center">Opcje</TableCell> : <></>}
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>

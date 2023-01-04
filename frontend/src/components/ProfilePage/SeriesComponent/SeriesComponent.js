@@ -21,8 +21,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import useAuth from "../../../hooks/useAuth";
 
 export default function SeriesComponent(props) {
+
+    const { auth } = useAuth();
 
     const progress = 100 - (props.entry.Watched / props.entry.Episodes)*100;
 
@@ -54,21 +57,27 @@ export default function SeriesComponent(props) {
                 <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
                     {props.entry.Rate}
                     ⭐
-                    <ChangeRateComponent />
+                    {auth.username !== undefined ? <ChangeRateComponent /> : <></>}
                 </Box>
             </TableCell>
             <TableCell align="center">
+                {auth.username !== undefined ? 
                 <IconButton>
                     <RemoveIcon />
                 </IconButton>
+                    : <></>}
                 {props.entry.Watched}/{props.entry.Episodes}
-                <IconButton>
-                    <AddIcon />
-                </IconButton>
+                {auth.username !== undefined ?
+                    <IconButton>
+                        <AddIcon />
+                    </IconButton>
+                    : <></>}
             </TableCell>
-            <TableCell align="center">
-                <ChangeStateComponent />
-            </TableCell>
+            {auth.username !== undefined ?
+                <TableCell align="center">
+                    <ChangeStateComponent />
+                </TableCell>
+                : <></>}
         </>
     );
 }

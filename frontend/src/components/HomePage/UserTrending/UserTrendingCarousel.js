@@ -8,6 +8,8 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import data from "./data.json";
+import series from "./series.json";
+import movies from "./movies.json";
 import UserTrendingCard from "./UserTrendingCard";
 
 const UserTrendingCarouselContainer = styled(Box)(({ theme }) => ({
@@ -82,8 +84,13 @@ export default function UserTrendingCarousel() {
             <Box sx={{ width: "20px", height: "20px" }}></Box>
 
             <Slider {...settings}>
-                {data.map((entry) => {
-                    return (<UserTrendingCard entry={entry} />);
+                {series.map((entry) => {
+                    return (<UserTrendingCard entry={entry} type="series" />);
+
+                })}
+
+                {movies.map((entry) => {
+                    return (<UserTrendingCard entry={entry} type="movies" />);
 
                 })}
 
