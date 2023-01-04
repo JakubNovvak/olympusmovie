@@ -14,6 +14,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import MovieInfoContent from "../../components/Movie/MovieInfoContent";
 import { motion } from "framer-motion";
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
+import series from "./series.json";
+import movies from "./movies.json";
 
 const Container = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -96,9 +98,19 @@ const WatchTrailer = styled("div")(({ theme }) => ({
 
 const Movie = () => {
     const location = useLocation();
+    const type = location.state.type;
+    const entryId = location.state.entryId;
+    let entry = null;
+
+    if (type == "series")
+        entry = series.find(entry => entry.id === entryId);
+    else
+        entry = movies.find(entry => entry.id === entryId);
+
+    console.log(entry.title);
+
     const [HDropdownState, ChangeHDropdownState] = useState(false);
     const [WatchState, ChangeWatchState] = useState(0);
-    const type = "serial";
     const commentsRef = useRef(null);
     const executeScroll = () => commentsRef.current.scrollIntoView();
 
@@ -118,22 +130,22 @@ const Movie = () => {
         <Container>
             <ContentContainer>
                 <BackGroundImageContainer>
-                    <BackgroundImage src="https://lumiere-a.akamaihd.net/v1/images/image_1fbb2748.jpeg" alt="" />
+                    <BackgroundImage src={entry.backgroundImage} alt="" />
                     <ImageTextContainer>
                         <Grid container spacing={3} style={{display: "flex", justifyContent:"center", alignItems: "bottom"}}>
                             <Grid item xs={6} style={{ justifyContent: "center", color: "white" }}>
                                 <Box sx={{ display: "flex", justifyContent: "center", flexDirection: "row" }}>
                                     <Box sx={{minWidth: "30%", display: "flex"}}>
-                                        <img style={{ zIndex: "1" }} src="https://fwcdn.pl/fpo/81/78/558178/8040495.6.jpg" />
+                                        <img style={{ zIndex: "1" }} src={entry.imageLink} />
                                         <FavouriteIconContainer>
                                             <FavoriteIcon fontSize="large" />
                                         </FavouriteIconContainer>
                                     </Box>
                                     <Box mx="0px" sx={{ marginTop: "2%" }}>
-                                        <Typography variant="h2" sx={{fontWeight: "500"}}>Avatar: Istota Wody</Typography>
-                                        <Typography variant="h5" sx={{ fontWeight: "400", color: "#cfcfcf" }}>Avatar: The way of water</Typography>
-                                        <Typography variant="h6" sx={{ color: "#cfcfcf"}}>3 godz. 23 min.</Typography>
-                                        <Typography variant="h6" sx={{ color: "#cfcfcf" }}>2022</Typography>
+                                        <Typography variant="h2" sx={{ fontWeight: "500" }}>{entry.title}</Typography>
+                                        <Typography variant="h5" sx={{ fontWeight: "400", color: "#cfcfcf" }}>{entry.Genre}</Typography>
+                                        <Typography variant="h6" sx={{ color: "#cfcfcf" }}>{type == "series" ? "Liczba odcinków: " : ""} {type == "movies" ? entry.Runtime : entry.Episodes}</Typography>
+                                        <Typography variant="h6" sx={{ color: "#cfcfcf" }}>{entry.released}</Typography>
 
                                         <MotionComponent
                                             whileHover={{ scale: 1.03 }}
@@ -154,7 +166,7 @@ const Movie = () => {
 
                             </Grid>
                             <Grid item xs={6} style={{ display:"flex", color: "white", justifyContent: "right" }}>
-                                <UserMovieInfo executeScroll={executeScroll} />
+                                <UserMovieInfo type={type} executeScroll={executeScroll} />
                             </Grid>
                         </Grid>
 
@@ -162,7 +174,7 @@ const Movie = () => {
                 </BackGroundImageContainer>
 
                 <InfoContainer>
-                    <MovieInfoContent commentsRef={commentsRef} />
+                    <MovieInfoContent entry={entry} commentsRef={commentsRef} />
                 </InfoContainer>
             </ContentContainer>
         </Container>

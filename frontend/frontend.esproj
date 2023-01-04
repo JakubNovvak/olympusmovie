@@ -15,6 +15,5 @@
     <Folder Include="src\components\HomePage\Upcoming\" />
     <Folder Include="src\components\ProfilePage\MovieComponent\" />
     <Folder Include="src\components\ProfilePage\SeriesComponent\" />
-    <Folder Include="src\pages\Movie\" />
   </ItemGroup>
 </Project>

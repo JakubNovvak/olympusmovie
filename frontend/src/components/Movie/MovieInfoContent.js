@@ -40,7 +40,7 @@ export default function MovieComponent(props) {
                         </Box>
 
                         <Typography sx={{marginLeft: "10px"}}>
-                            Akcja filmu "Avatar: Istota wody" rozgrywa się ponad dziesięć lat po wydarzeniach z pierwszej części. To opowieść o rodzinie Jake'a i Neytiri oraz ich staraniach, by zapewnić bezpieczeństwo sobie i swoim dzieciom, mimo tragedii, których wspólnie doświadczają i bitew, które muszą stoczyć, aby przeżyć.
+                            {props.entry.description}
                         </Typography>
                         <Divider sx={{marginTop: "25px"}} />
                     </Box>

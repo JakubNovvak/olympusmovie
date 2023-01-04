@@ -19,7 +19,7 @@ export default function UserTrendingCard(props) {
 
     return (
         <>
-            <Link to="/Movie" state={{ entry: props.entry }}>
+            <Link to="/Movie" state={{ entryId: props.entry.id, type: props.type }}>
                 <MotionComponent
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.99 }}
