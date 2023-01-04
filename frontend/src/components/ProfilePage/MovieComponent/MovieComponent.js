@@ -19,10 +19,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import useAuth from "../../../hooks/useAuth";
 
 export default function MovieComponent(props) {
     const numberOfEpisodes = 12;
     const wathced = 6;
+
+    const { auth } = useAuth();
 
     const progress = 0//100 - (wathced/numberOfEpisodes)*100;
 
@@ -54,13 +57,15 @@ export default function MovieComponent(props) {
                 <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
                     {props.entry.Rate}
                     ⭐
-                    <ChangeRateComponent />
+                    {auth.username !== undefined ? <ChangeRateComponent /> : <></>}
                 </Box>
             </TableCell>
             {/*<TableCell align="right">{props.entry.Type}</TableCell>*/}
+            {auth.username !== undefined ?
             <TableCell align="center">
-                <ChangeStateComponent/>
-            </TableCell>
+                <ChangeStateComponent />
+            </TableCell>    
+                : <></>}
         </>
 
 /*        <>

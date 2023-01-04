@@ -7,9 +7,12 @@ import StatePicker from "./StatePicker";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import useAuth from "../../hooks/useAuth";
 
 export default function UserMovieInfo(props)
 {
+    const { auth } = useAuth();
+
     return (
         <>
             <Paper
@@ -42,6 +45,15 @@ export default function UserMovieInfo(props)
                     <StatePicker />
                     <Button variant="outlined" onClick={props.executeScroll} sx={{ color: "black", marginTop: "25px", minWidth: "300px" }}>Podziel się swoją opinią!</Button>
                 </Box>
+
+                {auth.username !== undefined ? <></>
+                    : 
+
+                <Box sx={{ position: "absolute", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "rgba(255, 255, 255, 0.8)", width: "400px", height: "310px" }}>
+                    <Button variant="contained">zaloguj się</Button>
+                </Box>
+
+                }
             </Paper>
         </>
     );

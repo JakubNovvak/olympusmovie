@@ -18,9 +18,11 @@ import CommentSection from "./CommentSection/CommentSection";
 import CommentIcon from '@mui/icons-material/Comment';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 import { motion } from "framer-motion";
+import useAuth from "../../hooks/useAuth";
 
 export default function MovieComponent(props) {
 
+    const { auth } = useAuth();
     const MotionComponent = motion("img");
 
     return (
@@ -126,13 +128,24 @@ export default function MovieComponent(props) {
 
                 <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
                     <AccountCircleIcon fontSize="large" sx={{marginTop: "15px", marginRight: "10px"}} />
-                    <TextField
-                        id="standard-basic"
-                        label="Podziel się swoimi wrażeniami na temat filmu!"
-                        variant="standard"
-                        sx={{ width: "700px" }}
-                        InputProps={{ endAdornment: <SendIcon/> }}
-                    />
+
+                    {auth.username !== undefined ?
+                        <TextField
+                            id="standard-basic"
+                            label="Podziel się swoimi wrażeniami na temat filmu!"
+                            variant="standard"
+                            sx={{ width: "700px" }}
+                            InputProps={{ endAdornment: <SendIcon /> }}
+                        />
+                        :
+                        <TextField
+                            id="standard-basic"
+                            disabled
+                            label="Aby komentować musisz się najpierw zalogować."
+                            variant="standard"
+                            sx={{ width: "700px" }}
+                            InputProps={{ endAdornment: <SendIcon /> }}
+                        />}
                 </Box>
 
                 <Box>

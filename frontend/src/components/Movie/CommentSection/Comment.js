@@ -6,8 +6,11 @@ import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
 import ReplyToComment from "./ReplyToComment";
 import { motion, AnimatePresence } from "framer-motion";
+import useAuth from "../../../hooks/useAuth";
 
 export default function Comment(props) {
+
+    const { auth } = useAuth();
 
     const [inputVisibility, changeInputVisibility] = useState(false);
 
@@ -42,8 +45,12 @@ export default function Comment(props) {
 
                     <Typography sx={{marginTop: "20px"}}>{props.entry.Content}</Typography>
 
-                    <MotionComponent sx={{display: "flex", flexDirection:"row", alignItems: "end"}}>
-                        <Typography onClick={handleInputVisibility} sx={{ marginTop: "40px", fontWeight: "550", color: "gray", cursor: "pointer" }}>Odpowiedz</Typography>
+                    <MotionComponent sx={{ display: "flex", flexDirection: "row", alignItems: "end" }}>
+                        {auth.username !== undefined ?
+                            <Typography onClick={handleInputVisibility} sx={{ marginTop: "40px", fontWeight: "550", color: "gray", cursor: "pointer" }}>Odpowiedz</Typography>
+                            :
+                            <Box sx={{ marginTop: "60px" }} ></Box>
+                        }
 
                         {inputVisibility ? <ReplyToComment /> : <></>}
                     </MotionComponent>

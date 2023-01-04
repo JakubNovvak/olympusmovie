@@ -128,33 +128,6 @@ const Movie = () => {
                                         <FavouriteIconContainer>
                                             <FavoriteIcon fontSize="large" />
                                         </FavouriteIconContainer>
-                                        {/*<ArrowContainer>
-                                            <IconButton sx={{ width: "25px", zIndex: "2" }} onClick={ChangeHDropdown}>
-                                                <ArrowRightIcon sx={{ color: "black" }} />
-                                            </IconButton>
-                                            <Box sx={{
-                                                position: "absolute",
-                                                display: "flex",
-                                                flowDirection: "row",
-                                                alignItems: "center",
-                                                minHeight: "100%",
-                                                backgroundColor: "white",
-                                                borderRadius: "10px",
-                                                opacity: `${HDropdownState ? "1" : "0" }`
-                                            }}>
-                                                <StatePicker ChangeWatchState={ChangeWatchState} />
-                                                {WatchState == 0 ? <></> : <Rating
-                                                    defaultValue={5}
-                                                    max={10}
-                                                    //readOnly
-                                                    size="large"
-                                                    sx={{
-                                                        color: "#f5ce42",
-                                                        marginRight: "20px",
-                                                    }}
-                                                />}
-                                            </Box>
-                                        </ArrowContainer>*/}
                                     </Box>
                                     <Box mx="0px" sx={{ marginTop: "2%" }}>
                                         <Typography variant="h2" sx={{fontWeight: "500"}}>Avatar: Istota Wody</Typography>
