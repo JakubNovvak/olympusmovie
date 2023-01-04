@@ -13,7 +13,9 @@ namespace MovieService.Service
                 Title = series.Title,
                 Description = series.Description,
                 ReleaseDate = new DateDTO(series.ReleaseDate.Year, series.ReleaseDate.Month, series.ReleaseDate.Day),
-                Photo = series.Photo,
+                Cover = series.Cover,
+                BackgroundImage = series.BackgroundImage,
+                Thumbnail = series.Thumbnail,
                 Trailer = series.Trailer
             };
         }
@@ -58,7 +60,9 @@ namespace MovieService.Service
                 Title = series.Title,
                 Description = series.Description,
                 ReleaseDate = new DateDTO(series.ReleaseDate.Year, series.ReleaseDate.Month, series.ReleaseDate.Day),
-                Photo = series.Photo,
+                Cover = series.Cover,
+                BackgroundImage = series.BackgroundImage,
+                Thumbnail = series.Thumbnail,
                 Trailer = series.Trailer,
                 AverageRating = Math.Round((double)RatingSum / (double)NumberOfRating, 2),
                 NumberOfRating = NumberOfRating,
@@ -76,7 +80,9 @@ namespace MovieService.Service
                 Title = seriesDTO.Title,
                 Description = seriesDTO.Description,
                 ReleaseDate = new DateTime(seriesDTO.ReleaseDate.Year, seriesDTO.ReleaseDate.Month, seriesDTO.ReleaseDate.Day),
-                Photo = seriesDTO.Photo,
+                Cover = seriesDTO.Cover,
+                BackgroundImage = seriesDTO.BackgroundImage,
+                Thumbnail = seriesDTO.Thumbnail,
                 Trailer = seriesDTO.Trailer,
                 Genres = new List<Genre>(),
                 Tags = new List<Tag>(),
