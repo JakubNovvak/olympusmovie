@@ -126,7 +126,7 @@ const Login = (props) => {
     console.log(actions);
     setloadingButton(true);
 
-    const response = axios
+    axios
       .post("/api/account/login", JSON.stringify(values), {
         headers: {
           "Content-Type": "application/json",

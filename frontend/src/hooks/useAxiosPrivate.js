@@ -19,13 +19,18 @@ const useAxiosPrivate = () => {
     );
 
     const responseIntercept = axiosPrivate.interceptors.response.use(
-      (response) => response,
+      (response) => {
+        return response;
+      },
       async (error) => {
         const prevRequest = error?.config;
-        if (error?.response?.status === 403 && !prevRequest?.sent) {
+        if (
+          (error?.response?.status === 403 ||
+            error?.response?.status === 401) &&
+          !prevRequest?.sent
+        ) {
           prevRequest.sent = true;
           const newTokens = await refresh();
-          // TODO : sprawdzić gdzie jest przechowywany access token
           prevRequest.headers[
             "Authorization"
           ] = `Bearer ${newTokens.accessToken}`;
