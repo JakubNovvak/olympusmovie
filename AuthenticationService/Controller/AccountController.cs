@@ -96,5 +96,13 @@ namespace ApplicationService.Controller
             await _accountService.RevokeAll();
             return Ok("All users successfully revoked!");
         }
+
+        [Authorize]
+        [HttpPost]
+        [Route("Test")]
+        public string Test()
+        {
+            return "Test OK";
+        }
     }
 }

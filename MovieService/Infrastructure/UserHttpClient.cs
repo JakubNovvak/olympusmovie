@@ -52,11 +52,10 @@ namespace MovieService.Infrastructure
             return await DeserializeListOfIntegersFromResponse(response);
         }
 
-        private string GetQueryParamsString(ISet<int> values, string label)
+        private static string GetQueryParamsString(ISet<int> values, string label)
         {
-            return values
-                            .Select(id => label + "=" + id)
-                            .Aggregate((param1, param2) => param1 + "&" + param2);
+            return values.Select(id => label + "=" + id)
+                .Aggregate((param1, param2) => param1 + "&" + param2);
         }
 
         private static async Task<List<int>> DeserializeListOfIntegersFromResponse(HttpResponseMessage response)
