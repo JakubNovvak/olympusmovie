@@ -19,8 +19,14 @@ namespace MovieService.Model
         [Column("release_date")]
         public DateTime ReleaseDate { get; set; }
 
-        [Column("photo")]
-        public string Photo { get; set; } = null!;
+        [Column("cover")]
+        public string Cover { get; set; } = null!;
+
+        [Column("background_image")]
+        public string BackgroundImage { get; set; } = null!;
+
+        [Column("thumbnail")]
+        public string Thumbnail { get; set; } = null!;
 
         [Column("trailer")]
         public string Trailer { get; set; } = null!;

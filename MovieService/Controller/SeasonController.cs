@@ -6,66 +6,60 @@ namespace MovieService.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReviewController : ControllerBase
+    public class SeasonController : ControllerBase
     {
         private const string ID_QUERY_PARAM = "id";
         private const string TITLE_QUERY_PARAM = "title";
         private const string GetMethod = "GET";
         private const string SelfRel = "self";
-        private readonly IReviewDataService _dataService;
+        private readonly ISeasonDataService _dataService;
         private readonly LinkGenerator _linkGenerator;
 
-        public ReviewController(IReviewDataService dataService, LinkGenerator linkGenerator)
+        public SeasonController(ISeasonDataService dataService, LinkGenerator linkGenerator)
         {
             _dataService = dataService;
             _linkGenerator = linkGenerator;
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<ReviewDTO>> GetReview(int id)
+        public async Task<ActionResult<SeasonsDTO>> GetSeason(int id)
         {
-            var review = await _dataService.GetById(id);
-            if (review == null)
+            var movie = await _dataService.GetById(id);
+            if (movie == null)
             {
                 return NotFound();
             }
-            return Ok(review);
+            return Ok(movie);
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<ReviewDTO>> GetReviews()
+        public ActionResult<IEnumerable<SeasonsDTO>> GetSeasons([FromQuery(Name = TITLE_QUERY_PARAM)] string? title)
         {
-            //IEnumerable<ReviewDTO> review = _dataService.GetAll();
-            //if (String.IsNullOrEmpty(title))
-            //{
-            //    return Ok(review);
-            //}
-            //return Ok(movies.Where(movie => movie.Title.ToLower().Contains(title.ToLower())));
-
-            //Tu trzeba zaprojektować pobieranie reviews do danej pozycji
+            //Zaimplementować żeby zwracało sezony danego serialu
 
             throw new NotImplementedException();
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(ReviewDTO reviewDTO)
+        //[Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Create(SeasonsDTO seasonDTO)
         {
-            var id = await _dataService.AddAsync(reviewDTO);
-            var url = GetLinkToReview(id);
+            var id = await _dataService.AddAsync(seasonDTO);
+            var url = GetLinkToSeason(id);
             return Created(url.Href, url);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Edit(ReviewDTO reviewDTO)
+        public async Task<ActionResult> Edit(SeasonsDTO seasonDTO)
         {
-            var id = await _dataService.EditAsync(reviewDTO);
-            var url = GetLinkToReview(id);
+            var id = await _dataService.EditAsync(seasonDTO);
+            var url = GetLinkToSeason(id);
             return Ok(url);
         }
 
-        private LinkDTO GetLinkToReview(int id)
+        private LinkDTO GetLinkToSeason(int id)
         {
-            var url = _linkGenerator.GetUriByAction(HttpContext, nameof(GetReview), values: new { id }) ?? string.Empty;
+            var url = _linkGenerator.GetUriByAction(HttpContext, nameof(GetSeason), values: new { id }) ?? string.Empty;
             return new LinkDTO(url, SelfRel, GetMethod);
         }
 

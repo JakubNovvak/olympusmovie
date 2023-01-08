@@ -15,5 +15,11 @@ namespace MovieService.Model
 
         [Column("user_id")]
         public int UserId { get; set; }
+
+        [Column("position_id")]
+        public int PositionId { get; set; }
+
+        [Column("position_type")]
+        public string PositionType { get; set; } = null!;
     }
 }

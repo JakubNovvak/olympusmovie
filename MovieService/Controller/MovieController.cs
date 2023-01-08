@@ -68,7 +68,7 @@ namespace MovieService.Controller
         }
 
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete([FromQuery(Name = ID_QUERY_PARAM)] int[] ids)
         {
             var removingResult = await _dataService.RemoveRange(new HashSet<int>(ids));

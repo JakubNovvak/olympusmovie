@@ -34,7 +34,9 @@ namespace MovieService.Service
                 movieToEdit.Description = movieEntity.Description;
                 movieToEdit.ReleaseDate = movieEntity.ReleaseDate;
                 movieToEdit.DurationInMinutes = movieEntity.DurationInMinutes;
-                movieToEdit.Photo = movieEntity.Photo;
+                movieToEdit.Cover = movieEntity.Cover;
+                movieToEdit.BackgroundImage = movieEntity.BackgroundImage;
+                movieToEdit.Thumbnail = movieEntity.Thumbnail;
                 await _dbContext.SaveChangesAsync();
                 return movieToEdit.Id;
             }
@@ -46,14 +48,14 @@ namespace MovieService.Service
             return _dbContext.Movies.Select(movie => MovieMapper.MapToDTO(movie));
         }
 
-        public async Task<MovieDTO?> GetById(int id)
+        public async Task<MovieDetailsDTO?> GetById(int id)
         {
             var movie = await _dbContext.Movies.FindAsync(id);
             if (movie == null)
             {
                 return null;
             }
-            return MovieMapper.MapToDTO(movie);
+            return MovieMapper.MapToDetailsDTO(movie);
         }
 
         public async Task<bool> RemoveRange(ISet<int> ids)

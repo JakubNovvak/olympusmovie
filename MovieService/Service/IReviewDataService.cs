@@ -6,7 +6,8 @@ namespace MovieService.Service
     {
         Task<int> AddAsync(ReviewDTO reviewDTO);
         IEnumerable<ReviewDTO> GetAll();
-        Task<bool> Remove(int id);
+        Task<bool> RemoveRange(ISet<int> ids);
         Task<int> EditAsync(ReviewDTO reviewDTO);
+        Task<ReviewDTO?> GetById(int id);
     }
 }

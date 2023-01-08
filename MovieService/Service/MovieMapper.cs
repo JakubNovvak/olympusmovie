@@ -15,13 +15,27 @@ namespace MovieService.Service
                 Description = movie.Description,
                 ReleaseDate = new DateDTO(movie.ReleaseDate.Year, movie.ReleaseDate.Month, movie.ReleaseDate.Day),
                 DurationInMinutes = movie.DurationInMinutes,
-                Photo = movie.Photo,
+                Cover = movie.Cover,
+                BackgroundImage = movie.BackgroundImage,
+                Thumbnail = movie.Thumbnail,
                 Trailer = movie.Trailer
             };
         }
 
-        public static MovieDetailsDTO MapToDerailsDTO(Movie movie)
+        public static MovieDetailsDTO MapToDetailsDTO(Movie movie)
         {
+            List<ReviewDTO> reviewsDTO = new List<ReviewDTO>();
+            foreach (Review review in movie.Reviews)
+            {
+                reviewsDTO.Add(ReviewMapper.MapToDTO(review));
+            }
+
+            List<RatingDTO> ratingsDTO = new List<RatingDTO>();
+            foreach (Rating rating in movie.Rating)
+            {
+                ratingsDTO.Add(RatingMapper.MapToDTO(rating));
+            }
+
             List<GenreDTO> genresDTO = new List<GenreDTO>();
             foreach (Genre genre in movie.Genres)
             {
@@ -55,10 +69,13 @@ namespace MovieService.Service
                 Description = movie.Description,
                 ReleaseDate = new DateDTO(movie.ReleaseDate.Year, movie.ReleaseDate.Month, movie.ReleaseDate.Day),
                 DurationInMinutes = movie.DurationInMinutes,
-                Photo = movie.Photo,
+                Cover = movie.Cover,
+                BackgroundImage = movie.BackgroundImage,
+                Thumbnail = movie.Thumbnail,
                 Trailer = movie.Trailer,
                 AverageRating = Math.Round( (double)RatingSum / (double)NumberOfRating,2),
                 NumberOfRating = NumberOfRating,
+                Reviews = reviewsDTO,
                 Genres = genresDTO,
                 Tags = tagsDTO,
                 Persons = personsDTO
@@ -74,8 +91,12 @@ namespace MovieService.Service
                 Description = movieDTO.Description,
                 ReleaseDate = new DateTime(movieDTO.ReleaseDate.Year, movieDTO.ReleaseDate.Month, movieDTO.ReleaseDate.Day),
                 DurationInMinutes = movieDTO.DurationInMinutes,
-                Photo = movieDTO.Photo,
+                Cover = movieDTO.Cover,
+                BackgroundImage = movieDTO.BackgroundImage,
+                Thumbnail = movieDTO.Thumbnail,
                 Trailer = movieDTO.Trailer,
+                Reviews = new List<Review>(),
+                Rating = new List<Rating>(),
                 Genres = new List<Genre>(),
                 Tags = new List<Tag>(),
                 Persons = new List<Person>()

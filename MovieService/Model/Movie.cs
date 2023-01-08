@@ -22,13 +22,20 @@ namespace MovieService.Model
         [Column("duration_in_minutes")]
         public int DurationInMinutes { get; set; }
 
-        [Column("photo")]
-        public string Photo { get; set; } = null!;
+        [Column("cover")]
+        public string Cover { get; set; } = null!;
+
+        [Column("background_image")]
+        public string BackgroundImage { get; set; } = null!;
+
+        [Column("thumbnail")]
+        public string Thumbnail { get; set; } = null!;
 
         [Column("trailer")]
         public string Trailer { get; set; } = null!;
 
         public virtual ICollection<Review> Reviews { get; set; } = null!;
+
         public virtual ICollection<Rating> Rating { get; set; } = null!;
 
         public virtual ICollection<Genre> Genres { get; set; } = null!;

@@ -10,6 +10,8 @@ namespace MovieService.Service
             return new CommentDTO
             {
                 Id = comment.Id,
+                UserId = comment.UserId,
+                RatingId = comment.RatingId,
                 Content = comment.Content,
                 ReviewId = comment.ReviewId,
             };
@@ -20,6 +22,8 @@ namespace MovieService.Service
             return new Comment
             {
                 Id = commentDTO.Id,
+                UserId = commentDTO.UserId,
+                RatingId = commentDTO.RatingId,
                 Content = commentDTO.Content,
                 ReviewId = commentDTO.ReviewId,
             };
