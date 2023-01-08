@@ -7,7 +7,7 @@ namespace MovieService.Service
         Task<int> AddAsync(SeriesDTO seriesDTO);
         IEnumerable<int> GetAll();
         Task<bool> RemoveRange(ISet<int> ids);
-        Task<SeriesDTO?> GetById(int id);
+        Task<SeriesDetailsDTO?> GetById(int id);
         Task<int> EditAsync(SeriesDTO seriesDTO);
     }
 }

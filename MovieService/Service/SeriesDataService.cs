@@ -32,7 +32,9 @@ namespace MovieService.Service
             {
                 findSeries.Title = seriesEntity.Title;
                 findSeries.Description = seriesEntity.Description;
-                findSeries.Photo = seriesEntity.Photo;
+                findSeries.Cover = seriesEntity.Cover;
+                findSeries.BackgroundImage = seriesEntity.BackgroundImage;
+                findSeries.Thumbnail = seriesEntity.Thumbnail;
                 await _dbContext.SaveChangesAsync();
                 return findSeries.Id;
             }
@@ -44,14 +46,14 @@ namespace MovieService.Service
             return _dbContext.Series.Select(series => series.Id);
         }
 
-        public async Task<SeriesDTO?> GetById(int id)
+        public async Task<SeriesDetailsDTO?> GetById(int id)
         {
             var series = await _dbContext.Series.FindAsync(id);
             if (series == null)
             {
                 return null;
             }
-            return SeriesMapper.MapToDTO(series);
+            return SeriesMapper.MapToDetailsDTO(series);
         }
 
         public async Task<bool> RemoveRange(ISet<int> ids)

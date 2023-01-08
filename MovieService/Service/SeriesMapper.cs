@@ -46,6 +46,24 @@ namespace MovieService.Service
                 personsDTO.Add(PersonMapper.MapToDTO(person));
             }
 
+
+
+
+            List<ReviewDTO> reviewsDTO = new List<ReviewDTO>();
+            foreach (Review person in series.Reviews)
+            {
+                reviewsDTO.Add(ReviewMapper.MapToDTO(person));
+            }
+
+            List<SeasonsDTO> seasonDTO = new List<SeasonsDTO>();
+            foreach (Season person in series.Seasons)
+            {
+                seasonDTO.Add(SeasonMapper.MapToDTO(person));
+            }
+
+
+
+
             int RatingSum = 0;
             int NumberOfRating = 0;
             foreach (Rating rate in series.Rating)
@@ -66,8 +84,10 @@ namespace MovieService.Service
                 Trailer = series.Trailer,
                 AverageRating = Math.Round((double)RatingSum / (double)NumberOfRating, 2),
                 NumberOfRating = NumberOfRating,
+                Reviews = reviewsDTO,
                 Genres = genresDTO,
                 Tags = tagsDTO,
+                Seasons = seasonDTO,
                 Persons = personsDTO
             };
         }
@@ -84,8 +104,11 @@ namespace MovieService.Service
                 BackgroundImage = seriesDTO.BackgroundImage,
                 Thumbnail = seriesDTO.Thumbnail,
                 Trailer = seriesDTO.Trailer,
+                Reviews = new List<Review>(),
+                Rating = new List<Rating>(),
                 Genres = new List<Genre>(),
                 Tags = new List<Tag>(),
+                Seasons = new List<Season>(),
                 Persons = new List<Person>()
             };
         }
