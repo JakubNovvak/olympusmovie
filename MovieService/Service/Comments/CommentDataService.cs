@@ -33,7 +33,6 @@ namespace MovieService.Service.Comments
             {
                 foundComment.Content = commentEntity.Content;
                 foundComment.ReviewId = commentEntity.ReviewId;
-                foundComment.RatingId = commentEntity.RatingId;
                 foundComment.UserId = commentEntity.UserId;
                 await _dbContext.SaveChangesAsync();
                 return foundComment.Id;
