@@ -11,7 +11,6 @@ namespace MovieService.Service.Comments
             {
                 Id = comment.Id,
                 UserId = comment.UserId,
-                RatingId = comment.RatingId,
                 Content = comment.Content,
                 ReviewId = comment.ReviewId,
             };
@@ -23,7 +22,6 @@ namespace MovieService.Service.Comments
             {
                 Id = commentDTO.Id,
                 UserId = commentDTO.UserId,
-                RatingId = commentDTO.RatingId,
                 Content = commentDTO.Content,
                 ReviewId = commentDTO.ReviewId,
             };
