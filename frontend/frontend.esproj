@@ -13,6 +13,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\components\HomePage\Upcoming\" />
+    <Folder Include="src\components\NicknameGenerator\" />
     <Folder Include="src\components\ProfilePage\MovieComponent\" />
     <Folder Include="src\components\ProfilePage\SeriesComponent\" />
   </ItemGroup>

@@ -33,6 +33,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useFormik } from "formik";
 import { BasicSchema } from "./BasicSchema";
 import { useNavigate } from "react-router-dom";
+import NicknameGenerator from "../../components/NicknameGenerator/NicknameGenerator";
 
 import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
@@ -396,12 +397,13 @@ const Register = (props) => {
                       backgroundColor: "#201c1c",
                       borderRadius: "15px",
                       width: "130px",
-                    }}
+                                      }}
+                    onClick={() => { console.log(NicknameGenerator(formik))}}
                   >
                     <CasinoIcon></CasinoIcon>&nbsp; Wylosuj
                   </RandomUsernameButton>
                 </UsernameSectionContainer>
-
+                              {/*{console.log("Touched: " + formik.touched.username + "\nValue: " + formik.values.username)}*/}
                 <Box
                   sx={{
                     display: "flex",
