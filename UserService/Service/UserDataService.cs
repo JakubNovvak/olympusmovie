@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Mvc;
 using System.Runtime.InteropServices;
 using UserService.ApiModel;
 using UserService.Infrastructure;
@@ -67,46 +68,51 @@ namespace UserService.Service
             return 0;
         }
 
-        public List<int> GetUserRelatedObjectIds<TRelation>(int userId, string typeOfRelation)
-            where TRelation : Relation
-        {
-            return _dbContext.Set<TRelation>()
-                .Where(relation => relation.TypeOfRelation == typeOfRelation)
-                .Where(relation => relation.UserId == userId)
-                .Select(relation => relation.RelatedObjectId)
-                .ToList();
-        }
+        public List<int> GetUserRelatedObjectIds(int userId, string typeOfRelation, string typeOfPosition) => _dbContext.Set<UserRelationToPosition>()
+            .Where(relation => relation.RelatedPositionType == typeOfPosition)
+            .Where(relation => relation.TypeOfRelation == typeOfRelation)
+            .Where(relation => relation.UserId == userId)
+            .Select(relation => relation.RelatedPositionId)
+            .ToList();
 
-        public async Task SyncUserToObjectRelations<TRelation>(int userId, ISet<int> objectIds, string typeOfRelation)
-            where TRelation : Relation, new()
+        public async Task<List<int>> SyncUserToObjectRelations(int userId, ISet<int> objectIds, string typeOfRelation, string typeOfPosition)
         {
             if (typeOfRelation != RelationTypeConstants.FAVORITE) {
-                var singletonSet = new HashSet<int> { userId };
-                await RemoveUserToObjectRelations<TRelation>(singletonSet, objectIds, typeOfRelation);
+                var relationTypesExceptFavorite = RelationTypeConstants.GetAllRelationTypes()
+                    .Where(type => type != RelationTypeConstants.FAVORITE)
+                    .ToList();
+                await RemoveUserToObjectRelations(userId, objectIds, relationTypesExceptFavorite, typeOfPosition);
             }
-            var entities = objectIds.Select(objectId => new TRelation
+            else
+            {
+                await RemoveUserToObjectRelations(userId, objectIds, new List<string> { RelationTypeConstants.FAVORITE }, typeOfPosition);
+            }
+            var entities = objectIds.Select(objectId => new UserRelationToPosition
             {
                 UserId = userId,
-                RelatedObjectId = objectId,
-                TypeOfRelation = typeOfRelation
+                TypeOfRelation = typeOfRelation,
+                RelatedPositionId = objectId,
+                RelatedPositionType = typeOfPosition
             }).ToList();
-            await _dbContext.Set<TRelation>().AddRangeAsync(entities);
+            
+            await _dbContext.Set<UserRelationToPosition>().AddRangeAsync(entities);
             await _dbContext.SaveChangesAsync();
+
+            return _dbContext.Set<UserRelationToPosition>()
+                .Where(relation => relation.TypeOfRelation == typeOfRelation)
+                .Where(relation => relation.RelatedPositionType == typeOfPosition)
+                .Select(relation => relation.RelatedPositionId).ToList();
         }
         
-        public async Task RemoveUserToObjectRelations<TRelation>(ISet<int> userIds, ISet<int> objectIds, string? relationType)
-            where TRelation : Relation
+        public async Task RemoveUserToObjectRelations(int userId, ISet<int> positionIds, List<string> relationTypes, string typeOfPosition)
         {
-            var relations = _dbContext.Set<TRelation>()
-                .Where(relation => relationType == null || relationType == relation.TypeOfRelation)
-                .Where(relation => userIds.Contains(relation.UserId))
-                .Where(relation => objectIds.Contains(relation.RelatedObjectId))
+            var relations = _dbContext.Set<UserRelationToPosition>()
+                .Where(relation => relation.RelatedPositionType == typeOfPosition)
+                .Where(relation => relation.UserId == userId)
+                .Where(relation => relationTypes.Contains(relation.TypeOfRelation))
+                .Where(relation => positionIds.Contains(relation.RelatedPositionId))
                 .ToList();
-            if (relations.Count == 0)
-            {
-                return;
-            }
-            _dbContext.Set<TRelation>().RemoveRange(relations);
+            _dbContext.Set<UserRelationToPosition>().RemoveRange(relations);
             await _dbContext.SaveChangesAsync();
         }
 
@@ -114,5 +120,30 @@ namespace UserService.Service
         {
             return _dbContext.Users.Where(user => user.Id == userId).Any();
         }
+
+        public async Task SyncEpisodeCount(int userId, int[] seasonIds, int episodeCount)
+        {
+            var relationsToUpdate = _dbContext.UsersWatchedEpisodesCounts
+                .Where(relation => relation.UserId == userId)
+                .Where(relation => seasonIds.Contains(relation.SeasonId));
+            _dbContext.UsersWatchedEpisodesCounts
+                .RemoveRange(relationsToUpdate);
+            
+            var updatedRelations = seasonIds.Select(seasonId => new UserWatchedEpisodesCount()
+            {
+                UserId = userId,
+                SeasonId = seasonId,
+                WatchedCount = episodeCount
+            });
+            
+            await _dbContext.UsersWatchedEpisodesCounts
+                .AddRangeAsync(relationsToUpdate);
+        }
+
+        public List<int> GetEpisodeCount(int userId, int seasonId) => _dbContext.UsersWatchedEpisodesCounts
+            .Where(relation => relation.UserId == userId)
+            .Where(relation => relation.SeasonId == seasonId)
+            .Select(relation => relation.WatchedCount)
+            .ToList();
     }
 }

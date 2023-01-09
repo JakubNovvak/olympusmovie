@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieService.ApiModel;
-using MovieService.Service;
+using MovieService.ApiModel.Common;
+using MovieService.ApiModel.Reviews;
+using MovieService.Infrastructure;
+using MovieService.Model;
+using MovieService.Service.Reviews;
 
 namespace MovieService.Controller
 {
@@ -10,6 +13,8 @@ namespace MovieService.Controller
     {
         private const string ID_QUERY_PARAM = "id";
         private const string TITLE_QUERY_PARAM = "title";
+        private const string POSITION_ID_QUERY_PARAM = "positionId";
+        private const string POSITION_TYPE_QUERY_PARAM = "positionType";
         private const string GetMethod = "GET";
         private const string SelfRel = "self";
         private readonly IReviewDataService _dataService;
@@ -33,18 +38,42 @@ namespace MovieService.Controller
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<ReviewDTO>> GetReviews()
+        public ActionResult<IEnumerable<ReviewDTO>> GetReviews([FromQuery(Name = POSITION_ID_QUERY_PARAM)] int? positionId,
+            [FromQuery(Name = POSITION_TYPE_QUERY_PARAM)] string? positionType)
         {
-            //IEnumerable<ReviewDTO> review = _dataService.GetAll();
-            //if (String.IsNullOrEmpty(title))
-            //{
-            //    return Ok(review);
-            //}
-            //return Ok(movies.Where(movie => movie.Title.ToLower().Contains(title.ToLower())));
+            if (positionId != null && positionType == null)
+            {
+                return BadRequest("Position type is required when position id is provided");
+            }
+            return _dataService.GetAll(GetProperPredicateForGettingReviews(positionId, positionType)).ToList();
+        }
 
-            //Tu trzeba zaprojektować pobieranie reviews do danej pozycji
+        private static Func<Review, bool> GetProperPredicateForGettingReviews(int? positionId, string? positionType)
+        {
+            Func<Review, bool> predicate = review => true;
+            if (positionType != null)
+            {
+                if (positionId != null)
+                {
+                    predicate = review => positionType switch
+                    {
+                        PositionTypeConstants.MOVIE => review.Rating.MovieId == positionId,
+                        PositionTypeConstants.SEASON => review.Rating.SeasonId == positionId,
+                        _ => false
+                    };
+                }
+                else
+                {
+                    predicate = review => positionType switch
+                    {
+                        PositionTypeConstants.MOVIE => review.Rating.MovieId != null,
+                        PositionTypeConstants.SEASON => review.Rating.SeasonId != null,
+                        _ => false
+                    };
+                }
+            }
 
-            throw new NotImplementedException();
+            return predicate;
         }
 
         [HttpPost]

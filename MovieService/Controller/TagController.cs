@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MovieService.ApiModel;
-using MovieService.Service;
+using MovieService.ApiModel.Common;
+using MovieService.ApiModel.Tags;
+using MovieService.Service.Tags;
 
 namespace MovieService.Controller
 {

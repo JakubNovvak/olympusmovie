@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieService.ApiModel;
-using MovieService.Service;
-
+using MovieService.ApiModel.Common;
+using MovieService.ApiModel.Roles;
+using MovieService.Service.Roles;
 
 namespace MovieService.Controller
 {

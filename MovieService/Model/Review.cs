@@ -18,6 +18,7 @@ namespace MovieService.Model
 
         [Column("rating_id")]
         public int RatingId { get; set; }
+        public virtual Rating Rating { get; set; } = null!;
 
         public virtual ICollection<Comment> Comments { get; set; } = null!;
     }

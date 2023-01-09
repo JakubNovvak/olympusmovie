@@ -17,7 +17,7 @@ namespace MovieService.Model
         public string Description { get; set; } = null!;
 
         public virtual ICollection<Movie> Movies { get; set; } = null!;
-
-        public virtual ICollection<Series> Series { get; set; } = null!;
+        
+        public virtual ICollection<Season> Seasons { get; set; } = null!;
     }
 }

@@ -42,6 +42,6 @@ namespace MovieService.Model
 
         public virtual ICollection<Tag> Tags { get; set; } = null!;
 
-        public virtual ICollection<Person> Persons { get; set; } = null!;
+        public virtual ICollection<Participant> Participants { get; set; } = null!;
     }
 }

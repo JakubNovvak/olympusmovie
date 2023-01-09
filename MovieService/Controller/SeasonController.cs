@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieService.ApiModel;
-using MovieService.Service;
+using MovieService.ApiModel.Common;
+using MovieService.ApiModel.Seasons;
+using MovieService.Service.Seasons;
 
 namespace MovieService.Controller
 {
@@ -10,8 +11,9 @@ namespace MovieService.Controller
     {
         private const string ID_QUERY_PARAM = "id";
         private const string TITLE_QUERY_PARAM = "title";
-        private const string GetMethod = "GET";
-        private const string SelfRel = "self";
+        private const string GET = "GET";
+        private const string SELF = "self";
+        
         private readonly ISeasonDataService _dataService;
         private readonly LinkGenerator _linkGenerator;
 
@@ -22,27 +24,19 @@ namespace MovieService.Controller
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<SeasonsDTO>> GetSeason(int id)
+        public async Task<ActionResult<SeasonDTO>> GetSeason(int id)
         {
-            var movie = await _dataService.GetById(id);
-            if (movie == null)
+            var season = await _dataService.GetById(id);
+            if (season == null)
             {
                 return NotFound();
             }
-            return Ok(movie);
-        }
-
-        [HttpGet]
-        public ActionResult<IEnumerable<SeasonsDTO>> GetSeasons([FromQuery(Name = TITLE_QUERY_PARAM)] string? title)
-        {
-            //Zaimplementować żeby zwracało sezony danego serialu
-
-            throw new NotImplementedException();
+            return Ok(season);
         }
 
         [HttpPost]
         //[Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Create(SeasonsDTO seasonDTO)
+        public async Task<ActionResult> Create(SeasonDTO seasonDTO)
         {
             var id = await _dataService.AddAsync(seasonDTO);
             var url = GetLinkToSeason(id);
@@ -50,7 +44,7 @@ namespace MovieService.Controller
         }
 
         [HttpPut]
-        public async Task<ActionResult> Edit(SeasonsDTO seasonDTO)
+        public async Task<ActionResult> Edit(SeasonDTO seasonDTO)
         {
             var id = await _dataService.EditAsync(seasonDTO);
             var url = GetLinkToSeason(id);
@@ -60,7 +54,7 @@ namespace MovieService.Controller
         private LinkDTO GetLinkToSeason(int id)
         {
             var url = _linkGenerator.GetUriByAction(HttpContext, nameof(GetSeason), values: new { id }) ?? string.Empty;
-            return new LinkDTO(url, SelfRel, GetMethod);
+            return new LinkDTO(url, SELF, GET);
         }
 
         [HttpDelete]

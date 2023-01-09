@@ -10,6 +10,8 @@ namespace UserService.Controller
     [ApiController]
     public class UserSeasonsController : ControllerBase
     {
+        private const string PRODUCTION_ID_QUERY_PARAM = "productionId";
+        private const string EPISODE_COUNT_QUERY_PARAM = "episodeCount";
 
         private readonly IUserDataService _dataService;
 
@@ -21,83 +23,96 @@ namespace UserService.Controller
         [HttpGet("{userId:int}/Seasons/PlanToWatch")]
         public ActionResult GetSeasonsPlannedToWatch(int userId)
         {
-            return Get<UserToSeasonRelation>(userId, RelationTypeConstants.PLAN_TO_WATCH);
+            return Get(userId, RelationTypeConstants.PLAN_TO_WATCH);
         }
 
         [HttpPost("{userId:int}/Seasons/PlanToWatch/Sync")]
-        public async Task<ActionResult> SyncSeasonsPlannedToWatch(int userId, [FromQuery(Name = Constants.PRODUCTION_ID_QUERY_PARAM)] int[] seasonIds)
+        public async Task<ActionResult> SyncSeasonsPlannedToWatch(int userId, [FromQuery(Name = PRODUCTION_ID_QUERY_PARAM)] int[] seasonIds)
         {
-            return await Sync<UserToSeasonRelation>(userId, seasonIds, RelationTypeConstants.PLAN_TO_WATCH);
+            return await Sync(userId, seasonIds, RelationTypeConstants.PLAN_TO_WATCH);
         }
 
         [HttpGet("{userId:int}/Seasons/Watched")]
         public ActionResult GetSeasonsWatched(int userId)
         {
-            return Get<UserToSeasonRelation>(userId, RelationTypeConstants.WATCHED);
+            return Get(userId, RelationTypeConstants.WATCHED);
         }
 
         [HttpPost("{userId:int}/Seasons/Watched/Sync")]
-        public async Task<ActionResult> SyncSeasonsWatched(int userId, [FromQuery(Name = Constants.PRODUCTION_ID_QUERY_PARAM)] int[] seasonIds)
+        public async Task<ActionResult> SyncSeasonsWatched(int userId, [FromQuery(Name = PRODUCTION_ID_QUERY_PARAM)] int[] seasonIds)
         {
-            return await Sync<UserToSeasonRelation>(userId, seasonIds, RelationTypeConstants.WATCHED);
+            return await Sync(userId, seasonIds, RelationTypeConstants.WATCHED);
         }
 
         [HttpGet("{userId:int}/Seasons/OnHold")]
         public ActionResult GetSeasonsOnHold(int userId)
         {
-            return Get<UserToSeasonRelation>(userId, RelationTypeConstants.ON_HOLD);
+            return Get(userId, RelationTypeConstants.ON_HOLD);
         }
 
         [HttpPost("{userId:int}/Seasons/OnHold/Sync")]
-        public async Task<ActionResult> SyncSeasonsOnHold(int userId, [FromQuery(Name = Constants.PRODUCTION_ID_QUERY_PARAM)] int[] seasonIds)
+        public async Task<ActionResult> SyncSeasonsOnHold(int userId, [FromQuery(Name = PRODUCTION_ID_QUERY_PARAM)] int[] seasonIds)
         {
-            return await Sync<UserToSeasonRelation>(userId, seasonIds, RelationTypeConstants.ON_HOLD);
+            return await Sync(userId, seasonIds, RelationTypeConstants.ON_HOLD);
         }
 
         [HttpGet("{userId:int}/Seasons/Dropped")]
         public ActionResult GetSeasonsDropped(int userId)
         {
-            return Get<UserToSeasonRelation>(userId, RelationTypeConstants.DROPPED);
+            return Get(userId, RelationTypeConstants.DROPPED);
         }
 
         [HttpPost("{userId:int}/Seasons/Dropped/Sync")]
-        public async Task<ActionResult> SyncSeasonsDropped(int userId, [FromQuery(Name = Constants.PRODUCTION_ID_QUERY_PARAM)] int[] seasonsIds)
+        public async Task<ActionResult> SyncSeasonsDropped(int userId, [FromQuery(Name = PRODUCTION_ID_QUERY_PARAM)] int[] seasonsIds)
         {
-            return await Sync<UserToSeasonRelation>(userId, seasonsIds, RelationTypeConstants.DROPPED);
+            return await Sync(userId, seasonsIds, RelationTypeConstants.DROPPED);
         }
 
         [HttpGet("{userId:int}/Seasons/Favorite")]
         public ActionResult GetSeasonsFavorite(int userId)
         {
-            return Get<UserToSeasonRelation>(userId, RelationTypeConstants.FAVORITE);
+            return Get(userId, RelationTypeConstants.FAVORITE);
         }
 
 
         [HttpPost("{userId:int}/Seasons/Favorite/Sync")]
-        public async Task<ActionResult> SyncSeasonsFavorite(int userId, [FromQuery(Name = Constants.PRODUCTION_ID_QUERY_PARAM)] int[] seasonsIds)
+        public async Task<ActionResult> SyncSeasonsFavorite(int userId, [FromQuery(Name = PRODUCTION_ID_QUERY_PARAM)] int[] seasonsIds)
         {
-            return await Sync<UserToSeasonRelation>(userId, seasonsIds, RelationTypeConstants.FAVORITE);
+            return await Sync(userId, seasonsIds, RelationTypeConstants.FAVORITE);
         }
 
-        private async Task<ActionResult> Sync<TRelation>(int userId, int[] objectIds, string typeOfRelation) where TRelation : Relation, new()
+        [HttpPost("{userId:int}/Seasons/WatchedEpisodesCount/Sync")]
+        public async Task<ActionResult> SyncEpisodeCount(int userId,
+            [FromQuery(Name = PRODUCTION_ID_QUERY_PARAM)] int[] seasonsIds,
+            [FromQuery(Name = EPISODE_COUNT_QUERY_PARAM)] int episodeCount)
+        {
+            await _dataService.SyncEpisodeCount(userId, seasonsIds, episodeCount);
+            return NoContent();
+        }
+
+        [HttpPost("{userId:int}/Seasons/{seasonId:int}/WatchedEpisodesCount")]
+        public ActionResult GetEpisodeCount(int userId, int seasonId)
+        {
+            return Ok(_dataService.GetEpisodeCount(userId, seasonId));
+        }
+
+        private async Task<ActionResult> Sync(int userId, int[] objectIds, string typeOfRelation)
         {
             if (!_dataService.UserExists(userId))
             {
                 return NotFound();
             }
-            await _dataService
-                .SyncUserToObjectRelations<TRelation>(userId, new HashSet<int>(objectIds), typeOfRelation);
-            return NoContent();
+            return Ok(await _dataService.SyncUserToObjectRelations(userId, new HashSet<int>(objectIds), typeOfRelation, PositionTypeConstants.SEASON));
         }
 
-        private ActionResult Get<TRelation>(int userId, string relationType) where TRelation : Relation
+        private ActionResult Get(int userId, string relationType)
         {
             if (!_dataService.UserExists(userId))
             {
                 return NotFound();
             }
             return Ok(_dataService
-                .GetUserRelatedObjectIds<TRelation>(userId, relationType));
+                .GetUserRelatedObjectIds(userId, relationType, PositionTypeConstants.SEASON));
         }
     }
 }

@@ -11,15 +11,17 @@ namespace MovieService.Model
         public int Id { get; set; }
 
         [Column("value")]
-        public int value { get; set; }
+        public int Value { get; set; }
 
         [Column("user_id")]
         public int UserId { get; set; }
 
-        [Column("position_id")]
-        public int PositionId { get; set; }
-
-        [Column("position_type")]
-        public string PositionType { get; set; } = null!;
+        [Column("movie_id")]
+        public int? MovieId { get; set; }
+        public virtual Movie? Movie { get; set; }
+        
+        [Column("season_id")]
+        public int? SeasonId { get; set; }
+        public virtual Season? Season { get; set; }
     }
 }

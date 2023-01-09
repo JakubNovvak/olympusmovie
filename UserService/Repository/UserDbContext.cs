@@ -9,9 +9,8 @@ namespace UserService.Repository
     public class UserDbContext : DbContext
     {
         public DbSet<User> Users { get; set; } = null!;
-        public DbSet<UserToMovieRelation> UserToMovieRelations { get; set; } = null!;
-        public DbSet<UserToSeriesRelation> UserToSeriesRelations { get; set; } = null!;
-        public DbSet<UserToSeasonRelation> UserToSeasonsRelations { get; set; } = null!;
+        public DbSet<UserRelationToPosition> UsersToPositionsRelations { get; set; } = null!;
+        public DbSet<UserWatchedEpisodesCount> UsersWatchedEpisodesCounts { get; set; } = null!;
 
         public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
         {
@@ -30,23 +29,17 @@ namespace UserService.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserToMovieRelation>().HasKey(entity => new
+            modelBuilder.Entity<UserRelationToPosition>().HasKey(relation => new
             {
-                entity.UserId,
-                entity.RelatedObjectId,
-                entity.TypeOfRelation
+                relation.UserId,
+                relation.TypeOfRelation,
+                relation.RelatedPositionId,
+                relation.RelatedPositionType
             });
-            modelBuilder.Entity<UserToSeriesRelation>().HasKey(entity => new
+            modelBuilder.Entity<UserWatchedEpisodesCount>().HasKey(relation => new
             {
-                entity.UserId,
-                entity.RelatedObjectId,
-                entity.TypeOfRelation
-            });
-            modelBuilder.Entity<UserToSeasonRelation>().HasKey(entity => new
-            {
-                entity.UserId,
-                entity.RelatedObjectId,
-                entity.TypeOfRelation
+                relation.UserId,
+                relation.SeasonId
             });
         }
     }

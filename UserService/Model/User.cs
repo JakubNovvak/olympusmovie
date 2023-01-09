@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System;
+using UserService.Model.Relations;
 
 namespace UserService.Model
 {
@@ -27,5 +28,8 @@ namespace UserService.Model
 
         [Column("join_date")]
         public DateTime JoinDate { get; set; }
+
+        public virtual ICollection<UserRelationToPosition> UserRelationsToPositions { get; set; } = null!;
+        public virtual ICollection<UserWatchedEpisodesCount> UserWatchedEpisodesCounts { get; set; } = null!;
     }
 }

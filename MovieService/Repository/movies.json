@@ -1,0 +1,60 @@
+[
+
+  {
+    "Id": 1,
+    "Title": "Kevin Sam w Domu",
+    "Description": "Rodzina McCallisterów zamierza spędzić Święta Bożego Narodzenia we Francji. W dzień wyjazdu omal nie spóźniają się na samolot. W wyniku małego zamieszania zapominają ze sobą zabrać Kevina (Macaulay Culkin). Ośmioletni chłopiec zostaje sam w domu, od tej pory musi sam sobie radzić ze wszystkim, w czym do tej pory wyręczali go rodzice...",
+    "ReleaseDate": "23 Wrzesnia 2012",
+    "DurationInMinutes": "83 Min",
+    "Photo": "https://fwcdn.pl/fpo/67/21/6721/8051010.6.jpg",
+    "BackgroundImage": "https://fwcdn.pl/webv/76/03/57603/57603.6.jpg",
+    "director": "Chinua Achebe",
+    "language": "Angielski",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 2,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/94/07/839407/7929519.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Enola Holmes",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 3,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/94/40/859440/8040018.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Goście",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  },
+
+  {
+    "id": 4,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/54/91/875491/7991163.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Biały Lotos",
+    "Runtime": "83 Min",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Film"
+  }
+]
