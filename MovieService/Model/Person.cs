@@ -22,10 +22,6 @@ namespace MovieService.Model
         [Column("photo")]
         public string Photo { get; set; } = null!;
 
-        public virtual ICollection<Series> Series { get; set; } = null!;
-
-        public virtual ICollection<Movie> Movies { get; set; } = null!;
-
-        public virtual ICollection<Role> Roles { get; set; } = null!;
+        public virtual ICollection<Participant> Participants { get; set; } = null!;
     }
 }

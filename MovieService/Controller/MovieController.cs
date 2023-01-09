@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MovieService.ApiModel;
-using MovieService.Service;
+using MovieService.ApiModel.Common;
+using MovieService.ApiModel.Movies;
+using MovieService.Service.Movies;
 
 namespace MovieService.Controller
 {
@@ -32,12 +33,12 @@ namespace MovieService.Controller
             }
             return Ok(movie);
         }
-
+        
         [HttpGet]
         public ActionResult<IEnumerable<MovieDTO>> GetMovies([FromQuery(Name = TITLE_QUERY_PARAM)] string? title)
         {
             IEnumerable<MovieDTO> movies = _dataService.GetAll();
-            if (String.IsNullOrEmpty(title))
+            if (string.IsNullOrEmpty(title))
             {
                 return Ok(movies);
             }

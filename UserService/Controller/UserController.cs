@@ -11,6 +11,10 @@ namespace UserService.Controller
     [ApiController]
     public class UserController : ControllerBase
     {
+        private const string GetMethod = "GET";
+        private const string SelfRel = "self";
+        private const string USER_ID = "userId";
+
         private readonly IUserDataService _dataService;
         private readonly LinkGenerator _linkGenerator;
 
@@ -50,11 +54,11 @@ namespace UserService.Controller
         private LinkDTO GetLinkToUser(int id)
         {
             var url = _linkGenerator.GetUriByAction(HttpContext, nameof(GetUser), values: new { id }) ?? string.Empty;
-            return new LinkDTO(url, Constants.SelfRel, Constants.GetMethod);
+            return new LinkDTO(url, SelfRel, GetMethod);
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete([FromQuery(Name = Constants.USER_ID)] int userId)
+        public async Task<ActionResult> Delete([FromQuery(Name = USER_ID)] int userId)
         {
             var removingResult = await _dataService.Remove(userId);
             if (removingResult == false)

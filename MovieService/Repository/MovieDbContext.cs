@@ -16,7 +16,6 @@ namespace MovieService.Repository
         public DbSet<Review> Reviews { get; set; } = null!;
         public DbSet<Role> Roles { get; set; } = null!;
         public DbSet<Season> Seasons { get; set; } = null!;
-        public DbSet<Series> Series { get; set; } = null!;
         public DbSet<Tag> Tags { get; set; } = null!;
 
         public MovieDbContext(DbContextOptions<MovieDbContext> options) : base(options)
@@ -32,6 +31,17 @@ namespace MovieService.Repository
         {
             base.OnConfiguring(optionBuilder);
             optionBuilder.UseLazyLoadingProxies();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Participant>().HasKey(entity => new
+            {
+                entity.PersonId,
+                entity.MovieId,
+                entity.SeasonId,
+                entity.RoleId
+            });
         }
     }
 }

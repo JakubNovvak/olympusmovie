@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/03/59/750359/8001444.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Stranger Things 4",
+    "Episodes": "12",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial",
+    "description": "No i tutaj będzie opsi każdego filmu - jak narazie jest placeholder, bo w sumie nie ma co dodatkowo narazie dodawać treści w tych jsonach. myślę, że wygląda to całkiem spoko - na pewno fajne urozmaicenie, do poprzedniej karuzeli."
+  },
+
+
+
+  {
+    "id": 2,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/18/16/871816/8042652.3.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Wielka Woda",
+    "Episodes": "8",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial",
+    "description": "No i tutaj będzie opsi każdego filmu - jak narazie jest placeholder, bo w sumie nie ma co dodatkowo narazie dodawać treści w tych jsonach. myślę, że wygląda to całkiem spoko - na pewno fajne urozmaicenie, do poprzedniej karuzeli."
+  },
+
+  {
+    "id": 3,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/06/68/430668/7552405.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "Breaking Bad",
+    "Episodes": "16",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial",
+    "description": "No i tutaj będzie opsi każdego filmu - jak narazie jest placeholder, bo w sumie nie ma co dodatkowo narazie dodawać treści w tych jsonach. myślę, że wygląda to całkiem spoko - na pewno fajne urozmaicenie, do poprzedniej karuzeli."
+  },
+
+
+  {
+    "id": 4,
+    "director": "Chinua Achebe",
+    "imageLink": "https://fwcdn.pl/fpo/70/20/10007020/8040382.6.jpg",
+    "language": "Angielski",
+    "released": "23 Wrzesnia 2012",
+    "title": "W zamknięciu",
+    "Episodes": "10",
+    "Genre": "Akcja, Przygodowy, Fantasy, Sci-Fi",
+    "Actors": "",
+    "Plot": "",
+    "Type": "Serial",
+    "description": "No i tutaj będzie opsi każdego filmu - jak narazie jest placeholder, bo w sumie nie ma co dodatkowo narazie dodawać treści w tych jsonach. myślę, że wygląda to całkiem spoko - na pewno fajne urozmaicenie, do poprzedniej karuzeli."
+  }
+]
