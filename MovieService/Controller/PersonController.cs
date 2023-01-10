@@ -36,7 +36,7 @@ namespace MovieService.Controller
         [HttpGet]
         public ActionResult<IEnumerable<Person>> GetPersons()
         {
-            return Ok(_dataService.GetAll().Select(id => GetLinkToPerson(id)));
+            return Ok(_dataService.GetAll());
         }
 
         [HttpPost]
