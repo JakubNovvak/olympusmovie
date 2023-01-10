@@ -10,6 +10,7 @@ namespace MovieService.ApiModel.Persons
         public string Surname { get; set; } = null!;
         public DateDTO Birthdate { get; set; } = null!;
         public string Photo { get; set; } = null!;
-        public ICollection<ParticipantDTO> Participants { get; set; } = null!;
+        public ICollection<ParticipantMovieDTO> MovieParticipants { get; set; } = null!;
+        public ICollection<ParticipantSeasonDTO> SeasonParticipants { get; set; } = null!;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using MovieService.ApiModel.Movies;
 using MovieService.Model;
 using MovieService.Repository;
+using MovieService.Service.Participants;
 
 namespace MovieService.Service.Movies
 {
@@ -13,40 +14,70 @@ namespace MovieService.Service.Movies
             _dbContext = dbContext;
         }
 
-        public async Task<int> AddAsync(MovieDTO movieDTO)
+        public async Task<int> AddAsync(MovieCreateEditDTO movieDTO)
         {
-            var movie = MovieMapper.MapToEntity(movieDTO);
+            var movie = new Movie
+            {
+                Title = movieDTO.Title,
+                Description = movieDTO.Description,
+                ReleaseDate = new DateTime(movieDTO.ReleaseDate.Year, movieDTO.ReleaseDate.Month, movieDTO.ReleaseDate.Day),
+                DurationInMinutes = movieDTO.DurationInMinutes,
+                Cover = movieDTO.Cover,
+                BackgroundImage = movieDTO.BackgroundImage,
+                Thumbnail = movieDTO.Thumbnail,
+                Trailer = movieDTO.Trailer,
+                Tags = _dbContext.Set<Tag>().Where(tag => movieDTO.TagIds.Contains(tag.Id)).ToList(),
+                Genres = _dbContext.Set<Genre>().Where(genre => movieDTO.GenreIds.Contains(genre.Id)).ToList(),
+                Reviews = _dbContext.Set<Review>().Where(review => movieDTO.GenreIds.Contains(review.Id)).ToList()
+            };
+            
+            await _dbContext.SaveChangesAsync();
             var createdMovie = await _dbContext.Set<Movie>().AddAsync(movie);
+            
             if (createdMovie != null)
             {
+                await _dbContext.SaveChangesAsync();
+                SyncMovieParticipantsWithoutSave(movieDTO, createdMovie.Entity.Id);
                 await _dbContext.SaveChangesAsync();
                 return createdMovie.Entity.Id;
             }
             return 0;
         }
 
-        public async Task<int> EditAsync(MovieDTO movieDTO)
+        public async Task<int> EditAsync(MovieCreateEditDTO movieDTO)
         {
-            var movieEntity = MovieMapper.MapToEntity(movieDTO);
-            var movieToEdit = await _dbContext.Set<Movie>().FindAsync(movieEntity.Id);
+            var movieToEdit = await _dbContext.Set<Movie>().FindAsync(movieDTO.Id);
 
             if (movieToEdit == null)
             {
                 return 0;
             }
 
-            movieToEdit.Title = movieEntity.Title;
-            movieToEdit.Description = movieEntity.Description;
-            movieToEdit.ReleaseDate = movieEntity.ReleaseDate;
-            movieToEdit.DurationInMinutes = movieEntity.DurationInMinutes;
-            movieToEdit.Cover = movieEntity.Cover;
-            movieToEdit.BackgroundImage = movieEntity.BackgroundImage;
-            movieToEdit.Thumbnail = movieEntity.Thumbnail;
-            movieToEdit.Trailer = movieEntity.Trailer;
+            movieToEdit.Title = movieDTO.Title;
+            movieToEdit.Description = movieDTO.Description;
+            movieToEdit.ReleaseDate = new DateTime(movieDTO.ReleaseDate.Year, movieDTO.ReleaseDate.Month, movieDTO.ReleaseDate.Day);
+            movieToEdit.DurationInMinutes = movieDTO.DurationInMinutes;
+            movieToEdit.Cover = movieDTO.Cover;
+            movieToEdit.BackgroundImage = movieDTO.BackgroundImage;
+            movieToEdit.Thumbnail = movieDTO.Thumbnail;
+            movieToEdit.Trailer = movieDTO.Trailer;
+            movieToEdit.Tags = _dbContext.Set<Tag>().Where(tag => movieDTO.TagIds.Contains(tag.Id)).ToList();
+            movieToEdit.Genres = _dbContext.Set<Genre>().Where(genre => movieDTO.GenreIds.Contains(genre.Id)).ToList();
+            movieToEdit.Reviews = _dbContext.Set<Review>().Where(review => movieDTO.GenreIds.Contains(review.Id)).ToList();
+            SyncMovieParticipantsWithoutSave(movieDTO, movieToEdit.Id);
             await _dbContext.SaveChangesAsync();
+            
             return movieToEdit.Id;
         }
 
+        private void SyncMovieParticipantsWithoutSave(MovieCreateEditDTO movieDTO, int movieId)
+        {
+            var currentMovieParticipants = _dbContext.Set<ParticipantMovie>()
+                .Where(participantMovie => participantMovie.MovieId == movieId).ToList();
+            _dbContext.ParticipantsOfMovies.RemoveRange(currentMovieParticipants);
+            _dbContext.ParticipantsOfMovies.AddRange(movieDTO.Participants.Select(participant => ParticipantMapper.MapToEntity(participant, movieId)));
+        }
+        
         public IEnumerable<MovieDTO> GetAll()
         {
             return _dbContext.Movies.Select(movie => MovieMapper.MapToDTO(movie));

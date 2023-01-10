@@ -67,7 +67,7 @@ namespace MovieService.Service.Movies
                 Rating = new List<Rating>(),
                 Genres = new List<Genre>(),
                 Tags = new List<Tag>(),
-                Participants = new List<Participant>()
+                Participants = new List<ParticipantMovie>()
             };
         }
     }

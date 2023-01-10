@@ -11,39 +11,40 @@ namespace MovieService.Service.Participants
 {
     public static class ParticipantMapper
     {
-        public static Participant MapToEntity(ParticipantDTO participantDTO)
+        public static ParticipantMovie MapToEntity(ParticipantMovieCreateDTO participantDTO, int movieId)
         {
-            return new Participant
+            return new ParticipantMovie
             {
-                MovieId = participantDTO.MovieId,
-                SeasonId = participantDTO.SeasonId,
+                MovieId = movieId,
                 PersonId = participantDTO.PersonId,
                 RoleId = participantDTO.RoleId
             };
         }
 
-        public static Participant MapToEntity(CreateEditParticipantDTO participantDTO)
+        public static ParticipantSeason MapToEntity(ParticipantSeasonCreateDTO participantDTO, int seasonId)
         {
-            return new Participant
+            return new ParticipantSeason
             {
-                MovieId = participantDTO.PositionType == PositionTypeConstants.MOVIE ? participantDTO.PositionId : null,
-                SeasonId = participantDTO.PositionType == PositionTypeConstants.SEASON ? participantDTO.PositionId : null,
+                SeasonId = seasonId,
                 PersonId = participantDTO.PersonId,
                 RoleId = participantDTO.RoleId
             };
         }
 
-        public static ParticipantDTO MapToDTO(Participant participant)
+        public static ParticipantMovieDTO MapToDTO(ParticipantMovie participant)
         {
-            return new ParticipantDTO
+            return new ParticipantMovieDTO
             {
-                MovieId = participant.MovieId,
-                Movie = participant.MovieId != null ? MovieMapper.MapToDTO(participant.Movie!) : null,
-                SeasonId = participant.SeasonId,
-                Season = participant.SeasonId != null ? SeasonMapper.MapToDTO(participant.Season!) : null,
-                PersonId = participant.PersonId,
                 Person = PersonMapper.MapToDTO(participant.Person),
-                RoleId = participant.RoleId,
+                Role = RoleMapper.MapToDTO(participant.Role)
+            };
+        }
+
+        public static ParticipantSeasonDTO MapToDTO(ParticipantSeason participant)
+        {
+            return new ParticipantSeasonDTO
+            {
+                Person = PersonMapper.MapToDTO(participant.Person),
                 Role = RoleMapper.MapToDTO(participant.Role)
             };
         }
