@@ -1,6 +1,7 @@
 ﻿using MovieService.ApiModel.Seasons;
 using MovieService.Model;
 using MovieService.Repository;
+using MovieService.Service.Movies;
 
 namespace MovieService.Service.Seasons
 {
@@ -52,7 +53,7 @@ namespace MovieService.Service.Seasons
 
         public IEnumerable<SeasonDTO> GetAll()
         {
-            return _dbContext.Set<Season>().Select(SeasonMapper.MapToDTO);
+            return _dbContext.Seasons.Select(season => SeasonMapper.MapToDTO(season));
         }
 
         public async Task<SeasonDetailsDTO?> GetById(int id)
