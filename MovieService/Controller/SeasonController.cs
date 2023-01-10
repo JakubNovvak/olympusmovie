@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MovieService.ApiModel.Common;
+using MovieService.ApiModel.Movies;
 using MovieService.ApiModel.Seasons;
 using MovieService.Service.Seasons;
 
@@ -32,6 +33,17 @@ namespace MovieService.Controller
                 return NotFound();
             }
             return Ok(season);
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<SeasonDTO>> GetSeasons([FromQuery(Name = TITLE_QUERY_PARAM)] string? title)
+        {
+            IEnumerable<SeasonDTO> seasons = _dataService.GetAll();
+            if (string.IsNullOrEmpty(title))
+            {
+                return Ok(seasons);
+            }
+            return Ok(seasons.Where(season => season.Title.ToLower().Contains(title.ToLower())));
         }
 
         [HttpPost]
