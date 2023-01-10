@@ -24,7 +24,7 @@ namespace MovieService.Controller
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<SeasonDTO>> GetSeason(int id)
+        public async Task<ActionResult<SeasonDetailsDTO>> GetSeason(int id)
         {
             var season = await _dataService.GetById(id);
             if (season == null)

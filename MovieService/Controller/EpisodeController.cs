@@ -36,7 +36,7 @@ namespace MovieService.Controller
         [HttpGet]
         public ActionResult<IEnumerable<EpisodeDTO>> GetEpisodes()
         {
-            return Ok(_dataService.GetAll().Select(id => GetLinkToEpisode(id)));
+            return Ok(_dataService.GetAll());
         }
 
         [HttpPost]

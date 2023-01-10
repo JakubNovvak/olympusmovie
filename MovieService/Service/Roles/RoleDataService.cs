@@ -45,9 +45,9 @@ namespace MovieService.Service.Roles
 
         }
 
-        public IEnumerable<int> GetAll()
+        public IEnumerable<RoleDTO> GetAll()
         {
-            return _dbContext.Set<Role>().Select(role => role.Id);
+            return _dbContext.Set<Role>().Select(role => RoleMapper.MapToDTO(role));
         }
 
         public async Task<RoleDTO?> GetById(int id)

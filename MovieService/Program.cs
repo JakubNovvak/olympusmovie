@@ -10,6 +10,10 @@ using MovieService.Service.Movies;
 using MovieService.Service.Persons;
 using MovieService.Service.Tags;
 using MovieService.Service.Seasons;
+using MovieService.Service.Comments;
+using MovieService.Service.Ratings;
+using MovieService.Model;
+using MovieService.Service.Reviews;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,11 +37,15 @@ var connectionString = $"Data Source={dbHost};Initial Catalog={dbName};User ID=s
 builder.Services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(connectionString));
 
 // Register services
+builder.Services.AddScoped<ICommentDataService, CommentDataService>();
 builder.Services.AddScoped<IEpisodeDataService, EpisodeDataService>();
 builder.Services.AddScoped<IGenreDataService, GenreDataService>();
 builder.Services.AddScoped<IMovieDataService, MovieDataService>();
 builder.Services.AddScoped<IPersonDataService, PersonDataService>();
+builder.Services.AddScoped<IRatingDataService, RatingDataService>();
+builder.Services.AddScoped<IReviewDataService, ReviewDataService>();
 builder.Services.AddScoped<IRoleDataService, RoleDataService>();
+builder.Services.AddScoped<ISeasonDataService, SeasonDataService>();
 builder.Services.AddScoped<ITagDataService, TagDataService>();
 
 var app = builder.Build();

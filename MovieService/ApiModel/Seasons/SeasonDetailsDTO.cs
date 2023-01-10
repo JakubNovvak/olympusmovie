@@ -20,7 +20,7 @@ namespace MovieService.ApiModel.Seasons
         public string BackgroundImage { get; set; } = null!;
         public string Thumbnail { get; set; } = null!;
         public string Trailer { get; set; } = null!;
-        public double AverageRating { get; set; }
+        public double? AverageRating { get; set; }
         public int NumberOfRating { get; set; }
         public ICollection<EpisodeDTO> Episodes { get; set; } = null!;
         public ICollection<ReviewDTO> Reviews { get; set; } = null!;

@@ -43,9 +43,9 @@ namespace MovieService.Service.Persons
             return foundPerson.Id;
         }
 
-        public IEnumerable<int> GetAll()
+        public IEnumerable<PersonDTO> GetAll()
         {
-            return _dbContext.Persons.Select(person => person.Id);
+            return _dbContext.Set<Person>().Select(person => PersonMapper.MapToDTO(person));
         }
 
         public async Task<PersonDTO?> GetById(int id)

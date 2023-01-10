@@ -42,9 +42,9 @@ namespace MovieService.Service.Genres
             return foundGenre.Id;
         }
 
-        public IEnumerable<int> GetAll()
+        public IEnumerable<GenreDTO> GetAll()
         {
-            return _dbContext.Set<Genre>().Select(genre => genre.Id);
+            return _dbContext.Set<Genre>().Select(genre => GenreMapper.MapToDTO(genre));
         }
 
         public async Task<GenreDTO?> GetById(int id)

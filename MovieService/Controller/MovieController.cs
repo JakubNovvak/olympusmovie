@@ -24,7 +24,7 @@ namespace MovieService.Controller
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<MovieDTO>> GetMovie(int id)
+        public async Task<ActionResult<MovieDetailsDTO>> GetMovie(int id)
         {
             var movie = await _dataService.GetById(id);
             if (movie == null)

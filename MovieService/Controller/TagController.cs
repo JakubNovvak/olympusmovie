@@ -36,7 +36,7 @@ namespace MovieService.Controller
         [HttpGet]
         public ActionResult<IEnumerable<TagDTO>> GetTags()
         {
-            return Ok(_dataService.GetAll().Select(id => GetLinkToTag(id)));
+            return Ok(_dataService.GetAll());
         }
 
         [HttpPost]

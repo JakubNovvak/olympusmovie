@@ -55,14 +55,14 @@ namespace MovieService.Service.Seasons
             return _dbContext.Set<Season>().Select(SeasonMapper.MapToDTO);
         }
 
-        public async Task<SeasonDTO?> GetById(int id)
+        public async Task<SeasonDetailsDTO?> GetById(int id)
         {
             var season = await _dbContext.Set<Season>().FindAsync(id);
             if (season == null)
             {
                 return null;
             }
-            return SeasonMapper.MapToDTO(season);
+            return SeasonMapper.MapToDetailedDTO(season);
         }
 
         public async Task<bool> RemoveRange(ISet<int> ids)
