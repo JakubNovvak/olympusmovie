@@ -47,7 +47,7 @@ namespace MovieService.Controller
 
         [HttpPost]
         //[Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Create(MovieDTO movieDTO)
+        public async Task<ActionResult> Create(MovieCreateEditDTO movieDTO)
         {
             var id = await _dataService.AddAsync(movieDTO);
             var url = GetLinkToMovie(id);
@@ -55,7 +55,7 @@ namespace MovieService.Controller
         }
 
         [HttpPut]
-        public async Task<ActionResult> Edit(MovieDTO movieDTO)
+        public async Task<ActionResult> Edit(MovieCreateEditDTO movieDTO)
         {
             var id = await _dataService.EditAsync(movieDTO);
             var url = GetLinkToMovie(id);

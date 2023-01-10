@@ -24,6 +24,6 @@ namespace MovieService.ApiModel.Movies
         public ICollection<ReviewDTO> Reviews { get; set; } = null!;
         public ICollection<GenreDTO> Genres { get; set; } = null!;
         public ICollection<TagDTO> Tags { get; set; } = null!;
-        public ICollection<ParticipantDTO> Participants { get; set; } = null!;
+        public ICollection<ParticipantMovieDTO> Participants { get; set; } = null!;
     }
 }

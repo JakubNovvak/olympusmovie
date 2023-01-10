@@ -32,7 +32,8 @@ namespace MovieService.Service.Persons
                 Surname = person.Surname,
                 Birthdate = new DateDTO(person.Birthdate.Year, person.Birthdate.Month, person.Birthdate.Day),
                 Photo = person.Photo,
-                Participants = person.Participants.Select(ParticipantMapper.MapToDTO).ToList()
+                MovieParticipants = person.MovieParticipants.Select(ParticipantMapper.MapToDTO).ToList(),
+                SeasonParticipants = person.SeasonParticipants.Select(ParticipantMapper.MapToDTO).ToList()
             };
         }
 
@@ -45,7 +46,8 @@ namespace MovieService.Service.Persons
                 Surname = personDTO.Surname,
                 Birthdate = new DateTime(personDTO.Birthdate.Year, personDTO.Birthdate.Month, personDTO.Birthdate.Day),
                 Photo = personDTO.Photo,
-                Participants = new List<Participant>()
+                MovieParticipants = new List<ParticipantMovie>(),
+                SeasonParticipants = new List<ParticipantSeason>()
             };
         }
     }

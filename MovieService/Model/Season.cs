@@ -31,6 +31,6 @@ namespace MovieService.Model
         public virtual ICollection<Rating> Rating { get; set; } = null!;
         public virtual ICollection<Genre> Genres { get; set; } = null!;
         public virtual ICollection<Tag> Tags { get; set; } = null!;
-        public virtual ICollection<Participant> Participants { get; set; } = null!;
+        public virtual ICollection<ParticipantSeason> Participants { get; set; } = null!;
     }
 }
