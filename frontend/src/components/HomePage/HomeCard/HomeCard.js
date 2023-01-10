@@ -95,6 +95,21 @@ const WatchTrailer = styled("div")(({ theme }) => ({
 
 const HomeCard = (props) => {
 
+    const months = {
+        1: "styczeń",
+        2: "luty",
+        3: "marzec",
+        4: "kwiecień",
+        5: "maj",
+        6: "czerwiec",
+        7: "lipiec",
+        8: "sierpień",
+        9: "wrzesień",
+        10: "październik",
+        11: "listopad",
+        12: "grudzień"
+    }
+
     const MotionComponent = motion(WatchTrailer)
 
     const [open, setOpen] = useState(false);
@@ -113,7 +128,7 @@ const HomeCard = (props) => {
             <ImageContainer><Image src={props.entry.backgroundImage} /></ImageContainer>
             <HomeCardText>
                 <HomeCardTitle>{props.entry.title}</HomeCardTitle>
-                <ReleaseDate>Data premiery: {props.entry.releaseDate.day} grudzień {props.entry.releaseDate.year}</ReleaseDate>
+                <ReleaseDate>Data premiery: {props.entry.releaseDate.day} {months[props.entry.releaseDate.month]} {props.entry.releaseDate.year}</ReleaseDate>
             </HomeCardText>
 
 
