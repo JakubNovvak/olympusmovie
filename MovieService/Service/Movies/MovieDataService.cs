@@ -2,6 +2,7 @@
 using MovieService.Model;
 using MovieService.Repository;
 using MovieService.Service.Participants;
+using MovieService.Service.Seasons;
 
 namespace MovieService.Service.Movies
 {
@@ -104,5 +105,14 @@ namespace MovieService.Service.Movies
             return true;
         }
 
+        public async Task<MovieCreateEditDTO?> GetEditVersionById(int id)
+        {
+            var movie = await _dbContext.Set<Movie>().FindAsync(id);
+            if (movie == null)
+            {
+                return null;
+            }
+            return MovieMapper.MapToEditDTO(movie);
+        }
     }
 }

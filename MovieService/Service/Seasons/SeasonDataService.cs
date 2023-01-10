@@ -89,6 +89,15 @@ namespace MovieService.Service.Seasons
             }
             return SeasonMapper.MapToDetailedDTO(season);
         }
+        public async Task<SeasonCreateEditDTO?> GetEditVersionById(int id)
+        {
+            var season = await _dbContext.Set<Season>().FindAsync(id);
+            if (season == null)
+            {
+                return null;
+            }
+            return SeasonMapper.MapToEditDTO(season);
+        }
 
         public async Task<bool> RemoveRange(ISet<int> ids)
         {

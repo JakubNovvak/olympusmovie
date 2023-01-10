@@ -11,7 +11,6 @@ namespace MovieService.ApiModel.Seasons
         public int Number { get; set; }
         public string Description { get; set; } = null!;
         public virtual DateDTO ReleaseDate { get; set; } = null!;
-        public int DurationInMinutes { get; set; }
         public string Cover { get; set; } = null!;
         public string BackgroundImage { get; set; } = null!;
         public string Thumbnail { get; set; } = null!;

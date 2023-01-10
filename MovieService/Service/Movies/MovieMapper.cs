@@ -1,5 +1,7 @@
 ﻿using MovieService.ApiModel.Common;
 using MovieService.ApiModel.Movies;
+using MovieService.ApiModel.Participants;
+using MovieService.ApiModel.Seasons;
 using MovieService.Model;
 using MovieService.Service.Genres;
 using MovieService.Service.Participants;
@@ -68,6 +70,25 @@ namespace MovieService.Service.Movies
                 Genres = new List<Genre>(),
                 Tags = new List<Tag>(),
                 Participants = new List<ParticipantMovie>()
+            };
+        }
+
+        public static MovieCreateEditDTO? MapToEditDTO(Movie movie)
+        {
+            return new MovieCreateEditDTO
+            {
+                Id = movie.Id,
+                Title = movie.Title,
+                Description = movie.Description,
+                ReleaseDate = new DateDTO(movie.ReleaseDate.Year, movie.ReleaseDate.Month, movie.ReleaseDate.Day),
+                DurationInMinutes = movie.DurationInMinutes,
+                Cover = movie.Cover,
+                BackgroundImage = movie.BackgroundImage,
+                Thumbnail = movie.Thumbnail,
+                Trailer = movie.Trailer,
+                GenreIds = movie.Genres.Select(genre => genre.Id).ToList(),
+                TagIds = movie.Tags.Select(tag => tag.Id).ToList(),
+                Participants = movie.Participants.Select(participant => new ParticipantMovieCreateDTO { PersonId = participant.PersonId, RoleId = participant.RoleId }).ToList(),
             };
         }
     }
