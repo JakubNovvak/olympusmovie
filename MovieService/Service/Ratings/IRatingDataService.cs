@@ -8,5 +8,6 @@ namespace MovieService.Service.Ratings
         Task<RatingDTO?> GetById(int id);
         Task<bool> RemoveRange(ISet<int> ids);
         Task<int> EditAsync(RatingDTO ratingDTO);
+        Task<RatingDTO?> GetByUserAndPosition(int userId, int positionId, string positionType);
     }
 }

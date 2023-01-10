@@ -63,12 +63,5 @@ namespace MovieService.Infrastructure
             var responseBody = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<List<int>>(responseBody) ?? new List<int>();
         }
-
-        private async Task<string> GetUserName(int userId)
-        {
-            var userName = await httpClient.GetAsync($"/{userId}/userName");
-            var responseBody = await userName.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<string>(responseBody) ?? string.Empty;
-        }
     }
 }
