@@ -1,7 +1,9 @@
-﻿using MovieService.ApiModel.Seasons;
+﻿using MovieService.ApiModel.Movies;
+using MovieService.ApiModel.Seasons;
 using MovieService.Model;
 using MovieService.Repository;
 using MovieService.Service.Movies;
+using MovieService.Service.Participants;
 
 namespace MovieService.Service.Seasons
 {
@@ -14,9 +16,20 @@ namespace MovieService.Service.Seasons
             _dbContext = dbContext;
         }
 
-        public async Task<int> AddAsync(SeasonDTO seasonDTO)
+        public async Task<int> AddAsync(SeasonCreateEditDTO seasonDTO)
         {
-            var season = SeasonMapper.MapToEntity(seasonDTO);
+            var season = new Season()
+            {
+                Title = seasonDTO.Title,
+                Description = seasonDTO.Description,
+                ReleaseDate = new DateTime(seasonDTO.ReleaseDate.Year, seasonDTO.ReleaseDate.Month, seasonDTO.ReleaseDate.Day),
+                Cover = seasonDTO.Cover,
+                BackgroundImage = seasonDTO.BackgroundImage,
+                Thumbnail = seasonDTO.Thumbnail,
+                Trailer = seasonDTO.Trailer,
+                Tags = _dbContext.Set<Tag>().Where(tag => seasonDTO.TagIds.Contains(tag.Id)).ToList(),
+                Genres = _dbContext.Set<Genre>().Where(genre => seasonDTO.GenreIds.Contains(genre.Id)).ToList(),
+            };
             var createdSeason = await _dbContext.Set<Season>().AddAsync(season);
             
             if (createdSeason == null)
@@ -25,30 +38,41 @@ namespace MovieService.Service.Seasons
             }
 
             await _dbContext.SaveChangesAsync();
+            SyncSeasonParticipantsWithoutSave(seasonDTO, createdSeason.Entity.Id);
+            await _dbContext.SaveChangesAsync();
             return createdSeason.Entity.Id;
         }
 
-        public async Task<int> EditAsync(SeasonDTO seasonDTO)
+        public async Task<int> EditAsync(SeasonCreateEditDTO seasonDTO)
         {
-            var seasonEntity = SeasonMapper.MapToEntity(seasonDTO);
-            var foundSeason = await _dbContext.Set<Season>().FindAsync(seasonEntity.Id);
+            var seasonToEdit = await _dbContext.Set<Season>().FindAsync(seasonDTO.Id);
             
-            if (foundSeason == null)
+            if (seasonToEdit == null)
             {
                 return 0;
             }
 
-            foundSeason.Title = seasonEntity.Title;
-            foundSeason.Number = seasonEntity.Number;
-            foundSeason.Description = seasonEntity.Description;
-            foundSeason.ReleaseDate = seasonEntity.ReleaseDate;
-            foundSeason.Cover = seasonEntity.Cover;
-            foundSeason.BackgroundImage = seasonEntity.BackgroundImage;
-            foundSeason.Thumbnail = seasonEntity.Thumbnail;
-            foundSeason.Trailer = seasonEntity.Trailer;
-
+            seasonToEdit.Title = seasonDTO.Title;
+            seasonToEdit.Description = seasonDTO.Description;
+            seasonToEdit.ReleaseDate = new DateTime(seasonDTO.ReleaseDate.Year, seasonDTO.ReleaseDate.Month, seasonDTO.ReleaseDate.Day);
+            seasonToEdit.Cover = seasonDTO.Cover;
+            seasonToEdit.BackgroundImage = seasonDTO.BackgroundImage;
+            seasonToEdit.Thumbnail = seasonDTO.Thumbnail;
+            seasonToEdit.Trailer = seasonDTO.Trailer;
+            seasonToEdit.Tags = _dbContext.Set<Tag>().Where(tag => seasonDTO.TagIds.Contains(tag.Id)).ToList();
+            seasonToEdit.Genres = _dbContext.Set<Genre>().Where(genre => seasonDTO.GenreIds.Contains(genre.Id)).ToList();
+            SyncSeasonParticipantsWithoutSave(seasonDTO, seasonToEdit.Id);
             await _dbContext.SaveChangesAsync();
-            return foundSeason.Id;
+
+            return seasonToEdit.Id;
+        }
+
+        private void SyncSeasonParticipantsWithoutSave(SeasonCreateEditDTO seasonDTO, int seasonId)
+        {
+            var currentSeasonParticipants = _dbContext.Set<ParticipantSeason>()
+                .Where(participantSeason => participantSeason.SeasonId == seasonId).ToList();
+            _dbContext.Set<ParticipantSeason>().RemoveRange(currentSeasonParticipants);
+            _dbContext.Set<ParticipantSeason>().AddRange(seasonDTO.Participants.Select(participant => ParticipantMapper.MapToEntity(participant, seasonId)));
         }
 
         public IEnumerable<SeasonDTO> GetAll()
@@ -64,6 +88,15 @@ namespace MovieService.Service.Seasons
                 return null;
             }
             return SeasonMapper.MapToDetailedDTO(season);
+        }
+        public async Task<SeasonCreateEditDTO?> GetEditVersionById(int id)
+        {
+            var season = await _dbContext.Set<Season>().FindAsync(id);
+            if (season == null)
+            {
+                return null;
+            }
+            return SeasonMapper.MapToEditDTO(season);
         }
 
         public async Task<bool> RemoveRange(ISet<int> ids)

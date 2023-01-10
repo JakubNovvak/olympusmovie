@@ -35,6 +35,17 @@ namespace MovieService.Controller
             return Ok(season);
         }
 
+        [HttpGet("{id:int}/EditVersion")]
+        public async Task<ActionResult<SeasonCreateEditDTO>> GetEditSeason(int id)
+        {
+            var season = await _dataService.GetEditVersionById(id);
+            if (season == null)
+            {
+                return NotFound();
+            }
+            return Ok(season);
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<SeasonDTO>> GetSeasons([FromQuery(Name = TITLE_QUERY_PARAM)] string? title)
         {
@@ -48,7 +59,7 @@ namespace MovieService.Controller
 
         [HttpPost]
         //[Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Create(SeasonDTO seasonDTO)
+        public async Task<ActionResult> Create(SeasonCreateEditDTO seasonDTO)
         {
             var id = await _dataService.AddAsync(seasonDTO);
             var url = GetLinkToSeason(id);
@@ -56,7 +67,7 @@ namespace MovieService.Controller
         }
 
         [HttpPut]
-        public async Task<ActionResult> Edit(SeasonDTO seasonDTO)
+        public async Task<ActionResult> Edit(SeasonCreateEditDTO seasonDTO)
         {
             var id = await _dataService.EditAsync(seasonDTO);
             var url = GetLinkToSeason(id);

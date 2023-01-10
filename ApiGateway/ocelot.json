@@ -138,6 +138,21 @@
 
       "DangerousAcceptAnyServerCertificateValidator": true
     },
+    {
+      "UpstreamPathTemplate": "/api/season",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/season",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
 
     // User service
     {

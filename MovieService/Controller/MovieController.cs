@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MovieService.ApiModel.Common;
 using MovieService.ApiModel.Movies;
+using MovieService.ApiModel.Seasons;
 using MovieService.Service.Movies;
 
 namespace MovieService.Controller
@@ -33,7 +34,18 @@ namespace MovieService.Controller
             }
             return Ok(movie);
         }
-        
+
+        [HttpGet("{id:int}/EditVersion")]
+        public async Task<ActionResult<MovieCreateEditDTO>> GetEditMovie(int id)
+        {
+            var movie = await _dataService.GetEditVersionById(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            return Ok(movie);
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<MovieDTO>> GetMovies([FromQuery(Name = TITLE_QUERY_PARAM)] string? title)
         {
@@ -47,7 +59,7 @@ namespace MovieService.Controller
 
         [HttpPost]
         //[Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Create(MovieDTO movieDTO)
+        public async Task<ActionResult> Create(MovieCreateEditDTO movieDTO)
         {
             var id = await _dataService.AddAsync(movieDTO);
             var url = GetLinkToMovie(id);
@@ -55,7 +67,7 @@ namespace MovieService.Controller
         }
 
         [HttpPut]
-        public async Task<ActionResult> Edit(MovieDTO movieDTO)
+        public async Task<ActionResult> Edit(MovieCreateEditDTO movieDTO)
         {
             var id = await _dataService.EditAsync(movieDTO);
             var url = GetLinkToMovie(id);
