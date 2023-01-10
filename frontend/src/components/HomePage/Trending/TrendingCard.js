@@ -26,13 +26,16 @@ const TrendingCard = (props) => {
         }
     }
 
+    console.log(props.entry.title)
+
     return (
+        
 
                 <Card sx={{display: "flex", flexDirection: "row", width: "650px", height: "300px"}}>
                 <CardMedia
                     component="img"
                     sx={{ width: 220 }}
-                    image={props.entry.imageLink}
+                    image={props.entry.cover}
                 />
                 <Box sx={{width: "100%"}}>
                     <CardContent>
@@ -41,8 +44,10 @@ const TrendingCard = (props) => {
 
                     <Divider sx={{ marginTop: "10px", marginLeft: "20px", width: "90%", alignSelf: "center" }} flexItem />
 
-                    <CardContent>
-                        <Typography>No i tutaj będzie opsi każdego filmu - jak narazie jest placeholder, bo w sumie nie ma co dodatkowo narazie dodawać treści w tych jsonach. myślę, że wygląda to całkiem spoko - na pewno fajne urozmaicenie, do poprzedniej karuzeli.</Typography>
+                    <CardContent
+                        sx={{ "-webkit-mask-image": "linear-gradient(180deg, #000 50%, transparent)"}}
+                    >
+                        <Typography wrap sx={{ overflow: "hidden", maxHeight: "100px" }}>{props.entry.description}</Typography>
                     </CardContent>
 
             <Link to="/Movie" state={{ entry: props.entry }}>
@@ -56,7 +61,8 @@ const TrendingCard = (props) => {
                 </Box>
                 </Card>
 
-
+        
+        
         );
 
 }
