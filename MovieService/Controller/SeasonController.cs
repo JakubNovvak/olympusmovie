@@ -48,7 +48,7 @@ namespace MovieService.Controller
 
         [HttpPost]
         //[Authorize(Roles = "Admin")]
-        public async Task<ActionResult> Create(SeasonDTO seasonDTO)
+        public async Task<ActionResult> Create(SeasonCreateEditDTO seasonDTO)
         {
             var id = await _dataService.AddAsync(seasonDTO);
             var url = GetLinkToSeason(id);
@@ -56,7 +56,7 @@ namespace MovieService.Controller
         }
 
         [HttpPut]
-        public async Task<ActionResult> Edit(SeasonDTO seasonDTO)
+        public async Task<ActionResult> Edit(SeasonCreateEditDTO seasonDTO)
         {
             var id = await _dataService.EditAsync(seasonDTO);
             var url = GetLinkToSeason(id);

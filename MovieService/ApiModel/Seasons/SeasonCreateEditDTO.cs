@@ -1,17 +1,14 @@
 ﻿using MovieService.ApiModel.Common;
-using MovieService.ApiModel.Genres;
 using MovieService.ApiModel.Participants;
-using MovieService.ApiModel.Reviews;
-using MovieService.ApiModel.Tags;
 using MovieService.Model;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MovieService.ApiModel.Movies
+namespace MovieService.ApiModel.Seasons
 {
-    public class MovieCreateEditDTO
+    public class SeasonCreateEditDTO
     {
         public int Id { get; set; }
         public string Title { get; set; } = null!;
+        public int Number { get; set; }
         public string Description { get; set; } = null!;
         public virtual DateDTO ReleaseDate { get; set; } = null!;
         public int DurationInMinutes { get; set; }
@@ -21,6 +18,6 @@ namespace MovieService.ApiModel.Movies
         public string Trailer { get; set; } = null!;
         public ICollection<int> GenreIds { get; set; } = null!;
         public ICollection<int> TagIds { get; set; } = null!;
-        public ICollection<ParticipantMovieCreateDTO> Participants { get; set; } = null!;
+        public ICollection<ParticipantSeasonCreateDTO> Participants { get; set; } = null!;
     }
 }
