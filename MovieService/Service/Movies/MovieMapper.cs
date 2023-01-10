@@ -41,7 +41,7 @@ namespace MovieService.Service.Movies
                 BackgroundImage = movie.BackgroundImage,
                 Thumbnail = movie.Thumbnail,
                 Trailer = movie.Trailer,
-                AverageRating = movie.Rating.Average(rating => rating.Value),
+                AverageRating = movie.Rating.Count != 0 ? movie.Rating.Average(rating => rating.Value) : null,
                 NumberOfRating = movie.Rating.Count,
                 Reviews = movie.Reviews.Select(ReviewMapper.MapToDTO).ToList(),
                 Genres = movie.Genres.Select(GenreMapper.MapToDTO).ToList(),

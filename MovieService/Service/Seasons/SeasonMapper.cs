@@ -40,7 +40,7 @@ namespace MovieService.Service.Seasons
                 BackgroundImage = season.BackgroundImage,
                 Thumbnail = season.Thumbnail,
                 Trailer = season.Trailer,
-                AverageRating = season.Rating.Average(rating => rating.Value),
+                AverageRating = season.Rating.Count != 0 ? season.Rating.Average(rating => rating.Value) : null,
                 NumberOfRating = season.Rating.Count,
                 Episodes = season.Episodes.Select(EpisodeMapper.MapToDTO).ToList(),
                 Reviews = season.Reviews.Select(ReviewMapper.MapToDTO).ToList(),

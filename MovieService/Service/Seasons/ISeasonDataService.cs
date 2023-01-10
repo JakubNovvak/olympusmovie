@@ -7,7 +7,7 @@ namespace MovieService.Service.Seasons
         Task<int> AddAsync(SeasonDTO seasonDTO);
         IEnumerable<SeasonDTO> GetAll();
         Task<bool> RemoveRange(ISet<int> ids);
-        Task<SeasonDTO?> GetById(int id);
+        Task<SeasonDetailsDTO?> GetById(int id);
         Task<int> EditAsync(SeasonDTO seasonDTO);
     }
 }
