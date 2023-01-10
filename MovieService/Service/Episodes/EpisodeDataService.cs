@@ -45,9 +45,9 @@ namespace MovieService.Service.Episodes
             return foundEpisode.Id;
         }
 
-        public IEnumerable<int> GetAll()
+        public IEnumerable<EpisodeDTO> GetAll()
         {
-            return _dbContext.Set<Episode>().Select(episode => episode.Id);
+            return _dbContext.Set<Episode>().Select(episode => EpisodeMapper.MapToDTO(episode));
         }
 
         public async Task<EpisodeDTO?> GetById(int id)

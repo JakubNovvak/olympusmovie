@@ -4,7 +4,7 @@ namespace MovieService.Service.Persons
 {
     public interface IPersonDataService
     {
-        IEnumerable<int> GetAll();
+        IEnumerable<PersonDTO> GetAll();
         Task<PersonDTO?> GetById(int id);
         Task<int> AddAsync(PersonDTO personDTO);
         Task<int> EditAsync(PersonDTO personDTO);
