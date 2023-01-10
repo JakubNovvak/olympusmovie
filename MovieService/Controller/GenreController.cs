@@ -36,7 +36,7 @@ namespace MovieService.Controller
         [HttpGet]
         public ActionResult<IEnumerable<GenreDTO>> GetGenres()
         {
-            return Ok(_dataService.GetAll().Select(id => GetLinkToGenre(id)));
+            return Ok(_dataService.GetAll());
         }
 
         [HttpPost]

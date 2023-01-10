@@ -4,7 +4,7 @@ namespace MovieService.Service.Roles
 {
     public interface IRoleDataService
     {
-        IEnumerable<int> GetAll();
+        IEnumerable<RoleDTO> GetAll();
         Task<RoleDTO?> GetById(int id);
         Task<int> AddAsync(RoleDTO roleDTO);
         Task<int> EditAsync(RoleDTO roleDTO);

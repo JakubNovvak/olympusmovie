@@ -46,9 +46,9 @@ namespace MovieService.Service.Tags
 
         }
 
-        public IEnumerable<int> GetAll()
+        public IEnumerable<TagDTO> GetAll()
         {
-            return _dbContext.Set<Tag>().Select(tag => tag.Id);
+            return _dbContext.Set<Tag>().Select(tag => TagMapper.MapToDTO(tag));
         }
 
         public async Task<TagDTO?> GetById(int id)

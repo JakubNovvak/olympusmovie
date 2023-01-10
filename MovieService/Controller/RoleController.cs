@@ -35,7 +35,7 @@ namespace MovieService.Controller
         [HttpGet]
         public ActionResult<IEnumerable<RoleDTO>> GetRoles()
         {
-            return Ok(_dataService.GetAll().Select(id => GetLinkToRole(id)));
+            return Ok(_dataService.GetAll());
         }
 
         [HttpPost]
