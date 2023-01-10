@@ -1,4 +1,5 @@
 ﻿using MovieService.ApiModel.Common;
+using MovieService.ApiModel.Participants;
 using MovieService.ApiModel.Seasons;
 using MovieService.Model;
 using MovieService.Service.Episodes;
@@ -63,6 +64,25 @@ namespace MovieService.Service.Seasons
                 BackgroundImage = seasonDTO.BackgroundImage,
                 Thumbnail = seasonDTO.Thumbnail,
                 Trailer = seasonDTO.Trailer,
+            };
+        }
+
+        public static SeasonCreateEditDTO? MapToEditDTO(Season season)
+        {
+            return new SeasonCreateEditDTO
+            {
+                Id = season.Id,
+                Title = season.Title,
+                Number = season.Number,
+                Description = season.Description,
+                ReleaseDate = new DateDTO(season.ReleaseDate.Year, season.ReleaseDate.Month, season.ReleaseDate.Day),
+                Cover = season.Cover,
+                BackgroundImage = season.BackgroundImage,
+                Thumbnail = season.Thumbnail,
+                Trailer = season.Trailer,
+                GenreIds = season.Genres.Select(genre => genre.Id).ToList(),
+                TagIds = season.Tags.Select(tag => tag.Id).ToList(),
+                Participants = season.Participants.Select(participant => new ParticipantSeasonCreateDTO { PersonId = participant.PersonId, RoleId = participant.RoleId}).ToList(),
             };
         }
     }

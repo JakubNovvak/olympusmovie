@@ -9,5 +9,6 @@ namespace MovieService.Service.Seasons
         Task<bool> RemoveRange(ISet<int> ids);
         Task<SeasonDetailsDTO?> GetById(int id);
         Task<int> EditAsync(SeasonCreateEditDTO seasonDTO);
+        Task<SeasonCreateEditDTO?> GetEditVersionById(int id);
     }
 }

@@ -35,6 +35,17 @@ namespace MovieService.Controller
             return Ok(season);
         }
 
+        [HttpGet("{id:int}/EditVersion")]
+        public async Task<ActionResult<SeasonCreateEditDTO>> GetEditSeason(int id)
+        {
+            var season = await _dataService.GetEditVersionById(id);
+            if (season == null)
+            {
+                return NotFound();
+            }
+            return Ok(season);
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<SeasonDTO>> GetSeasons([FromQuery(Name = TITLE_QUERY_PARAM)] string? title)
         {
