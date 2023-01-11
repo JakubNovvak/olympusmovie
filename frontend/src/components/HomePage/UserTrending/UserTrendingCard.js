@@ -19,7 +19,7 @@ export default function UserTrendingCard(props) {
 
     return (
         <>
-            <Link to="/Movie" state={{ entryId: props.entry.id, type: props.type }}>
+            <Link to={`/Movie/${props.entry.id},${props.type}`}>
                 <MotionComponent
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.99 }}
@@ -27,7 +27,7 @@ export default function UserTrendingCard(props) {
                     <Card sx={{ maxWidth: 220, minWidth: 220, maxHeight: 300 }}>
                         <CardMedia
                             sx={{ height: 300 }}
-                            image={props.entry.imageLink}
+                            image={props.entry.cover}
                         />
                     <Box sx={{ position: "absolute", display: "flex", justifyContent: "center", top: "85%", width: 220}}>
 

@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef } from "react";
+﻿import React, { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { styled, alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -14,6 +14,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import MovieInfoContent from "../../components/Movie/MovieInfoContent";
 import { motion } from "framer-motion";
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import series from "./series.json";
 import movies from "./movies.json";
 
@@ -97,17 +99,59 @@ const WatchTrailer = styled("div")(({ theme }) => ({
 
 
 const Movie = () => {
-    const location = useLocation();
-    const type = location.state.type;
-    const entryId = location.state.entryId;
-    let entry = null;
 
-    if (type == "series")
-        entry = series.find(entry => entry.id === entryId);
+    const [entry, setEntry] = useState('');
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    let { entryid, type } = useParams();
+    //let entry = null;
+
+    console.log(type);
+    console.log(entryid);
+
+/*    if (type == "series")
+        entry = series.find(entry => entry.id === entryid);
     else
-        entry = movies.find(entry => entry.id === entryId);
+        entry = movies.find(entry => entry.id === entryid);
+*/
 
-    console.log(entry.title);
+    const getSeries = () => {
+
+        axios.get(`/api/season/${entryid}`, {
+            headers: { "Content-Type": "application/json" },
+        })
+            .then(
+                (response) => { setEntry(response.data); console.log("Ładuje wpis"); },
+                (error) => console.log(error)
+            );
+
+        setIsLoaded(true);
+    };
+
+    const getMovie = () => {
+
+        axios.get(`/api/movie/${entryid}`, {
+            headers: { "Content-Type": "application/json" },
+        })
+            .then(
+                (response) => { setEntry(response.data); console.log("Ładuje wpis"); },
+                (error) => console.log(error)
+            );
+
+        setIsLoaded(true);
+    };
+
+    useEffect(() => {
+        if (type === "series")
+            getSeries();
+        else if (type === "movie")
+            getMovie();
+        else
+            console.log("Invalid link parameter.");
+    }, []);
+
+    if (isLoaded)
+        console.log(entry.title);
 
     const [HDropdownState, ChangeHDropdownState] = useState(false);
     const [WatchState, ChangeWatchState] = useState(0);
@@ -128,7 +172,8 @@ const Movie = () => {
     return (
 
         <Container>
-            <ContentContainer>
+            {type}
+          {/*  <ContentContainer>
                 <BackGroundImageContainer>
                     <BackgroundImage src={entry.backgroundImage} alt="" />
                     <ImageTextContainer>
@@ -176,7 +221,7 @@ const Movie = () => {
                 <InfoContainer>
                     <MovieInfoContent entry={entry} commentsRef={commentsRef} />
                 </InfoContainer>
-            </ContentContainer>
+            </ContentContainer>*/}
         </Container>
 
     );

@@ -26,10 +26,7 @@ const TrendingCard = (props) => {
         }
     }
 
-    console.log(props.entry.title)
-
     return (
-        
 
                 <Card sx={{display: "flex", flexDirection: "row", width: "650px", height: "300px"}}>
                 <CardMedia
