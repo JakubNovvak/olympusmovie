@@ -91,13 +91,16 @@
 		
 		Formularz -  służy do zbierania danych wprowadzanych przez użytkownika. Dane wejściowe użytkownika są najczęściej wysyłane do serwera w celu przetworzenia.
 		
+		Awatar - graficzna, cyfrowa postać, pod jaką występuje w świecie wirtualnym użytkownik.
+		
 \pagebreak
 	\section{Specyfikacja wymagań biznesowych}
 	
 		\subsection{Cel systemu}	%opis dlaczego taki system i jakie problemy rozwiazuje jego zbudowanie 
-		Celem projektu "Olympus Movie" jest stworzenie strony internetowej poświęconej filmom, serialom oraz osobom uczestniczącym w ich tworzeniu. Użytkownik po zarejestrowaniu i zalogowaniu jest w stanie komentować, oceniać i recenzować pozycje.
+		Celem projektu "Olympus Movie" jest stworzenie strony internetowej poświęconej filmom, serialom oraz osobom uczestniczącym w ich tworzeniu. Użytkownik po zarejestrowaniu i zalogowaniu jest w stanie %komentować, 
+oceniać i recenzować pozycje.
 	
-	Każda osoba odwiedzająca stronę ma możliwość wyszukania pozycji na podstawie licznych filtrów. Podstawowe wyszukiwanie przeszukuje jedynie tytuły. Istniej możliwość wyszukiwania zaawansowanego w którym wyszukiwanie następuje po tagach lub gatunkach.
+	Każda osoba odwiedzająca stronę ma możliwość wyszukania pozycji na podstawie licznych filtrów. Podstawowe wyszukiwanie przeszukuje jedynie tytuły. %Istniej możliwość wyszukiwania zaawansowanego w którym wyszukiwanie następuje po tagach lub gatunkach.
 	
 	Baza danych zawiera również informacje o aktorach, reżyserach, scenarzystach i innych osobach biorących udział w tworzeniu danej pozycji. Pozwala to na wyświetlenie pozycji w których grał konkretny aktor lub konkretna osoba brała udział w jego tworzeniu.
 		
@@ -193,9 +196,6 @@
 			\includegraphics[scale=0.7]{Rejestracja4.png} \linebreak
 			W przypadku źle przeprowadzonej rejestracji w lewym dolnym rogu zostanie wyświetlony komunikat. Jeśli rejestracja zakończy się sukcesem użytkownik zostanie przekierowany do strony głównej i będzie mógł się zalogować na swoje konto.\linebreak
 			\includegraphics[scale=0.3]{RejestracjaNieudana.png} \linebreak
-			
-
-			
 			\item Logowanie. \linebreak
 			W prawym górnym roku strony kliknąć "LOGOWANIE". \linebreak
 			\includegraphics[scale=0.3]{Logowanie1.png} \linebreak
@@ -207,17 +207,25 @@
 			Następnie w miejscu obok lupy należy wpisać część lub całość tytułu. \linebreak	
 			\includegraphics[scale=0.3]{WyszukiwanieTytul2.png} \linebreak
 			Po zatwierdzeniu tytuły pasujące do wpisanej frazy tytuły zostaną pokazane zamiast strony głównej. \linebreak
-			\item Wyszukanie pozycji na podstawie filtrów.\linebreak
+%			\item Wyszukanie pozycji na podstawie filtrów.\linebreak
 		\end{itemize}
 		\subsection{Funkcjonalność użytkownika zalogowanego}
 		Użytkownik zalogowany posiada wszystkie funkcjonalności użytkownika anonimowego poza logowaniem, rejestracją i losowaniem nazwy użytkownika podczas rejestracji. Dodatkowo:
 		\begin{itemize}
-			\item Wylogowanie się.
-			\item Otworzenie własnego profilu
-			\item Dodanie oceny do pozycji.
+			\item Wylogowanie się.\linebreak
+			Najpierw należy kliknąć na awatar naszego profilu. Następnie napis "Wyloguj się".\linebreak
+			\includegraphics[scale=0.3]{Wylogowanie.png}
+			\item Otworzenie własnego profilu.\linebreak
+			Najpierw należy kliknąć na awatar naszego profilu. Następnie napis "Profil".\linebreak
+			\includegraphics[scale=0.3]{OtwarcieProfilu.png}
+			\item Dodanie oceny do pozycji.\linebreak
+			Po otwarciu danego filmu należy zaznaczyć odpowiednią iość gwiazdek. Ilość gwiazdek odpowiada ocenie filmu w skali 1-10. \linebreak
+			\includegraphics[scale=0.7]{Ocena.png}
 			\item Dodanie recenzji do pozycji.
-			\item Skomentowanie recenzji.
-			\item Dodanie pozycji do jednej z list.
+			%\item Skomentowanie recenzji.
+			\item Dodanie pozycji do jednej z list. \linebreak
+			Po otwarciu danego filmu pod oceną znajduje się rozwijana lista ze statusami pozycji.\linebreak
+			\includegraphics[scale=0.7]{Status.png}
 		\end{itemize}		
 		\subsection{Funkcjonalność użytkownika administratora}	
 		Administrator posiada wszystkie funkcjonalności użytkownika zalogowanego. Funkcje przeznaczone jedynie dla administratora wykonuje się z poziomu API:
