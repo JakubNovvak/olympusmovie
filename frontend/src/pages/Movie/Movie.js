@@ -160,10 +160,6 @@ const Movie = () => {
                     setEntry(response.data);
                     console.log("Ładuje wpis");
                     ownReleaseDate = response.data.releaseDate;
-/*                    ownReleaseDate.day = response.data.releaseDate.day;
-                    ownReleaseDate.month = response.data.releaseDate.month;
-                    ownReleaseDate.year = response.data.releaseDate.year;
-                    console.log(ownReleaseDate);*/
                     setIsLoaded(true);
                 },
                 (error) => console.log(error)
@@ -182,10 +178,6 @@ const Movie = () => {
                     setEntry(response.data);
                     console.log("Ładuje wpis");
                     ownReleaseDate = response.data.releaseDate;
-/*                    ownReleaseDate.day = response.data.releaseDate.day;
-                    ownReleaseDate.month = response.data.releaseDate.month;
-                    ownReleaseDate.year = response.data.releaseDate.year;
-                    console.log(ownReleaseDate);*/
                     setIsLoaded(true);
                 },
                 (error) => console.log(error)
@@ -209,7 +201,7 @@ const Movie = () => {
     const [HDropdownState, ChangeHDropdownState] = useState(false);
     const [WatchState, ChangeWatchState] = useState(0);
     const commentsRef = useRef(null);
-    const executeScroll = () => commentsRef.current.scrollIntoView();
+    const executeScroll = () => window.scrollTo({ top: commentsRef.current.offsetTop, behavior: "smooth"})//commentsRef.current.scrollIntoView();
 
     const MotionComponent = motion(WatchTrailer)
 
