@@ -175,9 +175,20 @@ const Register = (props) => {
       })
       .then(
         (response) => {
-          setSucessState(true);
-          setOpen(true);
-          navigate("/");
+          axios
+            .post("/api/user", JSON.stringify(values), {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+            .then(
+              (response) => {
+                setSucessState(true);
+                setOpen(true);
+                navigate("/");
+              },
+              (error) => {}
+            );
         },
         (error) => {
           setSucessState(false);
@@ -397,13 +408,15 @@ const Register = (props) => {
                       backgroundColor: "#201c1c",
                       borderRadius: "15px",
                       width: "130px",
-                                      }}
-                    onClick={() => { console.log(NicknameGenerator(formik))}}
+                    }}
+                    onClick={() => {
+                      console.log(NicknameGenerator(formik));
+                    }}
                   >
                     <CasinoIcon></CasinoIcon>&nbsp; Wylosuj
                   </RandomUsernameButton>
                 </UsernameSectionContainer>
-                              {/*{console.log("Touched: " + formik.touched.username + "\nValue: " + formik.values.username)}*/}
+                {/*{console.log("Touched: " + formik.touched.username + "\nValue: " + formik.values.username)}*/}
                 <Box
                   sx={{
                     display: "flex",

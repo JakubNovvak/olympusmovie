@@ -25,9 +25,9 @@ namespace UserService.Model
         public string Email { get; set; } = null!;
 
         [Column("photo")]
-        public string Photo { get; set; } = null!;
+        public string? Photo { get; set; }
         [Column("background_photo")]
-        public string BackgroundPhoto { get; set; } = null!;
+        public string? BackgroundPhoto { get; set; }
 
         [Column("join_date")]
         public DateTime JoinDate { get; set; }
