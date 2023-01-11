@@ -29,8 +29,6 @@ namespace ApplicationService.Controller
             {
                 return Unauthorized();
             }
-            var userId = await new UserHttpClient().GetUser(loginDTO.Username);
-            loginResult.UserId = userId;
             return Ok(loginResult);
         }
 
@@ -40,14 +38,6 @@ namespace ApplicationService.Controller
             try
             {
                 await _accountService.Register(registerDTO);
-                await new UserHttpClient().CreateUser(new UserHttpClient.UserDTO
-                {
-                    UserName = registerDTO.Username,
-                    Name = registerDTO.Name,
-                    Surname = registerDTO.Surname,
-                    Email = registerDTO.Email,
-                    JoinDate = DateTime.Now
-                });
                 return Ok("User registered successfully!");
                 
             } catch (InvalidOperationException e)
