@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Runtime.InteropServices;
 using UserService.ApiModel;
 using UserService.Infrastructure;
+using UserService.Model;
 using UserService.Model.Relations;
 using UserService.Repository;
 
@@ -114,6 +115,16 @@ namespace UserService.Service
                 .ToList();
             _dbContext.Set<UserRelationToPosition>().RemoveRange(relations);
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<UserDTO?> GetByUsername(string username)
+        {
+            var user = _dbContext.Set<User>().FirstOrDefault(user => user.UserName == username);
+            if (user == null)
+            {
+                return null;
+            }
+            return UserMapper.MapToDTO(user);
         }
 
         public bool UserExists(int userId)

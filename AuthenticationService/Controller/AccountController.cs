@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MovieService.Infrastructure;
 
 namespace ApplicationService.Controller
 {
@@ -21,13 +22,15 @@ namespace ApplicationService.Controller
         }
 
         [HttpPost("Login")]
-        public async Task<IActionResult> Login(LoginDTO loginDTO)
+        public async Task<ActionResult<LoginResultDTO>> Login(LoginDTO loginDTO)
         {
             var loginResult = await _accountService.Login(loginDTO);
             if (loginResult == null)
             {
                 return Unauthorized();
             }
+            var userId = await new UserHttpClient().GetUser(loginDTO.Username);
+            loginResult.UserId = userId;
             return Ok(loginResult);
         }
 
@@ -37,11 +40,20 @@ namespace ApplicationService.Controller
             try
             {
                 await _accountService.Register(registerDTO);
+                await new UserHttpClient().CreateUser(new UserHttpClient.UserDTO
+                {
+                    UserName = registerDTO.Username,
+                    Name = registerDTO.Name,
+                    Surname = registerDTO.Surname,
+                    Email = registerDTO.Email,
+                    JoinDate = DateTime.Now
+                });
+                return Ok("User registered successfully!");
+                
             } catch (InvalidOperationException e)
             {
                 return BadRequest(e.Message);
             }
-            return Ok("User registered successfully!");
         }
 
         [HttpPost("RegisterAdmin")]

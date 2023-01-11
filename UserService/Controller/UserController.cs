@@ -14,6 +14,7 @@ namespace UserService.Controller
         private const string GetMethod = "GET";
         private const string SelfRel = "self";
         private const string USER_ID = "userId";
+        private const string USER_NAME = "username";
 
         private readonly IUserDataService _dataService;
         private readonly LinkGenerator _linkGenerator;
@@ -28,6 +29,17 @@ namespace UserService.Controller
         public async Task<ActionResult<UserDTO>> GetUser(int userId)
         {
             var user = await _dataService.GetById(userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<UserDTO>> GetUserByUsername([FromQuery(Name = USER_NAME)] string username)
+        {
+            var user = await _dataService.GetByUsername(username);
             if (user == null)
             {
                 return NotFound();

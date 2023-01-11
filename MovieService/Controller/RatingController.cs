@@ -37,6 +37,7 @@ namespace MovieService.Controller
             return Ok(rating);
         }
 
+        [HttpGet]
         public async Task<ActionResult<RatingDTO>> GetRatingByUserAndPosition([FromQuery(Name = USER_ID_QUERY_PARAM)] int userId,
             [FromQuery(Name = POSITION_ID_QUERY_PARAM)] int positionId,
             [FromQuery(Name = POSITION_TYPE_QUERY_PARAM)] string positionType)
