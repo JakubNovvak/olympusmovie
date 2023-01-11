@@ -109,8 +109,98 @@
 
     // Movie service
     {
+      "UpstreamPathTemplate": "/api/comments/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/comments/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/comments",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/comments",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/episode/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/episode/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/episode",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/episode",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/genre/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/genre/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/genre",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/genre",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
       "UpstreamPathTemplate": "/api/movie",
-      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ],
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
 
       "DownstreamScheme": "https",
       "DownstreamPathTemplate": "/api/movie",
@@ -139,11 +229,176 @@
       "DangerousAcceptAnyServerCertificateValidator": true
     },
     {
-      "UpstreamPathTemplate": "/api/season",
+      "UpstreamPathTemplate": "/api/person/{id}",
       "UpstreamHttpMethod": [ "Get" ],
 
       "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/person/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/person",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/person",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/rating/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/rating/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/rating",
+      "UpstreamHttpMethod": [ "Post", "Put", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/rating",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/review/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/review/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/review",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/review",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/role/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/role/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/role",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/role",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/season/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/season/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/season",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamScheme": "https",
       "DownstreamPathTemplate": "/api/season",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/tag/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/tag/{id}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "movieservice",
+          "Port": 443
+        }
+      ],
+
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/api/tag",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/tag",
       "DownstreamHostAndPorts": [
         {
           "Host": "movieservice",

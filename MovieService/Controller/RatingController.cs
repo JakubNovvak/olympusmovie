@@ -11,6 +11,9 @@ namespace MovieService.Controller
     public class RatingController : ControllerBase
     {
         private const string ID_QUERY_PARAM = "id";
+        private const string USER_ID_QUERY_PARAM = "userId";
+        private const string POSITION_ID_QUERY_PARAM = "positionId";
+        private const string POSITION_TYPE_QUERY_PARAM = "positionType";
         private const string TITLE_QUERY_PARAM = "title";
         private const string GetMethod = "GET";
         private const string SelfRel = "self";
@@ -27,6 +30,18 @@ namespace MovieService.Controller
         public async Task<ActionResult<RatingDTO>> GetRating(int id)
         {
             var rating = await _dataService.GetById(id);
+            if (rating == null)
+            {
+                return NotFound();
+            }
+            return Ok(rating);
+        }
+
+        public async Task<ActionResult<RatingDTO>> GetRatingByUserAndPosition([FromQuery(Name = USER_ID_QUERY_PARAM)] int userId,
+            [FromQuery(Name = POSITION_ID_QUERY_PARAM)] int positionId,
+            [FromQuery(Name = POSITION_TYPE_QUERY_PARAM)] string positionType)
+        {
+            var rating = await _dataService.GetByUserAndPosition(userId, positionId, positionType);
             if (rating == null)
             {
                 return NotFound();

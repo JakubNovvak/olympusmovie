@@ -1,4 +1,6 @@
-﻿using MovieService.ApiModel.Ratings;
+﻿using Microsoft.EntityFrameworkCore;
+using MovieService.ApiModel.Ratings;
+using MovieService.Infrastructure;
 using MovieService.Model;
 using MovieService.Repository;
 
@@ -54,6 +56,15 @@ namespace MovieService.Service.Ratings
                 return null;
             }
             return RatingMapper.MapToDTO(rating);
+        }
+        
+        public async Task<RatingDTO?> GetByUserAndPosition(int userId, int positionId, string positionType)
+        {
+            var rating = await _dbContext.Set<Rating>()
+                .Where(rating => rating.UserId == userId)
+                .Where(rating => positionType == PositionTypeConstants.MOVIE ? rating.MovieId == positionId : rating.SeasonId == positionId)
+                .FirstAsync();
+            return rating != null ? RatingMapper.MapToDTO(rating) : null;
         }
 
         public async Task<bool> RemoveRange(ISet<int> ids)
