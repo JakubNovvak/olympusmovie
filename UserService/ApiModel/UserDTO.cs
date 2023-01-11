@@ -9,6 +9,6 @@
         public string Email { get; set; } = null!;
         public string Photo { get; set; } = null!;
         public string BackgroundPhoto { get; set; }  = null!;
-        public DateTime JoinDate { get; set; }
+        public DateTime? JoinDate { get; set; }
     }
 }

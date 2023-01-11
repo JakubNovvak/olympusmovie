@@ -1,0 +1,289 @@
+[
+	{
+	  "Id": 0,
+	  "Title": "Stranger Things 1",
+	  "Number": 12,
+	  "Description": "Dwunastoletni Will Byers znika po spotkaniu z przyjaciółmi, którzy postanawiają szukać chłopca na własną rękę. Mike, Lucas i Dustin poznają wówczas Eleven, czyli dziewczynkę, która uciekła z ukrytego laboratorium.",
+	  "ReleaseDate": {
+		"Year": 2016,
+		"Month": 7,
+		"Day": 15
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/03/59/750359/7748390.6.jpg",
+	  "BackgroundImage": "https://filmozercy.com/uploads/images/747x400/stranger-things-miniaturka-4387f.jpg",
+	  "Thumbnail": "https://i.ytimg.com/vi/iFfcONDGHBY/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBGLLMcbCO5SYavTIXv3mBOQE380w",
+	  "Trailer": "https://www.youtube.com/watch?v=iFfcONDGHBY",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	},
+	
+	{
+	  "Id": 0,
+	  "Title": "Breaking Bad 1",
+	  "Number": 7,
+	  "Description": " Walter White, nauczyciel chemii w szkole średniej dowiaduje się, że cierpi na nieoperacyjnego raka płuc. Lekarze przewIdują, że przed nim nie więcej niż dwa lata życia. Mężczyzna, aby zabezpieczyć rodzinę finansowo po swej śmierci, decyduje się wykorzystać czas na handel narkotykami.",
+	  "ReleaseDate": {
+		"Year": 2008,
+		"Month": 1,
+		"Day": 20
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/06/68/430668/7552405.6.jpg",
+	  "BackgroundImage": "https://static.wikia.nocookie.net/breakingbad/images/b/b1/BB_101_S.jpg/revision/latest?cb=20170418193804",
+	  "Thumbnail": "https://i.ytimg.com/vi/ceqOTZnhgY8/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAD0EJ22x4dZeKWh5plUOPUXj9EmA",
+	  "Trailer": "https://www.youtube.com/watch?v=HhesaQXLuRY&t=1s",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	},
+	
+	{
+	  "Id": 0,
+	  "Title": "Goście 1",
+	  "Number": 8,
+	  "Description": "Głównym bohaterem serialu Goście jest Richard. Ma on niezwykłego pecha, ponieważ podczas jego pierwszego dnia pracy w policji w pobliskim miasteczku dochodzi do wypadku. Gdy świeżo upieczony policjant zjawia się na miejsce, okazuje się, że rozbiły się tam dwa statki kosmiczne.",
+	  "ReleaseDate": {
+		"Year": 2022,
+		"Month": 5,
+		"Day": 3
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/51/78/10015178/8019651.6.jpg",
+	  "BackgroundImage": "https://fwcdn.pl/webv/17/04/61704/61704.4.jpg",
+	  "Thumbnail": "https://i.ytimg.com/vi/OAn395Dz0yU/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAE_DHS_JxhNnmrTLCw6JqwfDbXjQ",
+	  "Trailer": "https://www.youtube.com/watch?v=OAn395Dz0yU",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	},
+	
+	{
+	  "Id": 0,
+	  "Title": "WednesDay 1",
+	  "Number": 8,
+	  "Description": "Przepełniona zjawiskami paranormalnymi opowieść detektywistyczna osadzona w czasie, gdy WednesDay Addams pobiera nauki w Akademii Nevermore. Nasza bohaterka próbuje zapanować nad swoimi nowo odkrytymi mocami psychicznymi, powstrzymać mordercze siły terroryzujące okolicę oraz rozwiązać nadnaturalną zagadkę, której częścią przed 25 laty stali się jej rodzice.",
+	  "ReleaseDate": {
+		"Year": 2022,
+		"Month": 11,
+		"Day": 23
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/77/61/877761/8032433.6.jpg",
+	  "BackgroundImage": "https://filmozercy.com/uploads/images/747x400/enna-ortega-i-emma-myers-w-serialu-wednesDay.jpg",
+	  "Thumbnail": "https://i.ytimg.com/vi/o17HaBfc5tY/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLB1XzY_vf6XQE-lS8fCsQ5hSg2SdA",
+	  "Trailer": "https://www.youtube.com/watch?v=o17HaBfc5tY",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	},
+	
+	{
+	  "Id": 0,
+	  "Title": "Wielka Woda",
+	  "Number": 6,
+	  "Description": "Wielka fala powodziowa zbliża się do Wrocławia. Lokalne władze, na czele z aspirującym urzędnikiem Jakubem Marczakiem (Tomasz Schuchardt), ściągają do miasta wykwalifikowaną hydrolożkę, Jaśminę Tremer (Agnieszka Żulewska), aby za wszelką cenę uratować miasto. W tym samym czasie Andrzej Rębacz (Ireneusz Czop) wraca do rodzinnych Kęt pod Wrocławiem nieoczekiwanie stając na czele zbuntowanych mieszkańców wsi, którzy nie chcą dopuścić do zniszczenia wału przeciwpowodziowego.",
+	  "ReleaseDate": {
+		"Year": 2022,
+		"Month": 10,
+		"Day": 5
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/18/16/871816/8042652.6.jpg",
+	  "BackgroundImage": "https://fwcdn.pl/fph/18/16/871816/1094435_1.1.jpg",
+	  "Thumbnail": "https://i.ytimg.com/vi/lG9YFC0Lj0A/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBh-4VECPL17CnBwY011xTJbr1WTQ",
+	  "Trailer": "https://www.youtube.com/watch?v=lG9YFC0Lj0A&t=1s",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	},
+	
+	{
+	  "Id": 0,
+	  "Title": "The Dark 1",
+	  "Number": 10,
+	  "Description": "\"Dark\" to niezwykła saga rozgrywająca się we współczesnych Niemczech. Zaginięcie dwojga małych dzieci wydobywa na światło dzienne skrywane sekrety czterech rodzin i zaburzone relacje pomiędzy ich członkami. Wypadki przedstawione w dziesięciu godzinnych odcinkach przybierają nadprzyrodzony obrót niepozostający bez związku z wydarzeniami, które miały miejsce w miasteczku w 1986 r.",
+	  "ReleaseDate": {
+		"Year": 2017,
+		"Month": 12,
+		"Day": 1
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/13/83/771383/7814585.6.jpg",
+	  "BackgroundImage": "https://dark.netflix.io/share/global.png",
+	  "Thumbnail": "https://i.ytimg.com/vi/eni33Abcf3I/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDKMBxfwhxNWF70U0SVuJJZPxqWXg",
+	  "Trailer": "https://www.youtube.com/watch?v=eni33Abcf3I",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	},
+	
+	{
+	  "Id": 0,
+	  "Title": "WednesDay 2",
+	  "Number": 0,
+	  "Description": "Kontyunacja pierwszego sezonu kultowego serialu z platformy Netflix - dokładana fabuła jeszcze nie jest znana.",
+	  "ReleaseDate": {
+		"Year": 2023,
+		"Month": 11,
+		"Day": 1
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/77/61/877761/8032433.6.jpg",
+	  "BackgroundImage": "https://filmozercy.com/uploads/images/747x400/enna-ortega-i-emma-myers-w-serialu-wednesDay.jpg",
+	  "Thumbnail": "https://i.ytimg.com/vi/LdHp3QjkUhQ/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBsi6VLZdyJ8M0ZIEilpj5LOEl6iw",
+	  "Trailer": "https://www.youtube.com/watch?v=LdHp3QjkUhQ",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	},
+	
+	{
+	  "Id": 0,
+	  "Title": "Kalejdoskop",
+	  "Number": 8,
+	  "Description": "Rozgrywający się na przestrzeni 24 lat ''Kalejdoskop'' to odcinkowa antologia o ekipie genialnych złodziei, którzy próbują włamać się do pozornie Idealnie zabezpieczonego skarbca, żeby zdobyć największy łup w historii. W każdym odcinku dowiadujemy się, jak za sprawą kombinacji zemsty, spisków, układów i zdrady ekipa złodziei planowała skok na strzeżony przez najpotężniejszych ochroniarzy świata i stróżów prawa cel.",
+	  "ReleaseDate": {
+		"Year": 2023,
+		"Month": 1,
+		"Day": 1
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/34/96/10023496/8049247.6.jpg",
+	  "BackgroundImage": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.netflix.com%2Fpl%2FTitle%2F80992058&psig=AOvVaw1so0YxfuKVyUl70nO_h7Lw&ust=1673484771974000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCJiBkrqnvvwCFQAAAAAdAAAAABAD",
+	  "Thumbnail": "https://i.ytimg.com/vi/iWP60msj_SM/hq720.jpg?sqp=-oaymwEcCK4FEIIdSEbyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAiNS8frRPLk1BvTgLWZyR8-uDlqg",
+	  "Trailer": "https://www.youtube.com/watch?v=iWP60msj_SM",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	},
+	
+	{
+	  "Id": 0,
+	  "Title": "Biały Lotos 1",
+	  "Number": 6,
+	  "Description": "Satyra społeczna z akcją osadzoną w ekskluzywnym kurorcie na Hawajach. Serial podąża za grupą gości hotelowych, którzy w tym samym tygodniu spędzają wakacje w ekskluzywnym kurorcie, relaksując się i wypoczywając wśród rajskich krajobrazów.",
+	  "ReleaseDate": {
+		"Year": 2021,
+		"Month": 7,
+		"Day": 11
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/54/91/875491/7991163.3.jpg",
+	  "BackgroundImage": "https://www.vogue.pl/images/blog/entry/facebook-digitalsyndication-bialy-lotos-kostiumografka-alex-bovaird-o-strojach-z-ekranu-22-big-13670.png",
+	  "Thumbnail": "https://i.ytimg.com/vi/J4ukeR2ozVo/sddefault.jpg",
+	  "Trailer": "https://www.youtube.com/watch?app=desktop&v=J4ukeR2ozVo",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	},
+	
+	{
+	  "Id": 0,
+	  "Title": "Gwiezdne Wojny: Parszywa Zgraja",
+	  "Number": 16,
+	  "Description": "Grupa elitarnych żołnierzy-klonów, Clone Force 99, znana również jako Parszywa zgraja, próbuje odnaleźć się w galaktyce po wojnach klonów.",
+	  "ReleaseDate": {
+		"Year": 2021,
+		"Month": 5,
+		"Day": 4
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/84/75/858475/8053070.6.jpg",
+	  "BackgroundImage": "https://sm.ign.com/t/ign_pl/screenshot/default/star-wars-the-bad-batch-poster-1_yp52.1280.jpg",
+	  "Thumbnail": "https://i.ytimg.com/vi/yr1DVq-YS4Y/maxresdefault.jpg",
+	  "Trailer": "https://www.youtube.com/watch?app=desktop&v=jKDF8gFtwMU",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	},
+	
+	{
+	  "Id": 0,
+	  "Title": "Dr. House",
+	  "Number": 22,
+	  "Description": "Doktor Gregory House (Hugh Laurie) ma kiepskie podejście do pacjentów. Najchętniej nie miałby go wcale - nie lubi rozmawiać z pacjentami i unika tego za wszelką cenę. Jest leniwy, brutalnie szczery, niegrzeczny i uzależniony od środków przeciwbólowych. Dr House jest równocześnie znakomitym, światowej klasy diagnostą. ",
+	  "ReleaseDate": {
+		"Year": 2004,
+		"Month": 11,
+		"Day": 16
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/01/77/130177/7221239.6.jpg",
+	  "BackgroundImage": "https://rc.serialowa.pl/wpr/wp-content/uploads/2020/10/dr-house-czolo.jpg",
+	  "Thumbnail": "https://i.ytimg.com/vi/MczMB8nU1sY/hq720.jpg?sqp=-oaymwEcCK4FEIIdSEbyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBCXkx2ODMSw6RiNclNEWgygFVhmg",
+	  "Trailer": "https://www.youtube.com/watch?app=desktop&v=MczMB8nU1sY",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	},
+	
+	{
+	  "Id": 0,
+	  "Title": "Emily w Paryżu 1",
+	  "Number": 10,
+	  "Description": "Dwudziestoparoletnia Emily jest ambitną dyrektorką działu marketingu z Chicago, która niespodziewanie otrzymuje pracę marzeń w Paryżu. Gdy jej firma przejmuje luksusową francuską agencję marketingową, młodej kobiecie powierzone zostaje opracowanie odpowiedniej strategii w mediach społecznościowych. Nowe, paryskie życie Emily wypełniają upojne przygody i nieoczekiwane wyzwania - w tym zyskanie sympatii nowych współpracowników, nawiązanie nowych przyjaźni i odnalezienie miłości.",
+	  "ReleaseDate": {
+		"Year": 2020,
+		"Month": 10,
+		"Day": 2
+	  },
+	  "Cover": "https://fwcdn.pl/fpo/24/25/832425/7990601.6.jpg",
+	  "BackgroundImage": "https://d-tm.ppstatic.pl/kadry/33/16/e35ae638c3cf4bfe958dfcd34e32.1000.jpg",
+	  "Thumbnail": "https://i.ytimg.com/vi/zx4J2R1Op9c/hq720.jpg?sqp=-oaymwEcCK4FEIIdSEbyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDivTMNvmsPmA_GsiPE_xYmSCn4FQ",
+	  "Trailer": "https://www.youtube.com/watch?app=desktop&v=zx4J2R1Op9c",
+	  "genreIds": [
+		0
+	  ],
+	  "TagIds": [
+		0
+	  ],
+	  "participants": [
+	  ]
+	}
+]

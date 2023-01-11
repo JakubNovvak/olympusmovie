@@ -31,7 +31,7 @@ namespace UserService.Service
                 Email = userDTO.Email,
                 Photo= userDTO.Photo,
                 BackgroundPhoto= userDTO.BackgroundPhoto,
-                JoinDate= userDTO.JoinDate,
+                JoinDate = userDTO.JoinDate!.Value,
             };
         }
     }

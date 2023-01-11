@@ -50,9 +50,13 @@ namespace UserService.Controller
         [HttpPost]
         public async Task<ActionResult> Create(UserDTO userDTO)
         {
+            if (userDTO.JoinDate == null)
+            {
+                userDTO.JoinDate = DateTime.Now;
+            }
             var id = await _dataService.AddAsync(userDTO);
             var url = GetLinkToUser(id);
-            return Created(url.Href, url);
+            return Created(url.Href, id);
         }
 
         [HttpPut]
