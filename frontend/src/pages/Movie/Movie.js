@@ -14,10 +14,17 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import MovieInfoContent from "../../components/Movie/MovieInfoContent";
 import { motion } from "framer-motion";
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
+import CircularProgress from '@mui/material/CircularProgress';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import series from "./series.json";
 import movies from "./movies.json";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import VideoPlayer from "../../components/HomePage/HomeCard/VideoPlayer";
 
 const Container = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -97,8 +104,31 @@ const WatchTrailer = styled("div")(({ theme }) => ({
     marginTop: "6.4%"
 }))
 
+const LoadingContainer = styled(Box)(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "580px",
+    minWidth: "100%"
+}))
 
 const Movie = () => {
+
+    const months = {
+        1: "styczeń",
+        2: "luty",
+        3: "marzec",
+        4: "kwiecień",
+        5: "maj",
+        6: "czerwiec",
+        7: "lipiec",
+        8: "sierpień",
+        9: "wrzesień",
+        10: "październik",
+        11: "listopad",
+        12: "grudzień"
+    }
 
     const [entry, setEntry] = useState('');
     const [isLoaded, setIsLoaded] = useState(false);
@@ -151,7 +181,7 @@ const Movie = () => {
     }, []);
 
     if (isLoaded)
-        console.log(entry.title);
+        console.log(entry);
 
     const [HDropdownState, ChangeHDropdownState] = useState(false);
     const [WatchState, ChangeWatchState] = useState(0);
@@ -169,59 +199,100 @@ const Movie = () => {
         console.log(HDropdownState);
     }
 
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
 
         <Container>
-            {type}
-          {/*  <ContentContainer>
-                <BackGroundImageContainer>
-                    <BackgroundImage src={entry.backgroundImage} alt="" />
-                    <ImageTextContainer>
-                        <Grid container spacing={3} style={{display: "flex", justifyContent:"center", alignItems: "bottom"}}>
-                            <Grid item xs={6} style={{ justifyContent: "center", color: "white" }}>
-                                <Box sx={{ display: "flex", justifyContent: "center", flexDirection: "row" }}>
-                                    <Box sx={{minWidth: "30%", display: "flex"}}>
-                                        <img style={{ zIndex: "1" }} src={entry.imageLink} />
-                                        <FavouriteIconContainer>
-                                            <FavoriteIcon fontSize="large" />
-                                        </FavouriteIconContainer>
-                                    </Box>
-                                    <Box mx="0px" sx={{ marginTop: "2%" }}>
-                                        <Typography variant="h2" sx={{ fontWeight: "500" }}>{entry.title}</Typography>
-                                        <Typography variant="h5" sx={{ fontWeight: "400", color: "#cfcfcf" }}>{entry.Genre}</Typography>
-                                        <Typography variant="h6" sx={{ color: "#cfcfcf" }}>{type == "series" ? "Liczba odcinków: " : ""} {type == "movies" ? entry.Runtime : entry.Episodes}</Typography>
-                                        <Typography variant="h6" sx={{ color: "#cfcfcf" }}>{entry.released}</Typography>
+            {isLoaded
+                ?
+                <>
+                <ContentContainer>
+                    <BackGroundImageContainer>
+                        <BackgroundImage src={entry.backgroundImage} alt="Tło" />
+                        <ImageTextContainer>
+                            <Grid container spacing={3} style={{ display: "flex", justifyContent: "center", alignItems: "bottom" }}>
+                                <Grid item xs={6} style={{ justifyContent: "center", color: "white" }}>
+                                    <Box sx={{ display: "flex", justifyContent: "center", flexDirection: "row" }}>
+                                        <Box sx={{ minWidth: "30%", display: "flex" }}>
+                                            <img style={{ zIndex: "1" }} src={entry.cover} />
+                                            <FavouriteIconContainer>
+                                                <FavoriteIcon fontSize="large" />
+                                            </FavouriteIconContainer>
+                                        </Box>
+                                        <Box mx="0px" sx={{ marginTop: "2%" }}>
+                                            <Typography variant="h2" sx={{ fontWeight: "500" }}>{entry.title}</Typography>
+                                            <Typography variant="h5" sx={{ fontWeight: "400", color: "#cfcfcf" }}>Tu potrzebne gatunki</Typography>
+                                            <Typography variant="h6" sx={{ color: "#cfcfcf" }}>{type == "series" ? "Liczba odcinków: " : ""} {type == "movies" ? entry.durationInMinutes : entry.number}</Typography>
+                                            <Typography variant="h6" sx={{ color: "#cfcfcf" }}></Typography>
 
-                                        <MotionComponent
-                                            whileHover={{ scale: 1.03 }}
-                                            whileTap={{ scale: 1 }}
-                                        >
-                                            <IconButton>
-                                                <Box>
-                                                    <Box sx={{ position: "absolute", backgroundColor: "white", width: "10%", height: "40%", top:"30%", left: "8%", zIndex: "1"}}>
+                                            <MotionComponent
+                                                whileHover={{ scale: 1.03 }}
+                                                whileTap={{ scale: 1 }}
+                                            >
+                                                    <IconButton
+                                                        onClick={handleClickOpen}
+                                                    >
+                                                    <Box>
+                                                        <Box sx={{ position: "absolute", backgroundColor: "white", width: "10%", height: "40%", top: "30%", left: "8%", zIndex: "1" }}>
+                                                        </Box>
+                                                        <PlayCircleFilledWhiteIcon sx={{ position: "relative", verticalAlign: "-8px", color: "red", fontSize: "50px", marginRight: "10px", zIndex: "2" }} />
                                                     </Box>
-                                                    <PlayCircleFilledWhiteIcon sx={{ position: "relative", verticalAlign: "-8px", color: "red", fontSize: "50px", marginRight: "10px", zIndex: "2" }} />
-                                                </Box>
-                                                <Typography variant="h5" style={{ color: "white", textShadow: "3px 3px #000000" }}>Obejrzyj zwiastun</Typography>
-                                            </IconButton>
-                                        </MotionComponent>
+                                                    <Typography variant="h5" style={{ color: "white", textShadow: "3px 3px #000000" }}>Obejrzyj zwiastun</Typography>
+                                                </IconButton>
+                                            </MotionComponent>
 
+                                                <Dialog
+                                                    open={open}
+                                                    onClose={handleClose}
+                                                    aria-labelledby="alert-dialog-title"
+                                                    aria-describedby="alert-dialog-description"
+                                                    maxWidth="fullWidth"
+                                                    PaperProps={{
+                                                        style: {
+                                                            backgroundColor: 'black',
+                                                            boxShadow: 'none',
+                                                        },
+                                                    }}
+                                                >
+                                                    <DialogContent>
+                                                        <VideoPlayer link={entry.trailer} />
+                                                    </DialogContent>
+
+                                                </Dialog>
+
+                                        </Box>
                                     </Box>
-                                </Box>
 
+                                </Grid>
+                                <Grid item xs={6} style={{ display: "flex", color: "white", justifyContent: "right" }}>
+                                    <UserMovieInfo type={type} executeScroll={executeScroll} />
+                                </Grid>
                             </Grid>
-                            <Grid item xs={6} style={{ display:"flex", color: "white", justifyContent: "right" }}>
-                                <UserMovieInfo type={type} executeScroll={executeScroll} />
-                            </Grid>
-                        </Grid>
 
-                    </ImageTextContainer>
-                </BackGroundImageContainer>
+                        </ImageTextContainer>
+                    </BackGroundImageContainer>
 
-                <InfoContainer>
-                    <MovieInfoContent entry={entry} commentsRef={commentsRef} />
-                </InfoContainer>
-            </ContentContainer>*/}
+                    <InfoContainer>
+                        <MovieInfoContent entry={entry} commentsRef={commentsRef} />
+                    </InfoContainer>
+                </ContentContainer>
+                </>
+                :
+
+                <LoadingContainer>
+                    <CircularProgress size="4rem" sx={{ color: "lightgray" }} />
+                </LoadingContainer>
+                
+                }
         </Container>
 
     );

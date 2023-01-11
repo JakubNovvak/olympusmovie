@@ -122,14 +122,14 @@ export default function UserTrendingCarousel() {
 
                 {isLoaded ?
                     <>
-                        <Slider {...settings}>
+                    <Slider {...settings}>
                             {series.length > 0 ? <UserTrendingCard entry={series[0]} type={series[0].hasOwnProperty("number") ? "series" : "movie"} /> : <></>}
                             {series.length > 1 ? <UserTrendingCard entry={series[1]} type={series[1].hasOwnProperty("number") ? "series" : "movie"} /> : <></>}
                             {series.length > 2 ? <UserTrendingCard entry={series[2]} type={series[2].hasOwnProperty("number") ? "series" : "movie"} /> : <></>}
                             {series.length > 3 ? <UserTrendingCard entry={series[3]} type={series[3].hasOwnProperty("number") ? "series" : "movie"} /> : <></>}
-                            {series.length > 3 ? <UserTrendingCard entry={series[3]} type={series[3].hasOwnProperty("number") ? "series" : "movie"} /> : <></>}
-                            {series.length > 3 ? <UserTrendingCard entry={series[3]} type={series[3].hasOwnProperty("number") ? "series" : "movie"} /> : <></>}
-                            {series.length > 3 ? <UserTrendingCard entry={series[3]} type={series[3].hasOwnProperty("number") ? "series" : "movie"} /> : <></>}
+                            {series.length > 3 ? <UserTrendingCard entry={series[4]} type={series[4].hasOwnProperty("number") ? "series" : "movie"} /> : <></>}
+                            {series.length > 3 ? <UserTrendingCard entry={series[5]} type={series[5].hasOwnProperty("number") ? "series" : "movie"} /> : <></>}
+                            {series.length > 3 ? <UserTrendingCard entry={series[7]} type={series[7].hasOwnProperty("number") ? "series" : "movie"} /> : <></>}
                         </Slider>
                         
                     </>
