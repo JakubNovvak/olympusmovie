@@ -12,6 +12,9 @@ namespace UserService.Model
         [Column("id")]
         public int Id { get; set; }
 
+        [Column("UserName")]
+        public string UserName { get; set; } = null!;
+
         [Column("name")]
         public string Name { get; set; } = null!;
 

@@ -4,30 +4,17 @@ using System.Text.Json.Serialization;
 namespace MovieService.Infrastructure
 {
     public class UserHttpClient
-    {
-        public static class TypesOfProduction
-        {
-            public const string MOVIE = "Movies";
-            public const string SERIES = "Series";
-            public const string SEASON = "Seasons";            
-        }
-        public static class TypesOfRelation
-        {
-            public const string PLAN_TO_WATCH = "PlanToWatch";
-            public const string WATCHED = "Watched";
-            public const string ON_HOLD = "OnHold";
-            public const string DROPPED = "Dropped";
-            public const string FAVORITE = "Favorite";
-        }
-        
+    {        
         private readonly HttpClient httpClient;
         private readonly string PRODUCTION_ID_PARAM = "productionId";
 
         public UserHttpClient()
         {
-            httpClient = new()
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            httpClient = new(clientHandler)
             {
-                BaseAddress = new Uri("https://userservice:443/api/User")
+                BaseAddress = new Uri("https://movieservice:443/api/User")
             };
         }
         
