@@ -46,7 +46,7 @@ export default function UserTrending() {
             <HeaderContainer>
                 <PeopleAltIcon sx={{fontSize: "50px", marginRight: "15px"}} />
                 <Typography variant="h4" sx={{fontWeight: "500"}}>
-                    Popularne wśród użytkowników
+                    Znajdź dla siebie coś nowego
                 </Typography>
             </HeaderContainer>
 

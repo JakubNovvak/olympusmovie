@@ -65,7 +65,7 @@ const MovieComponent = (props) => {
           props.setSelectedEntry(props.entry);
         }}
       >
-        <CoverImage src={props.entry.photo}></CoverImage>
+        <CoverImage src={props.entry.cover}></CoverImage>
         <MovieName>{props.entry.title}</MovieName>
         <InfoColumn>
           <MovieInfo>{props.entry.dateOfRelease}</MovieInfo>

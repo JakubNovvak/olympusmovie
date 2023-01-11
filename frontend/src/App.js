@@ -38,7 +38,7 @@ function App() {
                 element={<Register setLoggedIn={setLoggedIn} />}
               />
               <Route path="/SearchResults" element={<SearchResult />} />
-              <Route path="/Movie" element={<Movie />} />
+              <Route path="/Movie/:entryid,:type" element={<Movie />} />
               <Route path="/Profile" element={<Profile />} />
             </Routes>
           </Box>

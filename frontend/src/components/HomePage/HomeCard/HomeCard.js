@@ -1,4 +1,4 @@
-import { React, useState } from "react"
+﻿import { React, useState } from "react"
 import { styled, alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import PlayCircleFilledTwoToneIcon from '@mui/icons-material/PlayCircleFilledTwoTone';
@@ -77,8 +77,38 @@ const WatchTrailer = styled("div")(({ theme }) => ({
     zIndex: "10"
 }))
 
+/*{
+    "id": 0,
+        "title": "",
+            "description": "",
+                "releaseDate": {
+        "year": ,
+        "month": ,
+        "day":
+    },
+    "durationInMinutes": ,
+    "cover": "",
+        "backgroundImage": "",
+            "thumbnail": "",
+                "trailer": ""
+},*/
 
 const HomeCard = (props) => {
+
+    const months = {
+        1: "styczeń",
+        2: "luty",
+        3: "marzec",
+        4: "kwiecień",
+        5: "maj",
+        6: "czerwiec",
+        7: "lipiec",
+        8: "sierpień",
+        9: "wrzesień",
+        10: "październik",
+        11: "listopad",
+        12: "grudzień"
+    }
 
     const MotionComponent = motion(WatchTrailer)
 
@@ -95,10 +125,10 @@ const HomeCard = (props) => {
     return (
 
         <BoxContainer>
-            <ImageContainer><Image src={props.entry.imageLink} /></ImageContainer>
+            <ImageContainer><Image src={props.entry.backgroundImage} /></ImageContainer>
             <HomeCardText>
                 <HomeCardTitle>{props.entry.title}</HomeCardTitle>
-                <ReleaseDate>Data premiery: {props.entry.released}</ReleaseDate>
+                <ReleaseDate>Data premiery: {props.entry.releaseDate.day} {months[props.entry.releaseDate.month]} {props.entry.releaseDate.year}</ReleaseDate>
             </HomeCardText>
 
 
@@ -123,7 +153,7 @@ const HomeCard = (props) => {
                 }}
             >
                 <DialogContent>
-                    <VideoPlayer link={props.entry.Trailer} />
+                    <VideoPlayer link={props.entry.trailer} />
                 </DialogContent>
 
             </Dialog>
