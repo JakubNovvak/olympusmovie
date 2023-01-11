@@ -13,7 +13,7 @@ namespace MovieService.Infrastructure
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             httpClient = new(clientHandler)
             {
-                BaseAddress = new Uri("https://127.0.0.1:53155/api/User")
+                BaseAddress = new Uri("https://movieservice:443/api/User")
             };
         }
 
