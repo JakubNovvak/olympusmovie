@@ -15,9 +15,16 @@ namespace MovieService.Service.Ratings
             _dbContext = dbContext;
         }
 
-        public async Task<int> AddAsync(RatingDTO ratingDTO)
+        public async Task<int> AddOrEditAsync(RatingDTO ratingDTO)
         {
             var rating = RatingMapper.MapToEntity(ratingDTO);
+            var ratingToRemove = _dbContext.Set<Rating>().FirstOrDefault(r => r.UserId == rating.UserId && r.MovieId == rating.MovieId && r.SeasonId == rating.SeasonId);
+            if (ratingToRemove != null)
+            {
+                _dbContext.Set<Rating>().Remove(ratingToRemove);
+                await _dbContext.SaveChangesAsync();
+            }
+
             var createdRating = await _dbContext.Set<Rating>().AddAsync(rating);
             
             if (createdRating == null)

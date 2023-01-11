@@ -53,7 +53,7 @@ namespace MovieService.Controller
         [HttpPost]
         public async Task<ActionResult> Create(RatingDTO ratingDTO)
         {
-            var id = await _dataService.AddAsync(ratingDTO);
+            var id = await _dataService.AddOrEditAsync(ratingDTO);
             var url = GetLinkToRating(id);
             return Created(url.Href, url);
         }
