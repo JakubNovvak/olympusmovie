@@ -10,6 +10,7 @@ namespace UserService.Service
             return new UserDTO
             {
                 Id = user.Id,
+                UserName = user.UserName,
                 Name = user.Name,
                 Surname = user.Surname,
                 Email = user.Email,
@@ -24,6 +25,7 @@ namespace UserService.Service
             return new User
             {
                 Id = userDTO.Id,
+                UserName = userDTO.UserName,
                 Name = userDTO.Name,
                 Surname = userDTO.Surname,
                 Email = userDTO.Email,

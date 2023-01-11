@@ -16,5 +16,6 @@ namespace UserService.Service
         Task SyncEpisodeCount(int userId, int[] seasonIds, int episodeCount);
         List<int> GetEpisodeCount(int userId, int seasonId);
         Task RemoveUserToObjectRelations(int userId, ISet<int> positionIds, List<string> relationTypes, string typeOfPosition);
+        Task<UserDTO?> GetByUsername(string username);
     }
 }

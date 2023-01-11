@@ -25,7 +25,7 @@ namespace AuthenticationService.Service
             _configuration = configuration;
         }
 
-        public async Task<TokensDTO?> Login(LoginDTO loginDTO)
+        public async Task<LoginResultDTO?> Login(LoginDTO loginDTO)
         {
             var user = await _userManager.FindByNameAsync(loginDTO.Username);
             if (user == null || !await _userManager.CheckPasswordAsync(user, loginDTO.Password))
@@ -45,7 +45,7 @@ namespace AuthenticationService.Service
 
             await _userManager.UpdateAsync(user);
 
-            return new TokensDTO()
+            return new LoginResultDTO()
             {
                 AccessToken = new JwtSecurityTokenHandler().WriteToken(token),
                 RefreshToken = refreshToken,
