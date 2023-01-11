@@ -27,6 +27,7 @@ namespace MovieService.Service.Seasons
                 BackgroundImage = seasonDTO.BackgroundImage,
                 Thumbnail = seasonDTO.Thumbnail,
                 Trailer = seasonDTO.Trailer,
+                Number = seasonDTO.Number,
                 Tags = _dbContext.Set<Tag>().Where(tag => seasonDTO.TagIds.Contains(tag.Id)).ToList(),
                 Genres = _dbContext.Set<Genre>().Where(genre => seasonDTO.GenreIds.Contains(genre.Id)).ToList(),
             };
@@ -59,6 +60,7 @@ namespace MovieService.Service.Seasons
             seasonToEdit.BackgroundImage = seasonDTO.BackgroundImage;
             seasonToEdit.Thumbnail = seasonDTO.Thumbnail;
             seasonToEdit.Trailer = seasonDTO.Trailer;
+            seasonToEdit.Number = seasonDTO.Number,
             seasonToEdit.Tags = _dbContext.Set<Tag>().Where(tag => seasonDTO.TagIds.Contains(tag.Id)).ToList();
             seasonToEdit.Genres = _dbContext.Set<Genre>().Where(genre => seasonDTO.GenreIds.Contains(genre.Id)).ToList();
             SyncSeasonParticipantsWithoutSave(seasonDTO, seasonToEdit.Id);
