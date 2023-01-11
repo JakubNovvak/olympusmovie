@@ -139,19 +139,19 @@ export default function TrendingCarousel() {
                         ?
 
                         <Slider {...settings}>
-                            {movies.length > 0 ? <TrendingCard entry={getLastMonthReleases()[0]} /> : <></>}
-                            {movies.length > 1 ? <TrendingCard entry={getLastMonthReleases()[1]} /> : <></>}
-                            {movies.length > 2 ? <TrendingCard entry={getLastMonthReleases()[2]} /> : <></>}
-                            {movies.length > 3 ? <TrendingCard entry={getLastMonthReleases()[3]} /> : <></>}
+                                    {movies.length > 0 ? <TrendingCard entry={getLastMonthReleases()[0]} type="movie"/*{getLastMonthReleases[0].hasOwnProperty("number") ? "series" : "movie"}*/ /> : <></>}
+                                    {movies.length > 1 ? <TrendingCard entry={getLastMonthReleases()[1]} type="movie"/*{getLastMonthReleases[1].hasOwnProperty("number") ? "series" : "movie"}*/ /> : <></>}
+                                    {movies.length > 2 ? <TrendingCard entry={getLastMonthReleases()[2]} type="movie"/*{getLastMonthReleases[2].hasOwnProperty("number") ? "series" : "movie"}*/ /> : <></>}
+                                    {movies.length > 3 ? <TrendingCard entry={getLastMonthReleases()[3]} type="movie"/*{getLastMonthReleases[3].hasOwnProperty("number") ? "series" : "movie"}*/ /> : <></>}
                         </Slider>
 
                         :
 
                         <Slider {...settings}>
-                            {movies.length > 0 ? <TrendingCard entry={movies[0]} key={movies[0].id} /> : <></>}
-                            {movies.length > 1 ? <TrendingCard entry={movies[1]} key={movies[1].id} /> : <></>}
-                            {movies.length > 2 ? <TrendingCard entry={movies[2]} key={movies[2].id} /> : <></>}
-                            {movies.length > 3 ? <TrendingCard entry={movies[3]} key={movies[3].id} /> : <></>}
+                                    {movies.length > 0 ? <TrendingCard entry={movies[0]} type="movie"/*{movies[0].hasOwnProperty("number") ? "series" : "movie"}*/ /> : <></>}
+                                    {movies.length > 1 ? <TrendingCard entry={movies[1]} type="movie"/*{movies[1].hasOwnProperty("number") ? "series" : "movie"}*/ /> : <></>}
+                                    {movies.length > 2 ? <TrendingCard entry={movies[2]} type="movie"/*{movies[2].hasOwnProperty("number") ? "series" : "movie"}*/ /> : <></>}
+                                    {movies.length > 3 ? <TrendingCard entry={movies[3]} type="movie"/*{movies[3].hasOwnProperty("number") ? "series" : "movie"}*/ /> : <></>}
                         </Slider>
                     }
 

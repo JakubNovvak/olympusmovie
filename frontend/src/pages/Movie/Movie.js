@@ -134,6 +134,11 @@ const Movie = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     let { entryid, type } = useParams();
+    let ownReleaseDate = {
+        "day": 0,
+        "month": 0,
+        "year": 0
+    }
     //let entry = null;
 
     console.log(type);
@@ -151,11 +156,20 @@ const Movie = () => {
             headers: { "Content-Type": "application/json" },
         })
             .then(
-                (response) => { setEntry(response.data); console.log("Ładuje wpis"); },
+                (response) => {
+                    setEntry(response.data);
+                    console.log("Ładuje wpis");
+                    ownReleaseDate = response.data.releaseDate;
+/*                    ownReleaseDate.day = response.data.releaseDate.day;
+                    ownReleaseDate.month = response.data.releaseDate.month;
+                    ownReleaseDate.year = response.data.releaseDate.year;
+                    console.log(ownReleaseDate);*/
+                    setIsLoaded(true);
+                },
                 (error) => console.log(error)
             );
 
-        setIsLoaded(true);
+        console.log(ownReleaseDate);
     };
 
     const getMovie = () => {
@@ -164,11 +178,20 @@ const Movie = () => {
             headers: { "Content-Type": "application/json" },
         })
             .then(
-                (response) => { setEntry(response.data); console.log("Ładuje wpis"); },
+                (response) => {
+                    setEntry(response.data);
+                    console.log("Ładuje wpis");
+                    ownReleaseDate = response.data.releaseDate;
+/*                    ownReleaseDate.day = response.data.releaseDate.day;
+                    ownReleaseDate.month = response.data.releaseDate.month;
+                    ownReleaseDate.year = response.data.releaseDate.year;
+                    console.log(ownReleaseDate);*/
+                    setIsLoaded(true);
+                },
                 (error) => console.log(error)
             );
 
-        setIsLoaded(true);
+        console.log(ownReleaseDate);
     };
 
     useEffect(() => {
@@ -231,8 +254,8 @@ const Movie = () => {
                                         <Box mx="0px" sx={{ marginTop: "2%" }}>
                                             <Typography variant="h2" sx={{ fontWeight: "500" }}>{entry.title}</Typography>
                                             <Typography variant="h5" sx={{ fontWeight: "400", color: "#cfcfcf" }}>Tu potrzebne gatunki</Typography>
-                                            <Typography variant="h6" sx={{ color: "#cfcfcf" }}>{type == "series" ? "Liczba odcinków: " : ""} {type == "movies" ? entry.durationInMinutes : entry.number}</Typography>
-                                            <Typography variant="h6" sx={{ color: "#cfcfcf" }}></Typography>
+                                            <Typography variant="h6" sx={{ color: "#cfcfcf" }}>{type == "series" ? "Liczba odcinków: " : ""} {type == "movie" ? entry.durationInMinutes + " minut" : entry.number}</Typography>
+                                                <Typography variant="h6" sx={{ color: "#cfcfcf" }}>{entry.releaseDate.day} {months[entry.releaseDate.month]} {entry.releaseDate.year}</Typography>
 
                                             <MotionComponent
                                                 whileHover={{ scale: 1.03 }}

@@ -15,16 +15,6 @@ import InfoIcon from '@mui/icons-material/Info';
 
 const TrendingCard = (props) => {
 
-    const Peoplestates = () => {
-        const navigate = useNavigate();
-        const openprofile = (entry) => {
-            navigate("/Movie", {
-                state: {
-                    entry: props.entry
-                }
-            })
-        }
-    }
 
     return (
 
@@ -47,7 +37,7 @@ const TrendingCard = (props) => {
                         <Typography wrap sx={{ overflow: "hidden", maxHeight: "100px" }}>{props.entry.description}</Typography>
                     </CardContent>
 
-            <Link to="/Movie" state={{ entry: props.entry }}>
+            <Link to={`/Movie/${props.entry.id},${props.type}`}>
                     <CardContent>
                         <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "right" }}>
                             <InfoIcon sx={{marginRight: "10px"}} />
