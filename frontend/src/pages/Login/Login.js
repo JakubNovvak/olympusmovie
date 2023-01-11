@@ -121,6 +121,48 @@ const Login = (props) => {
     }
   };
 
+/*    const onSubmit = (values, actions) => {
+        console.log(values);
+        console.log(actions);
+        setloadingButton(true);
+
+        axios
+            .post("/api/account/login", JSON.stringify(values), {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then(
+                (response) => {
+                    console.log(JSON.stringify(response?.data));
+                    const accessToken = response?.data?.accessToken;
+                    const refreshToken = response?.data?.refreshToken;
+                    const username = values.username;
+
+                    axios.get(`api/user?username=${username}`).then(
+                        (response) => {
+                            const userId = response?.data;
+                            console.log({ userId, username, accessToken, refreshToken });
+                            setAuth({ userId, username, accessToken, refreshToken });
+                            props.setLoggedIn(true);
+                            setSucessState(true);
+                            setOpen(true);
+                            console.log("Zalogowano");
+                            navigate("/");
+                        },
+                        (error) => { }
+                    );
+                },
+                (error) => {
+                    console.log(error);
+                    props.setLoggedIn(false);
+                    setSucessState(false);
+                    setOpen(true);
+                    setloadingButton(false);
+                }
+            );
+    };*/
+
   const onSubmit = (values, actions) => {
     console.log(values);
     console.log(actions);
@@ -281,7 +323,7 @@ const Login = (props) => {
               </FormControl>
             </TextFieldContainer>
 
-            <PasswordEssentialsContainer>
+            {/*<PasswordEssentialsContainer>
               <RememberMeContainer>
                 <Checkbox
                   {...label}
@@ -294,7 +336,7 @@ const Login = (props) => {
               <ForgotPasswordText variant="h7">
                 Zapomniałeś hasła?
               </ForgotPasswordText>
-            </PasswordEssentialsContainer>
+            </PasswordEssentialsContainer>*/}
 
             <Button
               type="submit"
@@ -304,7 +346,8 @@ const Login = (props) => {
                 fontSize: "14px",
                 backgroundColor: "#201c1c",
                 borderRadius: "15px",
-                width: "180px",
+                  width: "180px",
+                marginTop: "20px"
               }}
             >
               {!loadingButton ? "Zaloguj się" : "Ładowanie"}

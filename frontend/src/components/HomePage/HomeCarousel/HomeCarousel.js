@@ -66,11 +66,14 @@ const HomeCarousel = ({ props }) => {
             headers: { "Content-Type": "application/json" },
         })
             .then(
-                (response) => { setMovies(response.data); console.log("coś innego."); },
+                (response) => {
+                    setMovies(response.data);
+                    console.log("coś innego.");
+                    setIsLoaded(true);
+                },
                 (error) => console.log(error)
         );
         //Need to change to series
-        setIsLoaded(true);
     }
 
     useEffect(() => { getAllMovies(); console.log("useEffect"); }, []);

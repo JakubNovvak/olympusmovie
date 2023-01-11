@@ -24,14 +24,14 @@ export const LoggedInNav = (props) => {
   return (
     <>
       <Stack marginLeft="auto" direction="row" spacing={2} alignItems="center">
-        <MotionIconButton
+{/*        <MotionIconButton
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.95 }}
         >
           <Badge badgeContent={11} color="primary">
             <NotificationsIcon fontSize="medium" sx={{ color: "white" }} />
           </Badge>
-        </MotionIconButton>
+        </MotionIconButton>*/}
 
         <MotionIconButton
           whileHover={{ scale: 1.2 }}
@@ -45,7 +45,7 @@ export const LoggedInNav = (props) => {
           setLoggedIn={props.setLoggedIn}
         />
 
-        <Button
+{/*        <Button
           color="inherit"
           onClick={() => {
             axiosPrivate.post("/api/account/test").then(
@@ -55,7 +55,7 @@ export const LoggedInNav = (props) => {
           }}
         >
           Test
-        </Button>
+        </Button>*/}
         <SearchBar />
       </Stack>
     </>

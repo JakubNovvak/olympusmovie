@@ -16,7 +16,7 @@ export const NotLoggedIn = () => {
           <Button color="inherit">Rejestracja</Button>
         </Link>
       </Box>
-      <Button
+          {/*      <Button
         color="inherit"
         onClick={() => {
           axios
@@ -30,7 +30,7 @@ export const NotLoggedIn = () => {
         }}
       >
         Test
-      </Button>
+      </Button>*/}
       <SearchBar />
     </>
   );
