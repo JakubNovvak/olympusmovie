@@ -412,7 +412,7 @@
     // User service
     {
       "UpstreamPathTemplate": "/api/user",
-      "UpstreamHttpMethod": [ "Post", "Delete" ],
+      "UpstreamHttpMethod": [ "Post", "Delete", "Get" ],
 
       "DownstreamScheme": "https",
       "DownstreamPathTemplate": "/api/user",

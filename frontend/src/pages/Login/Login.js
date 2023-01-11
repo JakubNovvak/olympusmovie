@@ -138,13 +138,20 @@ const Login = (props) => {
           const accessToken = response?.data?.accessToken;
           const refreshToken = response?.data?.refreshToken;
           const username = values.username;
-          setAuth({ username, accessToken, refreshToken });
 
-          props.setLoggedIn(true);
-          setSucessState(true);
-          setOpen(true);
-          console.log("Zalogowano");
-          navigate("/");
+          axios.get(`api/user?username=${username}`).then(
+            (response) => {
+              const userId = response?.data;
+              console.log({ userId, username, accessToken, refreshToken });
+              setAuth({ userId, username, accessToken, refreshToken });
+              props.setLoggedIn(true);
+              setSucessState(true);
+              setOpen(true);
+              console.log("Zalogowano");
+              navigate("/");
+            },
+            (error) => {}
+          );
         },
         (error) => {
           console.log(error);
